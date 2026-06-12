@@ -1,0 +1,123 @@
+aid: bitmovin
+name: Bitmovin
+description: >-
+  Bitmovin is an Emmy Award-winning video streaming infrastructure platform
+  providing REST APIs for cloud video encoding (VOD and live), adaptive
+  bitrate packaging (HLS, MPEG-DASH), DRM integration, an HTML5 player,
+  and analytics for quality-of-experience observability. Its encoding
+  pipeline covers 800+ endpoints and ships open-source SDKs in Java,
+  JavaScript, Python, Go, PHP, and C#.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/bitmovin/refs/heads/main/apis.yml
+created: "2026-06-12"
+modified: "2026-06-12"
+specificationVersion: "0.19"
+tags:
+  - Video
+  - Encoding
+  - Streaming
+  - Live Streaming
+  - VOD
+  - Adaptive Bitrate
+  - HLS
+  - DASH
+  - DRM
+  - Player
+  - Analytics
+  - Media
+  - Cloud
+apis:
+  - aid: bitmovin:encoding-api
+    name: Bitmovin Encoding API
+    description: >-
+      REST API for cloud-based VOD and live video encoding. Supports H.264,
+      H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging
+      (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and
+      per-title encoding optimisation.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.bitmovin.com/encoding/
+    baseURL: https://api.bitmovin.com/v1
+    tags:
+      - Video Encoding
+      - VOD
+      - Live Streaming
+      - HLS
+      - DASH
+      - DRM
+    properties:
+      - type: Documentation
+        url: https://developer.bitmovin.com/encoding/
+      - type: OpenAPI
+        url: https://developer.bitmovin.com/llms.txt
+    contact:
+      - FN: Bitmovin Developer Support
+        url: https://community.bitmovin.com/
+        email: support@bitmovin.com
+  - aid: bitmovin:player-api
+    name: Bitmovin Player API
+    description: >-
+      JavaScript and REST APIs for embedding and configuring the Bitmovin HTML5
+      player, managing player licenses, and collecting playback event data.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.bitmovin.com/playback/
+    baseURL: https://api.bitmovin.com/v1
+    tags:
+      - Player
+      - Playback
+      - HTML5
+      - Video Player
+    properties:
+      - type: Documentation
+        url: https://developer.bitmovin.com/playback/
+    contact:
+      - FN: Bitmovin Developer Support
+        url: https://community.bitmovin.com/
+        email: support@bitmovin.com
+  - aid: bitmovin:analytics-api
+    name: Bitmovin Analytics API
+    description: >-
+      REST API for querying player and streaming quality-of-experience
+      metrics including buffering, startup time, error rates, and audience
+      segmentation for video observability.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.bitmovin.com/playback/docs/analytics-api
+    baseURL: https://api.bitmovin.com/v1
+    tags:
+      - Analytics
+      - Quality of Experience
+      - Observability
+      - Metrics
+    properties:
+      - type: Documentation
+        url: https://developer.bitmovin.com/playback/docs/analytics-api
+    contact:
+      - FN: Bitmovin Developer Support
+        url: https://community.bitmovin.com/
+        email: support@bitmovin.com
+common:
+  - type: Website
+    url: https://bitmovin.com
+  - type: Documentation
+    url: https://developer.bitmovin.com/
+  - type: GitHub
+    url: https://github.com/bitmovin
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bitmovin
+  - type: Blog
+    url: https://bitmovin.com/blog/
+  - type: Pricing
+    url: https://bitmovin.com/pricing
+  - type: StatusPage
+    url: https://status.bitmovin.com/
+  - type: X
+    url: https://x.com/bitmovin
+  - type: Plans
+    url: plans/bitmovin-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/bitmovin-rate-limits.yml
+  - type: FinOps
+    url: finops/bitmovin-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

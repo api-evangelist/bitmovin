@@ -1,0 +1,127 @@
+specificationVersion: "1.0"
+name: Bitmovin FinOps
+description: >-
+  FinOps Framework 1.0 FOCUS-aligned cost management guidance for Bitmovin
+  video encoding and streaming platform. Bitmovin's consumption-based model
+  ties spend directly to encoding minutes, impressions, and AI analysis
+  consumed. Understanding resolution multipliers, codec factors, and
+  pass-count multipliers is essential for cost governance.
+framework: FinOps Framework 1.0
+alignment: FOCUS (FinOps Open Cost & Usage Specification)
+provider:
+  name: Bitmovin
+  website: https://bitmovin.com
+  pricingPage: https://bitmovin.com/pricing
+  billingDashboard: https://dashboard.bitmovin.com
+costDimensions:
+  - dimension: Service
+    values:
+      - VOD Encoding
+      - Live Encoding
+      - Player
+      - Analytics / Observability
+      - AI Scene Analysis
+      - CDN (via Streams)
+      - Storage (via Streams)
+  - dimension: Region
+    notes: >-
+      Encoding can run in Bitmovin-managed cloud regions or customer-owned
+      cloud accounts (Cloud Connect). Costs may vary by cloud region and
+      provider (AWS, Azure, GCP).
+  - dimension: ResourceType
+    values:
+      - Encoding Job (VOD)
+      - Encoding Job (Live)
+      - Player License / Impression
+      - Analytics Impression
+      - AI Scene Analysis Minute
+  - dimension: PricingUnit
+    values:
+      - Per encoding minute (10-second billing increment)
+      - Per impression (Player / Analytics per 1,000)
+      - Per input minute (AI Scene Analysis)
+      - Per hour (Live Encoding)
+costDrivers:
+  - driver: Resolution
+    impact: high
+    description: >-
+      Output resolution multiplies the per-minute rate. SD=1x, HD=2x, 4K=4x,
+      8K=120x. Encoding to 4K is four times more expensive than SD for the
+      same wall-clock duration.
+    optimization: >-
+      Limit ladder rungs to resolutions your audience actually streams.
+      Remove 4K/8K rungs if analytics show low 4K consumption.
+  - driver: Codec
+    impact: high
+    description: >-
+      HEVC/H.265 carries a 2x multiplier versus H.264. AV1 may carry
+      additional factors. Codec selection directly doubles or more the
+      per-minute cost.
+    optimization: >-
+      Use H.264 for broad compatibility unless HEVC savings on CDN/bandwidth
+      offset the encoding cost premium. Model total cost of ownership
+      (encoding + delivery) per codec.
+  - driver: Pass Count
+    impact: medium
+    description: >-
+      2-Pass encoding adds a 1.25x multiplier; 3-Pass adds a 2.0x multiplier.
+      This affects all VOD encoding jobs where multi-pass is configured.
+    optimization: >-
+      Reserve 2-Pass and 3-Pass for premium or long-tail content where quality
+      gains justify the cost. Use 1-Pass (CRF/CBR) for bulk/low-priority
+      content.
+  - driver: Encoding Volume
+    impact: high
+    description: >-
+      VOD minutes and live hours directly drive spend. The monthly free
+      allowance (2,000 VOD minutes; 360 live minutes) provides a buffer for
+      small workloads.
+    optimization: >-
+      Cache encoded outputs aggressively. Avoid re-encoding unless source
+      changes. Use encoding templates and profiles to prevent configuration
+      drift that triggers unnecessary re-encodes.
+  - driver: Player Impressions
+    impact: medium
+    description: >-
+      Player impressions are billed at $1.50 per 1,000 above the 10,000
+      free-tier monthly impressions.
+    optimization: >-
+      Monitor impression counts via Analytics. Consider session-scoped
+      impression reduction strategies and ensure only production traffic
+      sources have valid license keys.
+  - driver: Analytics Impressions
+    impact: low-medium
+    description: >-
+      Analytics billed at $0.65 per 1,000 impressions above 100,000
+      free-tier monthly impressions. Capped at 3 license keys, 10 exports,
+      and 30-day data retention on pay-as-you-go.
+    optimization: >-
+      Filter out internal/test traffic from analytics license keys. Use
+      separate license keys for staging vs production to isolate spend.
+budgeting:
+  recommendations:
+    - Set monthly spend alerts in the Bitmovin Dashboard billing statistics page.
+    - Model expected encoding minutes per month broken down by resolution tier
+      and codec to forecast spend before production rollout.
+    - Use the Bitmovin Statistics API (/v1/encoding/statistics) to pull
+      programmatic usage data into internal FinOps tooling or cloud cost
+      management platforms.
+    - For predictable high-volume workloads, negotiate a committed contract
+      via the Bitmovin enterprise plan to access volume discounts.
+    - Purchase via AWS/Azure/GCP Marketplace if consolidated cloud billing
+      is preferred for chargeback or commitment draw-down.
+tagging:
+  notes: >-
+    Bitmovin does not natively expose cost allocation tags in the same way as
+    cloud providers. Implement external cost attribution by correlating
+    encoding job IDs, labels, or organizational metadata from the
+    X-Tenant-Org-Id header with internal project or team identifiers.
+anomalyDetection:
+  recommendations:
+    - Monitor x-ratelimit-remaining headers and 429 response rates as a proxy
+      for unexpected traffic spikes that may signal runaway encoding jobs.
+    - Set alerts on the Bitmovin Statistics API for sudden jumps in daily
+      encoding minutes that exceed baseline by more than 20%.
+    - Watch for 8001-8007 error codes which indicate account quota exhaustion;
+      these can surface unplanned usage growth before a billing statement
+      arrives.

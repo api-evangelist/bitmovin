@@ -1,0 +1,88 @@
+specificationVersion: "0.1"
+name: Bitmovin Plans and Pricing
+description: >-
+  Bitmovin offers a pay-as-you-go pricing model with no fixed monthly costs.
+  All new users receive a 30-day free trial. Monthly free allowances are
+  included. Custom enterprise plans with volume discounts are available on
+  request. The platform is also available through AWS, Azure, and Google
+  Cloud Marketplaces.
+url: https://bitmovin.com/pricing
+plans:
+  - name: Pay-As-You-Go
+    description: >-
+      No fixed monthly fee. Usage billed in 10-second increments. Monthly
+      free allowances included automatically. Suitable for developers and
+      small to medium workloads.
+    monthlyFee: 0
+    currency: USD
+    trial:
+      available: true
+      durationDays: 30
+    freeAllowances:
+      - resource: VOD Encoding
+        quantity: 2000
+        unit: minutes/month
+      - resource: Live Encoding
+        quantity: 360
+        unit: minutes/month (6 hours)
+      - resource: Player Impressions
+        quantity: 10000
+        unit: impressions/month
+      - resource: Analytics Impressions
+        quantity: 100000
+        unit: impressions/month
+      - resource: AI Scene Analysis
+        quantity: 600
+        unit: minutes/month (10 hours)
+    unitPricing:
+      - resource: VOD Encoding (SD baseline)
+        price: 0.02
+        unit: per minute
+        notes: "Resolution multipliers apply: HD=2x, 4K=4x, 8K=120x"
+      - resource: Live Encoding
+        price: 3.00
+        unit: per hour ($0.05/min)
+      - resource: Player Impressions
+        price: 1.50
+        unit: per 1,000 impressions
+      - resource: Observability Analytics
+        price: 0.65
+        unit: per 1,000 impressions
+        notes: "30-day data retention; 10 exports/month; 3 license keys included"
+      - resource: AI Scene Analysis
+        price: 0.09
+        unit: per input minute
+    pricingModifiers:
+      - factor: Resolution
+        description: >-
+          Output minutes are multiplied by a resolution factor based on frame
+          height. SD (<=720p)=1x, HD (720p-1080p)=2x, 4K=4x, 8K=120x.
+      - factor: Codec
+        description: >-
+          Codec-specific multipliers apply (e.g., HEVC/H.265=2x). H.264 is the
+          1x baseline.
+      - factor: Multi-Pass Encoding
+        description: >-
+          2-Pass encoding adds a 1.25x multiplier; 3-Pass encoding adds a 2.0x
+          multiplier to the base per-minute rate.
+  - name: Enterprise
+    description: >-
+      Custom pricing with volume discounts, enterprise SLAs, dedicated support,
+      professional services, and bespoke features. Available via direct
+      negotiation with the Bitmovin sales team.
+    monthlyFee: custom
+    currency: USD
+    contact: https://bitmovin.com/contact-sales
+    features:
+      - Volume discounts
+      - Enterprise SLAs
+      - Dedicated support
+      - Professional services
+      - Custom feature development
+      - Multi-year committed contracts
+marketplacePurchase:
+  available: true
+  channels:
+    - AWS Marketplace
+    - Azure Marketplace
+    - Google Cloud Marketplace
