@@ -1,0 +1,154 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "bitmovin": "https://developer.bitmovin.com/vocab#",
+    "encoding": {
+      "@id": "bitmovin:encoding",
+      "@type": "@id"
+    },
+    "player": {
+      "@id": "bitmovin:player",
+      "@type": "@id"
+    },
+    "analytics": {
+      "@id": "bitmovin:analytics",
+      "@type": "@id"
+    },
+    "streams": {
+      "@id": "bitmovin:streams",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "organization": {
+      "@id": "schema:Organization",
+      "@type": "@id"
+    },
+    "provider": {
+      "@id": "schema:provider",
+      "@type": "@id"
+    },
+    "softwareApplication": {
+      "@id": "schema:SoftwareApplication",
+      "@type": "@id"
+    },
+    "apiDocumentation": {
+      "@id": "schema:documentation",
+      "@type": "@id"
+    },
+    "Encoding": {
+      "@id": "bitmovin:Encoding",
+      "@type": "@id",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "status": "bitmovin:encodingStatus",
+        "cloudRegion": "bitmovin:cloudRegion",
+        "encoderVersion": "bitmovin:encoderVersion",
+        "type": "schema:encodingType",
+        "createdAt": "schema:dateCreated",
+        "startedAt": "bitmovin:startedAt",
+        "finishedAt": "bitmovin:finishedAt"
+      }
+    },
+    "Stream": {
+      "@id": "bitmovin:Stream",
+      "@type": "@id",
+      "@context": {
+        "id": "schema:identifier",
+        "title": "schema:name",
+        "description": "schema:description",
+        "status": "bitmovin:streamStatus",
+        "type": "schema:encodingType",
+        "createdAt": "schema:dateCreated"
+      }
+    },
+    "CodecConfiguration": {
+      "@id": "bitmovin:CodecConfiguration",
+      "@type": "@id",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "bitrate": "bitmovin:bitrate",
+        "width": "schema:width",
+        "height": "schema:height",
+        "frameRate": "bitmovin:frameRate",
+        "profile": "bitmovin:codecProfile",
+        "level": "bitmovin:codecLevel"
+      }
+    },
+    "Input": {
+      "@id": "bitmovin:Input",
+      "@type": "@id",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "type": "schema:encodingType"
+      }
+    },
+    "Output": {
+      "@id": "bitmovin:Output",
+      "@type": "@id",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "type": "schema:encodingType"
+      }
+    },
+    "Manifest": {
+      "@id": "bitmovin:Manifest",
+      "@type": "@id",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "type": "schema:encodingType",
+        "manifestName": "bitmovin:manifestName"
+      }
+    },
+    "Analytics": {
+      "@id": "bitmovin:Analytics",
+      "@type": "@id",
+      "@context": {
+        "licenseKey": "bitmovin:licenseKey",
+        "domain": "schema:domainIncludes",
+        "impressionId": "bitmovin:impressionId",
+        "videoId": "schema:identifier",
+        "userId": "schema:identifier",
+        "startupTime": "bitmovin:startupTime",
+        "bufferingTime": "bitmovin:bufferingTime",
+        "errorCode": "bitmovin:errorCode"
+      }
+    }
+  },
+  "@type": "schema:WebAPI",
+  "@id": "https://api.bitmovin.com/v1",
+  "name": "Bitmovin API",
+  "description": "Bitmovin is an Emmy Award-winning video streaming infrastructure platform providing REST APIs for cloud video encoding, adaptive bitrate packaging, DRM integration, HTML5 player, and analytics for quality-of-experience observability.",
+  "provider": {
+    "@type": "schema:Organization",
+    "name": "Bitmovin",
+    "url": "https://bitmovin.com",
+    "sameAs": [
+      "https://github.com/bitmovin",
+      "https://developer.bitmovin.com/"
+    ]
+  },
+  "documentation": "https://developer.bitmovin.com/",
+  "termsOfService": "https://bitmovin.com/terms-of-service/",
+  "license": "https://bitmovin.com/privacy/",
+  "version": "1.0",
+  "schema:keywords": [
+    "video encoding",
+    "streaming",
+    "HLS",
+    "MPEG-DASH",
+    "DRM",
+    "VOD",
+    "live streaming",
+    "player",
+    "analytics",
+    "cloud media"
+  ]
+}

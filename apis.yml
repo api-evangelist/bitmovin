@@ -50,6 +50,8 @@ apis:
         url: https://developer.bitmovin.com/encoding/
       - type: OpenAPI
         url: https://developer.bitmovin.com/llms.txt
+      - type: OpenAPI
+        url: openapi/bitmovin-encoding-api-openapi.yml
     contact:
       - FN: Bitmovin Developer Support
         url: https://community.bitmovin.com/
@@ -118,6 +120,10 @@ common:
     url: rate-limits/bitmovin-rate-limits.yml
   - type: FinOps
     url: finops/bitmovin-finops.yml
+  - type: OpenAPI
+    url: openapi/bitmovin-platform-openapi.yml
+  - type: JSONLd
+    url: json-ld/bitmovin-context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
