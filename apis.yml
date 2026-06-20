@@ -8,7 +8,7 @@ description: >-
   pipeline covers 800+ endpoints and ships open-source SDKs in Java,
   JavaScript, Python, Go, PHP, and C#.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/bitmovin/refs/heads/main/apis.yml
 created: "2026-06-12"
 modified: "2026-06-12"
@@ -35,7 +35,7 @@ apis:
       H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging
       (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and
       per-title encoding optimisation.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.bitmovin.com/encoding/
     baseURL: https://api.bitmovin.com/v1
     tags:
@@ -61,7 +61,7 @@ apis:
     description: >-
       JavaScript and REST APIs for embedding and configuring the Bitmovin HTML5
       player, managing player licenses, and collecting playback event data.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.bitmovin.com/playback/
     baseURL: https://api.bitmovin.com/v1
     tags:
@@ -82,7 +82,7 @@ apis:
       REST API for querying player and streaming quality-of-experience
       metrics including buffering, startup time, error rates, and audience
       segmentation for video observability.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.bitmovin.com/playback/docs/analytics-api
     baseURL: https://api.bitmovin.com/v1
     tags:
