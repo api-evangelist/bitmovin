@@ -122,7 +122,7 @@ common:
     url: finops/bitmovin-finops.yml
   - type: OpenAPI
     url: openapi/bitmovin-platform-openapi.yml
-  - type: JSONLd
+  - type: JSONLD
     url: json-ld/bitmovin-context.jsonld
 maintainers:
   - FN: Kin Lane
