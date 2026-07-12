@@ -98,6 +98,10 @@ apis:
         url: https://community.bitmovin.com/
         email: support@bitmovin.com
 common:
+  - type: DomainSecurity
+    url: security/bitmovin-domain-security.yml
+  - type: Authentication
+    url: authentication/bitmovin-authentication.yml
   - type: Website
     url: https://bitmovin.com
   - type: Documentation
