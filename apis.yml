@@ -98,6 +98,8 @@ apis:
         url: https://community.bitmovin.com/
         email: support@bitmovin.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/bitmovin-agentic-access.yml
   - type: DomainSecurity
     url: security/bitmovin-domain-security.yml
   - type: Authentication

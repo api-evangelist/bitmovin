@@ -1,0 +1,5110 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/bitmovin-encoding-api-openapi.yml, openapi/bitmovin-platform-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 321
+  by_action_class:
+    acting: 313
+    connected: 8
+  by_consequence:
+    write: 307
+    safety-critical: 4
+    physical: 2
+    read: 8
+  human_in_the_loop_required: 4
+operations:
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/qc/psnr
+  method: post
+  operationId: ActivatePsnrStreamQualityMetrics
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/aac/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioAacByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/ac3/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioAc3ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/dolby-digital/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioDDByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/dolby-atmos/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioDolbyAtmosByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/dolby-digital-plus/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioDolbyDDPlusByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/dts/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioDtsByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/dts-passthrough/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioDtsPassthroughByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/dtsx/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioDtsXByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/eac3/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioEac3ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/he-aac-v1/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioHeAacV1ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/he-aac-v2/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioHeAacV2ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/mp2/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioMp2ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/mp3/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioMp3ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/opus/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioOpusByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/passthrough/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioPassthroughByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/pcm/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioPcmByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/audio/vorbis/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsAudioVorbisByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/subtitles/dvb-subtitle/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsSubtitlesDvbSubtitleByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/subtitles/imsc/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsSubtitlesImscByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/subtitles/webvtt/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsSubtitlesWebVttByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/video/av1/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsVideoAv1ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/video/h262/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsVideoH262ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/video/h264/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsVideoH264ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/video/h265/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsVideoH265ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/video/mjpeg/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsVideoMjpegByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/video/vp8/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsVideoVp8ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/configurations/video/vp9/{configuration_id}
+  method: delete
+  operationId: DeleteEncodingConfigurationsVideoVp9ByConfigurationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/captions/scc/{captions_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsCaptionsSccByEncodingIdAndCaptionsId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/audio-mix/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsAudioMixByEncodingIdAndAudioMixInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/captions/cea608/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsCEA608ByEncodingIdAndInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/captions/cea708/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsCEA708ByEncodingIdAndInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/concatenation/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsConcatenationByEncodingIdAndConcatenationInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/dolby-atmos/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsDolbyAtmosByEncodingIdAndInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/dolby-vision/{dolby_vision_input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsDolbyVisionByEncodingIdAndDolbyVisionInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/sidecar/dolby-vision-metadata-ingest/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsDolbyVisionMetadataIngestByEncodingIdAndInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/subtitles/dvb-subtitle/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsDvbSubtitleByEncodingIdAndInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/file/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsFileByEncodingIdAndFileInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/ingest/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsIngestByEncodingIdAndInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/trimming/h264-picture-timing/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsTrimmingH264PictureTimingByEncodingIdAndInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/trimming/time-based/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsTrimmingTimeBasedByEncodingIdAndInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/input-streams/trimming/timecode-track/{input_stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsInputStreamsTrimmingTimecodeTrackByEncodingIdAndInputStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/kantar-watermark
+  method: delete
+  operationId: DeleteEncodingEncodingsKantarWatermarkByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/keyframes/{keyframe_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsKeyframesByEncodingIdAndKeyframeId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/broadcast-ts/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsBroadcastTsTsMuxingByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/chunked-text/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsChunkedTextByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/cmaf/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsCmafByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4ByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/aes/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4DrmAesByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/cenc/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4DrmCencByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/clearkey/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4DrmClearkeyByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/fairplay/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4DrmFairplayByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/marlin/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4DrmMarlinByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/playready/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4DrmPlayreadyByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/primetime/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4DrmPrimetimeByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/speke/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4DrmSpekeByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/widevine/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsFmp4DrmWidevineByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/mp3/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsMp3ByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsMp4ByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/cenc/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsMp4DrmCencByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/clearkey/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsMp4DrmClearkeyByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/marlin/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsMp4DrmMarlinByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/playready/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsMp4DrmPlayreadyByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/speke/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsMp4DrmSpekeByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/widevine/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsMp4DrmWidevineByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/mxf/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsMXFByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/packed-audio/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsPackedAudioByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/packed-audio/{muxing_id}/drm/aes/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsPackedAudioDrmAesByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-mov/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveMovMovByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/drm/aes/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveTsDrmAesByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/drm/fairplay/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveTsDrmFairplayByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/drm/speke/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveTSDrmSpekeByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveTsTsMuxingByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/id3/frame-id/{id3_tag_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveTsTsMuxingId3FrameIdId3TagByEncodingIdAndMuxingIdAndFrameidId3TagId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/id3/plain-text/{id3_tag_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveTsTsMuxingId3PlainTextTextId3TagByEncodingIdAndMuxingIdAndPlainTextId3TagId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/id3/raw/{id3_tag_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveTsTsMuxingId3RawId3TagByEncodingIdAndProgressiveTsMuxingIdAndRawId3TagId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-wav/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveWavByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-webm/{muxing_id}/drm/cenc/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveWebmDrmCencByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-webm/{muxing_id}/drm/speke/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveWebmDrmSpekeByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/progressive-webm/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsProgressiveWebmWebmByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/segmented-raw/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsSegmentedRawByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/text/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsTextByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/ts/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsTsByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/ts/{muxing_id}/drm/aes/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsTsDrmAesByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/ts/{muxing_id}/drm/fairplay/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsTsDrmFairplayByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/ts/{muxing_id}/drm/speke/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsTsDrmSpekeByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/webm/{muxing_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsWebmByEncodingIdAndMuxingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/webm/{muxing_id}/drm/cenc/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsWebmDrmCencByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/muxings/webm/{muxing_id}/drm/speke/{drm_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsMuxingsWebmDrmSpekeByEncodingIdAndMuxingIdAndDrmId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/live/insertable-content/{content_id}/schedule/{scheduled_content_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsScheduledInsertableContentByEncodingIdAndContentIdAndScheduledContentId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/scte-35-triggers/{scte35trigger_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsScte35TriggersByEncodingIdAndScte35TriggerId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/sidecars/{sidecar_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsSidecarByEncodingIdAndSidecarId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/sidecars/webvtt/{sidecar_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsSidecarsWebVttByEncodingIdAndSidecarId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/bifs/{bif_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsBifsByEncodingIdAndStreamIdAndBifId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsByEncodingIdAndStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/captions/608-708/scc/{captions_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsCaptions608708SccByEncodingIdAndStreamIdAndCaptionsId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/captions/608-708/srt/{captions_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsCaptions608708SrtByEncodingIdAndStreamIdAndCaptionsId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/hdr/dolby-vision/{hdr_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsDolbyVisionHdrMetadataByEncodingIdAndStreamIdAndDolbyVisionHdrMetadataId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/filters
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsFiltersByEncodingIdAndStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/filters/{filter_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsFiltersByEncodingIdAndStreamIdAndFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/sprites/{sprite_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsSpritesByEncodingIdAndStreamIdAndSpriteId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/burn-in-subtitles/assa/{subtitle_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsSubtitlesAssaByEncodingIdAndStreamIdAndSubtitleId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/burn-in-subtitles/dvbsub/{subtitle_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsSubtitlesDvbsubByEncodingIdAndStreamIdAndSubtitleId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/burn-in-subtitles/srt/{subtitle_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsSubtitlesSrtsubByEncodingIdAndStreamIdAndSubtitleId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/thumbnails/{thumbnail_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsThumbnailsByEncodingIdAndStreamIdAndThumbnailId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/encodings/{encoding_id}/streams/{stream_id}/watermarking/nexguard-file-marker/{nexguard_id}
+  method: delete
+  operationId: DeleteEncodingEncodingsStreamsWatermarkingNexGuardFileMarkerByEncodingIdAndStreamIdAndNexguardId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/audio-mix/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersAudioMixMixByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/audio-volume/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersAudioVolumeVolumeByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/azure-speech-to-captions/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersAzureSpeechToCaptionsByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/conform/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersConformByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/crop/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersCropByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/deinterlace/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersDeinterlaceByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/denoise-hqdn3d/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersDenoiseHqdn3dHqdn3dByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/ebu-r128-single-pass/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersEbuR128SinglePassByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/enhanced-deinterlace/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersEnhancedDeinterlaceByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/enhanced-watermark/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersEnhancedWatermarkWatermarkByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/interlace/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersInterlaceByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/rotate/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersRotateByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/scale/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersScaleByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/text/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersTextByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/unsharp/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersUnsharpByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/filters/watermark/{filter_id}
+  method: delete
+  operationId: DeleteEncodingFiltersWatermarkByFilterId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/akamai/{infrastructure_id}
+  method: delete
+  operationId: DeleteEncodingInfrastructureAkamaiByInfrastructureId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/akamai/{infrastructure_id}/regions/{region}
+  method: delete
+  operationId: DeleteEncodingInfrastructureAkamaiRegionsByInfrastructureIdAndRegion
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/aws/{infrastructure_id}
+  method: delete
+  operationId: DeleteEncodingInfrastructureAwsByInfrastructureId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/aws/{infrastructure_id}/regions/{region}
+  method: delete
+  operationId: DeleteEncodingInfrastructureAwsRegionsByInfrastructureIdAndRegion
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/azure/{infrastructure_id}
+  method: delete
+  operationId: DeleteEncodingInfrastructureAzureByInfrastructureId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/azure/{infrastructure_id}/regions/{region}
+  method: delete
+  operationId: DeleteEncodingInfrastructureAzureRegionsByInfrastructureIdAndRegion
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/gce/{infrastructure_id}
+  method: delete
+  operationId: DeleteEncodingInfrastructureGceByInfrastructureId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/gce/{infrastructure_id}/regions/{region}
+  method: delete
+  operationId: DeleteEncodingInfrastructureGceRegionsByInfrastructureIdAndRegion
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/oci/{infrastructure_id}
+  method: delete
+  operationId: DeleteEncodingInfrastructureOciByInfrastructureId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/oci/{infrastructure_id}/regions/{region}
+  method: delete
+  operationId: DeleteEncodingInfrastructureOciRegionsByInfrastructureIdAndRegion
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/prewarmed-encoder-pools/{pool_id}
+  method: delete
+  operationId: DeleteEncodingInfrastructurePrewarmedEncoderPoolsByPoolId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/prewarmed-encoder-pools/{pool_id}/schedules/{schedule_id}
+  method: delete
+  operationId: DeleteEncodingInfrastructurePrewarmedEncoderPoolsSchedulesByPoolIdAndScheduleId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/infrastructure/static-ips/{id}
+  method: delete
+  operationId: DeleteEncodingInfrastructureStaticIpById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/akamai-netstorage/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsAkamaiNetStorageByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/aspera/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsAsperaByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/azure/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsAzureByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/direct-file-upload/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsDirectFileUploadByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/ftp/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsFtpByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/gcs/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsGcsByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/gcs-service-account/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsGcsServiceAccountByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/generic-s3/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsGenericS3ByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/hls/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsHLSByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/http/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsHttpByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/https/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsHttpsByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/local/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsLocalByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/redundant-rtmp/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsRedundantRtmpById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/s3/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsS3ByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/s3-role-based/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsS3RoleBasedByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/sftp/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsSftpByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/srt/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsSrtByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/zixi/{input_id}
+  method: delete
+  operationId: DeleteEncodingInputsZixiByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/encodings/{encoding_id}/dns-mappings
+  method: delete
+  operationId: DeleteEncodingLiveEncodingsDnsMappingsByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/encodings/{encoding_id}/dns-mappings
+  method: post
+  operationId: PostEncodingLiveEncodingsDnsMappingsByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/encodings/{encoding_id}/dns-mappings/{id}
+  method: delete
+  operationId: DeleteEncodingLiveEncodingsDnsMappingsByEncodingIdAndId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/stream-keys/{stream_key_id}
+  method: delete
+  operationId: DeleteEncodingLiveStreamKeysByStreamKeyId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/audio/{adaptationset_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsAudioByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/contentprotection/{contentprotection_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndContentprotectionId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/image/{adaptationset_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsImageByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/chunked-text/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsChunkedTextByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/cmaf/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsCmafByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/cmaf/{representation_id}/contentprotection/{contentprotection_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsCmafContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationIdAndContentprotectionId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4ByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/{representation_id}/contentprotection/{contentprotection_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4ContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationIdAndContentprotectionId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/drm/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4DrmByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/drm/{representation_id}/contentprotection/{contentprotection_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4DrmContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationIdAndContentprotectionId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/imsc/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsImscByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/mp4/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsMp4ByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/mp4/drm/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsMp4DrmByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/progressive-webm/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsProgressiveWebmByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/sprite/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsSpriteByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/vtt/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsVttByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/webm/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsWebmByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/webm/{representation_id}/contentprotection/{contentprotection_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsWebmContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationIdAndContentprotectionId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/subtitle/{adaptationset_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsSubtitleByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/video/{adaptationset_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsVideoByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsByManifestIdAndPeriodId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/custom-xml-elements/{custom_xml_element_id}
+  method: delete
+  operationId: DeleteEncodingManifestsDashPeriodsCustomXmlElementsXmlElementByManifestIdAndPeriodIdAndCustomXmlElementId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/audio/{media_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsMediaAudioByManifestIdAndMediaId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/closed-captions/{media_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsMediaClosedCaptionsByManifestIdAndMediaId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/{media_id}/custom-tags/{custom_tag_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsMediaCustomTagByManifestIdAndMediaIdAndCustomTagId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/subtitles/{media_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsMediaSubtitlesByManifestIdAndMediaId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/video/{media_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsMediaVideoByManifestIdAndMediaId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/vtt/{media_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsMediaVttByManifestIdAndMediaId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/streams/{stream_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsStreamsByManifestIdAndStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/streams/{stream_id}/custom-tags/{custom_tag_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsStreamsCustomTagByManifestIdAndStreamIdAndCustomTagId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/streams/{stream_id}/iframe/{iframe_id}
+  method: delete
+  operationId: DeleteEncodingManifestsHlsStreamsIframeByManifestIdAndStreamIdAndIframeId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/smooth/{manifest_id}
+  method: delete
+  operationId: DeleteEncodingManifestsSmoothByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/smooth/{manifest_id}/contentprotection/{protection_id}
+  method: delete
+  operationId: DeleteEncodingManifestsSmoothContentprotectionByManifestIdAndProtectionId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/smooth/{manifest_id}/representations/mp4/{representation_id}
+  method: delete
+  operationId: DeleteEncodingManifestsSmoothRepresentationsMp4ByManifestIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/akamai-msl/{output_id}
+  method: delete
+  operationId: DeleteEncodingOutputsAkamaiMslByOutputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/akamai-netstorage/{output_id}
+  method: delete
+  operationId: DeleteEncodingOutputsAkamaiNetStorageByOutputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/azure/{output_id}
+  method: delete
+  operationId: DeleteEncodingOutputsAzureByOutputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/ftp/{output_id}
+  method: delete
+  operationId: DeleteEncodingOutputsFtpByOutputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/gcs/{output_id}
+  method: delete
+  operationId: DeleteEncodingOutputsGcsByOutputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/gcs-service-account/{output_id}
+  method: delete
+  operationId: DeleteEncodingOutputsGcsServiceAccountByOutputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/generic-s3/{output_id}
+  method: delete
+  operationId: DeleteEncodingOutputsGenericS3ByOutputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/s3-role-based
+  method: post
+  operationId: PostEncodingInputsS3RoleBased
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/sftp
+  method: post
+  operationId: PostEncodingInputsSftp
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/srt
+  method: post
+  operationId: PostEncodingInputsSrt
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/inputs/zixi
+  method: post
+  operationId: PostEncodingInputsZixi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/standby-pools
+  method: post
+  operationId: PostEncodingLiveStandbyPools
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/standby-pools/{pool_id}/actions/acquire-encoding
+  method: post
+  operationId: PostEncodingLiveStandbyPoolsActionsAcquireEncoding
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/stream-keys
+  method: post
+  operationId: PostEncodingLiveStreamKeys
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/stream-keys/actions/unassign
+  method: post
+  operationId: PostEncodingLiveStreamKeysActionsStreamKeyUnassign
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash
+  method: post
+  operationId: PostEncodingManifestsDash
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/default
+  method: post
+  operationId: PostEncodingManifestsDashDefault
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/audio
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsAudioByManifestIdAndPeriodId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/contentprotection
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsContentprotectionByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/image
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsImageByManifestIdAndPeriodId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/chunked-text
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsChunkedTextByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/cmaf
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsCmafByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/cmaf/{representation_id}/contentprotection
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsCmafContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4ByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/{representation_id}/contentprotection
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4ContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/drm
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4DrmByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/drm/{representation_id}/contentprotection
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4DrmContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/imsc
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsImscByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/mp4
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsMp4ByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/mp4/drm
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsMp4DrmByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/progressive-webm
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsProgressiveWebmByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/sprite
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsSpriteByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/vtt
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsVttByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/webm
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsWebmByManifestIdAndPeriodIdAndAdaptationsetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/webm/{representation_id}/contentprotection
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsWebmContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/subtitle
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsSubtitleByManifestIdAndPeriodId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/video
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsAdaptationsetsVideoByManifestIdAndPeriodId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/periods/{period_id}/custom-xml-elements
+  method: post
+  operationId: PostEncodingManifestsDashPeriodsCustomXmlElementsByManifestIdAndPeriodId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/start
+  method: post
+  operationId: PostEncodingManifestsDashStartByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/dash/{manifest_id}/stop
+  method: post
+  operationId: PostEncodingManifestsDashStopByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /encoding/manifests/hls
+  method: post
+  operationId: PostEncodingManifestsHls
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/default
+  method: post
+  operationId: PostEncodingManifestsHlsDefault
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/audio
+  method: post
+  operationId: PostEncodingManifestsHlsMediaAudioByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/closed-captions
+  method: post
+  operationId: PostEncodingManifestsHlsMediaClosedCaptionsByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/{media_id}/custom-tags
+  method: post
+  operationId: PostEncodingManifestsHlsMediaCustomTagByManifestIdAndMediaId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/subtitles
+  method: post
+  operationId: PostEncodingManifestsHlsMediaSubtitlesByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/video
+  method: post
+  operationId: PostEncodingManifestsHlsMediaVideoByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/media/vtt
+  method: post
+  operationId: PostEncodingManifestsHlsMediaVttByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/start
+  method: post
+  operationId: PostEncodingManifestsHlsStartByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/stop
+  method: post
+  operationId: PostEncodingManifestsHlsStopByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/streams
+  method: post
+  operationId: PostEncodingManifestsHlsStreamsByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/streams/{stream_id}/custom-tags
+  method: post
+  operationId: PostEncodingManifestsHlsStreamsCustomTagByManifestIdAndStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/hls/{manifest_id}/streams/{stream_id}/iframe
+  method: post
+  operationId: PostEncodingManifestsHlsStreamsIframeByManifestIdAndStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/smooth
+  method: post
+  operationId: PostEncodingManifestsSmooth
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/smooth/{manifest_id}/contentprotection
+  method: post
+  operationId: PostEncodingManifestsSmoothContentprotectionByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/smooth/default
+  method: post
+  operationId: PostEncodingManifestsSmoothDefault
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/smooth/{manifest_id}/representations/mp4
+  method: post
+  operationId: PostEncodingManifestsSmoothRepresentationsMp4ByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/smooth/{manifest_id}/start
+  method: post
+  operationId: PostEncodingManifestsSmoothStartByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/manifests/smooth/{manifest_id}/stop
+  method: post
+  operationId: PostEncodingManifestsSmoothStopByManifestId
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /encoding/outputs/akamai-msl
+  method: post
+  operationId: PostEncodingOutputsAkamaiMsl
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/akamai-netstorage
+  method: post
+  operationId: PostEncodingOutputsAkamaiNetStorage
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/azure
+  method: post
+  operationId: PostEncodingOutputsAzure
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/{output_id}/check-permissions
+  method: post
+  operationId: PostEncodingOutputsCheckPermissionsByOutputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/ftp
+  method: post
+  operationId: PostEncodingOutputsFtp
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/gcs
+  method: post
+  operationId: PostEncodingOutputsGcs
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/gcs-service-account
+  method: post
+  operationId: PostEncodingOutputsGcsServiceAccount
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/generic-s3
+  method: post
+  operationId: PostEncodingOutputsGenericS3
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/live-media-ingest
+  method: post
+  operationId: PostEncodingOutputsLiveMediaIngest
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/local
+  method: post
+  operationId: PostEncodingOutputsLocal
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/s3
+  method: post
+  operationId: PostEncodingOutputsS3
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/s3-role-based
+  method: post
+  operationId: PostEncodingOutputsS3RoleBased
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/outputs/sftp
+  method: post
+  operationId: PostEncodingOutputsSftp
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/templates
+  method: post
+  operationId: PostEncodingTemplates
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/templates/start
+  method: post
+  operationId: PostEncodingTemplatesStart
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/standby-pools/{pool_id}/actions/delete-error-encodings
+  method: post
+  operationId: PostLiveStandbyPoolsActionsDeleteErrorEncodings
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/emails/encoding/encodings/error
+  method: post
+  operationId: PostNotificationsEmailsEncodingEncodingsError
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/emails/encoding/encodings/{encoding_id}/error
+  method: post
+  operationId: PostNotificationsEmailsEncodingEncodingsErrorByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/emails/encoding/encodings/live-input-stream-changed
+  method: post
+  operationId: PostNotificationsEmailsEncodingEncodingsLiveInputStreamChanged
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/emails/encoding/encodings/{encoding_id}/live-input-stream-changed
+  method: post
+  operationId: PostNotificationsEmailsEncodingEncodingsLiveInputStreamChangedByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/{notification_id}/mute
+  method: post
+  operationId: PostNotificationsMuteByNotificationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/{notification_id}/unmute
+  method: post
+  operationId: PostNotificationsUnmuteByNotificationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/manifest/{manifest_id}/error
+  method: post
+  operationId: PostNotificationsWebhookManifestErrorByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/manifest/{manifest_id}/finished
+  method: post
+  operationId: PostNotificationsWebhookManifestFinishedByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/manifest/error
+  method: post
+  operationId: PostNotificationsWebhookManifestsError
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/manifest/finished
+  method: post
+  operationId: PostNotificationsWebhookManifestsFinished
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/{encoding_id}/encoding-status-changed
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsEncodingStatusChangedByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/error
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsError
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/{encoding_id}/error
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsErrorByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/finished
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsFinished
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/{encoding_id}/finished
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsFinishedByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/live-encoding-heartbeat
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsLiveEncodingHeartbeat
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/live-input-stream-changed
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsLiveInputStreamChanged
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/{encoding_id}/live-input-stream-changed
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsLiveInputStreamChangedByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/live-manifest-ready
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsLiveManifestReady
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/{encoding_id}/live-manifest-ready
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsLiveManifestReadyByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/encoding-status-changed
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsStatusChanged
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/transfer-error
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsTransferError
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/{encoding_id}/transfer-error
+  method: post
+  operationId: PostNotificationsWebhooksEncodingEncodingsTransferErrorByEncodingId
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/emails/encoding/encodings/error/{notification_id}
+  method: put
+  operationId: PutNotificationsEmailsEncodingEncodingsErrorByNotificationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/emails/encoding/encodings/live-input-stream-changed/{notification_id}
+  method: put
+  operationId: PutNotificationsEmailsEncodingEncodingsLiveInputStreamChangedByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/manifest/error/{notification_id}
+  method: put
+  operationId: PutNotificationsWebhookManifestErrorByNotificationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/manifest/finished/{notification_id}
+  method: put
+  operationId: PutNotificationsWebhookManifestFinishedByNotificationId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/encoding-status-changed/{notification_id}
+  method: put
+  operationId: PutNotificationsWebhooksEncodingEncodingsEncodingStatusChangedByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /notifications/webhooks/encoding/encodings/live-input-stream-changed/{notification_id}
+  method: put
+  operationId: PutNotificationsWebhooksEncodingEncodingsLiveInputStreamChangedByInputId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /encoding/live/encodings/{encoding_id}/actions/update-rtmp-ingest-points
+  method: patch
+  operationId: UpdateRTMPIngestPoints
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/config/domain-restriction/{domain_restriction_id}
+  method: delete
+  operationId: DeleteStreamsDomainRestriction
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/config/domain-restriction/{domain_restriction_id}
+  method: get
+  operationId: GetStreamDomainRestrictionById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /streams/config/domain-restriction/{domain_restriction_id}
+  method: patch
+  operationId: PatchStreamsDomainRestriction
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/live/{stream_id}
+  method: delete
+  operationId: DeleteStreamsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/live/{stream_id}
+  method: get
+  operationId: GetStreamsLiveByStreamId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /streams/live/{stream_id}
+  method: patch
+  operationId: PatchStreamsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/signing-keys/{key_id}
+  method: delete
+  operationId: DeleteStreamsSigningKey
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/video/{stream_id}
+  method: delete
+  operationId: DeleteStreamsVideo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/video/{stream_id}
+  method: get
+  operationId: GetStreamsVideoByStreamId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /streams/video/{stream_id}
+  method: patch
+  operationId: PatchStreamsVideo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/config/domain-restriction
+  method: get
+  operationId: GetStreamsDomainRestriction
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /streams/config/domain-restriction
+  method: post
+  operationId: PostStreamsDomainRestriction
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/live
+  method: get
+  operationId: GetStreamsLive
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /streams/live
+  method: post
+  operationId: PostStreamsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/search
+  method: get
+  operationId: GetStreamsSearch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /streams/signing-keys
+  method: get
+  operationId: GetStreamsSigningKeys
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /streams/signing-keys
+  method: post
+  operationId: PostStreamsSigningKey
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/video
+  method: get
+  operationId: GetStreamsVideo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /streams/video
+  method: post
+  operationId: PostStreamsVideo
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/live/{stream_id}/start
+  method: put
+  operationId: StartStreamsLiveByStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /streams/live/{stream_id}/stop
+  method: put
+  operationId: StopStreamsLiveByStreamId
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
