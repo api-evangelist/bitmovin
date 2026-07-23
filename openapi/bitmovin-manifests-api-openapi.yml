@@ -1,0 +1,5523 @@
+openapi: 3.0.1
+info:
+  title: Bitmovin Encoding Config Manifests API
+  description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
+  version: '3.0'
+  termsOfService: https://bitmovin.com
+  contact:
+    name: Bitmovin Inc
+    url: https://bitmovin.com
+    email: support@bitmovin.com
+servers:
+- url: https://api.bitmovin.com/v1
+  description: Bitmovin Server
+  variables: {}
+security:
+- ApiKeyAuth: []
+- ApiKeyAuth: []
+  TenantOrgId: []
+tags:
+- name: Manifests
+paths:
+  /encoding/manifests/dash/{manifest_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete DASH Manifest
+      operationId: DeleteEncodingManifestsDashByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: UUID of the DASH Manifest to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the DASH Manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/audio/{adaptationset_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Audio AdaptationSet
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsAudioByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the audio adaptation set to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Audio AdaptationSet
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/contentprotection/{contentprotection_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete AdaptationSet Content Protection
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndContentprotectionId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: contentprotection_id
+        in: path
+        description: Id of the adaptation set content protection to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 60bd481a-3524-4091-9cef-a2ec7aaa8110
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the AdaptationSet Content Protection
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/image/{adaptationset_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Image AdaptationSet
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsImageByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the audio adaptation set to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Image AdaptationSet
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/chunked-text/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete Chunked Text Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsChunkedTextByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the Chunked Text Representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Chunked Text Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/cmaf/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete CMAF Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsCmafByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the CMAF representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the CMAF Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/cmaf/{representation_id}/contentprotection/{contentprotection_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete CMAF Representation Content Protection
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsCmafContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationIdAndContentprotectionId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the representation
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      - name: contentprotection_id
+        in: path
+        description: Id of the DRM CMAF content protection to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 60bd481a-3524-4091-9cef-a2ec7aaa8110
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the CMAF Representation Content Protection
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete fMP4 Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4ByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the fMP4 representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the fMP4 Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/{representation_id}/contentprotection/{contentprotection_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete fMP4 Representation Content Protection
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4ContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationIdAndContentprotectionId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the representation
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      - name: contentprotection_id
+        in: path
+        description: Id of the DRM fMP4 content protection to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 60bd481a-3524-4091-9cef-a2ec7aaa8110
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the fMP4 Representation Content Protection
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/drm/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete DRM fMP4 Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4DrmByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the DRM fMP4 representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the DRM fMP4 Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/drm/{representation_id}/contentprotection/{contentprotection_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete DRM fMP4 Representation Content Protection
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4DrmContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationIdAndContentprotectionId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the representation
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      - name: contentprotection_id
+        in: path
+        description: Id of the DRM fMP4 content protection to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 60bd481a-3524-4091-9cef-a2ec7aaa8110
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the DRM fMP4 Representation Content Protection
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/imsc/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete IMSC Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsImscByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the IMSC representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the IMSC Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/mp4/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete MP4 Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsMp4ByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the MP4 representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the MP4 Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/mp4/drm/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete DRM MP4 Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsMp4DrmByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the DRM MP4 representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the DRM MP4 Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/progressive-webm/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete Progressive WebM Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsProgressiveWebmByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the Progressive WebM representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Progressive WebM Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/sprite/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete Sprite Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsSpriteByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the Sprite representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Sprite Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/vtt/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete VTT Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsVttByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the VTT representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the VTT Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/webm/{representation_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete WebM Representation
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsWebmByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the WebM representation to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the WebM Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/webm/{representation_id}/contentprotection/{contentprotection_id}
+  : delete:
+      tags:
+      - Manifests
+      summary: Delete WebM Representation Content Protection
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsRepresentationsWebmContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationIdAndContentprotectionId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the representation
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      - name: contentprotection_id
+        in: path
+        description: Id of the DRM WebM content protection to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 60bd481a-3524-4091-9cef-a2ec7aaa8110
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the WebM Representation Content Protection
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/subtitle/{adaptationset_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Subtitle AdaptationSet
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsSubtitleByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the subtitle adaptation set to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Subtitle AdaptationSet
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/video/{adaptationset_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Video AdaptationSet
+      operationId: DeleteEncodingManifestsDashPeriodsAdaptationsetsVideoByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the video adaptation set to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Video AdaptationSet
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Period
+      operationId: DeleteEncodingManifestsDashPeriodsByManifestIdAndPeriodId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period to be deleted
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Period
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/custom-xml-elements/{custom_xml_element_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Custom XML Element
+      operationId: DeleteEncodingManifestsDashPeriodsCustomXmlElementsXmlElementByManifestIdAndPeriodIdAndCustomXmlElementId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: custom_xml_element_id
+        in: path
+        description: Id of the Custom XML Element
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Custom XML Element
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete HLS Manifest
+      operationId: DeleteEncodingManifestsHlsByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the HLS Manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the HLS manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/audio/{media_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Audio Media
+      operationId: DeleteEncodingManifestsHlsMediaAudioByManifestIdAndMediaId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: media_id
+        in: path
+        description: Id of the audio media.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 3009c63c-5014-4750-be28-91d609555c19
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the audio media
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/closed-captions/{media_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Closed Captions Media
+      operationId: DeleteEncodingManifestsHlsMediaClosedCaptionsByManifestIdAndMediaId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: media_id
+        in: path
+        description: Id of the closed captions media.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 49019b21-21fb-4b0a-9dd5-fd667c59b059
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the closed captions media
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/{media_id}/custom-tags/{custom_tag_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Custom Tag
+      operationId: DeleteEncodingManifestsHlsMediaCustomTagByManifestIdAndMediaIdAndCustomTagId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: media_id
+        in: path
+        description: Id of the media.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6129e1fc-786a-471b-9a2b-b9b033842697
+      - name: custom_tag_id
+        in: path
+        description: Id of the custom tag.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 27786ce5-eaaf-41b7-82be-b82f4ae96194
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the custom tag
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/subtitles/{media_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Subtitles Media
+      operationId: DeleteEncodingManifestsHlsMediaSubtitlesByManifestIdAndMediaId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: media_id
+        in: path
+        description: Id of the subtitles media.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: fdc2d456-7a2d-4e56-b712-fb08c7c8a63e
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the subtitles media
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/video/{media_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Video Media
+      operationId: DeleteEncodingManifestsHlsMediaVideoByManifestIdAndMediaId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: media_id
+        in: path
+        description: Id of the video media.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 95ce19cc-be6d-43f9-9e10-fffa3a142a9c
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the video media
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/vtt/{media_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete VTT Media
+      operationId: DeleteEncodingManifestsHlsMediaVttByManifestIdAndMediaId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: media_id
+        in: path
+        description: Id of the VTT media.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: fdc2d456-7a2d-4e56-b712-fb08c7c8a63e
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the VTT media
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/streams/{stream_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Variant Stream
+      operationId: DeleteEncodingManifestsHlsStreamsByManifestIdAndStreamId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: stream_id
+        in: path
+        description: Id of the variant stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6129e1fc-786a-471b-9a2b-b9b033842697
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the stream inf
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/streams/{stream_id}/custom-tags/{custom_tag_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Custom Tag
+      operationId: DeleteEncodingManifestsHlsStreamsCustomTagByManifestIdAndStreamIdAndCustomTagId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: stream_id
+        in: path
+        description: Id of the variant stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6129e1fc-786a-471b-9a2b-b9b033842697
+      - name: custom_tag_id
+        in: path
+        description: Id of the custom tag.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 27786ce5-eaaf-41b7-82be-b82f4ae96194
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the custom tag
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/streams/{stream_id}/iframe/{iframe_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete I-frame playlist
+      operationId: DeleteEncodingManifestsHlsStreamsIframeByManifestIdAndStreamIdAndIframeId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: stream_id
+        in: path
+        description: Id of the variant stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6129e1fc-786a-471b-9a2b-b9b033842697
+      - name: iframe_id
+        in: path
+        description: Id of the Iframe-Playlist.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 27786ce5-eaaf-41b7-82be-b82f4ae96194
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the custom tag
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/smooth/{manifest_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Smooth Streaming Manifest
+      operationId: DeleteEncodingManifestsSmoothByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the Smooth Streaming Manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/smooth/{manifest_id}/contentprotection/{protection_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Content Protection of Smooth Streaming
+      operationId: DeleteEncodingManifestsSmoothContentprotectionByManifestIdAndProtectionId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the Smooth Streaming manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: protection_id
+        in: path
+        description: Id of the content protection.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: b7519c28-8dae-4596-ae91-ddc0c2bc5d62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the content protection
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/smooth/{manifest_id}/representations/mp4/{representation_id}:
+    delete:
+      tags:
+      - Manifests
+      summary: Delete Smooth Streaming MP4 Representation
+      operationId: DeleteEncodingManifestsSmoothRepresentationsMp4ByManifestIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the Smooth Streaming manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: representation_id
+        in: path
+        description: Id of the MP4 representation.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 36919308-f99a-46f0-932a-5cd838573869
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash:
+    post:
+      tags:
+      - Manifests
+      summary: Create Custom DASH Manifest
+      operationId: PostEncodingManifestsDash
+      description: A Custom DASH Manifest gives you full control over its contents. Add Periods, Adaptation Sets, Representations, Content Protections or Custom XML Elements via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      requestBody:
+        description: The Custom DASH Manifest to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashManifest'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashManifest'
+                          - description: Id of the DASH Manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/default:
+    post:
+      tags:
+      - Manifests
+      summary: Create Default DASH Manifest
+      operationId: PostEncodingManifestsDashDefault
+      description: A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      requestBody:
+        description: The Default DASH Manifest to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashManifestDefault'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashManifestDefault'
+                          - description: Id of the DASH Manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/audio:
+    post:
+      tags:
+      - Manifests
+      summary: Add Audio AdaptationSet
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsAudioByManifestIdAndPeriodId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The audio adaptation set to be added to the period
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AudioAdaptationSet'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AudioAdaptationSet'
+                          - description: AudioAdaptationSet
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/contentprotection:
+    post:
+      tags:
+      - Manifests
+      summary: Add Content Protection to AdaptationSet
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsContentprotectionByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The content protection to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentProtection'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/ContentProtection'
+                          - description: AdaptationSet Content Protection
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/image:
+    post:
+      tags:
+      - Manifests
+      summary: Add Image AdaptationSet
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsImageByManifestIdAndPeriodId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The image adaptation set to be added to the period
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageAdaptationSet'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/ImageAdaptationSet'
+                          - description: ImageAdaptationSet
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/chunked-text:
+    post:
+      tags:
+      - Manifests
+      summary: Add Chunked Text Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsChunkedTextByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The Chunked Text Representation to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashChunkedTextRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashChunkedTextRepresentation'
+                          - description: Chunked Text Representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/cmaf:
+    post:
+      tags:
+      - Manifests
+      summary: Add CMAF Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsCmafByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The CMAF representation to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashCmafRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashCmafRepresentation'
+                          - description: CMAF representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/cmaf/{representation_id}/contentprotection
+  : post:
+      tags:
+      - Manifests
+      summary: Add Content Protection to CMAF Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsCmafContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the representation
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      requestBody:
+        description: The content protection to be added to the CMAF representation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentProtection'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/ContentProtection'
+                          - description: Id of the DRM CMAF representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4:
+    post:
+      tags:
+      - Manifests
+      summary: Add fMP4 Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4ByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The fMP4 representation to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashFmp4Representation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashFmp4Representation'
+                          - description: Fmp4 representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/{representation_id}/contentprotection
+  : post:
+      tags:
+      - Manifests
+      summary: Add Content Protection to fMP4 Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4ContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the representation
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      requestBody:
+        description: The content protection to be added to the fMP4 representation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentProtection'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/ContentProtection'
+                          - description: Id of the DRM Fmp4 representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/drm:
+    post:
+      tags:
+      - Manifests
+      summary: Add DRM fMP4 Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4DrmByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The DRM fMP4 representation to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashFmp4DrmRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashFmp4DrmRepresentation'
+                          - description: Id of the DRM Fmp4 representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/fmp4/drm/{representation_id}/contentprotection
+  : post:
+      tags:
+      - Manifests
+      summary: Add Content Protection to DRM fMP4 Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsFmp4DrmContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the representation
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      requestBody:
+        description: The content protection to be added to the DRM fMP4 representation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentProtection'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/ContentProtection'
+                          - description: Id of the DRM Fmp4 representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/imsc:
+    post:
+      tags:
+      - Manifests
+      summary: Add IMSC Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsImscByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the subtitle adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: 'The IMSC representation to be added to the adaptation set.
+
+          Note that the adaptation set has to be a subtitle adaptation set.
+
+          '
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashImscRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashImscRepresentation'
+                          - description: Imsc representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/mp4:
+    post:
+      tags:
+      - Manifests
+      summary: Add MP4 Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsMp4ByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The MP4 representation to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashMp4Representation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashMp4Representation'
+                          - description: MP4 representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/mp4/drm:
+    post:
+      tags:
+      - Manifests
+      summary: Add DRM MP4 Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsMp4DrmByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The DRM MP4 representation to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashMp4DrmRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashMp4DrmRepresentation'
+                          - description: Id of the DRM MP4 representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/progressive-webm
+  : post:
+      tags:
+      - Manifests
+      summary: Add Progressive WebM Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsProgressiveWebmByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The Progressive WebM representation to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashProgressiveWebmRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashProgressiveWebmRepresentation'
+                          - description: Progressive WebM representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/sprite:
+    post:
+      tags:
+      - Manifests
+      summary: Add Sprite Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsSpriteByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the image adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: 'The Sprite representation to be added to the adaptation set.
+
+          Note that the adaptation set has to be an image adaptation set.
+
+
+          Only supported for sprites generated with encoder version `2.76.0` or above.
+
+          '
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpriteRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/SpriteRepresentation'
+                          - description: Sprite representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/vtt:
+    post:
+      tags:
+      - Manifests
+      summary: Add VTT Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsVttByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The VTT representation to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashVttRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashVttRepresentation'
+                          - description: VTT representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/webm:
+    post:
+      tags:
+      - Manifests
+      summary: Add WebM Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsWebmByManifestIdAndPeriodIdAndAdaptationsetId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      requestBody:
+        description: The WebM representation to be added to the adaptation set
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashWebmRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/DashWebmRepresentation'
+                          - description: WebM representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  ? /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/{adaptationset_id}/representations/webm/{representation_id}/contentprotection
+  : post:
+      tags:
+      - Manifests
+      summary: Add Content Protection to WebM Representation
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsRepresentationsWebmContentprotectionByManifestIdAndPeriodIdAndAdaptationsetIdAndRepresentationId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: adaptationset_id
+        in: path
+        description: Id of the adaptation set
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: ae1c49de-9b7a-4b6f-9d0b-401d7d64e835
+      - name: representation_id
+        in: path
+        description: Id of the representation
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 0695f80f-ad88-4051-b1b8-0d82d5f7192d
+      requestBody:
+        description: The content protection to be added to the WebM representation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentProtection'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/ContentProtection'
+                          - description: Id of the DRM WebM representation
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/subtitle:
+    post:
+      tags:
+      - Manifests
+      summary: Add Subtitle AdaptationSet
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsSubtitleByManifestIdAndPeriodId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The subtitle adaptation set to be added to the period
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubtitleAdaptationSet'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/SubtitleAdaptationSet'
+                          - description: SubtitleAdaptationSet
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/adaptationsets/video:
+    post:
+      tags:
+      - Manifests
+      summary: Add Video AdaptationSet
+      operationId: PostEncodingManifestsDashPeriodsAdaptationsetsVideoByManifestIdAndPeriodId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The video adaptation set to be added to the period
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoAdaptationSet'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/VideoAdaptationSet'
+                          - description: VideoAdaptationSet
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods:
+    post:
+      tags:
+      - Manifests
+      summary: Add Period
+      operationId: PostEncodingManifestsDashPeriodsByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      requestBody:
+        description: The Period to be added to the manifest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Period'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Period'
+                          - description: Period
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/periods/{period_id}/custom-xml-elements:
+    post:
+      tags:
+      - Manifests
+      summary: Add Custom XML Element to Period
+      operationId: PostEncodingManifestsDashPeriodsCustomXmlElementsByManifestIdAndPeriodId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+      - name: period_id
+        in: path
+        description: Id of the period
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: Data of the custom XML element to be added to the period
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomXmlElement'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/CustomXmlElement'
+                          - description: Custom XML Element
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/start:
+    post:
+      tags:
+      - Manifests
+      summary: Start DASH manifest generation
+      operationId: PostEncodingManifestsDashStartByManifestId
+      x-bitmovin:
+        isRpc: true
+        optionalRequestBody: true
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the DASH Manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: Manifest Startup Options
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartManifestRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/dash/{manifest_id}/stop:
+    post:
+      tags:
+      - Manifests
+      summary: Stop DASH manifest generation
+      operationId: PostEncodingManifestsDashStopByManifestId
+      x-bitmovin:
+        isRpc: true
+        optionalRequestBody: true
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the DASH Manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the DASH Manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls:
+    post:
+      tags:
+      - Manifests
+      summary: Create Custom HLS Manifest
+      operationId: PostEncodingManifestsHls
+      description: A Custom HLS Manifest gives you full control over its contents. Add Variant Streams and Media elements via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      requestBody:
+        description: The Custom HLS Manifest to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HlsManifest'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/HlsManifest'
+                          - description: HLS manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/default:
+    post:
+      tags:
+      - Manifests
+      summary: Create Default HLS Manifest
+      operationId: PostEncodingManifestsHlsDefault
+      description: A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      requestBody:
+        description: The Default HLS Manifest to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HlsManifestDefault'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/HlsManifestDefault'
+                          - description: HLS manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/audio:
+    post:
+      tags:
+      - Manifests
+      summary: Add Audio Media
+      operationId: PostEncodingManifestsHlsMediaAudioByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The Audio Media to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AudioMediaInfo'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AudioMediaInfo'
+                          - description: Audio media details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/closed-captions:
+    post:
+      tags:
+      - Manifests
+      summary: Add Closed Captions Media
+      operationId: PostEncodingManifestsHlsMediaClosedCaptionsByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The Closed Captions Media to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClosedCaptionsMediaInfo'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/ClosedCaptionsMediaInfo'
+                          - description: Closed Captions media details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/{media_id}/custom-tags:
+    post:
+      tags:
+      - Manifests
+      summary: Add Custom Tag to a Audio Media or a Subtitle media
+      operationId: PostEncodingManifestsHlsMediaCustomTagByManifestIdAndMediaId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: media_id
+        in: path
+        description: Id of the media.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6129e1fc-786a-471b-9a2b-b9b033842697
+      requestBody:
+        description: The Custom Tag to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomTag'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/CustomTag'
+                          - description: Custom Tag details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/subtitles:
+    post:
+      tags:
+      - Manifests
+      summary: Add Subtitles Media
+      operationId: PostEncodingManifestsHlsMediaSubtitlesByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The Subtitles Media to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubtitlesMediaInfo'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/SubtitlesMediaInfo'
+                          - description: Subtitles media details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/video:
+    post:
+      tags:
+      - Manifests
+      summary: Add Video Media
+      operationId: PostEncodingManifestsHlsMediaVideoByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The Video Media to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoMediaInfo'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/VideoMediaInfo'
+                          - description: Video media details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/media/vtt:
+    post:
+      tags:
+      - Manifests
+      summary: Add VTT Media
+      operationId: PostEncodingManifestsHlsMediaVttByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The VTT Media to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VttMediaInfo'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/VttMediaInfo'
+                          - description: VTT media details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/start:
+    post:
+      tags:
+      - Manifests
+      summary: Start HLS manifest generation
+      operationId: PostEncodingManifestsHlsStartByManifestId
+      x-bitmovin:
+        isRpc: true
+        optionalRequestBody: true
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the HLS Manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: Manifest Startup Options
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartManifestRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the HLS manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/stop:
+    post:
+      tags:
+      - Manifests
+      summary: Stop HLS manifest generation
+      operationId: PostEncodingManifestsHlsStopByManifestId
+      x-bitmovin:
+        isRpc: true
+        optionalRequestBody: true
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the HLS Manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the HLS Manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/streams:
+    post:
+      tags:
+      - Manifests
+      summary: Add Variant Stream
+      operationId: PostEncodingManifestsHlsStreamsByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The Variant Stream to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamInfo'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/StreamInfo'
+                          - description: Variant stream details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/streams/{stream_id}/custom-tags:
+    post:
+      tags:
+      - Manifests
+      summary: Add Custom Tag to Variant Stream
+      operationId: PostEncodingManifestsHlsStreamsCustomTagByManifestIdAndStreamId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: stream_id
+        in: path
+        description: Id of the variant stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6129e1fc-786a-471b-9a2b-b9b033842697
+      requestBody:
+        description: The Custom Tag to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomTag'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/CustomTag'
+                          - description: Custom Tag details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/hls/{manifest_id}/streams/{stream_id}/iframe:
+    post:
+      tags:
+      - Manifests
+      summary: Add I-frame playlist to variant stream
+      operationId: PostEncodingManifestsHlsStreamsIframeByManifestIdAndStreamId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the hls manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      - name: stream_id
+        in: path
+        description: Id of the variant stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6129e1fc-786a-471b-9a2b-b9b033842697
+      requestBody:
+        description: The I-frame playlist to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IFramePlaylist'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/IFramePlaylist'
+                          - description: Iframe-Playlist details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/smooth:
+    post:
+      tags:
+      - Manifests
+      summary: Create Smooth Streaming Manifest
+      operationId: PostEncodingManifestsSmooth
+      description: A Custom Smooth Streaming Manifest gives you full control over its contents. Add Representations and Content Protections via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      requestBody:
+        description: The Custom Smooth Streaming Manifest to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmoothStreamingManifest'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/SmoothStreamingManifest'
+                          - description: Smooth Streaming manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/smooth/{manifest_id}/contentprotection:
+    post:
+      tags:
+      - Manifests
+      summary: Add Content Protection to Smooth Streaming
+      operationId: PostEncodingManifestsSmoothContentprotectionByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the Smooth Streaming manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The Content Protection to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmoothManifestContentProtection'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/SmoothManifestContentProtection'
+                          - description: Content protection
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/smooth/default:
+    post:
+      tags:
+      - Manifests
+      summary: Create Default Smooth Streaming Manifest
+      operationId: PostEncodingManifestsSmoothDefault
+      description: A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      requestBody:
+        description: The Default Smooth Streaming Manifest to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmoothManifestDefault'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/SmoothManifestDefault'
+                          - description: Smooth Streaming Manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/smooth/{manifest_id}/representations/mp4:
+    post:
+      tags:
+      - Manifests
+      summary: Add MP4 Representation to Smooth Streaming Manifest
+      operationId: PostEncodingManifestsSmoothRepresentationsMp4ByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the Smooth Streaming manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The MP4 Representation to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmoothStreamingRepresentation'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/SmoothStreamingRepresentation'
+                          - description: Smooth Streaming manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/smooth/{manifest_id}/start:
+    post:
+      tags:
+      - Manifests
+      summary: Start Smooth Streaming manifest generation
+      operationId: PostEncodingManifestsSmoothStartByManifestId
+      x-bitmovin:
+        isRpc: true
+        optionalRequestBody: true
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the Smooth Streaming Manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: Manifest Startup Options
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartManifestRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/manifests/smooth/{manifest_id}/stop:
+    post:
+      tags:
+      - Manifests
+      summary: Stop Smooth Streaming manifest generation
+      operationId: PostEncodingManifestsSmoothStopByManifestId
+      x-bitmovin:
+        isRpc: true
+        optionalRequestBody: true
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the Smooth Streaming Manifest.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Smooth Streaming Manifest
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+components:
+  schemas:
+    HlsManifestDefault:
+      title: HlsManifestDefault
+      required:
+      - encodingId
+      allOf:
+      - $ref: '#/components/schemas/HlsManifest'
+      - properties:
+          encodingId:
+            description: The id of the encoding to create a default manifest for
+            type: string
+            example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+          version:
+            description: Currently not in use
+            allOf:
+            - $ref: '#/components/schemas/HlsManifestDefaultVersion'
+    StreamInfo:
+      title: StreamInfo
+      required:
+      - closedCaptions
+      - segmentPath
+      - uri
+      - encodingId
+      - streamId
+      - muxingId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          audio:
+            type: string
+            description: It MUST match the value of the GROUP-ID attribute of an Audio EXT-X-MEDIA tag elsewhere in the Master Playlist. Either this or `audioGroups` must be set.
+            example: audio_group
+          audioGroups:
+            description: HLS Audio Group Configuration. You will want to use this configuration property in case you specify conditions on audio streams. The first matching audio group will be used for the specific variant stream. Either this or `audio` must be set.
+            allOf:
+            - $ref: '#/components/schemas/AudioGroupConfiguration'
+          video:
+            type: string
+            description: It MUST match the value of the GROUP-ID attribute of a Video EXT-X-MEDIA tag elsewhere in the Master Playlist
+            example: video_group
+          subtitles:
+            type: string
+            description: It MUST match the value of the GROUP-ID attribute of a Subtitles EXT-X-MEDIA tag elsewhere in the Master Playlist
+            example: subtitles_group
+          closedCaptions:
+            type: string
+            description: If the value is not 'NONE', it MUST match the value of the GROUP-ID attribute of a Closed Captions EXT-X-MEDIA tag elsewhere in the Playlist
+            example: NONE
+          encodingId:
+            type: string
+            description: Id of the encoding.
+            example: 041e18ee-245a-41cb-956d-de2285586b7b
+          streamId:
+            type: string
+            description: Id of the stream.
+            example: 034433c8-898f-4d4b-b792-76103e90ffa6
+          muxingId:
+            type: string
+            description: Id of the muxing.
+            example: b824ea90-d8e7-472f-b9f7-afa888bc7116
+          drmId:
+            type: string
+            description: Id of the DRM.
+            example: c65627cc-c920-4ccd-a414-46d31d48377e
+          segmentPath:
+            type: string
+            description: Path to segments.
+            example: path/to/segments
+          uri:
+            type: string
+            description: The URI of the playlist file.
+            example: playlist.m3u8
+          startSegmentNumber:
+            type: integer
+            format: int64
+            description: Number of the first segment. Default is 0.
+            example: 0
+          endSegmentNumber:
+            type: integer
+            format: int64
+            description: Number of the last segment. Default is the last one that was encoded.
+            example: 4603
+          forceFrameRateAttribute:
+            type: boolean
+            description: Force the addition of the frame rate attribute to all stream infos.
+            default: true
+          forceVideoRangeAttribute:
+            type: boolean
+            description: Force the addition of the video-range attribute to all stream infos.
+            default: false
+    ImageAdaptationSet:
+      title: ImageAdaptationSet
+      allOf:
+      - $ref: '#/components/schemas/AdaptationSet'
+    EncodingOutput:
+      title: EncodingOutput
+      required:
+      - outputId
+      - outputPath
+      properties:
+        outputId:
+          type: string
+          description: Id of the corresponding output
+          example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
+        outputPath:
+          type: string
+          description: Subdirectory where to save the files to
+          example: /encodings/movies/movie-1/video_720/
+        acl:
+          description: Determines accessibility of files written to this output. Only applies to output types that support ACLs. Defaults to PUBLIC_READ if the list is empty. The destination (e.g. cloud storage bucket) needs to allow the configured ACL
+          type: array
+          items:
+            $ref: '#/components/schemas/AclEntry'
+    HlsTargetDurationRoundingMode:
+      title: HlsTargetDurationRoundingMode
+      type: string
+      default: NORMAL_ROUNDING
+      enum:
+      - UPWARD_ROUNDING
+      - NORMAL_ROUNDING
+      x-enum-elements:
+      - name: UPWARD_ROUNDING
+        description: 'The target duration will be always rounded upwards.
+
+
+          For example: if the target duration is 4.2 this will be rounded to 5.
+
+          '
+      - name: NORMAL_ROUNDING
+        description: "The target duration will be normally rounded.\n\n For example: if the target duration is 4.2 this will be rounded to 4.\n"
+    SubtitlesMediaInfo:
+      title: SubtitlesMediaInfo
+      allOf:
+      - $ref: '#/components/schemas/StandardMediaInfo'
+      - properties:
+          forced:
+            type: boolean
+            description: A value of true indicates that the Rendition contains content which is considered essential to play.
+            example: false
+    UtcTiming:
+      title: UtcTiming
+      required:
+      - value
+      - schemeIdUri
+      properties:
+        value:
+          type: string
+          description: The server to get the time from
+          example: https://time.server.com/
+        schemeIdUri:
+          type: string
+          description: The scheme id to use. Please refer to the DASH standard.
+          example: urn:mpeg:dash:utc:http-iso:2014
+    SegmentsMediaInfo:
+      title: SegmentsMediaInfo
+      required:
+      - segmentPath
+      - encodingId
+      - streamId
+      - muxingId
+      allOf:
+      - $ref: '#/components/schemas/BasicMediaInfo'
+      - properties:
+          segmentPath:
+            type: string
+            description: Path to segments.
+            example: path/to/segments
+          encodingId:
+            type: string
+            description: Id of the encoding.
+            example: 4f4fd5df-4bbd-4e84-8065-194a1b408c3b
+          streamId:
+            type: string
+            description: Id of the stream.
+            example: 40139937-1cf5-4c3f-ace3-467fd2fd74ce
+          muxingId:
+            type: string
+            description: Id of the muxing.
+            example: 380cc8da-c315-4d08-b1d9-9a6830a55f62
+          drmId:
+            type: string
+            description: Id of the DRM.
+            example: 14225e77-0258-4eb6-af40-37488198c1ab
+          startSegmentNumber:
+            type: integer
+            format: int64
+            description: Number of the first segment. Default is 0.
+            example: 0
+          endSegmentNumber:
+            type: integer
+            format: int64
+            description: Number of the last segment. Default is the last one that was encoded.
+            example: 4603
+    DefaultManifestCondition:
+      title: DefaultManifestCondition
+    VariantStreamDroppingMode:
+      title: VariantStreamDroppingMode
+      type: string
+      description: Variant stream dropping mode.
+      enum:
+      - STREAM
+      - AUDIO
+    AdaptationSet:
+      title: AdaptationSet
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          customAttributes:
+            type: array
+            items:
+              $ref: '#/components/schemas/CustomAttribute'
+            description: Custom adaptation set attributes
+          roles:
+            type: array
+            items:
+              $ref: '#/components/schemas/AdaptationSetRole'
+            description: Roles of the adaptation set
+          accessibilities:
+            type: array
+            items:
+              $ref: '#/components/schemas/Accessibility'
+            description: Provide signaling of CEA 607 and CEA 708
+          labels:
+            type: array
+            items:
+              $ref: '#/components/schemas/Label'
+            description: List of labels
+    StartManifestRequest:
+      title: StartManifestRequest
+      properties:
+        manifestGenerator:
+          description: 'Major version of the manifest generator to be used. `V2` is the recommended option and requires the following minimum encoder versions:
+
+            2.121.0 for DASH, 2.111.0 for HLS, 2.108.0 for SMOOTH. The default value depends on the sign-up date of your organization. See [documentation](https://developer.bitmovin.com/encoding/docs/manifest-generator-v2) page for a detailed explanation.
+
+            '
+          allOf:
+          - $ref: '#/components/schemas/ManifestGenerator'
+    ChannelsAttributeForAudio:
+      title: ChannelsAttributeForAudio
+      type: string
+      default: LEGACY
+      enum:
+      - ALWAYS
+      - STANDARD_CONFORM
+      - LEGACY
+      example: LEGACY
+      x-enum-elements:
+      - name: ALWAYS
+        description: Always add CHANNELS attribute
+      - name: STANDARD_CONFORM
+        description: Add CHANNELS attribute according to the HLS specifications
+      - name: LEGACY
+        description: Legacy setting for the CHANNELS attribute
+    XmlNamespace:
+      title: XmlNamespace
+      required:
+      - prefix
+      - uri
+      properties:
+        prefix:
+          type: string
+          description: Name of the XML Namespace reference
+          example: mynamespace
+        uri:
+          type: string
+          description: Source of the XML Namespace reference
+          example: 'urn:mycompany:mynamespace:2018:xml+bin
+
+            '
+    AclEntry:
+      title: AclEntry
+      required:
+      - permission
+      properties:
+        scope:
+          description: 'Deprecation notice: The value of this property is not being used. It can be chosen arbitrarily or not set at all'
+          deprecated: true
+          type: string
+          example: public
+        permission:
+          description: ''
+          allOf:
+          - $ref: '#/components/schemas/AclPermission'
+    DashFmp4Representation:
+      title: DashFmp4Representation
+      allOf:
+      - $ref: '#/components/schemas/DashSegmentedRepresentation'
+    Manifest:
+      title: Manifest
+      required:
+      - outputs
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          type:
+            description: ''
+            allOf:
+            - $ref: '#/components/schemas/ManifestType'
+            readOnly: true
+          outputs:
+            type: array
+            items:
+              $ref: '#/components/schemas/EncodingOutput'
+            description: The outputs to store the manifest
+          status:
+            description: Current status
+            allOf:
+            - $ref: '#/components/schemas/Status'
+            readOnly: true
+    AdaptationSetRole:
+      title: AdaptationSetRole
+      type: string
+      enum:
+      - ALTERNATE
+      - CAPTION
+      - COMMENTARY
+      - DUB
+      - MAIN
+      - SUBTITLE
+      - SUPPLEMENTARY
+      example: MAIN
+      x-enum-elements:
+      - name: ALTERNATE
+        description: Media content component that is an alternative to a main media content component of the same media component type
+      - name: CAPTION
+        description: Caption
+      - name: COMMENTARY
+        description: Media content component with commentary (typically audio, e.g. director's commentary)
+      - name: DUB
+        description: Media content component which is presented in a different language from the original (e.g. dubbed audio, translated captions)
+      - name: MAIN
+        description: Main media component which is intended for presentation if no other information is provided
+      - name: SUBTITLE
+        description: Subtitle
+      - name: SUPPLEMENTARY
+        description: Media content component that is supplementary to a media content component of a different media component type
+    CustomTag:
+      title: CustomTag
+      required:
+      - positionMode
+      - data
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          positionMode:
+            description: The positioning mode that should be used when inserting the placement opportunity
+            allOf:
+            - $ref: '#/components/schemas/PositionMode'
+          keyframeId:
+            type: string
+            description: Id of keyframe where the custom tag should be inserted. Required, when KEYFRAME is selected as position mode.
+            example: 60be9634-1c91-4aa3-a697-9a76d0b6c1fb
+          time:
+            type: number
+            format: double
+            description: Time in seconds where the custom tag should be inserted. Required, when TIME is selected as position mode.
+            example: 5.5
+          segment:
+            type: integer
+            format: int64
+            description: The custom tag will be inserted before the specified segment. Required, when SEGMENT is selected as position mode.
+            example: 74656
+          data:
+            type: string
+            description: The data to be contained in the custom tag.
+            example: '#AD-PLACEMENT-OPPORTUNITY'
+    ManifestType:
+      title: ManifestType
+      type: string
+      enum:
+      - DASH
+      - HLS
+      - SMOOTH_STREAMING
+      example: DASH
+      x-enum-elements:
+      - name: DASH
+        description: MPEG-DASH manifest
+      - name: HLS
+        description: Apple HTTP Live Streaming manifest
+      - name: SMOOTH_STREAMING
+        description: Microsoft Smooth Streaming manifest
+    DefaultDashManifestPeriod:
+      title: DefaultDashManifestPeriod
+      allOf:
+      - properties:
+          encodingIds:
+            type: array
+            description: List the encoding ids for which the conditions should apply
+            items:
+              type: string
+              example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+          adaptationSets:
+            type: array
+            description: Adds an adaption set for every item to the period
+            items:
+              $ref: '#/components/schemas/DefaultManifestCondition'
+    SmoothManifestDefaultVersion:
+      title: SmoothManifestDefaultVersion
+      type: string
+      default: V1
+      enum:
+      - V1
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    Status:
+      title: Status
+      type: string
+      enum:
+      - CREATED
+      - QUEUED
+      - RUNNING
+      - FINISHED
+      - ERROR
+      - CANCELED
+      - TRANSFER_ERROR
+      example: RUNNING
+      x-enum-elements:
+      - name: CREATED
+        description: The process has been created, but not started yet
+      - name: QUEUED
+        description: The process has been enqueued for execution and will start as soon as resources are available
+      - name: RUNNING
+        description: The process is being executed
+      - name: FINISHED
+        description: The process was finished successfully. This is a final state
+      - name: ERROR
+        description: The process has stopped due to an error. This is a final state
+      - name: CANCELED
+        description: The process has been canceled by the user. This is a final state
+      - name: TRANSFER_ERROR
+        description: The process has finished successfully, but at least one transfer to a configured output failed. The transfer attempt can be retried.
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    DashProgressiveWebmRepresentation:
+      title: DashProgressiveWebmRepresentation
+      required:
+      - filePath
+      allOf:
+      - $ref: '#/components/schemas/DashMuxingRepresentation'
+      - properties:
+          filePath:
+            type: string
+            description: Path to the Progressive WebM file
+            example: path/to/progressive-webm
+    DashFmp4DrmRepresentation:
+      title: DashFmp4DrmRepresentation
+      required:
+      - drmId
+      allOf:
+      - $ref: '#/components/schemas/DashFmp4Representation'
+      - properties:
+          drmId:
+            type: string
+            description: DRM Id
+            example: 826949d5-0877-46cc-9daf-d75903682f27
+    SubtitleAdaptationSet:
+      title: SubtitleAdaptationSet
+      required:
+      - lang
+      allOf:
+      - $ref: '#/components/schemas/AdaptationSet'
+      - properties:
+          lang:
+            type: string
+            description: ISO 639-1 (Alpha-2) code identifying the language of the subtitle adaptation set
+            example: en
+    AclPermission:
+      title: AclPermission
+      type: string
+      enum:
+      - PUBLIC_READ
+      - PRIVATE
+    ContentProtection:
+      title: ContentProtection
+      required:
+      - drmId
+      allOf:
+      - $ref: '#/components/schemas/DashMuxingRepresentation'
+      - properties:
+          drmId:
+            type: string
+            description: DRM Id
+            example: 826949d5-0877-46cc-9daf-d75903682f27
+    SmoothStreamingManifest:
+      title: SmoothStreamingManifest
+      allOf:
+      - $ref: '#/components/schemas/Manifest'
+      - properties:
+          serverManifestName:
+            type: string
+            description: Filename of the server manifest
+            example: stream.ism
+          clientManifestName:
+            type: string
+            description: Filename of the client manifest
+            example: stream.ismc
+          createdAt:
+            type: string
+            format: date-time
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+            readOnly: true
+          modifiedAt:
+            type: string
+            format: date-time
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+            readOnly: true
+    DashImscRepresentation:
+      title: DashImscRepresentation
+      required:
+      - imscUrl
+      allOf:
+      - $ref: '#/components/schemas/DashRepresentation'
+      - properties:
+          imscUrl:
+            type: string
+            description: URL of the referenced IMSC file
+            example: https://yourhost.com/path/mysubtitles.xml
+    DashChunkedTextRepresentation:
+      title: DashChunkedTextRepresentation
+      allOf:
+      - $ref: '#/components/schemas/DashSegmentedRepresentation'
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    DashOnDemandRepresentationType:
+      title: DashOnDemandRepresentationType
+      type: string
+      enum:
+      - SEGMENT_BASE
+      - SEGMENT_LIST
+      example: SEGMENT_BASE
+      x-enum-elements:
+      - name: SEGMENT_BASE
+        description: Generates a SegmentBase representation
+      - name: SEGMENT_LIST
+        description: Generates a SegmentList representation
+    CustomXmlElement:
+      title: CustomXmlElement
+      required:
+      - data
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          data:
+            type: string
+            description: String representation of the XML element
+            example: '<Element attribute1="1234" attribute2="5678">some_text</Element>
+
+              '
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    DashVttRepresentation:
+      title: DashVttRepresentation
+      required:
+      - vttUrl
+      allOf:
+      - $ref: '#/components/schemas/DashRepresentation'
+      - properties:
+          vttUrl:
+            type: string
+            description: URL of the referenced VTT file
+            example: https://yourhost.com/path/mysubtitles.vtt
+    DashRepresentation:
+      title: DashRepresentation
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    SmoothStreamingRepresentation:
+      title: SmoothStreamingRepresentation
+      required:
+      - encodingId
+      - muxingId
+      - mediaFile
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          encodingId:
+            type: string
+            description: Id of the encoding
+            example: cb90b80c-8867-4e3b-8479-174aa2843f62
+          muxingId:
+            type: string
+            description: Id of the muxing.
+            example: eabce724-ff1c-41c7-b6e0-34b32e2e37b6
+          mediaFile:
+            type: string
+            description: The Smooth Streaming ismv or isma file that will be referenced in the manifest.
+            example: path/to/file.ismv
+          language:
+            type: string
+            description: Language of the MP4 file
+            example: en
+          trackName:
+            type: string
+            description: Track where this MP4 shoudl be added
+            example: track_en
+          priority:
+            type: integer
+            description: Specifies the priority of this representation. In the manifest, representations will appear ordered by descending priority values.
+            example: 50
+    DashMuxingRepresentation:
+      title: DashMuxingRepresentation
+      required:
+      - encodingId
+      - muxingId
+      allOf:
+      - $ref: '#/components/schemas/DashRepresentation'
+      - properties:
+          encodingId:
+            type: string
+            description: UUID of an encoding
+            example: 5002a2a2-9dd4-4ddf-904a-46f6eec23217
+          muxingId:
+            type: string
+            description: UUID of a muxing
+            example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
+          dependencyId:
+            type: string
+            description: Used to signal a dependency with another representation. The representation may belong to a different adaptation set
+            example: 64f873aa-9cbe-4816-a0dc-c853e5c04e05
+    Period:
+      title: Period
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          start:
+            type: number
+            format: double
+            description: Starting time in seconds
+            example: 266.5
+          duration:
+            type: number
+            format: double
+            description: 'Duration in seconds.<br/>Please note that the duration of a Period is usually determined by the media contained therein.<br/>Setting the `duration` property to a specific value will override this default behaviour.<br/>Warning: Use at your own risk!'
+            example: 10.25
+    HlsManifestDefaultVersion:
+      title: HlsManifestDefaultVersion
+      type: string
+      default: V1
+      enum:
+      - V1
+    DashEditionCompatibility:
+      title: DashEditionCompatibility
+      type: string
+      enum:
+      - V4
+      example: V4
+      x-enum-elements:
+      - name: V4
+        description: States the compatibility of the DASH manifest with the standard DASH Edition. When set to V4, the endNumber attribute will be automatically added to the last Media Segment in the Representation of the Period, in order to improve playback compatibility. If the property is not set the endNumber attribute tag will not be added.
+    ClosedCaptionsMediaInfo:
+      title: ClosedCaptionsMediaInfo
+      required:
+      - instreamId
+      allOf:
+      - $ref: '#/components/schemas/SegmentsMediaInfo'
+      - properties:
+          instreamId:
+            type: string
+            description: Specifies a Rendition within the segments in the Media Playlist. (See HLS spec 4.3.4.1. EXT-X-MEDIA INSTREAM-ID)
+            example: CC1
+          forced:
+            type: boolean
+            description: A value of true indicates that the Rendition contains content which is considered essential to play.
+            example: false
+    DashWebmRepresentation:
+      title: DashWebmRepresentation
+      allOf:
+      - $ref: '#/components/schemas/DashSegmentedRepresentation'
+    DashCmafRepresentation:
+      title: DashCmafRepresentation
+      allOf:
+      - $ref: '#/components/schemas/DashSegmentedRepresentation'
+    VideoAdaptationSet:
+      title: VideoAdaptationSet
+      allOf:
+      - $ref: '#/components/schemas/AdaptationSet'
+    IFramePlaylist:
+      title: IFramePlaylist
+      required:
+      - filename
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          filename:
+            type: string
+            description: The filename of your I-frame playlist
+            example: iframes.m3u8
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    StandardMediaInfo:
+      title: StandardMediaInfo
+      required:
+      - uri
+      allOf:
+      - $ref: '#/components/schemas/SegmentsMediaInfo'
+      - properties:
+          uri:
+            type: string
+            description: The URI of the Rendition
+            example: myrendition.m3u8
+    AudioMediaInfo:
+      title: AudioMediaInfo
+      allOf:
+      - $ref: '#/components/schemas/StandardMediaInfo'
+      - properties:
+          forced:
+            type: boolean
+            description: A value of true indicates that the Rendition contains content which is considered essential to play.
+            example: false
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
+    DashRepresentationTypeMode:
+      title: DashRepresentationTypeMode
+      type: string
+      enum:
+      - TEMPLATE_REPRESENTATION
+      - TEMPLATE_ADAPTATION_SET
+      example: TEMPLATE_REPRESENTATION
+      default: TEMPLATE_REPRESENTATION
+      x-enum-elements:
+      - name: TEMPLATE_REPRESENTATION
+        description: Generates representations containing segment templates.
+      - name: TEMPLATE_ADAPTATION_SET
+        description: Generates segment templates in the adaption sets. The representations will not contain any segment templates anymore.
+    PositionMode:
+      title: PositionMode
+      type: string
+      enum:
+      - KEYFRAME
+      - TIME
+      - SEGMENT
+      x-enum-elements:
+      - name: KEYFRAME
+        description: The custom tag will be inserted in the manifest at a certain keyframe id and segment cut. (https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/encodings/create-keyframes)
+      - name: TIME
+        description: The custom tag will be inserted before the segment that is closest to that time (in seconds).
+      - name: SEGMENT
+        description: The custom tag will be inserted before the specified segment number.
+    SmoothManifestDefault:
+      title: SmoothManifestDefault
+      required:
+      - encodingId
+      allOf:
+      - $ref: '#/components/schemas/SmoothStreamingManifest'
+      - properties:
+          encodingId:
+            description: The id of the encoding to create a default manifest for
+            type: string
+            example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+          version:
+            description: Currently not in use
+            allOf:
+            - $ref: '#/components/schemas/SmoothManifestDefaultVersion'
+    SpriteRepresentation:
+      title: SpriteRepresentation
+      required:
+      - encodingId
+      - streamId
+      - spriteId
+      - segmentPath
+      allOf:
+      - $ref: '#/components/schemas/DashRepresentation'
+      - properties:
+          encodingId:
+            type: string
+            description: UUID of an encoding
+            example: 5002a2a2-9dd4-4ddf-904a-46f6eec23217
+          streamId:
+            type: string
+            description: UUID of a stream
+            example: 5002a2a2-9dd4-4ddf-904a-46f6eec23217
+          spriteId:
+            type: string
+            description: UUID of a Sprite
+            example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
+          segmentPath:
+            type: string
+            description: Path to sprite segments. Will be used as the representation id in the manifest.
+            example: path/to/segments
+    DashManifestDefaultVersion:
+      title: DashManifestDefaultVersion
+      type: string
+      default: V1
+      enum:
+      - V1
+      - V2
+    VideoMediaInfo:
+      title: VideoMediaInfo
+      allOf:
+      - $ref: '#/components/schemas/StandardMediaInfo'
+    AudioGroupConfiguration:
+      title: AudioGroupConfiguration
+      required:
+      - droppingMode
+      - groups
+      properties:
+        droppingMode:
+          allOf:
+          - $ref: '#/components/schemas/VariantStreamDroppingMode'
+          description: Dropping mode
+          example: STREAM
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/AudioGroup'
+          description: Audio groups
+          example:
+          - name: audio1
+            priority: 50
+    AudioGroup:
+      title: AudioGroup
+      required:
+      - name
+      - priority
+      properties:
+        name:
+          type: string
+          description: Name of the audio group
+          example: audio1
+        priority:
+          type: integer
+          minimum: 0
+          maximum: 100
+          description: Priority of the audio group
+          example: 50
+    DashISO8601TimestampFormat:
+      title: DashISO8601TimestampFormat
+      type: string
+      enum:
+      - LONG
+      - SHORT
+      example: LONG
+      default: LONG
+      x-enum-elements:
+      - name: LONG
+        description: Format for generating timestamps in PXXYXXMXXDTXXHXXMX.XXXS
+      - name: SHORT
+        description: Format for generating timestamps in PTXXHXXMX.XXXS
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    ManifestGenerator:
+      title: ManifestGenerator
+      type: string
+      default: LEGACY
+      enum:
+      - LEGACY
+      - V2
+      x-enum-elements:
+      - name: LEGACY
+        description: Legacy manifest generator.
+      - name: V2
+        description: Improved manifest generator which covers all manifest features available in our API.
+    BitmovinResource:
+      title: BitmovinResource
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          name:
+            type: string
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    VttMediaInfo:
+      title: VttMediaInfo
+      required:
+      - vttUrl
+      - uri
+      allOf:
+      - $ref: '#/components/schemas/BasicMediaInfo'
+      - properties:
+          vttUrl:
+            type: string
+            description: The URL of the referenced VTT file
+            example: https://yourhost.com/path/mysubtitles.vtt
+          uri:
+            type: string
+            description: The URI of the Rendition
+            example: mysubtitles.m3u8
+          forced:
+            type: boolean
+            description: A value of true indicates that the Rendition contains content which is considered essential to play.
+            example: false
+    Accessibility:
+      title: Accessibility
+      required:
+      - value
+      - schemeIdUri
+      properties:
+        value:
+          type: string
+          description: Can be either list of languages or a complete map of services (or CC channels, in CEA-608 terminology)
+          example: CC1=eng
+        schemeIdUri:
+          type: string
+          description: The scheme id to use. Please refer to the DASH standard.
+          example: urn:scte:dash:cc:cea-608:2015
+    BasicMediaInfo:
+      title: BasicMediaInfo
+      required:
+      - groupId
+      - name
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          groupId:
+            type: string
+            description: The value is a quoted-string which specifies the group to which the Rendition belongs.
+            example: audio_group
+          language:
+            type: string
+            description: Primary language in the rendition.
+            example: en
+          assocLanguage:
+            type: string
+            description: Identifies a language that is associated with the Rendition.
+            example: de
+          name:
+            type: string
+            description: Human readable description of the rendition.
+            example: Rendition description
+          isDefault:
+            type: boolean
+            description: If set to true, the client SHOULD play this Rendition of the content in the absence of information from the user.
+            example: false
+          autoselect:
+            type: boolean
+            description: If set to true, the client MAY choose to play this Rendition in the absence of explicit user preference.
+            example: false
+          characteristics:
+            type: array
+            items:
+              type: string
+            description: Contains Uniform Type Identifiers
+            example:
+            - public.accessibility.describes-video
+    DashSegmentedRepresentation:
+      title: DashSegmentedRepresentation
+      required:
+      - type
+      - segmentPath
+      allOf:
+      - $ref: '#/components/schemas/DashMuxingRepresentation'
+      - properties:
+          type:
+            description: ''
+            allOf:
+            - $ref: '#/components/schemas/DashRepresentationType'
+          mode:
+            description: ''
+            allOf:
+            - $ref: '#/components/schemas/DashRepresentationTypeMode'
+          segmentPath:
+            type: string
+            description: Path to segments. Will be used as the representation id if the type is set to TEMPLATE_ADAPTATION_SET
+            example: path/to/segments
+          startSegmentNumber:
+            type: integer
+            format: int64
+            description: Number of the first segment
+            example: 0
+          endSegmentNumber:
+            type: integer
+            format: int64
+            description: Number of the last segment. Default is the last one that was encoded
+            example: 1701
+          startKeyframeId:
+            type: string
+            description: Id of the keyframe to start with. It takes precedence over startSegmentNumber
+            example: ea49cfbe-777e-4a4c-a485-a1578154ff49
+          endKeyframeId:
+            type: string
+            description: Id of the keyframe to end with. It takes precedence over endSegmentNumber. The segment containing the end keyframe is not included in the representation.
+            example: 2a49cfbe-777e-4a4c-a485-a1578154ff42
+    DashProfile:
+      title: DashProfile
+      type: string
+      enum:
+      - LIVE
+      - ON_DEMAND
+      example: ON_DEMAND
+      default: LIVE
+      x-enum-elements:
+      - name: LIVE
+        description: Profile that supports segmented representations/muxings (FMP4, CMAF, WEBM, CHUNKED_TEXT)
+      - name: ON_DEMAND
+        description: Profile that supports progressive representations/muxings (MP4, PROGRESSIVE_WEBM)
+    AudioAdaptationSet:
+      title: AudioAdaptationSet
+      required:
+      - lang
+      allOf:
+      - $ref: '#/components/schemas/AdaptationSet'
+      - properties:
+          lang:
+            type: string
+            description: ISO 639-1 (Alpha-2) code identifying the language of the audio adaptation set
+            example: en
+    HlsManifest:
+      title: HlsManifest
+      allOf:
+      - $ref: '#/components/schemas/Manifest'
+      - properties:
+          manifestName:
+            type: string
+            description: The filename of your manifest. If this is not set, the `name` is used as output file name. Either one of `name` or `manifestName` is required. Be aware that spaces will be replaced with underlines (`_`) on the output.
+            example: stream.m3u8
+          hlsMediaPlaylistVersion:
+            description: If this is set, the EXT-X-VERSION tags of the Media Playlists are set to the provided version
+            allOf:
+            - $ref: '#/components/schemas/HlsVersion'
+          hlsMasterPlaylistVersion:
+            description: If this is set, the EXT-X-VERSION tag of the Master Playlist is set to the provided version
+            allOf:
+            - $ref: '#/components/schemas/HlsVersion'
+          channelsAttributeForAudio:
+            description: Controls the behaviour of the CHANNELS attribute for the EXT-X-VERSION tag
+            allOf:
+            - $ref: '#/components/schemas/ChannelsAttributeForAudio'
+          targetDurationRoundingMode:
+            description: 'The rounding applied to target duration.
+
+              Two possible rouding modes exist: NORMAL_ROUNDING, when the target duration is rounded to the nearest integer,
+
+              or UPWARDS_ROUNDING, when the target duration is rounded to the highest integer.
+
+              '
+            allOf:
+            - $ref: '#/components/schemas/HlsTargetDurationRoundingMode'
+    DashManifest:
+      title: DashManifest
+      allOf:
+      - $ref: '#/components/schemas/Manifest'
+      - properties:
+          profile:
+            description: Determines if segmented or progressive representations can appear in the manifest
+            allOf:
+            - $ref: '#/components/schemas/DashProfile'
+          manifestName:
+            type: string
+            description: The filename of your manifest
+            example: stream.mpd
+          namespaces:
+            type: array
+            description: List of additional XML namespaces to add to the DASH Manifest
+            items:
+              $ref: '#/components/schemas/XmlNamespace'
+          utcTimings:
+            type: array
+            description: List of UTC Timings to use for live streaming
+            items:
+              $ref: '#/components/schemas/UtcTiming'
+          dashEditionCompatibility:
+            description: The manifest compatibility with the standard DASH Edition.
+            allOf:
+            - $ref: '#/components/schemas/DashEditionCompatibility'
+          iso8601TimestampFormat:
+            description: Determines how timestamps should appear in the manifest
+            allOf:
+            - $ref: '#/components/schemas/DashISO8601TimestampFormat'
+          minBufferTime:
+            type: number
+            format: double
+            description: 'The minimum buffer time in seconds that the client should maintain to ensure uninterrupted playback. Default is 2 seconds.
+
+              Note: For VOD ON_DEMAND dash manifests, the default value may differ from 2.0 seconds if not explicitly set.
+
+              '
+            default: 2
+            example: 2
+    DashManifestDefault:
+      title: DashManifestDefault
+      allOf:
+      - $ref: '#/components/schemas/DashManifest'
+      - properties:
+          encodingId:
+            description: The id of the encoding to create a default manifest for. Either "encodingId" or "periods" is required.
+            type: string
+            example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+          version:
+            description: Specifies the algorithm that determines which output of the given encoding is included into the manifest. Note that this is not related to the "manifestGenerator" version of the "Start" request.
+            allOf:
+            - $ref: '#/components/schemas/DashManifestDefaultVersion'
+          periods:
+            description: Adds a period for every item. Can only be used when setting "version" to "V2". Either "periods" or "encodingId" is required.
+            type: array
+            items:
+              $ref: '#/components/schemas/DefaultDashManifestPeriod'
+    HlsVersion:
+      title: HlsVersion
+      type: string
+      enum:
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      example: 7
+      x-enum-elements:
+      - name: HLS_V3
+        description: HLS version 3
+      - name: HLS_V4
+        description: HLS version 4
+      - name: HLS_V5
+        description: HLS version 5
+      - name: HLS_V6
+        description: HLS version 6
+      - name: HLS_V7
+        description: HLS version 7
+      - name: HLS_V8
+        description: HLS version 8
+    SmoothManifestContentProtection:
+      title: SmoothManifestContentProtection
+      required:
+      - encodingId
+      - muxingId
+      - drmId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          encodingId:
+            type: string
+            description: Id of the encoding.
+            example: cb90b80c-8867-4e3b-8479-174aa2843f62
+          muxingId:
+            type: string
+            description: Id of the muxing.
+            example: eabce724-ff1c-41c7-b6e0-34b32e2e37b6
+          drmId:
+            type: string
+            description: Id of the drm.
+            example: c8f7aeb8-35f6-49d7-afb9-4820d6f910f1
+    DashMp4DrmRepresentation:
+      title: DashMp4DrmRepresentation
+      required:
+      - drmId
+      allOf:
+      - $ref: '#/components/schemas/DashMp4Representation'
+      - properties:
+          drmId:
+            type: string
+            description: DRM Id
+            example: 826949d5-0877-46cc-9daf-d75903682f27
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+    Label:
+      title: Label
+      required:
+      - value
+      properties:
+        id:
+          type: integer
+          format: int64
+          minimum: 0
+          description: Identifier of the label.
+        lang:
+          type: string
+          description: Specifies the language of the label.
+        value:
+          type: string
+          description: Content of the label.
+    CustomAttribute:
+      title: CustomAttribute
+      required:
+      - key
+      properties:
+        key:
+          type: string
+          description: unique string identifier for the custom attribute
+          example: key name
+        value:
+          type: string
+          description: value of the custom attribute
+          example: value
+    DashRepresentationType:
+      title: DashRepresentationType
+      type: string
+      enum:
+      - TEMPLATE
+      - LIST
+      - TIMELINE
+      example: TEMPLATE
+      x-enum-elements:
+      - name: TEMPLATE
+        description: Generates a SegmentTemplate which will be positioned under the representation
+      - name: LIST
+        description: Generates a SegmentList based representation
+      - name: TIMELINE
+        description: Generates a SegmentTimeline based representation
+    DashMp4Representation:
+      title: DashMp4Representation
+      required:
+      - filePath
+      allOf:
+      - $ref: '#/components/schemas/DashMuxingRepresentation'
+      - properties:
+          filePath:
+            type: string
+            description: Path to the MP4 file
+            example: path/to/mp4
+          type:
+            type: string
+            description: The type of the dash representation
+            allOf:
+            - $ref: '#/components/schemas/DashOnDemandRepresentationType'
+            default: SEGMENT_BASE
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Your Bitmovin API key
+      name: X-Api-Key
+      in: header
+    TenantOrgId:
+      type: apiKey
+      description: Your Bitmovin account organization
+      name: X-Tenant-Org-Id
+      in: header

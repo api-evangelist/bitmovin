@@ -1,0 +1,1598 @@
+openapi: 3.0.1
+info:
+  title: Bitmovin Encoding Config Outputs API
+  description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
+  version: '3.0'
+  termsOfService: https://bitmovin.com
+  contact:
+    name: Bitmovin Inc
+    url: https://bitmovin.com
+    email: support@bitmovin.com
+servers:
+- url: https://api.bitmovin.com/v1
+  description: Bitmovin Server
+  variables: {}
+security:
+- ApiKeyAuth: []
+- ApiKeyAuth: []
+  TenantOrgId: []
+tags:
+- name: Outputs
+paths:
+  /encoding/outputs/akamai-msl/{output_id}:
+    delete:
+      tags:
+      - Outputs
+      summary: Delete Akamai MSL Output
+      operationId: DeleteEncodingOutputsAkamaiMslByOutputId
+      parameters:
+      - name: output_id
+        in: path
+        description: Id of the output
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 05edf91d-05f3-4ecd-998f-b28f75027b5e
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/akamai-netstorage/{output_id}:
+    delete:
+      tags:
+      - Outputs
+      summary: Delete Akamai NetStorage Output
+      operationId: DeleteEncodingOutputsAkamaiNetStorageByOutputId
+      parameters:
+      - name: output_id
+        in: path
+        description: Id of the output
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 05edf91d-05f3-4ecd-998f-b28f75027b5e
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AkamaiNetStorageOutput'
+                          - description: Id of the output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/azure/{output_id}:
+    delete:
+      tags:
+      - Outputs
+      summary: Delete Azure Output
+      operationId: DeleteEncodingOutputsAzureByOutputId
+      parameters:
+      - name: output_id
+        in: path
+        description: Id of the output
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AzureOutput'
+                          - description: Id of the output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/ftp/{output_id}:
+    delete:
+      tags:
+      - Outputs
+      summary: Delete FTP Output
+      operationId: DeleteEncodingOutputsFtpByOutputId
+      parameters:
+      - name: output_id
+        in: path
+        description: Id of the output
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/FtpOutput'
+                          - description: Id of the output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/gcs/{output_id}:
+    delete:
+      tags:
+      - Outputs
+      summary: Delete GCS Output
+      operationId: DeleteEncodingOutputsGcsByOutputId
+      parameters:
+      - name: output_id
+        in: path
+        description: Id of the output
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/GcsOutput'
+                          - description: Id of the output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/gcs-service-account/{output_id}:
+    delete:
+      tags:
+      - Outputs
+      summary: Delete Service Account based GCS Output
+      operationId: DeleteEncodingOutputsGcsServiceAccountByOutputId
+      parameters:
+      - name: output_id
+        in: path
+        description: Id of the output
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/GcsServiceAccountOutput'
+                          - description: Id of the output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/generic-s3/{output_id}:
+    delete:
+      tags:
+      - Outputs
+      summary: Delete Generic S3 Output
+      operationId: DeleteEncodingOutputsGenericS3ByOutputId
+      parameters:
+      - name: output_id
+        in: path
+        description: Id of the output
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 1a56e6d6-69e9-4e4d-a004-1f85a2b8cc92
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/GenericS3Output'
+                          - description: Id of the output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/akamai-msl:
+    post:
+      tags:
+      - Outputs
+      summary: Create Akamai MSL Output
+      operationId: PostEncodingOutputsAkamaiMsl
+      requestBody:
+        description: The Akamai MSL output to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AkamaiMslOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AkamaiMslOutput'
+                          - description: Akamai MSL output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/akamai-netstorage:
+    post:
+      tags:
+      - Outputs
+      summary: Create Akamai NetStorage Output
+      operationId: PostEncodingOutputsAkamaiNetStorage
+      requestBody:
+        description: The Akamai NetStorage output to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AkamaiNetStorageOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AkamaiNetStorageOutput'
+                          - description: Akamai NetStorage output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/azure:
+    post:
+      tags:
+      - Outputs
+      summary: Create Azure Output
+      operationId: PostEncodingOutputsAzure
+      requestBody:
+        description: The Azure output to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AzureOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AzureOutput'
+                          - description: Azure output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/{output_id}/check-permissions:
+    post:
+      tags:
+      - Outputs
+      summary: Check output permissions (S3 only)
+      operationId: PostEncodingOutputsCheckPermissionsByOutputId
+      x-bitmovin:
+        isRpc: true
+        operationName: checkPermissions
+        optionalRequestBody: true
+      parameters:
+      - name: output_id
+        in: path
+        description: Id of the output to be checked. Currently limited to S3 outputs. The access credentials that have been provided for this Output still need to be valid, otherwise the request will fail. If they are not valid any more, create a new Output with new credentials (resources are immutable).
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 4ae91f43-e78b-44c4-a9e3-890001c4bd07
+      requestBody:
+        description: Additional parameters for the permissions check
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckOutputPermissionsRequest'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/CheckOutputPermissionsResponse'
+                          - description: Permissions check result
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/ftp:
+    post:
+      tags:
+      - Outputs
+      summary: Create FTP Output
+      operationId: PostEncodingOutputsFtp
+      requestBody:
+        description: The FTP output to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FtpOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/FtpOutput'
+                          - description: FTP output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/gcs:
+    post:
+      tags:
+      - Outputs
+      summary: Create GCS Output
+      operationId: PostEncodingOutputsGcs
+      requestBody:
+        description: The GCS output to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GcsOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/GcsOutput'
+                          - description: GCS output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/gcs-service-account:
+    post:
+      tags:
+      - Outputs
+      summary: Create Service Account based GCS Output
+      operationId: PostEncodingOutputsGcsServiceAccount
+      requestBody:
+        description: The GCS output to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GcsServiceAccountOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/GcsServiceAccountOutput'
+                          - description: GCS output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/generic-s3:
+    post:
+      tags:
+      - Outputs
+      summary: Create Generic S3 Output
+      operationId: PostEncodingOutputsGenericS3
+      requestBody:
+        description: The Generic S3 output to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenericS3Output'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/GenericS3Output'
+                          - description: Generic S3 output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/live-media-ingest:
+    post:
+      tags:
+      - Outputs
+      summary: Create Live Media Ingest Output
+      operationId: PostEncodingOutputsLiveMediaIngest
+      requestBody:
+        description: The Live Media Ingest output to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LiveMediaIngestOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/LiveMediaIngestOutput'
+                          - description: Live Media Ingest output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/local:
+    post:
+      tags:
+      - Outputs
+      summary: Create Local Output
+      operationId: PostEncodingOutputsLocal
+      requestBody:
+        description: The Local output to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocalOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/LocalOutput'
+                          - description: Local output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/s3:
+    post:
+      tags:
+      - Outputs
+      summary: Create S3 Output
+      operationId: PostEncodingOutputsS3
+      requestBody:
+        description: "The S3 output to be created\n\nThe following permissions are required for S3 output:\n * s3:PutObject\n * s3:PutObjectAcl\n * s3:ListBucket\n * s3:GetBucketLocation\n"
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/S3Output'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/S3Output'
+                          - description: S3 output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/s3-role-based:
+    post:
+      tags:
+      - Outputs
+      summary: Create S3 Role-based Output
+      operationId: PostEncodingOutputsS3RoleBased
+      requestBody:
+        description: "The S3 Role-based output to be created\n\nThe following permissions are required for S3 Role-based output:\n * s3:PutObject\n * s3:PutObjectAcl\n * s3:ListBucket\n * s3:GetBucketLocation\n"
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/S3RoleBasedOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/S3RoleBasedOutput'
+                          - description: S3 Role-based Output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/outputs/sftp:
+    post:
+      tags:
+      - Outputs
+      summary: Create SFTP Output
+      operationId: PostEncodingOutputsSftp
+      requestBody:
+        description: The SFTP output to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SftpOutput'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/SftpOutput'
+                          - description: SFTP output
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+components:
+  schemas:
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    CheckOutputPermissionsResponse:
+      title: CheckOutputPermissionsResponse
+      allOf:
+      - properties:
+          outputId:
+            type: string
+            readOnly: true
+            description: Id of the output for which permissions were checked
+            example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
+          outputType:
+            description: The type of the output for which permissions were checked
+            readOnly: true
+            allOf:
+            - $ref: '#/components/schemas/OutputType'
+          path:
+            type: string
+            readOnly: true
+            description: The path on the storage for which permissions were checked. In AWS S3 terminology, this corresponds to a "prefix". An empty string corresponds to the root directory.
+            example: videos/
+          passed:
+            type: boolean
+            readOnly: true
+            description: Indicates if permissions on the storage are configured correctly to be used as output target by the Bitmovin encoder. If "false", *failureReason* will provide additional information.
+            example: 'false'
+          failureReason:
+            type: string
+            readOnly: true
+            description: Contains nothing if the check succeeded. Otherwise, contains a message explaining why it failed.
+            example: 'The following required permissions are not set: PutObject'
+    S3SignatureVersion:
+      title: S3SignatureVersion
+      type: string
+      enum:
+      - S3_V2
+      - S3_V4
+      default: S3_V4
+    AclPermission:
+      title: AclPermission
+      type: string
+      enum:
+      - PUBLIC_READ
+      - PRIVATE
+    OutputType:
+      title: OutputType
+      type: string
+      enum:
+      - AKAMAI_NETSTORAGE
+      - AZURE
+      - GENERIC_S3
+      - GCS
+      - FTP
+      - LOCAL
+      - S3
+      - S3_ROLE_BASED
+      - SFTP
+      - AKAMAI_MSL
+      - LIVE_MEDIA_INGEST
+      - GCS_SERVICE_ACCOUNT
+      - CDN
+      x-enum-elements:
+      - name: AKAMAI_NETSTORAGE
+      - name: AZURE
+      - name: GENERIC_S3
+      - name: GCS
+      - name: FTP
+      - name: LOCAL
+      - name: S3
+      - name: S3_ROLE_BASED
+      - name: SFTP
+      - name: AKAMAI_MSL
+      - name: LIVE_MEDIA_INGEST
+      - name: GCS_SERVICE_ACCOUNT
+      - name: CDN
+    AkamaiMslStreamFormat:
+      title: AkamaiMslStreamFormat
+      type: string
+      enum:
+      - DASH
+      - HLS
+      - CMAF
+      default: DASH
+    AzureServicePrincipal:
+      title: AzureServicePrincipal
+      type: object
+      description: Azure service principal credentials for Microsoft Entra ID authentication. This authentication method is usable from encoder version 2.273.0 onwards.
+      required:
+      - tenantId
+      - clientId
+      oneOf:
+      - title: Authenticate with Client Secret
+        required:
+        - clientSecret
+      - title: Authenticate with Client Certificate
+        required:
+        - clientCertificate
+      allOf:
+      - properties:
+          tenantId:
+            type: string
+            description: Tenant ID (Directory ID) of the Azure service principal
+            writeOnly: true
+          clientId:
+            type: string
+            description: Client ID of the Azure service principal
+            writeOnly: true
+          clientSecret:
+            type: string
+            description: Client secret of the Azure service principal
+            writeOnly: true
+          clientCertificate:
+            type: string
+            description: PEM-encoded client certificate and private key of the Azure service principal. Newline symbols must be preserved.
+            example: '-----BEGIN PRIVATE KEY----- MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAMn/1SpomwntO ... (truncated) ... Qu6eQUtTE/RCuArarGuOtE0= -----END PRIVATE KEY----- -----BEGIN CERTIFICATE----- MIIDDTCCAfWgAwIBAgIUX5jXOu6RNVC5MAfi9L/PiIhADMQwDQYJKoZIhvcNAQEL ... (truncated) ... 28mdG3XdDAQfClkhhArMktQ= -----END CERTIFICATE-----
+
+              '
+            writeOnly: true
+    GcsOutput:
+      title: GcsOutput
+      required:
+      - bucketName
+      - accessKey
+      - secretKey
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          accessKey:
+            type: string
+            description: GCS access key
+            example: GOOGTS7C7FUP3AIRVJTE
+            writeOnly: true
+          secretKey:
+            type: string
+            description: GCS secret key
+            example: bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ
+            writeOnly: true
+          bucketName:
+            type: string
+            description: Name of the bucket
+            example: video-bucket
+          cloudRegion:
+            description: The cloud region in which the bucket is located. Is used to determine the ideal location for your encodings automatically.
+            allOf:
+            - $ref: '#/components/schemas/GoogleCloudRegion'
+    AzureOutput:
+      title: AzureOutput
+      required:
+      - container
+      - accountName
+      oneOf:
+      - title: Authenticate with Entra ID Service Principal
+        required:
+        - servicePrincipal
+      - title: Authenticate with Account Key
+        required:
+        - accountKey
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          accountName:
+            type: string
+            description: Azure Account Name
+            example: devstoreaccount1
+            writeOnly: true
+          accountKey:
+            type: string
+            description: Azure Account Key
+            example: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+            writeOnly: true
+            deprecated: true
+          servicePrincipal:
+            allOf:
+            - $ref: '#/components/schemas/AzureServicePrincipal'
+          container:
+            type: string
+            description: Name of the bucket
+            example: video-container
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    S3StorageClass:
+      title: S3StorageClass
+      type: string
+      enum:
+      - GLACIER_IR
+      - INTELLIGENT_TIERING
+      - ONEZONE_IA
+      - REDUCED_REDUNDANCY
+      - STANDARD
+      - STANDARD_IA
+      default: STANDARD
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    ExternalIdMode:
+      title: ExternalIdMode
+      type: string
+      enum:
+      - CUSTOM
+      - GLOBAL
+      - GENERATED
+      default: CUSTOM
+      x-enum-elements:
+      - name: CUSTOM
+        description: ExternalId can be provided by using the the `externalId` property. This way is not recommend by AWS (https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
+      - name: GLOBAL
+        description: The response will include an externalId that's unique and consistent for your organization
+      - name: GENERATED
+        description: The response will include a random externalId.
+    GcsServiceAccountOutput:
+      title: GcsServiceAccountOutput
+      required:
+      - bucketName
+      - serviceAccountCredentials
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          serviceAccountCredentials:
+            type: string
+            description: GCS projectId
+            example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\",\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"-----BEGIN PRIVATE KEY-----\\nOwdXyjRT9F4A==\\n-----END PRIVATE KEY-----\\n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\",\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\"\n}\n"
+            writeOnly: true
+          bucketName:
+            type: string
+            description: Name of the bucket
+            example: video-bucket
+          cloudRegion:
+            description: The cloud region in which the bucket is located. Is used to determine the ideal location for your encodings automatically.
+            allOf:
+            - $ref: '#/components/schemas/GoogleCloudRegion'
+    AwsCloudRegion:
+      title: AwsCloudRegion
+      type: string
+      enum:
+      - US_EAST_1
+      - US_EAST_2
+      - US_WEST_1
+      - US_WEST_2
+      - EU_WEST_1
+      - EU_CENTRAL_1
+      - AP_SOUTHEAST_1
+      - AP_SOUTHEAST_2
+      - AP_NORTHEAST_1
+      - AP_NORTHEAST_2
+      - AP_SOUTH_1
+      - SA_EAST_1
+      - EU_WEST_2
+      - EU_WEST_3
+      - CA_CENTRAL_1
+      - EU_NORTH_1
+      x-enum-elements:
+      - name: US_EAST_1
+        description: US East (N. Virginia)
+      - name: US_EAST_2
+        description: US East (Ohio)
+      - name: US_WEST_1
+        description: US West (N. California)
+      - name: US_WEST_2
+        description: US West (Oregon)
+      - name: EU_WEST_1
+        description: Europe (Ireland)
+      - name: EU_CENTRAL_1
+        description: Europe (Frankfurt)
+      - name: AP_SOUTHEAST_1
+        description: Asia Pacific (Singapore)
+      - name: AP_SOUTHEAST_2
+        description: Asia Pacific (Sydney)
+      - name: AP_NORTHEAST_1
+        description: Asia Pacific (Tokyo)
+      - name: AP_NORTHEAST_2
+        description: Asia Pacific (Seoul)
+      - name: AP_SOUTH_1
+        description: Asia Pacific (Mumbai)
+      - name: SA_EAST_1
+        description: South America (São Paulo)
+      - name: EU_WEST_2
+        description: Europe (London)
+      - name: EU_WEST_3
+        description: Europe (Paris)
+      - name: CA_CENTRAL_1
+        description: Canada (Central)
+      - name: EU_NORTH_1
+        description: Europe (Stockholm)
+    TransferVersion:
+      title: TransferVersion
+      type: string
+      enum:
+      - DEFAULT
+      - POOL
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+    AkamaiMslVersion:
+      title: AkamaiMslVersion
+      type: string
+      enum:
+      - MSL4
+      default: MSL4
+    Output:
+      title: Output
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          acl:
+            deprecated: true
+            description: 'Deprecation notice: This property does not have any effect and will not be returned by GET endpoints'
+            type: array
+            items:
+              $ref: '#/components/schemas/AclEntry'
+    CheckOutputPermissionsRequest:
+      title: CheckOutputPermissionsRequest
+      allOf:
+      - properties:
+          path:
+            type: string
+            description: The path on the storage for which permissions should be checked. In AWS S3 terminology, this corresponds to a "prefix". To perform the check, an empty test file (WritePermissionTestFile.txt) will be created in this location. Defaults to an empty string, which corresponds to the root directory.
+            default: ''
+            example: videos/
+    AclEntry:
+      title: AclEntry
+      required:
+      - permission
+      properties:
+        scope:
+          description: 'Deprecation notice: The value of this property is not being used. It can be chosen arbitrarily or not set at all'
+          deprecated: true
+          type: string
+          example: public
+        permission:
+          description: ''
+          allOf:
+          - $ref: '#/components/schemas/AclPermission'
+    AkamaiNetStorageOutput:
+      title: AkamaiNetStorageOutput
+      required:
+      - host
+      - username
+      - password
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          host:
+            type: string
+            description: Host to use for Akamai NetStorage transfers
+            example: youraccount.akamaihd.net
+          username:
+            type: string
+            description: Your Akamai NetStorage Username
+            example: encodingInputUser
+            writeOnly: true
+          password:
+            type: string
+            description: Your Akamai NetStorage password
+            example: myUncrackablePassword
+            writeOnly: true
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    FtpOutput:
+      title: FtpOutput
+      required:
+      - host
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          host:
+            type: string
+            description: Host URL or IP of the FTP server
+            example: bitmovin.com
+          port:
+            type: integer
+            description: 'Port to use, standard for FTP: 21'
+            example: 21
+          passive:
+            type: boolean
+            description: Use passive mode. Default is true.
+            example: true
+          username:
+            type: string
+            description: Your FTP Username
+            example: encodingInputUser
+            writeOnly: true
+          password:
+            type: string
+            description: Your FTP password
+            example: 3nc0d3d!
+            writeOnly: true
+          transferVersion:
+            description: Controls which transfer version should be used
+            allOf:
+            - $ref: '#/components/schemas/TransferVersion'
+          maxConcurrentConnections:
+            type: integer
+            description: Restrict maximum concurrent connections. Requires at least version 1.1.0.
+            example: 20
+    GoogleCloudRegion:
+      title: GoogleCloudRegion
+      type: string
+      enum:
+      - US_CENTRAL_1
+      - US_EAST_1
+      - ASIA_EAST_1
+      - EUROPE_WEST_1
+      - US_WEST_1
+      - ASIA_EAST_2
+      - ASIA_NORTHEAST_1
+      - ASIA_SOUTH_1
+      - ASIA_SOUTHEAST_1
+      - AUSTRALIA_SOUTHEAST_1
+      - EUROPE_NORTH_1
+      - EUROPE_WEST_2
+      - EUROPE_WEST_3
+      - EUROPE_WEST_4
+      - NORTHAMERICA_NORTHEAST_1
+      - SOUTHAMERICA_EAST_1
+      - US_EAST_4
+      - US_WEST_2
+      - ME_CENTRAL_2
+      x-enum-elements:
+      - name: US_CENTRAL_1
+        description: Council Bluffs, Iowa, USA
+      - name: US_EAST_1
+        description: Moncks Corner, South Carolina, USA
+      - name: ASIA_EAST_1
+        description: Changhua County, Taiwan
+      - name: EUROPE_WEST_1
+        description: St. Ghislain, Belgium
+      - name: US_WEST_1
+        description: The Dalles, Oregon, USA
+      - name: ASIA_EAST_2
+        description: Hong Kong
+      - name: ASIA_NORTHEAST_1
+        description: Tokyo, Japan
+      - name: ASIA_SOUTH_1
+        description: Mumbai, India
+      - name: ASIA_SOUTHEAST_1
+        description: Jurong West, Singapore
+      - name: AUSTRALIA_SOUTHEAST_1
+        description: Sydney, Australia
+      - name: EUROPE_NORTH_1
+        description: Hamina, Finland
+      - name: EUROPE_WEST_2
+        description: London, England, UK
+      - name: EUROPE_WEST_3
+        description: Frankfurt, Germany
+      - name: EUROPE_WEST_4
+        description: Eemshaven, Netherlands
+      - name: NORTHAMERICA_NORTHEAST_1
+        description: Montréal, Québec, Canada
+      - name: SOUTHAMERICA_EAST_1
+        description: São Paulo, Brazil
+      - name: US_EAST_4
+        description: Ashburn, Northern Virginia, USA
+      - name: US_WEST_2
+        description: Los Angeles, California, USA
+      - name: ME_CENTRAL_2
+        description: Dammam, Saudi Arabia
+    S3RoleBasedOutput:
+      title: S3RoleBasedOutput
+      required:
+      - bucketName
+      - roleArn
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          bucketName:
+            type: string
+            description: Amazon S3 bucket name
+            example: myS3Bucket
+          roleArn:
+            type: string
+            description: "Amazon ARN of the IAM Role (Identity and Access Management Role) that will be assumed for S3 access.\n\nThis role has to be created by the owner of the account with the S3 bucket (i.e., you as a customer). For Bitmovin to be able to assume this role, the following has to be added\nto the trust policy of the role:\n\n```\n{\n  \"Effect\": \"Allow\",\n  \"Principal\": {\n    \"AWS\": \"arn:aws:iam::630681592166:user/bitmovinCustomerS3Access\"\n  },\n  \"Action\": \"sts:AssumeRole\",\n  \"Condition\": {\n    \"StringEquals\": {\n      \"sts:ExternalId\": \"{{externalId}}\"\n    }\n  }\n}\n```\n\nwhere \"arn:aws:iam::630681592166:user/bitmovinCustomerS3Access\" is the Bitmovin user used for the access.\nThe `Condition` is optional but we highly recommend it, see property `externalId` below for more information.\n\nThis setup allows Bitmovin assume the provided IAM role and to write data to your S3 bucket. Please note that the IAM role has to have write access to S3.\n\nFor more information about role creation please visit https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console\n"
+            example: arn:aws:iam::123456789012:role/OurS3AccessRole
+            writeOnly: true
+          externalId:
+            type: string
+            description: "External ID used together with the IAM role identified by `roleArn` to assume S3 access.\n\nThis ID is provided by the API if `externalIdMode` is set to `GLOBAL` or `GENERATED`. If present, it has to be added to the trust policy of the IAM role `roleArn` configured above, otherwise the API won't be able to write to the S3 bucket. An appropriate trust policy would look like this:\n\n```\n{\n  \"Effect\": \"Allow\",\n  \"Principal\": {\n    \"AWS\": \"arn:aws:iam::630681592166:user/bitmovinCustomerS3Access\"\n  },\n  \"Action\": \"sts:AssumeRole\",\n  \"Condition\": {\n    \"StringEquals\": {\n      \"sts:ExternalId\": \"{{externalId}}\"\n    }\n  }\n}\n```\n\nwhere \"{{externalId}}\" is the generated ID.\n\nThis property is optional but we recommend it as an additional security feature. We will use both the `roleArn` and the `externalId` to access your S3 data.\nIf the Amazon IAM role has an external ID configured but it is not provided in the output configuration Bitmovin won't be able to write to the S3 bucket. Also if the\nexternal ID does not match the one configured for the IAM role on AWS side, Bitmovin won't be able to access the S3 bucket.\n\nIf you need to change the external ID that is used by your IAM role, you need to create a new output, and use the external ID provided by the API to update your IAM role.\n\nFor more information please visit https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html\n"
+            example: fe8e171b-1953-452c-a3b5-b098c534d71c
+          externalIdMode:
+            allOf:
+            - $ref: '#/components/schemas/ExternalIdMode'
+          md5MetaTag:
+            type: string
+            description: If set a user defined tag (x-amz-meta-) with that key will be used to store the MD5 hash of the file.
+            example: my-md5-checksum-tag
+          cloudRegion:
+            allOf:
+            - $ref: '#/components/schemas/AwsCloudRegion'
+          signatureVersion:
+            allOf:
+            - $ref: '#/components/schemas/S3SignatureVersion'
+            description: Specifies the method used for authentication
+            example: S3_V4
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    GenericS3Output:
+      title: GenericS3Output
+      required:
+      - accessKey
+      - secretKey
+      - bucketName
+      - host
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          accessKey:
+            type: string
+            description: Your generic S3 access key
+            example: AKIAIOSFODNN7EXAMPLE
+            writeOnly: true
+          secretKey:
+            type: string
+            description: Your generic S3 secret key
+            example: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+            writeOnly: true
+          bucketName:
+            type: string
+            description: Name of the bucket
+            example: video-bucket
+          host:
+            type: string
+            description: The Generic S3 server hostname (or IP address)
+            example: s3.yourdomain.example
+          port:
+            type: integer
+            description: The port on which the Generic S3 server is running on (if not provided 8000 will be used)
+            example: 50123
+          ssl:
+            type: boolean
+            description: Controls whether SSL is used or not
+            example: false
+          signingRegion:
+            type: string
+            description: The signing region to use
+            example: eu-west-1
+          signatureVersion:
+            allOf:
+            - $ref: '#/components/schemas/S3SignatureVersion'
+            description: Specifies the method used for authentication
+            example: S3_V4
+          accessStyle:
+            allOf:
+            - $ref: '#/components/schemas/S3AccessStyle'
+            description: Specifies the URL access style to use
+            example: VIRTUAL_HOSTED
+    SftpOutput:
+      title: SftpOutput
+      required:
+      - host
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          host:
+            type: string
+            description: Host Url or IP of the SFTP server
+            example: bitmovin.com
+          port:
+            type: integer
+            description: 'Port to use, standard for SFTP: 22'
+            example: 22
+          passive:
+            type: boolean
+            description: Use passive mode. Default is true.
+            example: true
+          username:
+            type: string
+            description: Your SFTP Username
+            example: encodingInputUser
+            writeOnly: true
+          password:
+            type: string
+            description: Your SFTP password
+            example: 3nc0d3d!
+            writeOnly: true
+          transferVersion:
+            description: Controls which transfer version should be used
+            allOf:
+            - $ref: '#/components/schemas/TransferVersion'
+          maxConcurrentConnections:
+            type: integer
+            description: Restrict maximum concurrent connections. Requires at least version 1.1.0.
+            example: 20
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    AkamaiMslOutput:
+      title: AkamaiMslOutput
+      required:
+      - streamId
+      - eventName
+      - streamFormat
+      - mslVersion
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          streamId:
+            type: integer
+            description: The Akamai stream ID
+            example: 3124
+          eventName:
+            type: string
+            description: The Akamai event name
+            example: myEvent
+          streamFormat:
+            description: '- DASH: configure the Encoding with fMP4 or CMAF muxings and a DASH manifest.
+
+              - HLS: configure the Encoding with TS muxings and an HLS manifest.
+
+              - CMAF: configure the Encoding with fMP4 or CMAF muxings with both DASH and HLS manifests.
+
+              '
+            example: DASH
+            allOf:
+            - $ref: '#/components/schemas/AkamaiMslStreamFormat'
+          mslVersion:
+            description: The Akamai MSL Version. Only MSL4 is supported at the moment.
+            example: MSL4
+            allOf:
+            - $ref: '#/components/schemas/AkamaiMslVersion'
+    S3AccessStyle:
+      title: S3AccessStyle
+      description: Specifies whether to use path or virtual-hosted style access
+      type: string
+      enum:
+      - VIRTUAL_HOSTED
+      - PATH
+      x-enum-elements:
+      - name: VIRTUAL_HOSTED
+        description: 'virtual-hosted style (example: bucket-name.s3.example.com)'
+      - name: PATH
+        description: 'path style (example: s3.example.com/bucket-name)'
+    LocalOutput:
+      title: LocalOutput
+      required:
+      - path
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          path:
+            type: string
+            description: Path to your local storage
+            example: /mnt/my_local_storage/
+    S3Output:
+      title: S3Output
+      required:
+      - accessKey
+      - secretKey
+      - bucketName
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          bucketName:
+            type: string
+            description: Amazon S3 bucket name
+            example: myS3Bucket
+          accessKey:
+            type: string
+            description: Amazon S3 access key
+            example: AKIAIOSFODNN7EXAMPLE
+            writeOnly: true
+          secretKey:
+            type: string
+            description: Amazon S3 secret key
+            example: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+            writeOnly: true
+          md5MetaTag:
+            type: string
+            description: If set a user defined tag (x-amz-meta-) with that key will be used to store the MD5 hash of the file.
+            example: my-md5-checksum-tag
+          cloudRegion:
+            description: The cloud region in which the bucket is located. Is used to determine the ideal location for your encodings automatically.
+            allOf:
+            - $ref: '#/components/schemas/AwsCloudRegion'
+          signatureVersion:
+            description: Specifies the method used for authentication. Must be set to S3_V2 if the region supports both V2 and V4, but the bucket allows V2 only (see https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+            allOf:
+            - $ref: '#/components/schemas/S3SignatureVersion'
+          storageClass:
+            description: Specifies the storage class used for the bucket. This depends on the requirements of workloads, like performance, data access, resiliency, and cost.
+            allOf:
+            - $ref: '#/components/schemas/S3StorageClass'
+    BitmovinResource:
+      title: BitmovinResource
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          name:
+            type: string
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    LiveMediaIngestOutput:
+      title: LiveMediaIngestOutput
+      description: Live Media and Metadata Ingest Protocol. See https://tools.ietf.org/html/draft-mekuria-mmediaingest-01.
+      required:
+      - publishingPoint
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          publishingPoint:
+            type: string
+            description: URL specifying the publishing point for the output. Can use either http or https.
+            example: https://live.host.com/some/path/publishingpoint.isml
+          scte35Passthrough:
+            type: boolean
+            description: Enable passthrough of SCTE-35 messages from input to output. Default is false.
+            example: false
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Your Bitmovin API key
+      name: X-Api-Key
+      in: header
+    TenantOrgId:
+      type: apiKey
+      description: Your Bitmovin account organization
+      name: X-Tenant-Org-Id
+      in: header

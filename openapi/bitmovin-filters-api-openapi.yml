@@ -1,0 +1,769 @@
+openapi: 3.0.1
+info:
+  title: Bitmovin Encoding Config Filters API
+  description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
+  version: '3.0'
+  termsOfService: https://bitmovin.com
+  contact:
+    name: Bitmovin Inc
+    url: https://bitmovin.com
+    email: support@bitmovin.com
+servers:
+- url: https://api.bitmovin.com/v1
+  description: Bitmovin Server
+  variables: {}
+security:
+- ApiKeyAuth: []
+- ApiKeyAuth: []
+  TenantOrgId: []
+tags:
+- name: Filters
+paths:
+  /encoding/filters/audio-mix/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Audio Mix Filter
+      operationId: DeleteEncodingFiltersAudioMixMixByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Audio Mix Filter.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: dddd9f25-1cf5-4bb0-b465-69055e9569f9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Audio Mix Filter
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/audio-volume/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Audio Volume Filter
+      operationId: DeleteEncodingFiltersAudioVolumeVolumeByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Audio Volume Filter.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Audio volume.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/azure-speech-to-captions/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Azure Speech to captions Filter
+      operationId: DeleteEncodingFiltersAzureSpeechToCaptionsByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Azure Speech to captions Filter.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Azure Speech to captions filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/conform/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Conform Filter
+      operationId: DeleteEncodingFiltersConformByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the conform filter
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Conform Filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/crop/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Crop Filter
+      operationId: DeleteEncodingFiltersCropByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Crop Filter.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/deinterlace/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Deinterlace Filter
+      operationId: DeleteEncodingFiltersDeinterlaceByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Deinterlace Filter
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Deinterlace Filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/denoise-hqdn3d/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Denoise hqdn3d Filter
+      operationId: DeleteEncodingFiltersDenoiseHqdn3dHqdn3dByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the denoise hqdn3d filter
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the denoise hqdn3d filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/ebu-r128-single-pass/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete EBU R128 Single Pass Filter
+      operationId: DeleteEncodingFiltersEbuR128SinglePassByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the EBU R128 Single Pass filter.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the EBU R128 Single Pass filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/enhanced-deinterlace/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Enhanced Deinterlace Filter
+      operationId: DeleteEncodingFiltersEnhancedDeinterlaceByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Enhanced Deinterlace Filter
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Enhanced Deinterlace Filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/enhanced-watermark/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Enhanced Watermark Filter
+      operationId: DeleteEncodingFiltersEnhancedWatermarkWatermarkByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the enhanced Watermark Filter.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Enhanced Watermark Filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/interlace/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Interlace Filter
+      operationId: DeleteEncodingFiltersInterlaceByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Interlace Filter
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Interlace Filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/rotate/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Rotate Filter
+      operationId: DeleteEncodingFiltersRotateByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Rotate Filter.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Rotate Filter
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/scale/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Scale Filter
+      operationId: DeleteEncodingFiltersScaleByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the scale filter
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Scale Filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/text/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Text Filter
+      operationId: DeleteEncodingFiltersTextByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Text Filter
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Text Filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/unsharp/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Unsharp Filter
+      operationId: DeleteEncodingFiltersUnsharpByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the unsharp filter
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the unsharp filter.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/filters/watermark/{filter_id}:
+    delete:
+      tags:
+      - Filters
+      summary: Delete Watermark Filter
+      operationId: DeleteEncodingFiltersWatermarkByFilterId
+      parameters:
+      - name: filter_id
+        in: path
+        description: Id of the Watermark Filter.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Watermark Filter
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+components:
+  schemas:
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Your Bitmovin API key
+      name: X-Api-Key
+      in: header
+    TenantOrgId:
+      type: apiKey
+      description: Your Bitmovin account organization
+      name: X-Tenant-Org-Id
+      in: header

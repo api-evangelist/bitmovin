@@ -1,0 +1,1244 @@
+openapi: 3.0.1
+info:
+  title: Bitmovin Encoding Config Infrastructure API
+  description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
+  version: '3.0'
+  termsOfService: https://bitmovin.com
+  contact:
+    name: Bitmovin Inc
+    url: https://bitmovin.com
+    email: support@bitmovin.com
+servers:
+- url: https://api.bitmovin.com/v1
+  description: Bitmovin Server
+  variables: {}
+security:
+- ApiKeyAuth: []
+- ApiKeyAuth: []
+  TenantOrgId: []
+tags:
+- name: Infrastructure
+paths:
+  /encoding/infrastructure/akamai/{infrastructure_id}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete Akamai account
+      operationId: DeleteEncodingInfrastructureAkamaiByInfrastructureId
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the Akamai account
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AkamaiAccount'
+                          - description: Akamai account
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/akamai/{infrastructure_id}/regions/{region}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete Akamai account region settings
+      operationId: DeleteEncodingInfrastructureAkamaiRegionsByInfrastructureIdAndRegion
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the Akamai account
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      - name: region
+        in: path
+        description: Akamai region
+        style: simple
+        required: true
+        schema:
+          $ref: '#/components/schemas/AkamaiCloudRegion'
+          example: FR_PAR
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AkamaiAccountRegionSettings'
+                          - description: Akamai account region settings
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/aws/{infrastructure_id}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete AWS Account
+      operationId: DeleteEncodingInfrastructureAwsByInfrastructureId
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the AWS account
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AwsAccount'
+                          - description: AWS account
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/aws/{infrastructure_id}/regions/{region}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete AWS Region Settings
+      operationId: DeleteEncodingInfrastructureAwsRegionsByInfrastructureIdAndRegion
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the AWS account
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      - name: region
+        in: path
+        description: AWS region.
+        style: simple
+        required: true
+        schema:
+          $ref: '#/components/schemas/AwsCloudRegion'
+          example: EU_WEST_1
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AwsAccountRegionSettings'
+                          - description: Region settings for specified region
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/azure/{infrastructure_id}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete Azure Account
+      operationId: DeleteEncodingInfrastructureAzureByInfrastructureId
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the Azure account
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AzureAccount'
+                          - description: Azure account
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/azure/{infrastructure_id}/regions/{region}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete Azure Region Settings
+      operationId: DeleteEncodingInfrastructureAzureRegionsByInfrastructureIdAndRegion
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the Azure account
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      - name: region
+        in: path
+        description: Azure region.
+        style: simple
+        required: true
+        schema:
+          $ref: '#/components/schemas/AzureCloudRegion'
+          example: EU_WEST_1
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/AzureAccountRegionSettings'
+                          - description: Region settings for specified region
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/gce/{infrastructure_id}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete GCE Account
+      operationId: DeleteEncodingInfrastructureGceByInfrastructureId
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the GCE account
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/GceAccount'
+                          - description: GCE account
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/gce/{infrastructure_id}/regions/{region}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete Google Cloud Region Settings
+      operationId: DeleteEncodingInfrastructureGceRegionsByInfrastructureIdAndRegion
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the Google Cloud Connect infrastructure resource
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      - name: region
+        in: path
+        description: Google Cloud Region
+        style: simple
+        required: true
+        schema:
+          $ref: '#/components/schemas/GoogleCloudRegion'
+          example: US_EAST_1
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/GceAccountRegionSettings'
+                          - description: Region settings for specified region
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/oci/{infrastructure_id}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete OCI account
+      operationId: DeleteEncodingInfrastructureOciByInfrastructureId
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the OCI account
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/OciAccount'
+                          - description: OCI account
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/oci/{infrastructure_id}/regions/{region}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete OCI account region settings
+      operationId: DeleteEncodingInfrastructureOciRegionsByInfrastructureIdAndRegion
+      parameters:
+      - name: infrastructure_id
+        in: path
+        description: Id of the OCI account
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 468aca07-6556-4425-a79b-8433f18cec64
+      - name: region
+        in: path
+        description: OCI region
+        style: simple
+        required: true
+        schema:
+          $ref: '#/components/schemas/OciCloudRegion'
+          example: EU_FRANKFURT_1
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/OciAccountRegionSettings'
+                          - description: OCI account region settings
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/prewarmed-encoder-pools/{pool_id}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete prewarmed encoder pool
+      operationId: DeleteEncodingInfrastructurePrewarmedEncoderPoolsByPoolId
+      parameters:
+      - name: pool_id
+        in: path
+        description: Id of the prewarmed encoder pool
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 122fc55e-0fc2-4d38-8a07-55330996d527
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the prewarmed encoder pool that was deleted
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/prewarmed-encoder-pools/{pool_id}/schedules/{schedule_id}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete prewarmed encoder pool schedule
+      operationId: DeleteEncodingInfrastructurePrewarmedEncoderPoolsSchedulesByPoolIdAndScheduleId
+      parameters:
+      - name: pool_id
+        in: path
+        description: Id of the scheduled encoder pool
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 122fc55e-0fc2-4d38-8a07-55330996d527
+      - name: schedule_id
+        in: path
+        description: Id of the prewarmed encoder pool schedule
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5b647d74-4770-4130-a5b9-9e3d3cae7ee6
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the prewarmed encoder pool schedule that was deleted
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/infrastructure/static-ips/{id}:
+    delete:
+      tags:
+      - Infrastructure
+      summary: Delete Static IP Address
+      operationId: DeleteEncodingInfrastructureStaticIpById
+      parameters:
+      - name: id
+        in: path
+        description: Id of the Static IP Address
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 32bb812d-30a6-4c93-88a0-9253bea13083
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Static IP Address
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+components:
+  schemas:
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    AkamaiCloudRegion:
+      title: AkamaiCloudRegion
+      type: string
+      enum:
+      - BR_GRU
+      - ES_MAD
+      - FR_PAR
+      - ID_CGK
+      - IN_MAA
+      - IT_MIL
+      - JP_OSA
+      - NL_AMS
+      - SE_STO
+      - US_LAX
+      - US_MIA
+      - US_ORD
+      - US_SEA
+      x-enum-elements:
+      - name: BR_GRU
+        description: São Paulo, Brazil
+      - name: ES_MAD
+        description: Madrid, Spain
+      - name: FR_PAR
+        description: Paris, France
+      - name: ID_CGK
+        description: Jakarta, Indonesia
+      - name: IN_MAA
+        description: Chennai, India
+      - name: IT_MIL
+        description: Milan, Italy
+      - name: JP_OSA
+        description: Osaka, Japan
+      - name: NL_AMS
+        description: Amsterdam, Netherlands
+      - name: SE_STO
+        description: Stockholm, Sweden
+      - name: US_LAX
+        description: Los Angeles, USA
+      - name: US_MIA
+        description: Miami, USA
+      - name: US_ORD
+        description: Chicago, USA
+      - name: US_SEA
+        description: Seattle, USA
+    AkamaiAccount:
+      title: AkamaiAccount
+      required:
+      - name
+      - apiToken
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          apiToken:
+            type: string
+            description: Akamai/Linode API token
+            example: d182edb2758064d0430654db4be0cf335cbd4ac26b75e7d75cf6b989a87d1e55
+            writeOnly: true
+    AzureAccountRegionSettings:
+      title: AzureAccountRegionSettings
+      required:
+      - networkName
+      - subnetName
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          networkName:
+            type: string
+            description: Name of the virtual network
+          subnetName:
+            type: string
+            description: Name of the subnet
+            example: encodingSubnet
+          region:
+            allOf:
+            - $ref: '#/components/schemas/AzureCloudRegion'
+            readOnly: true
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    AwsCloudRegion:
+      title: AwsCloudRegion
+      type: string
+      enum:
+      - US_EAST_1
+      - US_EAST_2
+      - US_WEST_1
+      - US_WEST_2
+      - EU_WEST_1
+      - EU_CENTRAL_1
+      - AP_SOUTHEAST_1
+      - AP_SOUTHEAST_2
+      - AP_NORTHEAST_1
+      - AP_NORTHEAST_2
+      - AP_SOUTH_1
+      - SA_EAST_1
+      - EU_WEST_2
+      - EU_WEST_3
+      - CA_CENTRAL_1
+      - EU_NORTH_1
+      x-enum-elements:
+      - name: US_EAST_1
+        description: US East (N. Virginia)
+      - name: US_EAST_2
+        description: US East (Ohio)
+      - name: US_WEST_1
+        description: US West (N. California)
+      - name: US_WEST_2
+        description: US West (Oregon)
+      - name: EU_WEST_1
+        description: Europe (Ireland)
+      - name: EU_CENTRAL_1
+        description: Europe (Frankfurt)
+      - name: AP_SOUTHEAST_1
+        description: Asia Pacific (Singapore)
+      - name: AP_SOUTHEAST_2
+        description: Asia Pacific (Sydney)
+      - name: AP_NORTHEAST_1
+        description: Asia Pacific (Tokyo)
+      - name: AP_NORTHEAST_2
+        description: Asia Pacific (Seoul)
+      - name: AP_SOUTH_1
+        description: Asia Pacific (Mumbai)
+      - name: SA_EAST_1
+        description: South America (São Paulo)
+      - name: EU_WEST_2
+        description: Europe (London)
+      - name: EU_WEST_3
+        description: Europe (Paris)
+      - name: CA_CENTRAL_1
+        description: Canada (Central)
+      - name: EU_NORTH_1
+        description: Europe (Stockholm)
+    AkamaiAccountRegionSettings:
+      title: AkamaiAccountRegionSettings
+      required:
+      - subnetId
+      - firewallId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          subnetId:
+            type: integer
+            format: int64
+            description: Id of the VPC subnet for encoding instances
+            example: 123456
+          firewallId:
+            type: integer
+            format: int64
+            description: Id of the firewall for encoding instances
+            example: 123456
+          region:
+            readOnly: true
+            allOf:
+            - $ref: '#/components/schemas/AkamaiCloudRegion'
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+    AwsAccount:
+      title: AwsAccount
+      required:
+      - accountNumber
+      oneOf:
+      - required:
+        - accessKey
+        - secretKey
+      - required:
+        - roleName
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          accessKey:
+            type: string
+            description: 'Deprecated: Amazon access key for legacy support. Use `roleName` instead'
+            example: AKIAIOSFODNN7EXAMPLE
+            writeOnly: true
+            deprecated: true
+          secretKey:
+            type: string
+            description: 'Deprecated: Amazon secret key for legacy support. Use `roleName` instead'
+            example: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+            writeOnly: true
+            deprecated: true
+          accountNumber:
+            type: string
+            description: Amazon account number (12 digits as per AWS spec)
+            example: 123456789012
+            writeOnly: true
+          roleName:
+            type: string
+            description: 'Role name including path for the AWS IAM role that will be used by Bitmovin to access the AWS account depicted by `accountNumber`. The role ARN is constructed based on `accountNumber` and `roleName`: `arn:aws:iam::{accountNumber}:role/{roleName}`.
+
+
+              For details on how to create the AWS IAM role in your account, please refer to the [AWS cloud connect setup guide](https://developer.bitmovin.com/encoding/docs/using-bitmovin-cloud-connect-with-aws).
+
+              '
+            example: bitmovin-encoder
+          externalId:
+            type: string
+            description: External ID that needs to be set in the trust policy of the AWS IAM role (depicted by `roleName`) that allows Bitmovin access to the AWS account depicted by `accountNumber`
+            example: cb90b80c-8867-4e3b-8479-174aa2843f62
+            readOnly: true
+    AwsAccountRegionSettings:
+      title: AwsAccountRegionSettings
+      required:
+      - securityGroupId
+      - subnetId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          limitParallelEncodings:
+            type: integer
+            format: int64
+            description: Limit for the amount of running encodings at a time. Leave empty for no limit.
+            example: 10
+          securityGroupId:
+            type: string
+            description: Id of the security group for encoding instances
+            example: sg-0f3a444c
+          subnetId:
+            type: string
+            description: Id of the subnet for encoding instances
+            example: subnet-d3f100b2
+          sshPort:
+            type: integer
+            minimum: 1
+            maximum: 65535
+            description: 'Custom SSH port. Valid values: 1 - 65535. Leave empty if the default SSH port 22 is OK.'
+            example: 9073
+          region:
+            allOf:
+            - $ref: '#/components/schemas/AwsCloudRegion'
+            readOnly: true
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    OciCloudRegion:
+      title: OciCloudRegion
+      type: string
+      enum:
+      - EU_FRANKFURT_1
+      - US_ASHBURN_1
+      x-enum-elements:
+      - name: EU_FRANKFURT_1
+        description: Frankfurt, Germany
+      - name: US_ASHBURN_1
+        description: Ashburn, Virginia, USA
+    GoogleCloudRegion:
+      title: GoogleCloudRegion
+      type: string
+      enum:
+      - US_CENTRAL_1
+      - US_EAST_1
+      - ASIA_EAST_1
+      - EUROPE_WEST_1
+      - US_WEST_1
+      - ASIA_EAST_2
+      - ASIA_NORTHEAST_1
+      - ASIA_SOUTH_1
+      - ASIA_SOUTHEAST_1
+      - AUSTRALIA_SOUTHEAST_1
+      - EUROPE_NORTH_1
+      - EUROPE_WEST_2
+      - EUROPE_WEST_3
+      - EUROPE_WEST_4
+      - NORTHAMERICA_NORTHEAST_1
+      - SOUTHAMERICA_EAST_1
+      - US_EAST_4
+      - US_WEST_2
+      - ME_CENTRAL_2
+      x-enum-elements:
+      - name: US_CENTRAL_1
+        description: Council Bluffs, Iowa, USA
+      - name: US_EAST_1
+        description: Moncks Corner, South Carolina, USA
+      - name: ASIA_EAST_1
+        description: Changhua County, Taiwan
+      - name: EUROPE_WEST_1
+        description: St. Ghislain, Belgium
+      - name: US_WEST_1
+        description: The Dalles, Oregon, USA
+      - name: ASIA_EAST_2
+        description: Hong Kong
+      - name: ASIA_NORTHEAST_1
+        description: Tokyo, Japan
+      - name: ASIA_SOUTH_1
+        description: Mumbai, India
+      - name: ASIA_SOUTHEAST_1
+        description: Jurong West, Singapore
+      - name: AUSTRALIA_SOUTHEAST_1
+        description: Sydney, Australia
+      - name: EUROPE_NORTH_1
+        description: Hamina, Finland
+      - name: EUROPE_WEST_2
+        description: London, England, UK
+      - name: EUROPE_WEST_3
+        description: Frankfurt, Germany
+      - name: EUROPE_WEST_4
+        description: Eemshaven, Netherlands
+      - name: NORTHAMERICA_NORTHEAST_1
+        description: Montréal, Québec, Canada
+      - name: SOUTHAMERICA_EAST_1
+        description: São Paulo, Brazil
+      - name: US_EAST_4
+        description: Ashburn, Northern Virginia, USA
+      - name: US_WEST_2
+        description: Los Angeles, California, USA
+      - name: ME_CENTRAL_2
+        description: Dammam, Saudi Arabia
+    GceAccount:
+      title: GceAccount
+      description: 'GCE Cloud Connect Account. Configure either by passing a single service account credentials JSON
+
+        string or by passing the service account email, private key and project ID individually.
+
+        '
+      anyOf:
+      - required:
+        - name
+        - serviceAccountCredentials
+      - required:
+        - name
+        - serviceAccountEmail
+        - privateKey
+        - projectId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          serviceAccountCredentials:
+            type: string
+            description: GCP service account credentials JSON
+            example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\",\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"-----BEGIN PRIVATE KEY-----\\nOwdXyjRT9F4A==\\n-----END PRIVATE KEY-----\\n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\",\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\"\n}\n"
+            writeOnly: true
+          serviceAccountEmail:
+            type: string
+            description: Email address of the Google service account that will be used to spin up VMs
+            example: bitmovin-connect-account@my-gcp-project.iam.gserviceaccount.com
+          privateKey:
+            type: string
+            description: Google private key of the Google service account that will be used to spin up VMs
+            example: '-----BEGIN PRIVATE KEY-----
+
+              Loads
+
+              Of
+
+              Stuff
+
+              Thats
+
+              All
+
+              Secret
+
+              -----END PRIVATE KEY-----
+
+              '
+            writeOnly: true
+          projectId:
+            type: string
+            description: ID of the GCP project in which the VMs are supposed to run.
+            example: my-gcp-project
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    OciAccount:
+      title: OciAccount
+      required:
+      - name
+      - tenancyId
+      - compartmentId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          tenancyId:
+            type: string
+            description: The OCID of the tenancy where you intend to run encoding VMs.
+            example: ocid1.tenancy.oc1..aaaaaaa62m3xkqtfvbhnb2p4d7lgj5zyrsw5b7qxssmaohjeyvhucldfupa
+          compartmentId:
+            type: string
+            description: The OCID of the compartment within the tenancy where you intend to run encoding VMs.
+            example: ocid1.compartment.oc1..aaaaaaaofg6zqtn3v5yxlk2jhdmb74sypcxwu2d7zvqajbeirmfu3p5dfua
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    OciAccountRegionSettings:
+      title: OciAccountRegionSettings
+      required:
+      - subnetId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          subnetId:
+            type: string
+            description: Id of the VPC subnet for encoding instances.
+            example: ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaqb3xztomfv7ylk25jhdwsu4syvtcmwv2d2vaqajvinngfilp5pfua
+          region:
+            description: Region for encoding instances.
+            readOnly: true
+            allOf:
+            - $ref: '#/components/schemas/OciCloudRegion'
+    AzureAccount:
+      title: AzureAccount
+      required:
+      - subscriptionId
+      - resourceGroupId
+      - tenantId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          subscriptionId:
+            type: string
+            description: Your Azure Subscription ID (The ID of your subscription where you intend to run the Encoding VMs)
+            example: 6e934bc4-b7d5-42e3-bbe0-c78e062b80c9
+          resourceGroupId:
+            type: string
+            description: The name of the resource group where you intend to run the Encoding VMs
+            example: encodingGroup
+          tenantId:
+            type: string
+            description: The ID of your Active Directory where your subscription runs in
+            example: 2eb829b4-4dd3-4fb3-b3a5-aec895b06bd3
+    BitmovinResource:
+      title: BitmovinResource
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          name:
+            type: string
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    GceAccountRegionSettings:
+      title: GceAccountRegionSettings
+      required:
+      - network
+      - subnetId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          network:
+            type: string
+            description: Id of the network for encoding instances
+            example: /global/networks/custom-vpc
+          subnetId:
+            type: string
+            description: Id of the subnet for encoding instances
+            example: /regions/europe-west1/subnetworks/custom-subnet-euw1
+          region:
+            readOnly: true
+            allOf:
+            - $ref: '#/components/schemas/GoogleCloudRegion'
+    AzureCloudRegion:
+      title: AzureCloudRegion
+      type: string
+      enum:
+      - ASIA_EAST
+      - ASIA_SOUTHEAST
+      - AUSTRALIA_EAST
+      - AUSTRALIA_SOUTHEAST
+      - BRAZIL_SOUTH
+      - CANADA_CENTRAL
+      - EUROPE_NORTH
+      - EUROPE_WEST
+      - FRANCE_CENTRAL
+      - GERMANY_WESTCENTRAL
+      - INDIA_CENTRAL
+      - INDIA_SOUTH
+      - JAPAN_EAST
+      - JAPAN_WEST
+      - KOREA_CENTRAL
+      - UAE_NORTH
+      - US_CENTRAL
+      - US_EAST
+      - US_EAST2
+      - US_WEST
+      - US_WEST2
+      - US_SOUTH_CENTRAL
+      - US_NORTH_CENTRAL
+      - UK_SOUTH
+      x-enum-elements:
+      - name: ASIA_EAST
+        description: Hong Kong
+      - name: ASIA_SOUTHEAST
+        description: Singapore
+      - name: AUSTRALIA_EAST
+        description: New South Wales
+      - name: AUSTRALIA_SOUTHEAST
+        description: Victoria
+      - name: BRAZIL_SOUTH
+        description: São Paulo
+      - name: CANADA_CENTRAL
+        description: Toronto
+      - name: EUROPE_NORTH
+        description: Ireland
+      - name: EUROPE_WEST
+        description: Netherlands
+      - name: FRANCE_CENTRAL
+        description: Paris
+      - name: GERMANY_WESTCENTRAL
+        description: Frankfurt
+      - name: INDIA_CENTRAL
+        description: Pune
+      - name: INDIA_SOUTH
+        description: Chennai
+      - name: JAPAN_EAST
+        description: Tokyo, Saitama
+      - name: JAPAN_WEST
+        description: Osaka
+      - name: KOREA_CENTRAL
+        description: Seoul
+      - name: UAE_NORTH
+        description: Dubai
+      - name: US_CENTRAL
+        description: Iowa
+      - name: US_EAST
+        description: Virginia
+      - name: US_EAST2
+        description: Virginia
+      - name: US_WEST
+        description: California
+      - name: US_WEST2
+        description: Washington
+      - name: US_SOUTH_CENTRAL
+        description: Texas
+      - name: US_NORTH_CENTRAL
+        description: Illinois
+      - name: UK_SOUTH
+        description: London
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Your Bitmovin API key
+      name: X-Api-Key
+      in: header
+    TenantOrgId:
+      type: apiKey
+      description: Your Bitmovin account organization
+      name: X-Tenant-Org-Id
+      in: header

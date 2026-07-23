@@ -1,0 +1,1225 @@
+openapi: 3.0.1
+info:
+  title: Bitmovin Encoding Config Webhooks API
+  description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
+  version: '3.0'
+  termsOfService: https://bitmovin.com
+  contact:
+    name: Bitmovin Inc
+    url: https://bitmovin.com
+    email: support@bitmovin.com
+servers:
+- url: https://api.bitmovin.com/v1
+  description: Bitmovin Server
+  variables: {}
+security:
+- ApiKeyAuth: []
+- ApiKeyAuth: []
+  TenantOrgId: []
+tags:
+- name: Webhooks
+paths:
+  /notifications/webhooks/encoding/manifest/{manifest_id}/error:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Manifest Error' Webhook Notification (Specific Manifest)
+      operationId: PostNotificationsWebhookManifestErrorByEncodingId
+      x-bitmovin:
+        operationName: createByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest resource
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      requestBody:
+        description: The webhook notifications object. A maximum number of 5 webhooks per Manifest is allowed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/manifest/{manifest_id}/finished:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Manifest Finished Successfully' Webhook Notification (Specific Manifest)
+      operationId: PostNotificationsWebhookManifestFinishedByEncodingId
+      x-bitmovin:
+        operationName: createByManifestId
+      parameters:
+      - name: manifest_id
+        in: path
+        description: Id of the manifest resource
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      requestBody:
+        description: The webhook notifications object. A maximum number of 5 webhooks per Manifest is allowed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/manifest/error:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Manifest Error' Webhook (All Manifests)
+      operationId: PostNotificationsWebhookManifestsError
+      description: Add a new webhook notification that triggers if a manifest generation fails. A maximum number of 5 webhooks is allowed
+      requestBody:
+        description: The 'Manifest Error' Webhook to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/manifest/finished:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Manifest Finished Successfully' Webhook (All Manifests)
+      operationId: PostNotificationsWebhookManifestsFinished
+      requestBody:
+        description: Add a new webhook notification that triggers if a manifest generation finished successfully. A maximum number of 5 webhooks is allowed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/{encoding_id}/encoding-status-changed:
+    post:
+      tags:
+      - Webhooks
+      summary: Add Encoding Changed Webhook Notification (Specific Encoding)
+      operationId: PostNotificationsWebhooksEncodingEncodingsEncodingStatusChangedByEncodingId
+      x-bitmovin:
+        operationName: createByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding resource
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      requestBody:
+        description: 'The webhook notifications object. For conditions, following attributes are possible: ''type'': ''Input file download'', ''Input file analysis'', ''Per-Title analysis'', ''Encoding'', ''Progressive Muxing'' ''progress'': number in range of 0-100 ''status'': ''RUNNING'', ''FINISHED'', ''ERROR''
+
+          Examples: To only get notified about the encoding process, create a Condition object and set attribute=''type'', value=''Encoding'', operator=EQUAL To only get notified if a workflow step is finished, create a Condition object and set attribute=''status'', value=''FINISHED'', operator=EQUAL To only get notified if a workflow step is over 50%,  create a Condition object and set attribute=''progress'', value=''50'', operator=GREATER_THAN '
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookNotificationWithStreamConditionsRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/WebhookNotificationWithStreamConditions'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/error:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Encoding Error' Webhook
+      operationId: PostNotificationsWebhooksEncodingEncodingsError
+      description: Add a new webhook notification that triggers if an encoding fails. A maximum number of 5 webhooks is allowed
+      requestBody:
+        description: The 'Encoding Error' Webhook to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/{encoding_id}/error:
+    post:
+      tags:
+      - Webhooks
+      summary: Add Error Webhook for a specific Encoding
+      operationId: PostNotificationsWebhooksEncodingEncodingsErrorByEncodingId
+      x-bitmovin:
+        operationName: createByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 23627cb2-7228-45ed-91fa-489bf5e20fe3
+      requestBody:
+        description: The 'Encoding Error' Webhook to be added. A maximum number of 5 webhooks per Encoding is allowed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/finished:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Encoding Finished' Webhook
+      description: Add a new webhook notification that triggers if an encoding finishes successfully. A maximum number of 5 webhooks is allowed
+      operationId: PostNotificationsWebhooksEncodingEncodingsFinished
+      requestBody:
+        description: The 'Encoding Finished' Webhook to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/{encoding_id}/finished:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Encoding Finished' Webhook for a specific Encoding
+      operationId: PostNotificationsWebhooksEncodingEncodingsFinishedByEncodingId
+      x-bitmovin:
+        operationName: createByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 23627cb2-7228-45ed-91fa-489bf5e20fe3
+      requestBody:
+        description: The 'Encoding Finished' Webhook to be added. A maximum number of 5 webhooks per Encoding is allowed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/live-encoding-heartbeat:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Live Encoding Heartbeat' Webhook
+      description: 'Add a new webhook notification that triggers a heartbeat webhook with a fixed `interval` for all Live Encodings.
+
+        '
+      operationId: PostNotificationsWebhooksEncodingEncodingsLiveEncodingHeartbeat
+      requestBody:
+        description: The 'Live Encoding Heartbeat' Webhook to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LiveEncodingHeartbeatWebhook'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/LiveEncodingHeartbeatWebhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/live-input-stream-changed:
+    post:
+      tags:
+      - Webhooks
+      summary: Add Live Input Stream Changed Webhook Notification (All Encodings)
+      operationId: PostNotificationsWebhooksEncodingEncodingsLiveInputStreamChanged
+      requestBody:
+        description: The webhook notifications object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookNotificationWithStreamConditionsRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/WebhookNotificationWithStreamConditions'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/{encoding_id}/live-input-stream-changed:
+    post:
+      tags:
+      - Webhooks
+      summary: Add Live Input Stream Changed Webhook Notification (Specific Encoding)
+      operationId: PostNotificationsWebhooksEncodingEncodingsLiveInputStreamChangedByEncodingId
+      x-bitmovin:
+        operationName: createByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding resource
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      requestBody:
+        description: The webhook notifications object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookNotificationWithStreamConditionsRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/WebhookNotificationWithStreamConditions'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/live-manifest-ready:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Live Manifest Ready' Webhook
+      description: Add a webhook notification that is triggered when a live manifest is ready, meaning at least one segment is available in every playlist. A maximum number of 5 webhooks is allowed
+      operationId: PostNotificationsWebhooksEncodingEncodingsLiveManifestReady
+      requestBody:
+        description: The 'Live Manifest Ready' Webhook to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/{encoding_id}/live-manifest-ready:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Live Manifest Ready' Webhook for a specific Encoding
+      description: Add a new webhook notification that triggers when a live manifest is ready for a specific encoding. A maximum number of 5 webhooks per Encoding is allowed
+      operationId: PostNotificationsWebhooksEncodingEncodingsLiveManifestReadyByEncodingId
+      x-bitmovin:
+        operationName: createByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 23627cb2-7228-45ed-91fa-489bf5e20fe3
+      requestBody:
+        description: The 'Live Manifest Ready' Webhook to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/encoding-status-changed:
+    post:
+      tags:
+      - Webhooks
+      summary: Add Encoding Changed Webhook Notification (All Encodings)
+      operationId: PostNotificationsWebhooksEncodingEncodingsStatusChanged
+      requestBody:
+        description: 'The webhook notifications object. For conditions, following attributes are possible: ''type'': ''Input file download'', ''Input file analysis'', ''Per-Title analysis'', ''Encoding'', ''Progressive Muxing'' ''progress'': number in range of 0-100 ''status'': ''RUNNING'', ''FINISHED'', ''ERROR''
+
+          Examples: To only get notified about the encoding process, create a Condition object and set attribute=''type'', value=''Encoding'', operator=EQUAL To only get notified if a workflow step is finished, create a Condition object and set attribute=''status'', value=''FINISHED'', operator=EQUAL To only get notified if a workflow step is over 50%,  create a Condition object and set attribute=''progress'', value=''50'', operator=GREATER_THAN'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookNotificationWithStreamConditionsRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/WebhookNotificationWithStreamConditions'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/transfer-error:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Encoding Transfer Error' Webhook
+      description: Add a new webhook notification that triggers if a transfer fails. A maximum number of 5 webhooks is allowed
+      operationId: PostNotificationsWebhooksEncodingEncodingsTransferError
+      requestBody:
+        description: The 'Encoding Transfer Error' Webhook to be added.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/{encoding_id}/transfer-error:
+    post:
+      tags:
+      - Webhooks
+      summary: Add 'Encoding Transfer Error' Webhook for a specific Encoding
+      operationId: PostNotificationsWebhooksEncodingEncodingsTransferErrorByEncodingId
+      x-bitmovin:
+        operationName: createByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 23627cb2-7228-45ed-91fa-489bf5e20fe3
+      requestBody:
+        description: The 'Encoding Transfer Error' Webhook to be added. A maximum number of 5 webhooks per Encoding is allowed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Webhook Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/manifest/error/{notification_id}:
+    put:
+      tags:
+      - Webhooks
+      summary: Replace 'Manifest Error' Webhook Notification
+      operationId: PutNotificationsWebhookManifestErrorByNotificationId
+      parameters:
+      - name: notification_id
+        in: path
+        description: Id of the webhook notification
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The webhook notification with the updated values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/manifest/finished/{notification_id}:
+    put:
+      tags:
+      - Webhooks
+      summary: Replace Manifest Finished Webhook Notification
+      operationId: PutNotificationsWebhookManifestFinishedByNotificationId
+      parameters:
+      - name: notification_id
+        in: path
+        description: Id of the webhook notification
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The webhook notification with the updated values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/Webhook'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/encoding-status-changed/{notification_id}:
+    put:
+      tags:
+      - Webhooks
+      summary: Replace Encoding Status Changed Webhook Notification
+      operationId: PutNotificationsWebhooksEncodingEncodingsEncodingStatusChangedByInputId
+      parameters:
+      - name: notification_id
+        in: path
+        description: Id of the webhook notification
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The webhook notification with the updated values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookNotificationWithStreamConditionsRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/WebhookNotificationWithStreamConditions'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/webhooks/encoding/encodings/live-input-stream-changed/{notification_id}:
+    put:
+      tags:
+      - Webhooks
+      summary: Replace Live Input Stream Changed Webhook Notification
+      operationId: PutNotificationsWebhooksEncodingEncodingsLiveInputStreamChangedByInputId
+      parameters:
+      - name: notification_id
+        in: path
+        description: Id of the webhook notification
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The webhook notification with the updated values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookNotificationWithStreamConditionsRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/WebhookNotificationWithStreamConditions'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+components:
+  schemas:
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    SignatureType:
+      title: SignatureType
+      type: string
+      enum:
+      - HMAC
+    Notification:
+      title: Notification
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          resolve:
+            type: boolean
+            description: Notify when condition resolves after it was met
+            example: 'true'
+          resourceId:
+            type: string
+            description: Specific resource, e.g. encoding id
+          triggeredAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: Last time the notification was triggered
+            example: '2016-06-25T20:09:23.69Z'
+          type:
+            type: string
+            example: EMAIL
+          eventType:
+            type: string
+            example: LIVE_INPUT_STREAM_CHANGED
+            readOnly: true
+          category:
+            type: string
+            example: ENCODING
+            readOnly: true
+          resourceType:
+            type: string
+            example: ENCODING
+            readOnly: true
+          muted:
+            type: boolean
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    Webhook:
+      title: Webhook
+      required:
+      - url
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          url:
+            type: string
+            description: Webhook URL
+            example: https://yourendpoint.yourcorp.com/webhooks/encoding/finished
+          method:
+            description: HTTP method used for the webhook
+            allOf:
+            - $ref: '#/components/schemas/WebhookHttpMethod'
+          insecureSsl:
+            type: boolean
+            description: Skip verification of the SSL certificate
+            example: false
+          signature:
+            description: Signature used for the webhook
+            allOf:
+            - $ref: '#/components/schemas/WebhookSignature'
+          schema:
+            readOnly: true
+            description: JSON schema of the webhook payload
+            example: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"title\": \"Encoding Webhook Event\",\n  \"type\": \"object\",\n  \"additionalProperties\": false,\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\"\n    },\n    \"eventId\": {\n      \"type\": \"string\"\n    },\n    \"createdAt\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"modifiedAt\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"orgId\": {\n      \"type\": \"string\"\n    },\n    \"userId\": {\n      \"type\": \"string\"\n    },\n    \"name\": {\n      \"type\": \"string\"\n    },\n    \"notificationId\": {\n      \"type\": \"string\"\n    },\n    \"resourceId\": {\n      \"type\": \"string\"\n    },\n    \"resourceType\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"NONE\",\n        \"ENCODING\"\n      ]\n    },\n    \"type\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"EMAIL\",\n        \"WEBHOOK\"\n      ]\n    },\n    \"eventType\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"MANIFEST_ERROR\",\n        \"USAGE_REPORT\",\n        \"ENCODING_ERROR\",\n        \"PRODUCT_USAGE_QUOTA_ALERT\",\n        \"LIVE_INPUT_STREAM_CHANGED\",\n        \"LIVE_ENCODING_HEARTBEAT\",\n        \"MANIFEST_FINISHED\",\n        \"ENCODING_TRANSFER_ERROR\",\n        \"PRODUCT_USAGE_PREDICTION_ALERT\",\n        \"ENCODING_FINISHED\",\n        \"LIVE_MANIFEST_READY\"\n      ]\n    },\n    \"category\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"USAGE_REPORT\",\n        \"PRODUCT_USAGE_PREDICTION\",\n        \"ENCODING\",\n        \"PRODUCT_USAGE_QUOTA\",\n        \"MANIFEST\"\n      ]\n    },\n    \"state\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"FIRED\",\n        \"RESOLVED\"\n      ]\n    },\n    \"triggeredAt\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"triggeredForResourceId\": {\n      \"type\": \"string\"\n    },\n    \"internal\": {\n      \"type\": \"boolean\"\n    },\n    \"purpose\": {\n      \"type\": \"string\",\n      \"enum\": []\n    },\n    \"customData\": {},\n    \"encoding\": {\n      \"$ref\": \"#/definitions/EncodingDTO\"\n    },\n    \"webhookId\": {\n      \"type\": \"string\"\n    }\n  },\n  \"definitions\": {\n    \"EncodingDTO\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\"\n        },\n        \"type\": {\n          \"type\": \"string\"\n        },\n        \"name\": {\n          \"type\": \"string\"\n        },\n        \"description\": {\n          \"type\": \"string\"\n        },\n        \"encoderVersion\": {\n          \"type\": \"string\"\n        },\n        \"cloudRegion\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n"
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    LiveEncodingHeartbeatWebhook:
+      title: LiveEncodingHeartbeatWebhook
+      allOf:
+      - $ref: '#/components/schemas/Webhook'
+      - properties:
+          interval:
+            type: integer
+            minimum: 1
+            default: 20
+            description: The interval of the heartbeat in seconds.
+            example: 20
+          schema:
+            readOnly: true
+            description: JSON schema of the webhook payload
+            example: "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"title\": \"Live Encoding Heartbeat Webhook Event\",\n  \"type\": \"object\",\n  \"additionalProperties\": false,\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\"\n    },\n    \"orgId\": {\n      \"type\": \"string\"\n    },\n    \"userId\": {\n      \"type\": \"string\"\n    },\n    \"resourceId\": {\n      \"type\": \"string\"\n    },\n    \"resourceType\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"NONE\",\n        \"ENCODING\"\n      ]\n    },\n    \"eventType\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"LIVE_ENCODING_HEARTBEAT\"\n      ]\n    },\n    \"triggeredAt\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"customData\": {},\n    \"encoding\": {\n      \"$ref\": \"#/definitions/EncodingDTO\"\n    },\n    \"webhookId\": {\n      \"type\": \"string\"\n    },\n    \"value\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"ingest\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"status\": {\n              \"type\": \"string\"\n            },\n            \"healthy\": {\n              \"type\": \"boolean\"\n            },\n            \"streamInfos\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"streamId\": {\n                    \"type\": \"string\"\n                  },\n                  \"mediaType\": {\n                    \"type\": \"string\"\n                  },\n                  \"width\": {\n                    \"type\": \"integer\"\n                  },\n                  \"height\": {\n                    \"type\": \"integer\"\n                  },\n                  \"rate\": {\n                    \"type\": \"integer\"\n                  },\n                  \"codec\": {\n                    \"type\": \"string\"\n                  },\n                  \"bitrate\": {\n                    \"type\": \"integer\"\n                  },\n                  \"samplesReadPerSecondAvg\": {\n                    \"type\": \"number\"\n                  },\n                  \"incomingBitrate\": {\n                    \"type\": \"number\"\n                  },\n                  \"lastTimestampTimescale\": {\n                    \"type\": \"integer\"\n                  },\n                  \"lastArrivalTime\": {\n                    \"type\": \"string\",\n                    \"format\": \"date-time\"\n                  },\n                  \"healthy\": {\n                    \"type\": \"boolean\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"definitions\": {\n    \"EncodingDTO\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\"\n        },\n        \"type\": {\n          \"type\": \"string\"\n        },\n        \"name\": {\n          \"type\": \"string\"\n        },\n        \"description\": {\n          \"type\": \"string\"\n        },\n        \"encoderVersion\": {\n          \"type\": \"string\"\n        },\n        \"cloudRegion\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n"
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
+    WebhookHttpMethod:
+      title: WebhookHttpMethod
+      type: string
+      enum:
+      - POST
+      - PUT
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    AbstractCondition:
+      title: AbstractCondition
+    WebhookSignature:
+      title: WebhookSignature
+      required:
+      - type
+      - key
+      properties:
+        type:
+          description: 'The signature type used for the webhook.
+
+
+            Selects one of the supported signatures. The signature is attached to the list of headers with the key `Bitmovin-Signature`.
+
+            In case of the `HMAC` type the SHA512 hashing algorithm is used to generate an authentication code from the webhook body.
+
+            '
+          example: HMAC
+          allOf:
+          - $ref: '#/components/schemas/SignatureType'
+        key:
+          type: string
+          description: The key of the signature
+          writeOnly: true
+          example: secretKey
+    WebhookNotification:
+      title: WebhookNotification
+      required:
+      - url
+      allOf:
+      - $ref: '#/components/schemas/Notification'
+      - properties:
+          type:
+            type: string
+            example: WEBHOOK
+            readOnly: true
+          url:
+            type: string
+            example: https://www.example.com/my/webhook/endpoint
+            description: The destination URL where the webhook data is send to
+          method:
+            description: HTTP method used for the webhook
+            allOf:
+            - $ref: '#/components/schemas/WebhookHttpMethod'
+          insecureSsl:
+            type: boolean
+            description: Skip verification of the SSL certificate
+            example: false
+          signature:
+            description: Signature used for the webhook
+            allOf:
+            - $ref: '#/components/schemas/WebhookSignature'
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    WebhookNotificationWithStreamConditionsRequest:
+      title: WebhookNotificationWithStreamConditionsRequest
+      allOf:
+      - $ref: '#/components/schemas/WebhookNotification'
+      - properties:
+          resolve:
+            type: boolean
+            default: true
+            description: Notify when the given conditions are resolved. E.g. when the input stream is online again after a disconnect
+          conditions:
+            allOf:
+            - $ref: '#/components/schemas/AbstractCondition'
+    WebhookNotificationWithStreamConditions:
+      title: WebhookNotificationWithStreamConditions
+      allOf:
+      - $ref: '#/components/schemas/WebhookNotification'
+      - properties:
+          resolve:
+            type: boolean
+            default: true
+            description: Notify when condition resolves after it was met
+          conditions:
+            allOf:
+            - $ref: '#/components/schemas/AbstractCondition'
+    BitmovinResource:
+      title: BitmovinResource
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          name:
+            type: string
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Your Bitmovin API key
+      name: X-Api-Key
+      in: header
+    TenantOrgId:
+      type: apiKey
+      description: Your Bitmovin account organization
+      name: X-Tenant-Org-Id
+      in: header

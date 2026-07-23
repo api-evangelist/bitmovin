@@ -1,0 +1,4136 @@
+openapi: 3.0.1
+info:
+  title: Bitmovin Encoding Config Encodings API
+  description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
+  version: '3.0'
+  termsOfService: https://bitmovin.com
+  contact:
+    name: Bitmovin Inc
+    url: https://bitmovin.com
+    email: support@bitmovin.com
+servers:
+- url: https://api.bitmovin.com/v1
+  description: Bitmovin Server
+  variables: {}
+security:
+- ApiKeyAuth: []
+- ApiKeyAuth: []
+  TenantOrgId: []
+tags:
+- name: Encodings
+paths:
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/qc/psnr:
+    post:
+      tags:
+      - Encodings
+      summary: PSNR quality metrics
+      description: Activates PSNR quality metrics for the selected stream
+      operationId: ActivatePsnrStreamQualityMetrics
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Audio Mix configuration
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Encoding
+      operationId: DeleteEncodingEncodingsByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the encoding
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/captions/scc/{captions_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Convert SCC captions
+      operationId: DeleteEncodingEncodingsCaptionsSccByEncodingIdAndCaptionsId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: captions_id
+        in: path
+        description: Id of the caption.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 81424b3f-98ce-4dbf-a4c0-8b4d515150f3
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the caption
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/audio-mix/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete audio mix input stream
+      operationId: DeleteEncodingEncodingsInputStreamsAudioMixByEncodingIdAndAudioMixInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the audio mix input stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the audio mix input stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/captions/cea608/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete CEA 608 Input Stream
+      operationId: DeleteEncodingEncodingsInputStreamsCEA608ByEncodingIdAndInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the CEA 608 input stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the CEA 608 Input stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/captions/cea708/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete CEA 708 Input Stream
+      operationId: DeleteEncodingEncodingsInputStreamsCEA708ByEncodingIdAndInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the Encoding
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the CEA 708 input stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the CEA 708 Input stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/concatenation/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Concatenation Input Stream
+      operationId: DeleteEncodingEncodingsInputStreamsConcatenationByEncodingIdAndConcatenationInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the Concatenation input stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Concatenation input stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/dolby-atmos/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Dolby Atmos input stream
+      operationId: DeleteEncodingEncodingsInputStreamsDolbyAtmosByEncodingIdAndInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the Dolby Atmos input stream
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Dolby Atmos input stream
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/dolby-vision/{dolby_vision_input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Dolby Vision input stream
+      operationId: DeleteEncodingEncodingsInputStreamsDolbyVisionByEncodingIdAndDolbyVisionInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: dolby_vision_input_stream_id
+        in: path
+        description: Id of the Dolby Vision input stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Dolby Vision input stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/sidecar/dolby-vision-metadata-ingest/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Dolby Vision Metadata Ingest Input Stream
+      operationId: DeleteEncodingEncodingsInputStreamsDolbyVisionMetadataIngestByEncodingIdAndInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the Dolby Vision Metadata Ingest input stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Dolby Vision Metadata Ingest input stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/subtitles/dvb-subtitle/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete DVB Subtitle Input Stream
+      operationId: DeleteEncodingEncodingsInputStreamsDvbSubtitleByEncodingIdAndInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the DVB Subtitle Input Stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the DVB Subtitle Input Stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/file/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete File stream
+      operationId: DeleteEncodingEncodingsInputStreamsFileByEncodingIdAndFileInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the File input stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the File input stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/ingest/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Ingest Input Stream
+      operationId: DeleteEncodingEncodingsInputStreamsIngestByEncodingIdAndInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the ingest input stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the ingest input stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/trimming/h264-picture-timing/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete H264 Picture Timing Trimming Input Stream
+      operationId: DeleteEncodingEncodingsInputStreamsTrimmingH264PictureTimingByEncodingIdAndInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the H264 Picture Timing Trimming Input Stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the H264 Picture Timing Trimming Input Stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/trimming/time-based/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Time-Based Trimming Input Stream
+      operationId: DeleteEncodingEncodingsInputStreamsTrimmingTimeBasedByEncodingIdAndInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the Time-Based Trimming Input Stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Time-Based Trimming Input Stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/input-streams/trimming/timecode-track/{input_stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Timecode Track Trimming Input Stream
+      operationId: DeleteEncodingEncodingsInputStreamsTrimmingTimecodeTrackByEncodingIdAndInputStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: input_stream_id
+        in: path
+        description: Id of the Timecode Track Trimming Input Stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Timecode Track Trimming Input Stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/kantar-watermark:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete the Kantar Watermark for an encoding
+      operationId: DeleteEncodingEncodingsKantarWatermarkByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Kantar Watermark
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/keyframes/{keyframe_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Keyframe
+      operationId: DeleteEncodingEncodingsKeyframesByEncodingIdAndKeyframeId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: keyframe_id
+        in: path
+        description: Id of the keyframe.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: e47151f2-cffb-4895-a3b9-0d4ed822705e
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the keyframe
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/broadcast-ts/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Broadcast TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsBroadcastTsTsMuxingByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: ID of the Encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 63c7b1ff-a57e-435d-80cb-bcea7752bcd1
+      - name: muxing_id
+        in: path
+        description: ID of the Broadcast TS muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 10fff470-813c-4cb7-963c-d020db4a7d83
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: ID of the Broadcast TS muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/chunked-text/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Chunked Text muxing
+      operationId: DeleteEncodingEncodingsMuxingsChunkedTextByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Chunked Text muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Chunked Text muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/cmaf/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete CMAF muxing
+      operationId: DeleteEncodingEncodingsMuxingsCmafByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the CMAF muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the CMAF muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4ByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the fMP4 muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/aes/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete AES encryption configuration from an fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4DrmAesByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the AES encryption configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the AES encryption configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/cenc/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete CENC DRM from an fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4DrmCencByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the cenc drm.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the CENC DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/clearkey/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete ClearKey DRM from an fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4DrmClearkeyByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the ClearKey DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the ClearKey DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/fairplay/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete FairPlay DRM from an fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4DrmFairplayByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the FairPlay DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the FairPlay DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/marlin/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Marlin DRM from an fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4DrmMarlinByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the Marlin DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Marlin DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/playready/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete PlayReady DRM from an fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4DrmPlayreadyByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the PlayReady DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the PlayReady DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/primetime/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete PrimeTime DRM from an fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4DrmPrimetimeByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the PrimeTime DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the PrimeTime DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/speke/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete SPEKE DRM from an fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4DrmSpekeByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the SPEKE DRM.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the SPEKE DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/fmp4/{muxing_id}/drm/widevine/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Widevine DRM from an fMP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsFmp4DrmWidevineByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the fMP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the widevine drm.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Widevine DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/mp3/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete MP3 muxing
+      operationId: DeleteEncodingEncodingsMuxingsMp3ByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the MP3 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the MP3 muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete MP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsMp4ByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the MP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the MP4 muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/cenc/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete CENC DRM from an MP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsMp4DrmCencByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the MP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the cenc drm.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the CENC DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/clearkey/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete ClearKey DRM from an MP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsMp4DrmClearkeyByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the mp4.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 56f54472-510e-40d4-8ec8-951b09a9cbd9
+      - name: drm_id
+        in: path
+        description: Id of the ClearKey DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 342edd4f-2d48-4dc1-96e6-93c56eb17340
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the ClearKey DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/marlin/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Marlin DRM from an MP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsMp4DrmMarlinByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the mp4.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the Marlin DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/MarlinDrm'
+                          - description: Id of the Marlin DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/playready/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete PlayReady DRM from an MP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsMp4DrmPlayreadyByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the MP4 muxing.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the PlayReady DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the PlayReady DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/speke/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete SPEKE DRM from an MP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsMp4DrmSpekeByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the MP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the SPEKE DRM.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the SPEKE DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/mp4/{muxing_id}/drm/widevine/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Widevine DRM from an MP4 muxing
+      operationId: DeleteEncodingEncodingsMuxingsMp4DrmWidevineByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the MP4 muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the widevine drm.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Widevine DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/mxf/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete MXF muxing
+      operationId: DeleteEncodingEncodingsMuxingsMXFByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the MXF muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the MXF muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/packed-audio/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Packed Audio muxing
+      operationId: DeleteEncodingEncodingsMuxingsPackedAudioByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Packed Audio muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Packed Audio muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/packed-audio/{muxing_id}/drm/aes/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete AES encryption configuration from a Packed Audio muxing
+      operationId: DeleteEncodingEncodingsMuxingsPackedAudioDrmAesByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Packed Audio muxing.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the AES encryption configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the AES encryption configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-mov/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Progressive MOV muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveMovMovByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Progressive MOV muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6cc47877-b682-49bf-9e10-2b46f6eff1e2
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Progressive MOV muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/drm/aes/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete AES encryption configuration from a Progressive TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveTsDrmAesByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Progressive TS muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the AES encryption configuration
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the AES encryption configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/drm/fairplay/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete FairPlay DRM from a Progressive TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveTsDrmFairplayByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Progressive TS muxing.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the FairPlay DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the FairPlay DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/drm/speke/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete SPEKE DRM from a Progressive TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveTSDrmSpekeByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Progressive TS muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the SPEKE DRM.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the SPEKE DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Progressive TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveTsTsMuxingByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: ID of the Encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 63c7b1ff-a57e-435d-80cb-bcea7752bcd1
+      - name: muxing_id
+        in: path
+        description: ID of the Progressive TS muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 10fff470-813c-4cb7-963c-d020db4a7d83
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: ID of the Progressive TS muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/id3/frame-id/{id3_tag_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Frame ID ID3 Tag of a Progressive TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveTsTsMuxingId3FrameIdId3TagByEncodingIdAndMuxingIdAndFrameidId3TagId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: ID of the Encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 7c850c77-3305-4aa7-8ffd-ac4a94549aeb
+      - name: muxing_id
+        in: path
+        description: ID of the Progressive TS muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 1fd78356-eb0c-41d8-adea-f9248dad5fc8
+      - name: id3_tag_id
+        in: path
+        description: ID of the Frame ID ID3 Tag
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6c970971-0a47-45f0-9f54-f5fde8bfb645
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: ID of the Frame ID ID3 Tag
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/id3/plain-text/{id3_tag_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Plain Text ID3 Tag of a Progressive TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveTsTsMuxingId3PlainTextTextId3TagByEncodingIdAndMuxingIdAndPlainTextId3TagId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: ID of the Encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 7c850c77-3305-4aa7-8ffd-ac4a94549aeb
+      - name: muxing_id
+        in: path
+        description: ID of the Progressive TS muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 1fd78356-eb0c-41d8-adea-f9248dad5fc8
+      - name: id3_tag_id
+        in: path
+        description: ID of the Plain Text ID3 Tag
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6c970971-0a47-45f0-9f54-f5fde8bfb645
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: ID of the Plain Text ID3 Tag
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-ts/{muxing_id}/id3/raw/{id3_tag_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Raw ID3 Tag of a Progressive TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveTsTsMuxingId3RawId3TagByEncodingIdAndProgressiveTsMuxingIdAndRawId3TagId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: ID of the Encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 7c850c77-3305-4aa7-8ffd-ac4a94549aeb
+      - name: muxing_id
+        in: path
+        description: ID of the Progressive TS muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 1fd78356-eb0c-41d8-adea-f9248dad5fc8
+      - name: id3_tag_id
+        in: path
+        description: ID of the RAW ID3 Tag
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6c970971-0a47-45f0-9f54-f5fde8bfb645
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: ID of the Raw ID3 Tag
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-wav/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Progressive WAV muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveWavByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Progressive WAV muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6cc47877-b682-49bf-9e10-2b46f6eff1e2
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Progressive WAV muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-webm/{muxing_id}/drm/cenc/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete CENC DRM from a Progressive WebM muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveWebmDrmCencByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Progressive WebM muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the CENC DRM.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the CENC DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-webm/{muxing_id}/drm/speke/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete SPEKE DRM from a Progressive WebM muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveWebmDrmSpekeByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Progressive WebM muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the SPEKE DRM.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the SPEKE DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/progressive-webm/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Progressive WebM muxing
+      operationId: DeleteEncodingEncodingsMuxingsProgressiveWebmWebmByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Progressive WebM muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Progressive WebM muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/segmented-raw/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Segmented RAW muxing
+      operationId: DeleteEncodingEncodingsMuxingsSegmentedRawByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Segmented RAW muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Segmented RAW muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/text/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Text muxing
+      operationId: DeleteEncodingEncodingsMuxingsTextByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the Text muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Text muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/ts/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsTsByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the TS muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the TS muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/ts/{muxing_id}/drm/aes/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete AES encryption configuration from a TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsTsDrmAesByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the TS muxing.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the PlayReady DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the AES encryption configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/ts/{muxing_id}/drm/fairplay/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete FairPlay DRM from a TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsTsDrmFairplayByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the TS muxing.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the FairPlay DRM configuration.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the FairPlay DRM configuration.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/ts/{muxing_id}/drm/speke/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete SPEKE DRM from a TS muxing
+      operationId: DeleteEncodingEncodingsMuxingsTsDrmSpekeByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the TS muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the SPEKE DRM.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the SPEKE DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/webm/{muxing_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete WebM muxing
+      operationId: DeleteEncodingEncodingsMuxingsWebmByEncodingIdAndMuxingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the WebM muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the WebM muxing
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/webm/{muxing_id}/drm/cenc/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete CENC DRM from a WebM muxing
+      operationId: DeleteEncodingEncodingsMuxingsWebmDrmCencByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the WebM muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the cenc drm.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the CENC DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/muxings/webm/{muxing_id}/drm/speke/{drm_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete SPEKE DRM from a WebM muxing
+      operationId: DeleteEncodingEncodingsMuxingsWebmDrmSpekeByEncodingIdAndMuxingIdAndDrmId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: muxing_id
+        in: path
+        description: Id of the WebM muxing
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      - name: drm_id
+        in: path
+        description: Id of the SPEKE DRM.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the SPEKE DRM
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/live/insertable-content/{content_id}/schedule/{scheduled_content_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Deschedule Insertable Content
+      operationId: DeleteEncodingEncodingsScheduledInsertableContentByEncodingIdAndContentIdAndScheduledContentId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: content_id
+        in: path
+        description: Id of the insertable content.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 6c6ca0db-7263-4013-b719-2f3d817520ec
+      - name: scheduled_content_id
+        in: path
+        description: Id of the scheduled insertable content
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 5d8fb60a-8422-4d95-8157-b625413036de
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the scheduled insertable content
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/scte-35-triggers/{scte35trigger_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete SCTE 35 trigger
+      description: 'This endpoint supports VOD encodings only. Requests made with a live encoding ID will fail.
+
+        '
+      operationId: DeleteEncodingEncodingsScte35TriggersByEncodingIdAndScte35TriggerId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: scte35trigger_id
+        in: path
+        description: Id of the SCTE 35 trigger
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 4225f469-f868-4265-ab58-2e817c8c9be0
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the SCTE 35 trigger
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/sidecars/{sidecar_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Sidecar
+      operationId: DeleteEncodingEncodingsSidecarByEncodingIdAndSidecarId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: sidecar_id
+        in: path
+        description: Id of the sidecar.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 81424b3f-98ce-4dbf-a4c0-8b4d515150f3
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the sidecar
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/sidecars/webvtt/{sidecar_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Sidecar
+      operationId: DeleteEncodingEncodingsSidecarsWebVttByEncodingIdAndSidecarId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: sidecar_id
+        in: path
+        description: Id of the sidecar.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 81424b3f-98ce-4dbf-a4c0-8b4d515150f3
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the sidecar
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/bifs/{bif_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Bif
+      operationId: DeleteEncodingEncodingsStreamsBifsByEncodingIdAndStreamIdAndBifId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: bif_id
+        in: path
+        description: Id of the Bif.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Bif
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Stream
+      operationId: DeleteEncodingEncodingsStreamsByEncodingIdAndStreamId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/captions/608-708/scc/{captions_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete SCC captions as 608/708 from Stream
+      operationId: DeleteEncodingEncodingsStreamsCaptions608708SccByEncodingIdAndStreamIdAndCaptionsId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: captions_id
+        in: path
+        description: Id of the caption.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 81424b3f-98ce-4dbf-a4c0-8b4d515150f3
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the caption
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/captions/608-708/srt/{captions_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete SRT captions as 608/708 from Stream
+      operationId: DeleteEncodingEncodingsStreamsCaptions608708SrtByEncodingIdAndStreamIdAndCaptionsId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: captions_id
+        in: path
+        description: Id of the caption.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 81424b3f-98ce-4dbf-a4c0-8b4d515150f3
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the caption
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/hdr/dolby-vision/{hdr_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Dolby Vision Metadata
+      operationId: DeleteEncodingEncodingsStreamsDolbyVisionHdrMetadataByEncodingIdAndStreamIdAndDolbyVisionHdrMetadataId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: hdr_id
+        in: path
+        description: Id of the Dolby Vision Metadata.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the Dolby Vision Metadata
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/filters:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete All Filters from Stream
+      operationId: DeleteEncodingEncodingsStreamsFiltersByEncodingIdAndStreamId
+      x-bitmovin:
+        operationName: deleteAll
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponseList'
+                          - description: List of ids of deleted stream filters
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/filters/{filter_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Specific Filter from Stream
+      operationId: DeleteEncodingEncodingsStreamsFiltersByEncodingIdAndStreamIdAndFilterId
+      x-bitmovin:
+        operationName: delete
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: filter_id
+        in: path
+        description: Id of the filter
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f6
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the filter
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/sprites/{sprite_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Sprite
+      operationId: DeleteEncodingEncodingsStreamsSpritesByEncodingIdAndStreamIdAndSpriteId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: sprite_id
+        in: path
+        description: Id of the sprite.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the sprite
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/burn-in-subtitles/assa/{subtitle_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Burn-In ASSA Subtitle from Stream
+      operationId: DeleteEncodingEncodingsStreamsSubtitlesAssaByEncodingIdAndStreamIdAndSubtitleId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: subtitle_id
+        in: path
+        description: Id of the burn-in subtitle.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 81424b3f-98ce-4dbf-a4c0-8b4d515150f3
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the burn-in ASSA subtitle
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/burn-in-subtitles/dvbsub/{subtitle_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Burn-In DVB-SUB Subtitle from Stream
+      operationId: DeleteEncodingEncodingsStreamsSubtitlesDvbsubByEncodingIdAndStreamIdAndSubtitleId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: subtitle_id
+        in: path
+        description: Id of the subtitle.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 81424b3f-98ce-4dbf-a4c0-8b4d515150f3
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the subtitle
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/burn-in-subtitles/srt/{subtitle_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Burn-In SRT Subtitle from Stream
+      operationId: DeleteEncodingEncodingsStreamsSubtitlesSrtsubByEncodingIdAndStreamIdAndSubtitleId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: subtitle_id
+        in: path
+        description: Id of the burn-in subtitle.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: 81424b3f-98ce-4dbf-a4c0-8b4d515150f3
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the burn-in SRT subtitle
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/thumbnails/{thumbnail_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete Thumbnail
+      operationId: DeleteEncodingEncodingsStreamsThumbnailsByEncodingIdAndStreamIdAndThumbnailId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: thumbnail_id
+        in: path
+        description: Id of the thumbnail.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the thumbnail
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /encoding/encodings/{encoding_id}/streams/{stream_id}/watermarking/nexguard-file-marker/{nexguard_id}:
+    delete:
+      tags:
+      - Encodings
+      summary: Delete nexguard file marker watermarking configurations
+      operationId: DeleteEncodingEncodingsStreamsWatermarkingNexGuardFileMarkerByEncodingIdAndStreamIdAndNexguardId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: a6336204-c929-4a61-b7a0-2cd6665114e9
+      - name: nexguard_id
+        in: path
+        description: Id of the nexguard file marker watermarking configurations
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/BitmovinResponse'
+                          - description: Id of the nexguard file marker watermarking configurations.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+components:
+  schemas:
+    MarlinDrm:
+      title: MarlinDrm
+      required:
+      - key
+      - kid
+      allOf:
+      - $ref: '#/components/schemas/Drm'
+      - properties:
+          key:
+            writeOnly: true
+            type: string
+            description: 16 byte key in hex (32 characters)
+            example: 123456789ABCDEF123456789ABCDEF12
+          kid:
+            type: string
+            description: 16 byte key in hex (32 characters)
+            example: 123456789ABCDEF123456789ABCDEF12
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    AclEntry:
+      title: AclEntry
+      required:
+      - permission
+      properties:
+        scope:
+          description: 'Deprecation notice: The value of this property is not being used. It can be chosen arbitrarily or not set at all'
+          deprecated: true
+          type: string
+          example: public
+        permission:
+          description: ''
+          allOf:
+          - $ref: '#/components/schemas/AclPermission'
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    EncodingOutput:
+      title: EncodingOutput
+      required:
+      - outputId
+      - outputPath
+      properties:
+        outputId:
+          type: string
+          description: Id of the corresponding output
+          example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
+        outputPath:
+          type: string
+          description: Subdirectory where to save the files to
+          example: /encodings/movies/movie-1/video_720/
+        acl:
+          description: Determines accessibility of files written to this output. Only applies to output types that support ACLs. Defaults to PUBLIC_READ if the list is empty. The destination (e.g. cloud storage bucket) needs to allow the configured ACL
+          type: array
+          items:
+            $ref: '#/components/schemas/AclEntry'
+    Drm:
+      title: Drm
+      required:
+      - outputs
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          outputs:
+            type: array
+            items:
+              $ref: '#/components/schemas/EncodingOutput'
+    BitmovinResponseList:
+      type: array
+      items:
+        $ref: '#/components/schemas/BitmovinResponse'
+    BitmovinResource:
+      title: BitmovinResource
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          name:
+            type: string
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    AclPermission:
+      title: AclPermission
+      type: string
+      enum:
+      - PUBLIC_READ
+      - PRIVATE
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Your Bitmovin API key
+      name: X-Api-Key
+      in: header
+    TenantOrgId:
+      type: apiKey
+      description: Your Bitmovin account organization
+      name: X-Tenant-Org-Id
+      in: header

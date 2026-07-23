@@ -1,0 +1,567 @@
+openapi: 3.0.1
+info:
+  title: Bitmovin Encoding Config Emails API
+  description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
+  version: '3.0'
+  termsOfService: https://bitmovin.com
+  contact:
+    name: Bitmovin Inc
+    url: https://bitmovin.com
+    email: support@bitmovin.com
+servers:
+- url: https://api.bitmovin.com/v1
+  description: Bitmovin Server
+  variables: {}
+security:
+- ApiKeyAuth: []
+- ApiKeyAuth: []
+  TenantOrgId: []
+tags:
+- name: Emails
+paths:
+  /notifications/emails/encoding/encodings/error:
+    post:
+      tags:
+      - Emails
+      summary: Add Encoding Error Email Notification (All Encodings)
+      operationId: PostNotificationsEmailsEncodingEncodingsError
+      requestBody:
+        description: Add a new email notification if an encoding received an error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EncodingErrorEmailNotification'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/PaginationResponse'
+                          - properties:
+                              items:
+                                description: Notification Details
+                                items:
+                                  $ref: '#/components/schemas/EncodingErrorEmailNotification'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/emails/encoding/encodings/{encoding_id}/error:
+    post:
+      tags:
+      - Emails
+      summary: Add Encoding Error Email Notification (Specific Encoding)
+      operationId: PostNotificationsEmailsEncodingEncodingsErrorByEncodingId
+      x-bitmovin:
+        operationName: createByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding resource
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      requestBody:
+        description: The email notifications object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailNotification'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/EmailNotification'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/emails/encoding/encodings/live-input-stream-changed:
+    post:
+      tags:
+      - Emails
+      summary: Add Live Input Stream Changed Email Notification (All Encodings)
+      operationId: PostNotificationsEmailsEncodingEncodingsLiveInputStreamChanged
+      requestBody:
+        description: The email notifications object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailNotificationWithStreamConditionsRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/EmailNotificationWithStreamConditions'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/emails/encoding/encodings/{encoding_id}/live-input-stream-changed:
+    post:
+      tags:
+      - Emails
+      summary: Add Live Input Stream Changed Email Notification (Specific Encoding)
+      operationId: PostNotificationsEmailsEncodingEncodingsLiveInputStreamChangedByEncodingId
+      x-bitmovin:
+        operationName: createByEncodingId
+      parameters:
+      - name: encoding_id
+        in: path
+        description: Id of the encoding resource
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: f3177c2e-0000-4ba6-bd20-1dee353d8a72
+      requestBody:
+        description: The email notifications object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailNotificationWithStreamConditionsRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/EmailNotificationWithStreamConditions'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/emails/encoding/encodings/error/{notification_id}:
+    put:
+      tags:
+      - Emails
+      summary: Replace Encoding Error Email Notification
+      operationId: PutNotificationsEmailsEncodingEncodingsErrorByNotificationId
+      parameters:
+      - name: notification_id
+        in: path
+        description: Id of the email notification
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The email notification with the updated values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailNotification'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/EmailNotification'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /notifications/emails/encoding/encodings/live-input-stream-changed/{notification_id}:
+    put:
+      tags:
+      - Emails
+      summary: Replace Live Input Stream Changed Email Notification
+      operationId: PutNotificationsEmailsEncodingEncodingsLiveInputStreamChangedByInputId
+      parameters:
+      - name: notification_id
+        in: path
+        description: Id of the email notification
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+      requestBody:
+        description: The email notification with the updated values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailNotificationWithStreamConditionsRequest'
+      responses:
+        '202':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/EmailNotificationWithStreamConditions'
+                          - description: Notification Details
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+components:
+  schemas:
+    Notification:
+      title: Notification
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          resolve:
+            type: boolean
+            description: Notify when condition resolves after it was met
+            example: 'true'
+          resourceId:
+            type: string
+            description: Specific resource, e.g. encoding id
+          triggeredAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: Last time the notification was triggered
+            example: '2016-06-25T20:09:23.69Z'
+          type:
+            type: string
+            example: EMAIL
+          eventType:
+            type: string
+            example: LIVE_INPUT_STREAM_CHANGED
+            readOnly: true
+          category:
+            type: string
+            example: ENCODING
+            readOnly: true
+          resourceType:
+            type: string
+            example: ENCODING
+            readOnly: true
+          muted:
+            type: boolean
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    PaginationResponse:
+      title: PaginationResponse
+      properties:
+        totalCount:
+          type: integer
+          format: int64
+          readOnly: true
+        offset:
+          type: integer
+          readOnly: true
+        limit:
+          type: integer
+          readOnly: true
+        previous:
+          type: string
+          readOnly: true
+        next:
+          type: string
+          readOnly: true
+        items:
+          type: array
+          readOnly: true
+          items:
+            type: object
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    EncodingErrorEmailNotification:
+      title: EncodingErrorEmailNotification
+      allOf:
+      - $ref: '#/components/schemas/EmailNotification'
+      - properties:
+          eventType:
+            type: string
+            readOnly: true
+          category:
+            type: string
+            readOnly: true
+          resourceType:
+            type: string
+            readOnly: true
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    EmailNotificationWithStreamConditions:
+      title: EmailNotificationWithStreamConditions
+      required:
+      - emails
+      allOf:
+      - $ref: '#/components/schemas/EmailNotification'
+      - properties:
+          resolve:
+            type: boolean
+            default: true
+            description: Notify when condition resolves after it was met
+          conditions:
+            allOf:
+            - $ref: '#/components/schemas/AbstractCondition'
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    AbstractCondition:
+      title: AbstractCondition
+    EmailNotificationWithStreamConditionsRequest:
+      title: EmailNotificationWithStreamConditionsRequest
+      required:
+      - emails
+      - conditions
+      properties:
+        resolve:
+          type: boolean
+          default: true
+          description: Notify when condition resolves after it was met
+        emails:
+          type: array
+          items:
+            type: string
+        muted:
+          type: boolean
+        conditions:
+          allOf:
+          - $ref: '#/components/schemas/AbstractCondition'
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    EmailNotification:
+      title: EmailNotification
+      required:
+      - emails
+      allOf:
+      - $ref: '#/components/schemas/Notification'
+      - properties:
+          type:
+            type: string
+            example: EMAIL
+            readOnly: true
+          emails:
+            type: array
+            items:
+              type: string
+            example:
+            - account@bitmovin.com
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Your Bitmovin API key
+      name: X-Api-Key
+      in: header
+    TenantOrgId:
+      type: apiKey
+      description: Your Bitmovin account organization
+      name: X-Tenant-Org-Id
+      in: header

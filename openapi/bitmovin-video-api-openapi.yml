@@ -1,0 +1,713 @@
+openapi: 3.0.1
+info:
+  title: Bitmovin Encoding Config Video API
+  description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
+  version: '3.0'
+  termsOfService: https://bitmovin.com
+  contact:
+    name: Bitmovin Inc
+    url: https://bitmovin.com
+    email: support@bitmovin.com
+servers:
+- url: https://api.bitmovin.com/v1
+  description: Bitmovin Server
+  variables: {}
+security:
+- ApiKeyAuth: []
+- ApiKeyAuth: []
+  TenantOrgId: []
+tags:
+- name: Video
+paths:
+  /streams/video/{stream_id}:
+    delete:
+      tags:
+      - Video
+      summary: Delete Stream
+      operationId: DeleteStreamsVideo
+      parameters:
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cbp330cc4dci2iv9bc9g
+      responses:
+        '204':
+          description: Successful response.
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+    get:
+      tags:
+      - Video
+      summary: Get Streams video by id
+      operationId: GetStreamsVideoByStreamId
+      parameters:
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cbp330cc4dci2iv9bc9g
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/StreamsVideoResponse'
+                          - description: stream
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+    patch:
+      tags:
+      - Video
+      summary: Partially update video stream by id
+      operationId: PatchStreamsVideo
+      parameters:
+      - name: stream_id
+        in: path
+        description: Id of the stream.
+        style: simple
+        required: true
+        schema:
+          type: string
+          example: cbp330cc4dci2iv9bc9g
+      requestBody:
+        required: true
+        description: Stream fields to update.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamsVideoUpdateRequest'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          $ref: '#/components/schemas/StreamsVideoResponse'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /streams/video:
+    get:
+      tags:
+      - Video
+      summary: Get paginated list of Streams videos
+      operationId: GetStreamsVideo
+      parameters:
+      - name: offset
+        in: query
+        description: Index of the first item to return, starting at 0. Default is 0
+        style: form
+        schema:
+          type: integer
+          example: '0'
+      - name: limit
+        in: query
+        description: Maximum number of items to return. Default is 25, maximum is 100
+        style: form
+        schema:
+          type: integer
+          example: '25'
+      - name: sort
+        in: query
+        description: 'Order list result according an resource attribute.  The fields that can be used for sorting are: + `createdAt`
+
+          '
+        style: form
+        schema:
+          type: string
+          example: createdAt:desc
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/PaginationResponse'
+                          - properties:
+                              items:
+                                description: List of all streams
+                                items:
+                                  $ref: '#/components/schemas/StreamsVideoResponse'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+    post:
+      tags:
+      - Video
+      summary: Create new Streams video
+      operationId: PostStreamsVideo
+      requestBody:
+        description: Create a new stream.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamsVideoCreateRequest'
+      responses:
+        '201':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/ResponseEnvelope'
+                - properties:
+                    data:
+                      properties:
+                        result:
+                          allOf:
+                          - $ref: '#/components/schemas/StreamsVideoResponse'
+                          - description: Created vod stream
+        '409':
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+components:
+  schemas:
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    StreamsVideoCreateRequest:
+      title: StreamsVideoCreateRequest
+      required:
+      - asserUrl
+      allOf:
+      - properties:
+          assetUrl:
+            type: string
+            description: The streams input asset URL
+          title:
+            type: string
+            description: Title of the stream
+          description:
+            type: string
+            description: Description of the stream
+          domainRestrictionId:
+            type: string
+            description: Id of the domain restriction config to use
+          encodingProfile:
+            description: Profile to be used in encoding
+            allOf:
+            - $ref: '#/components/schemas/StreamsEncodingProfile'
+          signed:
+            type: boolean
+            description: If set to true the Stream is only accessible via a token
+    StreamsType:
+      title: StreamsType
+      type: string
+      enum:
+      - VIDEO
+      - LIVE
+      x-enum-elements:
+      - name: VIDEO
+      - name: LIVE
+    StreamsVideoStatus:
+      title: StreamsVideoStatus
+      type: string
+      default: PUBLISHED
+      enum:
+      - PUBLISHED
+      - UNPUBLISHED
+      x-enum-elements:
+      - name: PUBLISHED
+        description: The stream is published and can be accessed
+      - name: UNPUBLISHED
+        description: The stream cannot be accessed
+    StreamsVideoQuality:
+      title: StreamsVideoQuality
+      type: string
+      default: NONE
+      enum:
+      - NONE
+      - PREVIEW
+      - DEFAULT
+      x-enum-elements:
+      - name: NONE
+        description: The loading placeholder displayed until the first encoding is done
+      - name: PREVIEW
+        description: A lower quality preview encoding
+      - name: DEFAULT
+        description: The default Per-title encoding
+    StreamsVideoUpdateRequest:
+      title: StreamsVideoUpdateRequest
+      allOf:
+      - properties:
+          status:
+            description: The new status of the stream
+            allOf:
+            - $ref: '#/components/schemas/StreamsVideoStatus'
+          title:
+            type: string
+            description: The new title of the stream
+          description:
+            type: string
+            description: The new description of the stream
+          posterUrl:
+            type: string
+            description: URL to hosted poster image
+          domainRestrictionId:
+            type: string
+            description: Id of the domain restriction config to use
+    StreamsStyleConfigResponse:
+      title: StreamsStyleConfigResponse
+      allOf:
+      - properties:
+          id:
+            readOnly: true
+            type: string
+            description: The identifier of the style config
+          orgId:
+            type: string
+            description: UUID of the associated organization
+          playerStyle:
+            $ref: '#/components/schemas/StreamsStyleConfigPlayerStyle'
+          watermarkUrl:
+            type: string
+            description: URL of the watermark image
+          watermarkTargetLink:
+            type: string
+            description: Target link of the watermark image
+    StreamsVideoEncodingStatus:
+      title: StreamsVideoEncodingStatus
+      type: string
+      default: STARTED
+      enum:
+      - STARTED
+      - ERROR
+      - FINISHED
+      x-enum-elements:
+      - name: STARTED
+        description: The encoding has been started and is in progress
+      - name: ERROR
+        description: The encoding did not succeed
+      - name: FINISHED
+        description: The encoding finished successfully
+    StreamsResponse:
+      title: StreamsResponse
+      properties:
+        id:
+          readOnly: true
+          type: string
+          description: The identifier of the stream
+        title:
+          readOnly: true
+          type: string
+          description: The title of the stream
+        description:
+          readOnly: true
+          type: string
+          description: The description of the stream
+        createdAt:
+          readOnly: true
+          format: date-time
+          type: string
+          description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+        type:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/StreamsType'
+          description: Type of the Stream contained in the StreamsResponse
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    StreamsDomainRestrictionResponse:
+      title: StreamsDomainRestrictionResponse
+      properties:
+        id:
+          readOnly: true
+          type: string
+          description: The identifier of the streams domain restriction entity
+        allowedDomains:
+          type: array
+          description: The list of allowed domains
+          items:
+            type: string
+        allowNoReferer:
+          type: boolean
+          description: Controls if requests to domain restricted streams without referer header should be allowed or denied
+        allowShare:
+          type: boolean
+          description: Controls if Stream is accessible via sharing URL or not
+    PaginationResponse:
+      title: PaginationResponse
+      properties:
+        totalCount:
+          type: integer
+          format: int64
+          readOnly: true
+        offset:
+          type: integer
+          readOnly: true
+        limit:
+          type: integer
+          readOnly: true
+        previous:
+          type: string
+          readOnly: true
+        next:
+          type: string
+          readOnly: true
+        items:
+          type: array
+          readOnly: true
+          items:
+            type: object
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+    StreamsAdConfigAd:
+      title: StreamsAdConfigAd
+      required:
+      - position
+      - url
+      - type
+      properties:
+        position:
+          type: string
+          maxLength: 30
+        url:
+          type: string
+          maxLength: 2000
+        type:
+          type: string
+          maxLength: 30
+    StreamsAdConfigResponse:
+      title: StreamsAdConfigResponse
+      allOf:
+      - properties:
+          id:
+            readOnly: true
+            type: string
+            description: The identifier of the streams ad config
+          ads:
+            type: array
+            items:
+              $ref: '#/components/schemas/StreamsAdConfigAd'
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    StreamsVideoResponse:
+      title: StreamsVideoResponse
+      allOf:
+      - $ref: '#/components/schemas/StreamsResponse'
+      - properties:
+          assetUrl:
+            readOnly: true
+            type: string
+            description: The asset URL of the stream
+          status:
+            readOnly: true
+            description: The status of the stream
+            allOf:
+            - $ref: '#/components/schemas/StreamsVideoStatus'
+          styleConfig:
+            readOnly: true
+            $ref: '#/components/schemas/StreamsStyleConfigResponse'
+            description: Style config
+          encodingTasks:
+            readOnly: true
+            type: array
+            description: List of encoding status information
+            items:
+              $ref: '#/components/schemas/StreamsVideoEncodingTask'
+          posterUrl:
+            readOnly: true
+            description: Poster URL
+            type: string
+          adConfig:
+            readOnly: true
+            description: Stream advertisement config
+            $ref: '#/components/schemas/StreamsAdConfigResponse'
+          domainRestriction:
+            readOnly: true
+            description: Stream domain restriction
+            $ref: '#/components/schemas/StreamsDomainRestrictionResponse'
+          trimming:
+            readOnly: true
+            description: Stream trimming information
+            allOf:
+            - $ref: '#/components/schemas/StreamsTrimmingStatus'
+          downloadUrl:
+            readOnly: true
+            description: Single-file download URL of the unaltered video in the best available quality
+            type: string
+          signed:
+            readOnly: true
+            description: True if the stream is signature protected
+            type: boolean
+    StreamsVideoEncodingTask:
+      title: StreamsVideoEncodingTask
+      allOf:
+      - properties:
+          quality:
+            readOnly: true
+            description: Quality of the encoding
+            allOf:
+            - $ref: '#/components/schemas/StreamsVideoQuality'
+          status:
+            readOnly: true
+            description: Current state of the encoding
+            allOf:
+            - $ref: '#/components/schemas/StreamsVideoEncodingStatus'
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    StreamsTrimmingStatus:
+      title: StreamsTrimmingStatus
+      type: string
+      default: UNAVAILABLE
+      enum:
+      - UNAVAILABLE
+      - AVAILABLE
+      - STARTED
+      - ERROR
+      - FINISHED
+      x-enum-elements:
+      - name: UNAVAILABLE
+        description: Trimming is unavailable
+      - name: AVAILABLE
+        description: Trimming is available
+      - name: STARTED
+        description: The trimming started
+      - name: ERROR
+        description: The trimming failed
+      - name: FINISHED
+        description: The trimming succeeded
+    StreamsStyleConfigPlayerStyle:
+      type: object
+      description: Player style config
+      allOf:
+      - properties:
+          playbackMarkerBgColor:
+            type: string
+            description: Playback marker background color
+          playbackMarkerBorderColor:
+            type: string
+            description: Playback marker border color
+          playbackTrackPlayedColor:
+            type: string
+            description: Playback track played color
+          playbackTrackBufferedColor:
+            type: string
+            description: Playback track buffered color
+          playbackTrackBgColor:
+            type: string
+            description: Playback track background color
+          textColor:
+            type: string
+            description: Text color
+          backgroundColor:
+            type: string
+            description: Background color
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    StreamsEncodingProfile:
+      title: StreamsEncodingProfile
+      type: string
+      default: PER_TITLE
+      enum:
+      - PER_TITLE
+      - FIXED_RESOLUTIONS
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Your Bitmovin API key
+      name: X-Api-Key
+      in: header
+    TenantOrgId:
+      type: apiKey
+      description: Your Bitmovin account organization
+      name: X-Tenant-Org-Id
+      in: header
