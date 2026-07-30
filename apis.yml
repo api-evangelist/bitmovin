@@ -8,7 +8,20 @@ description: >-
   pipeline covers 800+ endpoints and ships open-source SDKs in Java,
   JavaScript, Python, Go, PHP, and C#.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Enterprise (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bitmovin.png
 url: https://raw.githubusercontent.com/api-evangelist/bitmovin/refs/heads/main/apis.yml
 created: "2026-06-12"
 modified: "2026-06-12"
@@ -28,75 +41,238 @@ tags:
   - Media
   - Cloud
 apis:
-  - aid: bitmovin:encoding-api
-    name: Bitmovin Encoding API
-    description: >-
-      REST API for cloud-based VOD and live video encoding. Supports H.264,
-      H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging
-      (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and
-      per-title encoding optimisation.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://developer.bitmovin.com/encoding/
-    baseURL: https://api.bitmovin.com/v1
-    tags:
-      - Video Encoding
-      - VOD
-      - Live Streaming
-      - HLS
-      - DASH
-      - DRM
-    properties:
-      - type: Documentation
-        url: https://developer.bitmovin.com/encoding/
-      - type: OpenAPI
-        url: https://developer.bitmovin.com/llms.txt
-      - type: OpenAPI
-        url: openapi/bitmovin-encoding-api-openapi.yml
-    contact:
-      - FN: Bitmovin Developer Support
-        url: https://community.bitmovin.com/
-        email: support@bitmovin.com
-  - aid: bitmovin:player-api
-    name: Bitmovin Player API
-    description: >-
-      JavaScript and REST APIs for embedding and configuring the Bitmovin HTML5
-      player, managing player licenses, and collecting playback event data.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://developer.bitmovin.com/playback/
-    baseURL: https://api.bitmovin.com/v1
-    tags:
-      - Player
-      - Playback
-      - HTML5
-      - Video Player
-    properties:
-      - type: Documentation
-        url: https://developer.bitmovin.com/playback/
-    contact:
-      - FN: Bitmovin Developer Support
-        url: https://community.bitmovin.com/
-        email: support@bitmovin.com
-  - aid: bitmovin:analytics-api
-    name: Bitmovin Analytics API
-    description: >-
-      REST API for querying player and streaming quality-of-experience
-      metrics including buffering, startup time, error rates, and audience
-      segmentation for video observability.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://developer.bitmovin.com/playback/docs/analytics-api
-    baseURL: https://api.bitmovin.com/v1
-    tags:
-      - Analytics
-      - Quality of Experience
-      - Observability
-      - Metrics
-    properties:
-      - type: Documentation
-        url: https://developer.bitmovin.com/playback/docs/analytics-api
-    contact:
-      - FN: Bitmovin Developer Support
-        url: https://community.bitmovin.com/
-        email: support@bitmovin.com
+- aid: bitmovin:player-api
+  name: Bitmovin Player API
+  description: >-
+    JavaScript and REST APIs for embedding and configuring the Bitmovin HTML5 player, managing player
+    licenses, and collecting playback event data.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.bitmovin.com/playback/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Player
+  - Playback
+  - HTML5
+  - Video Player
+  properties:
+  - type: Documentation
+    url: https://developer.bitmovin.com/playback/
+  contact:
+  - FN: Bitmovin Developer Support
+    url: https://community.bitmovin.com/
+    email: support@bitmovin.com
+- aid: bitmovin:analytics-api
+  name: Bitmovin Analytics API
+  description: >-
+    REST API for querying player and streaming quality-of-experience metrics including buffering, startup
+    time, error rates, and audience segmentation for video observability.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.bitmovin.com/playback/docs/analytics-api
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Analytics
+  - Quality of Experience
+  - Observability
+  - Metrics
+  properties:
+  - type: Documentation
+    url: https://developer.bitmovin.com/playback/docs/analytics-api
+  contact:
+  - FN: Bitmovin Developer Support
+    url: https://community.bitmovin.com/
+    email: support@bitmovin.com
+- aid: bitmovin:bitmovin-config-api
+  name: Bitmovin Config API
+  description: The Config API from Bitmovin — 2 operation(s) for config.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Config
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-config-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-configurations-api
+  name: Bitmovin Configurations API
+  description: The Configurations API from Bitmovin — 27 operation(s) for configurations.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Configurations
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-configurations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-emails-api
+  name: Bitmovin Emails API
+  description: The Emails API from Bitmovin — 6 operation(s) for emails.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Emails
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-emails-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-encodings-api
+  name: Bitmovin Encodings API
+  description: The Encodings API from Bitmovin — 80 operation(s) for encodings.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Encodings
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-encodings-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-filters-api
+  name: Bitmovin Filters API
+  description: The Filters API from Bitmovin — 16 operation(s) for filters.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Filters
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-filters-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-infrastructure-api
+  name: Bitmovin Infrastructure API
+  description: The Infrastructure API from Bitmovin — 13 operation(s) for infrastructure.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Infrastructure
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-infrastructure-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-inputs-api
+  name: Bitmovin Inputs API
+  description: The Inputs API from Bitmovin — 22 operation(s) for inputs.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Inputs
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-inputs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-live-api
+  name: Bitmovin Live API
+  description: The Live API from Bitmovin — 13 operation(s) for live.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Live
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-live-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-manifests-api
+  name: Bitmovin Manifests API
+  description: The Manifests API from Bitmovin — 81 operation(s) for manifests.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Manifests
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-manifests-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-notifications-api
+  name: Bitmovin Notifications API
+  description: The Notifications API from Bitmovin — 2 operation(s) for notifications.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-outputs-api
+  name: Bitmovin Outputs API
+  description: The Outputs API from Bitmovin — 20 operation(s) for outputs.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Outputs
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-outputs-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-search-api
+  name: Bitmovin Search API
+  description: The Search API from Bitmovin — 1 operation(s) for search.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-signing-keys-api
+  name: Bitmovin Signing-keys API
+  description: The Signing-keys API from Bitmovin — 2 operation(s) for signing-keys.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Signing-keys
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-signing-keys-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-templates-api
+  name: Bitmovin Templates API
+  description: The Templates API from Bitmovin — 2 operation(s) for templates.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-templates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-video-api
+  name: Bitmovin Video API
+  description: The Video API from Bitmovin — 2 operation(s) for video.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Video
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-video-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
+- aid: bitmovin:bitmovin-webhooks-api
+  name: Bitmovin Webhooks API
+  description: The Webhooks API from Bitmovin — 21 operation(s) for webhooks.
+  humanURL: https://developer.bitmovin.com/encoding/
+  baseURL: https://api.bitmovin.com/v1
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/bitmovin-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bitmovin.com/encoding/
 common:
   - type: AgenticAccess
     url: agentic-access/bitmovin-agentic-access.yml
