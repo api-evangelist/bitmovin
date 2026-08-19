@@ -1,0 +1,3733 @@
+{
+  "item": [
+    {
+      "id": "c11a3ef4-c82e-4777-9e69-829c1713af4c",
+      "name": "Webhooks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64773c9a-1a1f-4162-9a75-1c27e764397b",
+          "name": "Add 'Manifest Error' Webhook Notification (Specific Manifest)",
+          "request": {
+            "name": "Add 'Manifest Error' Webhook Notification (Specific Manifest)",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "manifest",
+                ":manifest_id",
+                "error"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "manifest_id",
+                  "description": "(Required) Id of the manifest resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f039f9c2-26ad-4fb9-aa1d-6094630018c0",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    ":manifest_id",
+                    "error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "manifest_id",
+                      "description": "(Required) Id of the manifest resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b51e0bd-811c-4f5c-b511-697dd46ae4a4",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    ":manifest_id",
+                    "error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "manifest_id",
+                      "description": "(Required) Id of the manifest resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a4843e2-0530-4ac6-9020-f0104b200bb0",
+          "name": "Add 'Manifest Finished Successfully' Webhook Notification (Specific Manifest)",
+          "request": {
+            "name": "Add 'Manifest Finished Successfully' Webhook Notification (Specific Manifest)",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "manifest",
+                ":manifest_id",
+                "finished"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "manifest_id",
+                  "description": "(Required) Id of the manifest resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42327fe5-1e5a-4826-8454-7763162637c1",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    ":manifest_id",
+                    "finished"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "manifest_id",
+                      "description": "(Required) Id of the manifest resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3fbef46-ddbc-4df0-b671-2e1b38b6ff9d",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    ":manifest_id",
+                    "finished"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "manifest_id",
+                      "description": "(Required) Id of the manifest resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27c0db2c-4ec0-43a7-b28e-8cd865b6d766",
+          "name": "Add 'Manifest Error' Webhook (All Manifests)",
+          "request": {
+            "name": "Add 'Manifest Error' Webhook (All Manifests)",
+            "description": {
+              "content": "Add a new webhook notification that triggers if a manifest generation fails. A maximum number of 5 webhooks is allowed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "manifest",
+                "error"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c40ee6b8-ac7c-4345-8cff-9b90f06645b6",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    "error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53632eb0-2bfe-4798-bf71-9b59a4635c00",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    "error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "179bbf0b-38f5-4cb2-8fbf-35d3f2047d15",
+          "name": "Add 'Manifest Finished Successfully' Webhook (All Manifests)",
+          "request": {
+            "name": "Add 'Manifest Finished Successfully' Webhook (All Manifests)",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "manifest",
+                "finished"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c3760e0-43fb-40f9-994f-3e30b8dc2e19",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    "finished"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58095b48-d51e-4f45-a873-1b4ee5e1d208",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    "finished"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc0b2a2d-6021-4606-9ee0-74af0c0f57a9",
+          "name": "Add Encoding Changed Webhook Notification (Specific Encoding)",
+          "request": {
+            "name": "Add Encoding Changed Webhook Notification (Specific Encoding)",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                ":encoding_id",
+                "encoding-status-changed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "encoding_id",
+                  "description": "(Required) Id of the encoding resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  },\n  \"conditions\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "900b9bd7-ac22-4ba6-bc91-addb29736853",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "encoding-status-changed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://www.example.com/my/webhook/endpoint\",\n      \"type\": \"WEBHOOK\",\n      \"method\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"resolve\": true,\n      \"conditions\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a19580b8-cd6e-4e19-ad75-af25a1a54aa2",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "encoding-status-changed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25a9be47-dfcf-46d4-bf48-dbdebfa18940",
+          "name": "Add 'Encoding Error' Webhook",
+          "request": {
+            "name": "Add 'Encoding Error' Webhook",
+            "description": {
+              "content": "Add a new webhook notification that triggers if an encoding fails. A maximum number of 5 webhooks is allowed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                "error"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "afa6a688-b823-4c03-8ae0-2696c466202f",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2dd9e035-654a-44e1-9a9a-8db1e6781431",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a556c501-771a-4a24-9f46-2ed4de2f5535",
+          "name": "Add Error Webhook for a specific Encoding",
+          "request": {
+            "name": "Add Error Webhook for a specific Encoding",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                ":encoding_id",
+                "error"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "encoding_id",
+                  "description": "(Required) Id of the encoding"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa9d2622-71af-43bc-95ed-aa15c6a0d1e7",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1076ab9e-043d-4ef7-9cab-1ea5cdda0469",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2ca85af-2f7a-4482-90f1-ba067115fb62",
+          "name": "Add 'Encoding Finished' Webhook",
+          "request": {
+            "name": "Add 'Encoding Finished' Webhook",
+            "description": {
+              "content": "Add a new webhook notification that triggers if an encoding finishes successfully. A maximum number of 5 webhooks is allowed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                "finished"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c8faf8f-b9b9-499e-8e04-15ba85a8c4d1",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "finished"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee7191d4-ab0a-4b61-b4f0-cd2f787e0e51",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "finished"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca861873-7597-4b14-ac17-3cc2145cc700",
+          "name": "Add 'Encoding Finished' Webhook for a specific Encoding",
+          "request": {
+            "name": "Add 'Encoding Finished' Webhook for a specific Encoding",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                ":encoding_id",
+                "finished"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "encoding_id",
+                  "description": "(Required) Id of the encoding"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66f3df80-47fc-4635-9e2d-c6ad1a12e2b8",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "finished"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "caa4fafa-5067-4cee-85ee-ce6c3f017c92",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "finished"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a23a0b94-c519-495b-b79f-5669c6d246d1",
+          "name": "Add 'Live Encoding Heartbeat' Webhook",
+          "request": {
+            "name": "Add 'Live Encoding Heartbeat' Webhook",
+            "description": {
+              "content": "Add a new webhook notification that triggers a heartbeat webhook with a fixed `interval` for all Live Encodings.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                "live-encoding-heartbeat"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  },\n  \"interval\": 20\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "13bb9404-3569-4824-9496-a46b4ae81cb0",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "live-encoding-heartbeat"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"interval\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"method\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"schema\": {},\n      \"interval\": 20\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcdca022-f295-461a-bdae-527468431629",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "live-encoding-heartbeat"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"interval\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21cdc917-2ba8-487e-b747-1f36239711b3",
+          "name": "Add Live Input Stream Changed Webhook Notification (All Encodings)",
+          "request": {
+            "name": "Add Live Input Stream Changed Webhook Notification (All Encodings)",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                "live-input-stream-changed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  },\n  \"conditions\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bb75d308-a68b-44e9-99c3-02f3ff357816",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "live-input-stream-changed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://www.example.com/my/webhook/endpoint\",\n      \"type\": \"WEBHOOK\",\n      \"method\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"resolve\": true,\n      \"conditions\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71bb8971-3a76-400c-abf7-a8762e43d422",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "live-input-stream-changed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43961dac-464e-4875-ae63-1ecc8be0e736",
+          "name": "Add Live Input Stream Changed Webhook Notification (Specific Encoding)",
+          "request": {
+            "name": "Add Live Input Stream Changed Webhook Notification (Specific Encoding)",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                ":encoding_id",
+                "live-input-stream-changed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "encoding_id",
+                  "description": "(Required) Id of the encoding resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  },\n  \"conditions\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0037c4a0-fa5f-4262-a7cc-0e8252fce5cc",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "live-input-stream-changed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://www.example.com/my/webhook/endpoint\",\n      \"type\": \"WEBHOOK\",\n      \"method\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"resolve\": true,\n      \"conditions\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af87aac0-993d-4aba-95af-fc42eaaf260e",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "live-input-stream-changed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "061c4c25-342f-4067-929d-e0b29c6b0d0d",
+          "name": "Add 'Live Manifest Ready' Webhook",
+          "request": {
+            "name": "Add 'Live Manifest Ready' Webhook",
+            "description": {
+              "content": "Add a webhook notification that is triggered when a live manifest is ready, meaning at least one segment is available in every playlist. A maximum number of 5 webhooks is allowed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                "live-manifest-ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "deed0594-d3ae-4f76-82bb-0bdd14834026",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "live-manifest-ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "528c4f9c-1744-4744-8b17-f342ccb1598d",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "live-manifest-ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7845251b-4d3b-4c91-872d-9f203033ac94",
+          "name": "Add 'Live Manifest Ready' Webhook for a specific Encoding",
+          "request": {
+            "name": "Add 'Live Manifest Ready' Webhook for a specific Encoding",
+            "description": {
+              "content": "Add a new webhook notification that triggers when a live manifest is ready for a specific encoding. A maximum number of 5 webhooks per Encoding is allowed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                ":encoding_id",
+                "live-manifest-ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "encoding_id",
+                  "description": "(Required) Id of the encoding"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4138c5b6-d7f7-44ab-82d3-c63f11640cad",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "live-manifest-ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8ee97c5-7179-45d5-b642-d207610aab43",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "live-manifest-ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70a4e65a-1a70-4450-bf4f-00d016eb6321",
+          "name": "Add Encoding Changed Webhook Notification (All Encodings)",
+          "request": {
+            "name": "Add Encoding Changed Webhook Notification (All Encodings)",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                "encoding-status-changed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  },\n  \"conditions\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "86c0a326-07f3-47d3-bfc7-d5b11253ba18",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "encoding-status-changed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://www.example.com/my/webhook/endpoint\",\n      \"type\": \"WEBHOOK\",\n      \"method\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"resolve\": true,\n      \"conditions\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2e73c51-4d6b-4dc2-9752-a7e1ebc19ffe",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "encoding-status-changed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "636855ed-0d5b-480f-bcab-ad7b719c5358",
+          "name": "Add 'Encoding Transfer Error' Webhook",
+          "request": {
+            "name": "Add 'Encoding Transfer Error' Webhook",
+            "description": {
+              "content": "Add a new webhook notification that triggers if a transfer fails. A maximum number of 5 webhooks is allowed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                "transfer-error"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7fbe1ab9-1a51-4906-8934-fde0a8085e17",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "transfer-error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "105d156b-4b30-4bb4-9713-b92347293c24",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "transfer-error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7cb4fb3-f716-46ef-b00a-a5e7038d25e3",
+          "name": "Add 'Encoding Transfer Error' Webhook for a specific Encoding",
+          "request": {
+            "name": "Add 'Encoding Transfer Error' Webhook for a specific Encoding",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                ":encoding_id",
+                "transfer-error"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "encoding_id",
+                  "description": "(Required) Id of the encoding"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ad85114-f12e-4757-8638-bb952e64d10c",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "transfer-error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42da6f2c-ddb3-48d7-a4b3-9b436342c4dd",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    ":encoding_id",
+                    "transfer-error"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encoding_id",
+                      "description": "(Required) Id of the encoding"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92084531-83d4-4225-83b7-9da93c17f27d",
+          "name": "Replace 'Manifest Error' Webhook Notification",
+          "request": {
+            "name": "Replace 'Manifest Error' Webhook Notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "manifest",
+                "error",
+                ":notification_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notification_id",
+                  "description": "(Required) Id of the webhook notification"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "51550572-a189-4944-aa95-03a6e6cacacd",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    "error",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) Id of the webhook notification"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50f42515-cbbe-4364-82d3-57ea75b02d4b",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    "error",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) Id of the webhook notification"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1175e08-3a95-481c-ad5a-a6262db8ecbd",
+          "name": "Replace Manifest Finished Webhook Notification",
+          "request": {
+            "name": "Replace Manifest Finished Webhook Notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "manifest",
+                "finished",
+                ":notification_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notification_id",
+                  "description": "(Required) Id of the webhook notification"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17176a03-633c-4f65-ad84-d3778b10cde1",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    "finished",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) Id of the webhook notification"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": \"Name of the resource\",\n      \"description\": \"Description of the resource\",\n      \"createdAt\": \"2016-06-25T20:09:23.69Z\",\n      \"modifiedAt\": \"2016-06-25T20:09:23.69Z\",\n      \"method\": \"<string>\",\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"schema\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2153ebe7-6acc-4481-bd22-3d75dac3b8e6",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "manifest",
+                    "finished",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) Id of the webhook notification"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://yourendpoint.yourcorp.com/webhooks/encoding/finished\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "187ea24f-4fce-4707-a7d2-dea36f8b6f28",
+          "name": "Replace Encoding Status Changed Webhook Notification",
+          "request": {
+            "name": "Replace Encoding Status Changed Webhook Notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                "encoding-status-changed",
+                ":notification_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notification_id",
+                  "description": "(Required) Id of the webhook notification"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  },\n  \"conditions\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e15e5f8-9229-4490-be8f-0c4066486431",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "encoding-status-changed",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) Id of the webhook notification"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://www.example.com/my/webhook/endpoint\",\n      \"type\": \"WEBHOOK\",\n      \"method\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"resolve\": true,\n      \"conditions\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24de6acf-7282-4dec-af2c-c0994a3f45f3",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "encoding-status-changed",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) Id of the webhook notification"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2169dca9-d7f1-4a09-8af0-9de30c3c5b79",
+          "name": "Replace Live Input Stream Changed Webhook Notification",
+          "request": {
+            "name": "Replace Live Input Stream Changed Webhook Notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "webhooks",
+                "encoding",
+                "encodings",
+                "live-input-stream-changed",
+                ":notification_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notification_id",
+                  "description": "(Required) Id of the webhook notification"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": \"<boolean>\",\n  \"signature\": {\n    \"type\": \"<string>\",\n    \"key\": \"<string>\"\n  },\n  \"conditions\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7241f725-99cc-4078-b01f-709818f03b9d",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "live-input-stream-changed",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) Id of the webhook notification"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://www.example.com/my/webhook/endpoint\",\n      \"type\": \"WEBHOOK\",\n      \"method\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"insecureSsl\": false,\n      \"signature\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"resolve\": true,\n      \"conditions\": {}\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "159c7279-f998-405a-a1cf-9c00f84a81c7",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "webhooks",
+                    "encoding",
+                    "encodings",
+                    "live-input-stream-changed",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) Id of the webhook notification"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://www.example.com/my/webhook/endpoint\",\n  \"resolve\": \"<boolean>\",\n  \"resourceId\": \"<string>\",\n  \"type\": \"EMAIL\",\n  \"muted\": \"<boolean>\",\n  \"customData\": \"<string>\",\n  \"method\": \"<string>\",\n  \"insecureSsl\": false,\n  \"signature\": {\n    \"type\": \"HMAC\",\n    \"key\": \"secretKey\"\n  },\n  \"conditions\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bitmovin.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bbbe80d1-1dec-4e9d-aaac-96d57d6713b0",
+    "name": "Bitmovin Encoding Config Webhooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.\n\nContact Support:\n Name: Bitmovin Inc\n Email: support@bitmovin.com",
+      "type": "text/plain"
+    }
+  }
+}

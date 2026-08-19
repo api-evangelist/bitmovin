@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Templates API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Store an Encoding Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stores an Encoding Template that can be used later to start encodings or standby pools\n"
+        },
+        {
+          "info": {
+            "name": "Start an Encoding defined with an Encoding Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/templates/start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start an Encoding defined with an Encoding Template"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

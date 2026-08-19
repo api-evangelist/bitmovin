@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Emails API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Emails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add Encoding Error Email Notification (All Encodings)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/emails/encoding/encodings/error",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Encoding Error Email Notification (All Encodings)"
+        },
+        {
+          "info": {
+            "name": "Add Encoding Error Email Notification (Specific Encoding)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/emails/encoding/encodings/:encoding_id/error",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Encoding Error Email Notification (Specific Encoding)"
+        },
+        {
+          "info": {
+            "name": "Add Live Input Stream Changed Email Notification (All Encodings)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/emails/encoding/encodings/live-input-stream-changed",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Live Input Stream Changed Email Notification (All Encodings)"
+        },
+        {
+          "info": {
+            "name": "Add Live Input Stream Changed Email Notification (Specific Encoding)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/emails/encoding/encodings/:encoding_id/live-input-stream-changed",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Live Input Stream Changed Email Notification (Specific Encoding)"
+        },
+        {
+          "info": {
+            "name": "Replace Encoding Error Email Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.bitmovin.com/v1/notifications/emails/encoding/encodings/error/:notification_id",
+            "params": [
+              {
+                "name": "notification_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the email notification"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace Encoding Error Email Notification"
+        },
+        {
+          "info": {
+            "name": "Replace Live Input Stream Changed Email Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.bitmovin.com/v1/notifications/emails/encoding/encodings/live-input-stream-changed/:notification_id",
+            "params": [
+              {
+                "name": "notification_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the email notification"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace Live Input Stream Changed Email Notification"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

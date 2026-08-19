@@ -1,0 +1,886 @@
+{
+  "item": [
+    {
+      "id": "cac2064b-7cc9-4caa-9cff-03e0a5639976",
+      "name": "Video",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9dcee53a-0339-4f0a-81bf-edac28dc4f17",
+          "name": "Delete Stream",
+          "request": {
+            "name": "Delete Stream",
+            "description": {},
+            "url": {
+              "path": [
+                "streams",
+                "video",
+                ":stream_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stream_id",
+                  "description": "(Required) Id of the stream."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57ab8b79-5781-4d38-9350-c6361ae0af69",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video",
+                    ":stream_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) Id of the stream."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bcb8cead-3115-4719-a765-7c268a7551d6",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video",
+                    ":stream_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) Id of the stream."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6ff5723-a05d-44f2-94e0-4c90614b8f21",
+          "name": "Get Streams video by id",
+          "request": {
+            "name": "Get Streams video by id",
+            "description": {},
+            "url": {
+              "path": [
+                "streams",
+                "video",
+                ":stream_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stream_id",
+                  "description": "(Required) Id of the stream."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47a392fb-8034-4186-8cee-fd5870e69458",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video",
+                    ":stream_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) Id of the stream."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"createdAt\": \"1991-02-02T01:12:10.100Z\",\n      \"type\": {\n        \"readOnly\": true,\n        \"description\": \"Type of the Stream contained in the StreamsResponse\",\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"assetUrl\": \"string\",\n      \"status\": \"PUBLISHED\",\n      \"styleConfig\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"orgId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"playerStyle\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"watermarkUrl\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"watermarkTargetLink\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"encodingTasks\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"posterUrl\": \"string\",\n      \"adConfig\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ads\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"domainRestriction\": {\n        \"id\": \"string\",\n        \"allowedDomains\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"allowNoReferer\": true,\n        \"allowShare\": true\n      },\n      \"trimming\": \"UNAVAILABLE\",\n      \"downloadUrl\": \"string\",\n      \"signed\": false\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0575fc83-c924-4fd8-836c-5fef94b234b7",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video",
+                    ":stream_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) Id of the stream."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "459d3286-709c-429b-bbce-c8c3f1aeba35",
+          "name": "Partially update video stream by id",
+          "request": {
+            "name": "Partially update video stream by id",
+            "description": {},
+            "url": {
+              "path": [
+                "streams",
+                "video",
+                ":stream_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "stream_id",
+                  "description": "(Required) Id of the stream."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"PUBLISHED\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"posterUrl\": \"<string>\",\n  \"domainRestrictionId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ef71d13-0380-4aa3-bc2d-b70a59d8cfa2",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video",
+                    ":stream_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) Id of the stream."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"PUBLISHED\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"posterUrl\": \"<string>\",\n  \"domainRestrictionId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"createdAt\": \"2025-06-25T03:01:52.062Z\",\n      \"type\": \"LIVE\",\n      \"assetUrl\": \"string\",\n      \"status\": \"PUBLISHED\",\n      \"styleConfig\": {\n        \"id\": \"string\",\n        \"orgId\": \"string\",\n        \"playerStyle\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"watermarkUrl\": \"string\",\n        \"watermarkTargetLink\": \"string\"\n      },\n      \"encodingTasks\": [\n        {\n          \"quality\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"quality\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"posterUrl\": \"string\",\n      \"adConfig\": {\n        \"id\": \"string\",\n        \"ads\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"domainRestriction\": {\n        \"id\": \"string\",\n        \"allowedDomains\": [\n          \"string\",\n          \"string\"\n        ],\n        \"allowNoReferer\": false,\n        \"allowShare\": true\n      },\n      \"trimming\": \"UNAVAILABLE\",\n      \"downloadUrl\": \"string\",\n      \"signed\": true\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04950cb5-24d6-44b5-908e-390dfccaddff",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video",
+                    ":stream_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "stream_id",
+                      "description": "(Required) Id of the stream."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"PUBLISHED\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"posterUrl\": \"<string>\",\n  \"domainRestrictionId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0b4504c-d935-4fb4-964e-315991a486f5",
+          "name": "Get paginated list of Streams videos",
+          "request": {
+            "name": "Get paginated list of Streams videos",
+            "description": {},
+            "url": {
+              "path": [
+                "streams",
+                "video"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Index of the first item to return, starting at 0. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of items to return. Default is 25, maximum is 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Order list result according an resource attribute.  The fields that can be used for sorting are: + `createdAt`\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "529ec5ca-e31e-4e1d-9d89-845019ea9ef4",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "createdAt:desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {}\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fac9c8d8-003d-41eb-b102-cbee2833b9bf",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "createdAt:desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d630c91a-e39e-445c-9ef8-a11396bf1aa6",
+          "name": "Create new Streams video",
+          "request": {
+            "name": "Create new Streams video",
+            "description": {},
+            "url": {
+              "path": [
+                "streams",
+                "video"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetUrl\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"domainRestrictionId\": \"<string>\",\n  \"encodingProfile\": \"PER_TITLE\",\n  \"signed\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6741259-04d2-4cfc-b191-668067c74d2f",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetUrl\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"domainRestrictionId\": \"<string>\",\n  \"encodingProfile\": \"PER_TITLE\",\n  \"signed\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"createdAt\": \"1995-06-22T08:38:40.109Z\",\n      \"type\": {\n        \"readOnly\": true,\n        \"description\": \"Type of the Stream contained in the StreamsResponse\",\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"assetUrl\": \"string\",\n      \"status\": \"PUBLISHED\",\n      \"styleConfig\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"orgId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"playerStyle\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"watermarkUrl\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"watermarkTargetLink\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"encodingTasks\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"posterUrl\": \"string\",\n      \"adConfig\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ads\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"domainRestriction\": {\n        \"id\": \"string\",\n        \"allowedDomains\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"allowNoReferer\": false,\n        \"allowShare\": true\n      },\n      \"trimming\": \"UNAVAILABLE\",\n      \"downloadUrl\": \"string\",\n      \"signed\": false\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf81d9f6-c018-4cf0-94b0-536b044afd32",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetUrl\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"domainRestrictionId\": \"<string>\",\n  \"encodingProfile\": \"PER_TITLE\",\n  \"signed\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be8479c1-59d3-4b53-9c05-5a39e389bc2e",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "video"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetUrl\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"domainRestrictionId\": \"<string>\",\n  \"encodingProfile\": \"PER_TITLE\",\n  \"signed\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bitmovin.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a1c15879-80b9-477b-be73-097bbd4ffaf3",
+    "name": "Bitmovin Encoding Config Video API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.\n\nContact Support:\n Name: Bitmovin Inc\n Email: support@bitmovin.com",
+      "type": "text/plain"
+    }
+  }
+}

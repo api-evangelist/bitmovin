@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Search API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get paginated search results of VOD and Live streams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bitmovin.com/v1/streams/search",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Index of the first item to return, starting at 0. Default is 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return. Default is 25, maximum is 100"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Query to search for in a streams' title, description and ID"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type of stream to search for"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Status of the streams to search for"
+              },
+              {
+                "name": "createdBefore",
+                "value": "",
+                "type": "query",
+                "description": "Upper limit for the creation date of found streams as UTC in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ"
+              },
+              {
+                "name": "createdAfter",
+                "value": "",
+                "type": "query",
+                "description": "Lower limit for the creation date of found streams as UTC in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ"
+              },
+              {
+                "name": "signed",
+                "value": "",
+                "type": "query",
+                "description": "Filter for token-protected/signed streams"
+              },
+              {
+                "name": "domainRestricted",
+                "value": "",
+                "type": "query",
+                "description": "Filter for domain-restricted streams"
+              }
+            ]
+          },
+          "docs": "Get paginated search results of VOD and Live streams"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

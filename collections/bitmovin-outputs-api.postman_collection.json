@@ -1,0 +1,3122 @@
+{
+  "item": [
+    {
+      "id": "fa1343f7-aa22-486b-be4b-b6edc8f0c5d7",
+      "name": "Outputs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "86e512d3-7dc8-4da5-84e3-7bbff9a82c43",
+          "name": "Delete Akamai MSL Output",
+          "request": {
+            "name": "Delete Akamai MSL Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "akamai-msl",
+                ":output_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "output_id",
+                  "description": "(Required) Id of the output"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cda75bd5-3db2-4aff-8405-12f22f4aa3ec",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "akamai-msl",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c53c345f-4409-4d4d-998f-fe0495e59ccf",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "akamai-msl",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f097bc55-b341-45d8-8d79-87134073147a",
+          "name": "Delete Akamai NetStorage Output",
+          "request": {
+            "name": "Delete Akamai NetStorage Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "akamai-netstorage",
+                ":output_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "output_id",
+                  "description": "(Required) Id of the output"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a633cf13-594e-46d6-bf8f-762b257ac5b0",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "akamai-netstorage",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"youraccount.akamaihd.net\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"username\": false\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86541944-ef9b-4712-9fe3-ca3151623be5",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "akamai-netstorage",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73deee85-fb8d-4c3d-a009-5fd171d44149",
+          "name": "Delete Azure Output",
+          "request": {
+            "name": "Delete Azure Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "azure",
+                ":output_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "output_id",
+                  "description": "(Required) Id of the output"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6348099a-c2a9-40dc-b45a-2f7816b9e855",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "azure",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {}\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99acbc4b-e8d1-4c3d-b623-671001b3ae89",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "azure",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a30eda2b-a5cc-4e0b-9ca2-5bfa1bb977e4",
+          "name": "Delete FTP Output",
+          "request": {
+            "name": "Delete FTP Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "ftp",
+                ":output_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "output_id",
+                  "description": "(Required) Id of the output"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab5faab5-3db4-4350-94bf-17ca7745113b",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "ftp",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"bitmovin.com\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"port\": 21,\n      \"passive\": true,\n      \"transferVersion\": \"DEFAULT\",\n      \"maxConcurrentConnections\": 20\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3b6e0ee-33b3-4144-a349-27eedc3971fb",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "ftp",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fd35e5f-a160-483a-bd70-7d23ec2c96e1",
+          "name": "Delete GCS Output",
+          "request": {
+            "name": "Delete GCS Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "gcs",
+                ":output_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "output_id",
+                  "description": "(Required) Id of the output"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6558e9dc-8583-4ae0-b83e-788a6413b159",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "gcs",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"video-bucket\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"cloudRegion\": \"ME_CENTRAL_2\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf733f69-020a-447d-8fee-bc6ace0bb0f4",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "gcs",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb83a877-56bd-4501-acd6-e6492bba404e",
+          "name": "Delete Service Account based GCS Output",
+          "request": {
+            "name": "Delete Service Account based GCS Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "gcs-service-account",
+                ":output_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "output_id",
+                  "description": "(Required) Id of the output"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5faa489-4bdf-47ed-9f44-3358f996de69",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "gcs-service-account",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"video-bucket\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"cloudRegion\": \"ASIA_NORTHEAST_1\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f224bed0-404e-4b1b-9daf-7e70e3cd7ce1",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "gcs-service-account",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b99a382d-18eb-433e-8f8d-c95706c0e442",
+          "name": "Delete Generic S3 Output",
+          "request": {
+            "name": "Delete Generic S3 Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "generic-s3",
+                ":output_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "output_id",
+                  "description": "(Required) Id of the output"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5450d03-a41f-4ee4-9ff4-8915fb4e7186",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "generic-s3",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"video-bucket\",\n      \"host\": \"s3.yourdomain.example\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"port\": 50123,\n      \"ssl\": false,\n      \"signingRegion\": \"eu-west-1\",\n      \"signatureVersion\": \"S3_V4\",\n      \"accessStyle\": \"VIRTUAL_HOSTED\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cedbd47-d3ab-4c26-8dac-31ea8d6feeed",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "generic-s3",
+                    ":output_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df6715d3-bff3-43e4-90c2-bbef3561acdd",
+          "name": "Create Akamai MSL Output",
+          "request": {
+            "name": "Create Akamai MSL Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "akamai-msl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventName\": \"<string>\",\n  \"mslVersion\": \"MSL4\",\n  \"streamFormat\": \"DASH\",\n  \"streamId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a44324e-b455-4f96-9a6a-a7ec21410bf1",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "akamai-msl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventName\": \"myEvent\",\n  \"mslVersion\": \"MSL4\",\n  \"streamFormat\": \"DASH\",\n  \"streamId\": 3124,\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"streamId\": 3124,\n      \"eventName\": \"myEvent\",\n      \"streamFormat\": \"DASH\",\n      \"mslVersion\": \"MSL4\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18d8aa71-8fb0-409d-b3b8-de974a7e584d",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "akamai-msl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventName\": \"myEvent\",\n  \"mslVersion\": \"MSL4\",\n  \"streamFormat\": \"DASH\",\n  \"streamId\": 3124,\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ff32876-7d04-48f7-bdeb-e127f713344c",
+          "name": "Create Akamai NetStorage Output",
+          "request": {
+            "name": "Create Akamai NetStorage Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "akamai-netstorage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"host\": \"<string>\",\n  \"password\": \"<string>\",\n  \"username\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae1c19ad-7ea5-4b7b-8b39-b30a18d67f70",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "akamai-netstorage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"host\": \"youraccount.akamaihd.net\",\n  \"password\": \"myUncrackablePassword\",\n  \"username\": \"encodingInputUser\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"youraccount.akamaihd.net\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"username\": false\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5df1983d-fbd1-446e-a2b5-98b7d7fe39e8",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "akamai-netstorage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"host\": \"youraccount.akamaihd.net\",\n  \"password\": \"myUncrackablePassword\",\n  \"username\": \"encodingInputUser\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bce4d1d0-4127-40ba-935a-b75eb7ab9b57",
+          "name": "Create Azure Output",
+          "request": {
+            "name": "Create Azure Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "azure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5cd1c53d-7fd8-4a7b-93e3-169a382f3a0e",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "azure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {}\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "372471d1-b411-4bbb-aef3-295cd7685c62",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "azure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a3168b8-b1fe-4634-9047-b91ed750d0be",
+          "name": "Check output permissions (S3 only)",
+          "request": {
+            "name": "Check output permissions (S3 only)",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                ":output_id",
+                "check-permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "output_id",
+                  "description": "(Required) Id of the output to be checked. Currently limited to S3 outputs. The access credentials that have been provided for this Output still need to be valid, otherwise the request will fail. If they are not valid any more, create a new Output with new credentials (resources are immutable)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"path\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8124c4c-9ff7-41b4-ac4c-152a7f4ecea9",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    ":output_id",
+                    "check-permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output to be checked. Currently limited to S3 outputs. The access credentials that have been provided for this Output still need to be valid, otherwise the request will fail. If they are not valid any more, create a new Output with new credentials (resources are immutable)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"path\": \"videos/\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"outputId\": \"55354be6-0237-42bb-ae85-a2d4ef1ed19e\",\n      \"outputType\": \"AKAMAI_NETSTORAGE\",\n      \"path\": \"videos/\",\n      \"passed\": true,\n      \"failureReason\": \"The following required permissions are not set: PutObject\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "058a6692-c465-4628-bd91-c2cbcc20c2c9",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    ":output_id",
+                    "check-permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "output_id",
+                      "description": "(Required) Id of the output to be checked. Currently limited to S3 outputs. The access credentials that have been provided for this Output still need to be valid, otherwise the request will fail. If they are not valid any more, create a new Output with new credentials (resources are immutable)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"path\": \"videos/\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0412395-6094-4e35-bce1-3a8d7d6af63e",
+          "name": "Create FTP Output",
+          "request": {
+            "name": "Create FTP Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "ftp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"host\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ],\n  \"port\": \"<integer>\",\n  \"passive\": \"<boolean>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"transferVersion\": \"<string>\",\n  \"maxConcurrentConnections\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c991d29-4374-4b7b-9427-730dddf98d9f",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "ftp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"host\": \"bitmovin.com\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"port\": 21,\n  \"passive\": true,\n  \"username\": \"encodingInputUser\",\n  \"password\": \"3nc0d3d!\",\n  \"transferVersion\": \"<string>\",\n  \"maxConcurrentConnections\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"bitmovin.com\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"port\": 21,\n      \"passive\": true,\n      \"transferVersion\": \"<string>\",\n      \"maxConcurrentConnections\": 20\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "489d99ea-9cbc-4062-b756-dbd9425bf519",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "ftp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"host\": \"bitmovin.com\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"port\": 21,\n  \"passive\": true,\n  \"username\": \"encodingInputUser\",\n  \"password\": \"3nc0d3d!\",\n  \"transferVersion\": \"<string>\",\n  \"maxConcurrentConnections\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d1945d9-b51c-4d43-a27f-82f0b095a14e",
+          "name": "Create GCS Output",
+          "request": {
+            "name": "Create GCS Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "gcs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accessKey\": \"<string>\",\n  \"bucketName\": \"<string>\",\n  \"secretKey\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ],\n  \"cloudRegion\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "018467a6-8611-4fae-947c-472d355dbf2d",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "gcs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessKey\": \"GOOGTS7C7FUP3AIRVJTE\",\n  \"bucketName\": \"video-bucket\",\n  \"secretKey\": \"bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"cloudRegion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"video-bucket\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"cloudRegion\": \"<string>\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "899dbb5b-50c6-4a2e-819a-83aed41ca75e",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "gcs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessKey\": \"GOOGTS7C7FUP3AIRVJTE\",\n  \"bucketName\": \"video-bucket\",\n  \"secretKey\": \"bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"cloudRegion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bd8f5d9-c36c-41a4-92d8-6fff7d049a55",
+          "name": "Create Service Account based GCS Output",
+          "request": {
+            "name": "Create Service Account based GCS Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "gcs-service-account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bucketName\": \"<string>\",\n  \"serviceAccountCredentials\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ],\n  \"cloudRegion\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6cbac0c-f536-4641-9d3a-7e2b81e5b109",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "gcs-service-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucketName\": \"video-bucket\",\n  \"serviceAccountCredentials\": \"{\\n  \\\"type\\\": \\\"service_account\\\",\\n  \\\"project_id\\\": \\\"bitmovin\\\",\\n  \\\"private_key_id\\\": \\\"dfgsgfdsgsgargdf\\\",\\n  \\\"private_key\\\": \\\"-----BEGIN PRIVATE KEY-----\\\\nOwdXyjRT9F4A==\\\\n-----END PRIVATE KEY-----\\\\n\\\",\\n  \\\"client_email\\\": \\\"bitmovin@bitmovin.iam.gserviceaccount.com\\\",\\n  \\\"client_id\\\": \\\"10440564562784234997\\\",\\n  \\\"auth_uri\\\": \\\"https://accounts.google.com/o/oauth2/auth\\\",\\n  \\\"token_uri\\\": \\\"https://oauth2.googleapis.com/token\\\",\\n  \\\"auth_provider_x509_cert_url\\\": \\\"https://www.googleapis.com/oauth2/v1/certs\\\",\\n  \\\"client_x509_cert_url\\\": \\\"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\\\"\\n}\\n\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"cloudRegion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"video-bucket\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"cloudRegion\": \"<string>\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e81c4fe-d119-44ba-9625-b36d0a9df6de",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "gcs-service-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucketName\": \"video-bucket\",\n  \"serviceAccountCredentials\": \"{\\n  \\\"type\\\": \\\"service_account\\\",\\n  \\\"project_id\\\": \\\"bitmovin\\\",\\n  \\\"private_key_id\\\": \\\"dfgsgfdsgsgargdf\\\",\\n  \\\"private_key\\\": \\\"-----BEGIN PRIVATE KEY-----\\\\nOwdXyjRT9F4A==\\\\n-----END PRIVATE KEY-----\\\\n\\\",\\n  \\\"client_email\\\": \\\"bitmovin@bitmovin.iam.gserviceaccount.com\\\",\\n  \\\"client_id\\\": \\\"10440564562784234997\\\",\\n  \\\"auth_uri\\\": \\\"https://accounts.google.com/o/oauth2/auth\\\",\\n  \\\"token_uri\\\": \\\"https://oauth2.googleapis.com/token\\\",\\n  \\\"auth_provider_x509_cert_url\\\": \\\"https://www.googleapis.com/oauth2/v1/certs\\\",\\n  \\\"client_x509_cert_url\\\": \\\"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\\\"\\n}\\n\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"cloudRegion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "089c325f-4fb4-49c5-9213-3bb6485921c8",
+          "name": "Create Generic S3 Output",
+          "request": {
+            "name": "Create Generic S3 Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "generic-s3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accessKey\": \"<string>\",\n  \"bucketName\": \"<string>\",\n  \"host\": \"<string>\",\n  \"secretKey\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ],\n  \"port\": \"<integer>\",\n  \"ssl\": \"<boolean>\",\n  \"signingRegion\": \"<string>\",\n  \"signatureVersion\": \"S3_V4\",\n  \"accessStyle\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3acbcdcd-a88e-4c44-a14e-eca71bd1b1d8",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "generic-s3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessKey\": \"AKIAIOSFODNN7EXAMPLE\",\n  \"bucketName\": \"video-bucket\",\n  \"host\": \"s3.yourdomain.example\",\n  \"secretKey\": \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"port\": 50123,\n  \"ssl\": false,\n  \"signingRegion\": \"eu-west-1\",\n  \"signatureVersion\": \"S3_V4\",\n  \"accessStyle\": \"VIRTUAL_HOSTED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"video-bucket\",\n      \"host\": \"s3.yourdomain.example\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"port\": 50123,\n      \"ssl\": false,\n      \"signingRegion\": \"eu-west-1\",\n      \"signatureVersion\": \"S3_V4\",\n      \"accessStyle\": \"VIRTUAL_HOSTED\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "120ee290-ae7c-4bdb-9b76-b9ab91387a20",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "generic-s3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessKey\": \"AKIAIOSFODNN7EXAMPLE\",\n  \"bucketName\": \"video-bucket\",\n  \"host\": \"s3.yourdomain.example\",\n  \"secretKey\": \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"port\": 50123,\n  \"ssl\": false,\n  \"signingRegion\": \"eu-west-1\",\n  \"signatureVersion\": \"S3_V4\",\n  \"accessStyle\": \"VIRTUAL_HOSTED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29a9713c-0529-40c1-b4de-b65bae2bb985",
+          "name": "Create Live Media Ingest Output",
+          "request": {
+            "name": "Create Live Media Ingest Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "live-media-ingest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"publishingPoint\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ],\n  \"scte35Passthrough\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6711d24c-6a95-49e9-ad42-6161721d2d1c",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "live-media-ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publishingPoint\": \"https://live.host.com/some/path/publishingpoint.isml\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"scte35Passthrough\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"publishingPoint\": \"https://live.host.com/some/path/publishingpoint.isml\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"scte35Passthrough\": false\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "104a3c05-9a2f-4c76-b2ba-12cd7343650b",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "live-media-ingest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publishingPoint\": \"https://live.host.com/some/path/publishingpoint.isml\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"scte35Passthrough\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "515100b3-ddf1-4647-b249-092f32871879",
+          "name": "Create Local Output",
+          "request": {
+            "name": "Create Local Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "local"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"path\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "52951abd-00dd-4db3-97b4-61d163740949",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "local"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"path\": \"/mnt/my_local_storage/\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"path\": \"/mnt/my_local_storage/\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bae27cce-d19a-4a8d-b2f4-acf870091cbc",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "local"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"path\": \"/mnt/my_local_storage/\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a58fab6-c019-433b-9cba-56d448e2ac38",
+          "name": "Create S3 Output",
+          "request": {
+            "name": "Create S3 Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "s3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accessKey\": \"<string>\",\n  \"bucketName\": \"<string>\",\n  \"secretKey\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ],\n  \"md5MetaTag\": \"<string>\",\n  \"cloudRegion\": \"<string>\",\n  \"signatureVersion\": \"S3_V4\",\n  \"storageClass\": \"STANDARD\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4fd77575-909b-491f-8978-66e7e23feecd",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "s3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessKey\": \"AKIAIOSFODNN7EXAMPLE\",\n  \"bucketName\": \"myS3Bucket\",\n  \"secretKey\": \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"md5MetaTag\": \"my-md5-checksum-tag\",\n  \"cloudRegion\": \"<string>\",\n  \"signatureVersion\": \"S3_V4\",\n  \"storageClass\": \"STANDARD\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"myS3Bucket\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"md5MetaTag\": \"my-md5-checksum-tag\",\n      \"cloudRegion\": \"<string>\",\n      \"signatureVersion\": \"S3_V4\",\n      \"storageClass\": \"STANDARD\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c46f813-0a63-47e9-8a60-2acd9a6b288c",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "s3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accessKey\": \"AKIAIOSFODNN7EXAMPLE\",\n  \"bucketName\": \"myS3Bucket\",\n  \"secretKey\": \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"md5MetaTag\": \"my-md5-checksum-tag\",\n  \"cloudRegion\": \"<string>\",\n  \"signatureVersion\": \"S3_V4\",\n  \"storageClass\": \"STANDARD\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f50da61d-cf7f-4589-836e-898153bdb485",
+          "name": "Create S3 Role-based Output",
+          "request": {
+            "name": "Create S3 Role-based Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "s3-role-based"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bucketName\": \"<string>\",\n  \"roleArn\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ],\n  \"externalId\": \"<string>\",\n  \"externalIdMode\": \"CUSTOM\",\n  \"md5MetaTag\": \"<string>\",\n  \"cloudRegion\": \"<string>\",\n  \"signatureVersion\": \"S3_V4\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a328137c-a767-42aa-b321-fe0c9eb89de0",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "s3-role-based"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucketName\": \"myS3Bucket\",\n  \"roleArn\": \"arn:aws:iam::123456789012:role/OurS3AccessRole\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"externalId\": \"fe8e171b-1953-452c-a3b5-b098c534d71c\",\n  \"externalIdMode\": \"CUSTOM\",\n  \"md5MetaTag\": \"my-md5-checksum-tag\",\n  \"cloudRegion\": \"<string>\",\n  \"signatureVersion\": \"S3_V4\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"myS3Bucket\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"externalId\": \"fe8e171b-1953-452c-a3b5-b098c534d71c\",\n      \"externalIdMode\": \"CUSTOM\",\n      \"md5MetaTag\": \"my-md5-checksum-tag\",\n      \"cloudRegion\": \"<string>\",\n      \"signatureVersion\": \"S3_V4\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c4053c4-87db-45e5-8245-6eeaa19d33a0",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "s3-role-based"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucketName\": \"myS3Bucket\",\n  \"roleArn\": \"arn:aws:iam::123456789012:role/OurS3AccessRole\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"externalId\": \"fe8e171b-1953-452c-a3b5-b098c534d71c\",\n  \"externalIdMode\": \"CUSTOM\",\n  \"md5MetaTag\": \"my-md5-checksum-tag\",\n  \"cloudRegion\": \"<string>\",\n  \"signatureVersion\": \"S3_V4\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "160ad8a3-b681-4377-973f-d3267835509c",
+          "name": "Create SFTP Output",
+          "request": {
+            "name": "Create SFTP Output",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "outputs",
+                "sftp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"host\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ],\n  \"port\": \"<integer>\",\n  \"passive\": \"<boolean>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"transferVersion\": \"<string>\",\n  \"maxConcurrentConnections\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb7fa918-4259-466c-a58e-cd590b2a8b4c",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "sftp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"host\": \"bitmovin.com\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"port\": 22,\n  \"passive\": true,\n  \"username\": \"encodingInputUser\",\n  \"password\": \"3nc0d3d!\",\n  \"transferVersion\": \"<string>\",\n  \"maxConcurrentConnections\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"bitmovin.com\",\n      \"acl\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"port\": 22,\n      \"passive\": true,\n      \"transferVersion\": \"<string>\",\n      \"maxConcurrentConnections\": 20\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14b341f0-3851-4dab-9c25-69547ac9de31",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "outputs",
+                    "sftp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"host\": \"bitmovin.com\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"acl\": [\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    },\n    {\n      \"permission\": \"<string>\",\n      \"scope\": \"public\"\n    }\n  ],\n  \"port\": 22,\n  \"passive\": true,\n  \"username\": \"encodingInputUser\",\n  \"password\": \"3nc0d3d!\",\n  \"transferVersion\": \"<string>\",\n  \"maxConcurrentConnections\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bitmovin.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "77421ec4-a2a2-4040-ad40-4c3ca3ccadbc",
+    "name": "Bitmovin Encoding Config Outputs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.\n\nContact Support:\n Name: Bitmovin Inc\n Email: support@bitmovin.com",
+      "type": "text/plain"
+    }
+  }
+}

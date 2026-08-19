@@ -1,0 +1,367 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Live API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Live",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create new DNS mapping for encoding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/live/encodings/:encoding_id/dns-mappings",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new DNS mapping for encoding"
+        },
+        {
+          "info": {
+            "name": "Delete all DNS mappings for encoding",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/live/encodings/:encoding_id/dns-mappings",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              }
+            ]
+          },
+          "docs": "Delete all DNS mappings for encoding"
+        },
+        {
+          "info": {
+            "name": "Delete DNS mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/live/encodings/:encoding_id/dns-mappings/:id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DNS mapping"
+              }
+            ]
+          },
+          "docs": "Delete DNS mapping"
+        },
+        {
+          "info": {
+            "name": "Delete Stream Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/live/stream-keys/:stream_key_id",
+            "params": [
+              {
+                "name": "stream_key_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream key"
+              }
+            ]
+          },
+          "docs": "Delete Stream Key"
+        },
+        {
+          "info": {
+            "name": "Create new standby pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/live/standby-pools",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new standby pool"
+        },
+        {
+          "info": {
+            "name": "Acquire an encoding from a standby pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/live/standby-pools/:pool_id/actions/acquire-encoding",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the standby pool"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Acquire an encoding from a standby pool"
+        },
+        {
+          "info": {
+            "name": "Create new stream key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/live/stream-keys",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new stream key"
+        },
+        {
+          "info": {
+            "name": "Unassign stream keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/live/stream-keys/actions/unassign",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Unassign stream keys"
+        },
+        {
+          "info": {
+            "name": "Delete error encodings from the standby pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/live/standby-pools/:pool_id/actions/delete-error-encodings",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the standby pool"
+              }
+            ]
+          },
+          "docs": "Delete error encodings from the standby pool"
+        },
+        {
+          "info": {
+            "name": "Update the ingest points of a Redundant RTMP Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.bitmovin.com/v1/encoding/live/encodings/:encoding_id/actions/update-rtmp-ingest-points",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the ingest points of a Redundant RTMP Input"
+        },
+        {
+          "info": {
+            "name": "Get live stream by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bitmovin.com/v1/streams/live/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ]
+          },
+          "docs": "Get live stream by id"
+        },
+        {
+          "info": {
+            "name": "Partially update live stream by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.bitmovin.com/v1/streams/live/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially update live stream by id"
+        },
+        {
+          "info": {
+            "name": "Delete Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/streams/live/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ]
+          },
+          "docs": "Delete Stream"
+        },
+        {
+          "info": {
+            "name": "Get paginated list of live streams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bitmovin.com/v1/streams/live",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Index of the first item to return, starting at 0. Default is 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return. Default is 25, maximum is 100"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Order list result according an resource attribute. The fields that can be used for sorting are: + `createdAt`\n"
+              }
+            ]
+          },
+          "docs": "Get paginated list of live streams"
+        },
+        {
+          "info": {
+            "name": "Create new live stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/streams/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new live stream"
+        },
+        {
+          "info": {
+            "name": "Start live stream by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.bitmovin.com/v1/streams/live/:stream_id/start",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ]
+          },
+          "docs": "Start live stream by id"
+        },
+        {
+          "info": {
+            "name": "Stop live stream by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.bitmovin.com/v1/streams/live/:stream_id/stop",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ]
+          },
+          "docs": "Stop live stream by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

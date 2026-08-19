@@ -1,0 +1,428 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Inputs API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inputs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete Akamai NetStorage Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/akamai-netstorage/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete Akamai NetStorage Input"
+        },
+        {
+          "info": {
+            "name": "Delete Aspera Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/aspera/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete Aspera Input"
+        },
+        {
+          "info": {
+            "name": "Delete Azure Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/azure/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete Azure Input"
+        },
+        {
+          "info": {
+            "name": "Delete Direct File Upload Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/direct-file-upload/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete Direct File Upload Input"
+        },
+        {
+          "info": {
+            "name": "Delete FTP Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/ftp/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete FTP Input"
+        },
+        {
+          "info": {
+            "name": "Delete GCS Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/gcs/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete GCS Input"
+        },
+        {
+          "info": {
+            "name": "Delete Service Account based GCS Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/gcs-service-account/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete Service Account based GCS Input"
+        },
+        {
+          "info": {
+            "name": "Delete Generic S3 Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/generic-s3/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete Generic S3 Input"
+        },
+        {
+          "info": {
+            "name": "Delete HLS Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/hls/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete HLS Input"
+        },
+        {
+          "info": {
+            "name": "Delete HTTP Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/http/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete HTTP Input"
+        },
+        {
+          "info": {
+            "name": "Delete HTTPS Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/https/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete HTTPS Input"
+        },
+        {
+          "info": {
+            "name": "Delete Local Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/local/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete Local Input"
+        },
+        {
+          "info": {
+            "name": "Delete Redundant RTMP Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/redundant-rtmp/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete Redundant RTMP Input"
+        },
+        {
+          "info": {
+            "name": "Delete S3 Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/s3/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete S3 Input"
+        },
+        {
+          "info": {
+            "name": "Delete S3 Role-based Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/s3-role-based/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete S3 Role-based Input"
+        },
+        {
+          "info": {
+            "name": "Delete SFTP Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/sftp/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete SFTP Input"
+        },
+        {
+          "info": {
+            "name": "Delete SRT input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/srt/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete SRT input"
+        },
+        {
+          "info": {
+            "name": "Delete Zixi input",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/zixi/:input_id",
+            "params": [
+              {
+                "name": "input_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the input"
+              }
+            ]
+          },
+          "docs": "Delete Zixi input"
+        },
+        {
+          "info": {
+            "name": "Create S3 Role-based Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/s3-role-based",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create S3 Role-based Input"
+        },
+        {
+          "info": {
+            "name": "Create SFTP Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/sftp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create SFTP Input"
+        },
+        {
+          "info": {
+            "name": "Create SRT input",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/srt",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create SRT input"
+        },
+        {
+          "info": {
+            "name": "Create Zixi input",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/inputs/zixi",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Zixi input"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

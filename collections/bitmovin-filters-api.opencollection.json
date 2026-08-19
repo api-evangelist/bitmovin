@@ -1,0 +1,330 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Filters API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Filters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete Audio Mix Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/audio-mix/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Audio Mix Filter."
+              }
+            ]
+          },
+          "docs": "Delete Audio Mix Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Audio Volume Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/audio-volume/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Audio Volume Filter."
+              }
+            ]
+          },
+          "docs": "Delete Audio Volume Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Azure Speech to captions Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/azure-speech-to-captions/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Azure Speech to captions Filter."
+              }
+            ]
+          },
+          "docs": "Delete Azure Speech to captions Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Conform Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/conform/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the conform filter"
+              }
+            ]
+          },
+          "docs": "Delete Conform Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Crop Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/crop/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Crop Filter."
+              }
+            ]
+          },
+          "docs": "Delete Crop Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Deinterlace Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/deinterlace/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Deinterlace Filter"
+              }
+            ]
+          },
+          "docs": "Delete Deinterlace Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Denoise hqdn3d Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/denoise-hqdn3d/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the denoise hqdn3d filter"
+              }
+            ]
+          },
+          "docs": "Delete Denoise hqdn3d Filter"
+        },
+        {
+          "info": {
+            "name": "Delete EBU R128 Single Pass Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/ebu-r128-single-pass/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the EBU R128 Single Pass filter."
+              }
+            ]
+          },
+          "docs": "Delete EBU R128 Single Pass Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Enhanced Deinterlace Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/enhanced-deinterlace/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Enhanced Deinterlace Filter"
+              }
+            ]
+          },
+          "docs": "Delete Enhanced Deinterlace Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Enhanced Watermark Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/enhanced-watermark/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the enhanced Watermark Filter."
+              }
+            ]
+          },
+          "docs": "Delete Enhanced Watermark Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Interlace Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/interlace/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Interlace Filter"
+              }
+            ]
+          },
+          "docs": "Delete Interlace Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Rotate Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/rotate/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Rotate Filter."
+              }
+            ]
+          },
+          "docs": "Delete Rotate Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Scale Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/scale/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the scale filter"
+              }
+            ]
+          },
+          "docs": "Delete Scale Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Text Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/text/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Text Filter"
+              }
+            ]
+          },
+          "docs": "Delete Text Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Unsharp Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/unsharp/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the unsharp filter"
+              }
+            ]
+          },
+          "docs": "Delete Unsharp Filter"
+        },
+        {
+          "info": {
+            "name": "Delete Watermark Filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/filters/watermark/:filter_id",
+            "params": [
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Watermark Filter."
+              }
+            ]
+          },
+          "docs": "Delete Watermark Filter"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

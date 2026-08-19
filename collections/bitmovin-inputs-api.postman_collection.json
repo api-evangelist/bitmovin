@@ -1,0 +1,3379 @@
+{
+  "item": [
+    {
+      "id": "d6fd5ade-4228-4916-b57f-d556ad1b5702",
+      "name": "Inputs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "edc1580d-4620-42c6-8083-bfa1531c798e",
+          "name": "Delete Akamai NetStorage Input",
+          "request": {
+            "name": "Delete Akamai NetStorage Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "akamai-netstorage",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4cea1e97-5bad-43f8-8d87-eac03b16dd93",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "akamai-netstorage",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"youraccount.akamaihd.net\",\n      \"username\": 1606.027918473961,\n      \"password\": 9071\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "590ae532-2f42-42aa-88c6-e58b0cfad4c2",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "akamai-netstorage",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc2137ff-3299-4d75-bbed-c1672067a8fc",
+          "name": "Delete Aspera Input",
+          "request": {
+            "name": "Delete Aspera Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "aspera",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c78717c0-1d71-479e-b3f4-045d2fd6e539",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "aspera",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"AsperaHost.com\",\n      \"minBandwidth\": \"100k\",\n      \"maxBandwidth\": \"100k\",\n      \"sshPort\": 22,\n      \"faspPort\": 33001\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38d003fc-fe55-44ea-b7c7-ff09ed8ddf21",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "aspera",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93927685-742a-4b8a-92a7-75dc5251a747",
+          "name": "Delete Azure Input",
+          "request": {
+            "name": "Delete Azure Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "azure",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3180daa-4206-4e6f-917c-9abd85bc30a6",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "azure",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {}\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c00f9e5-94f5-4d93-8ecc-43752c5bf03c",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "azure",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e4eb7ec-62f5-45e4-a01d-c2483cad0ec5",
+          "name": "Delete Direct File Upload Input",
+          "request": {
+            "name": "Delete Direct File Upload Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "direct-file-upload",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c91c66b-91dc-4c54-b778-d3f25aed8682",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "direct-file-upload",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "912aeed1-ee20-4810-aac3-d1cdcc734ef4",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "direct-file-upload",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dda577b-7105-4a58-907c-6b9c556a8110",
+          "name": "Delete FTP Input",
+          "request": {
+            "name": "Delete FTP Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "ftp",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3452e1d6-eadf-4654-96ad-4a3b112f8400",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "ftp",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"bitmovin.com\",\n      \"port\": 21,\n      \"passive\": true,\n      \"remoteVerificationEnabled\": false\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84bf7d46-cbe2-4522-8400-9e3de615506b",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "ftp",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b43f6f8-7014-4dd0-aec5-530036c12cd9",
+          "name": "Delete GCS Input",
+          "request": {
+            "name": "Delete GCS Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "gcs",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3efbf452-c065-4d41-b481-6ad327dab80f",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "gcs",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"video-bucket\",\n      \"cloudRegion\": \"EUROPE_WEST_4\",\n      \"accessKey\": 183.79389203592388\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1f399fc-6d18-48c2-a079-61bc52d3e6dd",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "gcs",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1b6345c-4629-4824-bdd6-a338ab5da577",
+          "name": "Delete Service Account based GCS Input",
+          "request": {
+            "name": "Delete Service Account based GCS Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "gcs-service-account",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb643a7a-97ec-4d6f-96bd-4996b6d84ce8",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "gcs-service-account",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"video-bucket\",\n      \"cloudRegion\": \"US_EAST_1\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf917c97-db07-4f58-8a1d-0af2246b9958",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "gcs-service-account",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74d7e07f-bb2d-4ba3-a8d6-c622c70a263b",
+          "name": "Delete Generic S3 Input",
+          "request": {
+            "name": "Delete Generic S3 Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "generic-s3",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e1b11f0-d6d8-42ac-9d33-0a909d1c0a1e",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "generic-s3",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"video-bucket\",\n      \"host\": \"s3.yourdomain.example\",\n      \"port\": 50123,\n      \"ssl\": false,\n      \"signingRegion\": \"eu-west-1\",\n      \"signatureVersion\": \"S3_V4\",\n      \"accessStyle\": \"VIRTUAL_HOSTED\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "518502c6-7184-422a-b918-569810acdbc6",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "generic-s3",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9691a53e-5d01-46b3-83a4-dc073aefeb41",
+          "name": "Delete HLS Input",
+          "request": {
+            "name": "Delete HLS Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "hls",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b469bec8-3379-4ba7-a78c-803c0527edc6",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "hls",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"url\": \"https://url.manifest.m3u8\",\n      \"adMarkersSource\": \"MANIFEST\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a50e588d-78cb-4a92-87f7-f603a6205d0d",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "hls",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5142b1f-1b7e-4d50-be8c-f0ac19cecbcb",
+          "name": "Delete HTTP Input",
+          "request": {
+            "name": "Delete HTTP Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "http",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9d295c0-7564-41a3-84e0-a6c2abaecba5",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "http",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"bitmovin.com\",\n      \"port\": 2222\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95539891-4a42-4ee8-b808-57577fc6f7f4",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "http",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee224fde-c0c5-4252-8ab5-1f9c09643dee",
+          "name": "Delete HTTPS Input",
+          "request": {
+            "name": "Delete HTTPS Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "https",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4bc35bc6-0c96-4af7-a617-b452e0f854e0",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "https",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"bitmovin.com\",\n      \"port\": 2222\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "535de648-4b89-4c31-b814-048446c66e64",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "https",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d05e1f06-4f09-4128-a055-9631364b54f2",
+          "name": "Delete Local Input",
+          "request": {
+            "name": "Delete Local Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "local",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce6a00ea-40cf-470d-b3f0-ce8f5ff32c14",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "local",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d058bb3e-de33-4d36-8449-1158c95b3435",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "local",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5459e8a9-0a87-46c7-b547-022e34cc7dbf",
+          "name": "Delete Redundant RTMP Input",
+          "request": {
+            "name": "Delete Redundant RTMP Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "redundant-rtmp",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f08b8db1-3faf-4feb-9ae4-d63a69e78824",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "redundant-rtmp",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97303cef-ff74-4d35-9e04-4ce3ac69ca59",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "redundant-rtmp",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "819f0a42-37a7-4751-882e-1457939e3b11",
+          "name": "Delete S3 Input",
+          "request": {
+            "name": "Delete S3 Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "s3",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81b28ee3-4afa-47b5-b480-a0b7d8aa0274",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "s3",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c71f5586-eab1-4811-8a02-24eefc9bc759",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "s3",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "feb4f691-4da4-4d23-87cc-145fcc4a6fee",
+          "name": "Delete S3 Role-based Input",
+          "request": {
+            "name": "Delete S3 Role-based Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "s3-role-based",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c12e2da-2e15-47b4-9a97-19dd23d8b331",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "s3-role-based",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"myS3Bucket\",\n      \"externalId\": \"fe8e171b-1953-452c-a3b5-b098c534d71c\",\n      \"externalIdMode\": \"CUSTOM\",\n      \"cloudRegion\": \"CA_CENTRAL_1\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2df41b05-4125-413a-afdc-8594374a2748",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "s3-role-based",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "067eaa2c-3b54-437c-a5a5-d24175f07fc3",
+          "name": "Delete SFTP Input",
+          "request": {
+            "name": "Delete SFTP Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "sftp",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79865405-d4a9-44e7-be52-a94a945e8079",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "sftp",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"bitmovin.com\",\n      \"port\": 22,\n      \"passive\": true\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cc0bd3b-a22d-47d4-9c5a-206984db05a6",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "sftp",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39d72727-9f99-4144-9cbd-85ed524f948c",
+          "name": "Delete SRT input",
+          "request": {
+            "name": "Delete SRT input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "srt",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e51d9f6f-1216-4f5d-9036-3f19942f4e60",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "srt",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"mode\": \"LISTENER\",\n      \"port\": 2088,\n      \"host\": \"104.16.9.58\",\n      \"path\": \"path/to/stream\",\n      \"latency\": 120,\n      \"keyLength\": 16,\n      \"backupSrtInputs\": {\n        \"srtInputs\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"delayThreshold\": 10\n      }\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6118c76-2290-4677-a6a1-2fedd30a6f67",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "srt",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4822b881-b513-4dc6-8999-fc4183707ae5",
+          "name": "Delete Zixi input",
+          "request": {
+            "name": "Delete Zixi input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "zixi",
+                ":input_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "input_id",
+                  "description": "(Required) Id of the input"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9663e6f3-6a1f-4da9-b8ae-29beae0e9e17",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "zixi",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"string\",\n      \"port\": 7038,\n      \"stream\": \"string\",\n      \"password\": \"string\",\n      \"latency\": 5340,\n      \"minBitrate\": 1836,\n      \"decryptionType\": \"string\",\n      \"decryptionKey\": \"string\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5dccf593-4026-4c37-bba1-168a77df5d79",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "zixi",
+                    ":input_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "input_id",
+                      "description": "(Required) Id of the input"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a78beda-e101-4498-b1cd-746cce5e85a3",
+          "name": "Create S3 Role-based Input",
+          "request": {
+            "name": "Create S3 Role-based Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "s3-role-based"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bucketName\": \"<string>\",\n  \"roleArn\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"externalIdMode\": \"CUSTOM\",\n  \"cloudRegion\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d95f50f3-6ac1-4346-a6e7-7fabcc658799",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "s3-role-based"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucketName\": \"myS3Bucket\",\n  \"roleArn\": \"arn:aws:iam::123456789012:role/OurS3AccessRole\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"externalId\": \"fe8e171b-1953-452c-a3b5-b098c534d71c\",\n  \"externalIdMode\": \"CUSTOM\",\n  \"cloudRegion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"bucketName\": \"myS3Bucket\",\n      \"externalId\": \"fe8e171b-1953-452c-a3b5-b098c534d71c\",\n      \"externalIdMode\": \"CUSTOM\",\n      \"cloudRegion\": \"<string>\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aae5cde9-a223-4149-af05-d040d6ff31ed",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "s3-role-based"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucketName\": \"myS3Bucket\",\n  \"roleArn\": \"arn:aws:iam::123456789012:role/OurS3AccessRole\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"externalId\": \"fe8e171b-1953-452c-a3b5-b098c534d71c\",\n  \"externalIdMode\": \"CUSTOM\",\n  \"cloudRegion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "beb6385f-fcb2-4c16-b260-d09930fe372d",
+          "name": "Create SFTP Input",
+          "request": {
+            "name": "Create SFTP Input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "sftp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"host\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"passive\": \"<boolean>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e321ca55-57fa-48ac-945c-2b64e925557d",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "sftp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"host\": \"bitmovin.com\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"port\": 22,\n  \"passive\": true,\n  \"username\": \"encodingInputUser\",\n  \"password\": \"3nc0d3d!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"bitmovin.com\",\n      \"port\": 22,\n      \"passive\": true\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f362762e-d238-4f2f-ad5b-04e1e6499d98",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "sftp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"host\": \"bitmovin.com\",\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"port\": 22,\n  \"passive\": true,\n  \"username\": \"encodingInputUser\",\n  \"password\": \"3nc0d3d!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed700444-7921-4103-ae5d-ca7b715f7b8a",
+          "name": "Create SRT input",
+          "request": {
+            "name": "Create SRT input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "srt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mode\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"host\": \"<string>\",\n  \"path\": \"<string>\",\n  \"latency\": \"<integer>\",\n  \"passphrase\": \"<string>\",\n  \"keyLength\": \"<integer>\",\n  \"backupSrtInputs\": {\n    \"srtInputs\": [\n      {\n        \"mode\": {\n          \"description\": \"The SRT mode to use\",\n          \"example\": \"LISTENER\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"port\": \"<integer>\",\n        \"host\": \"<string>\",\n        \"path\": \"<string>\",\n        \"latency\": \"<integer>\",\n        \"passphrase\": \"<string>\",\n        \"keyLength\": \"<integer>\",\n        \"backupSrtInputs\": {\n          \"value\": \"<Circular reference to #/components/schemas/BackupSrtInputs detected>\"\n        }\n      },\n      {\n        \"mode\": {\n          \"description\": \"The SRT mode to use\",\n          \"example\": \"LISTENER\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"port\": \"<integer>\",\n        \"host\": \"<string>\",\n        \"path\": \"<string>\",\n        \"latency\": \"<integer>\",\n        \"passphrase\": \"<string>\",\n        \"keyLength\": \"<integer>\",\n        \"backupSrtInputs\": {\n          \"value\": \"<Circular reference to #/components/schemas/BackupSrtInputs detected>\"\n        }\n      }\n    ],\n    \"delayThreshold\": 30\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82bca5f7-70e1-44a5-9fe1-6de0ffc4dac4",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "srt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mode\": \"LISTENER\",\n  \"port\": 2088,\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"host\": \"104.16.9.58\",\n  \"path\": \"path/to/stream\",\n  \"latency\": 120,\n  \"passphrase\": \"mysecretpassphrase\",\n  \"keyLength\": 16,\n  \"backupSrtInputs\": {\n    \"srtInputs\": [\n      {\n        \"mode\": \"LISTENER\",\n        \"port\": 2088,\n        \"host\": \"104.16.9.58\",\n        \"path\": \"path/to/stream\",\n        \"latency\": 120,\n        \"passphrase\": \"mysecretpassphrase\",\n        \"keyLength\": 16,\n        \"backupSrtInputs\": {\n          \"value\": \"<Circular reference to #/components/schemas/BackupSrtInputs detected>\"\n        }\n      },\n      {\n        \"mode\": \"LISTENER\",\n        \"port\": 2088,\n        \"host\": \"104.16.9.58\",\n        \"path\": \"path/to/stream\",\n        \"latency\": 120,\n        \"passphrase\": \"mysecretpassphrase\",\n        \"keyLength\": 16,\n        \"backupSrtInputs\": {\n          \"value\": \"<Circular reference to #/components/schemas/BackupSrtInputs detected>\"\n        }\n      }\n    ],\n    \"delayThreshold\": 10\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"mode\": \"LISTENER\",\n      \"port\": 2088,\n      \"host\": \"104.16.9.58\",\n      \"path\": \"path/to/stream\",\n      \"latency\": 120,\n      \"keyLength\": 16,\n      \"backupSrtInputs\": {\n        \"srtInputs\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"delayThreshold\": 10\n      }\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb1ee253-b087-486f-b671-cb61bb41e849",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "srt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mode\": \"LISTENER\",\n  \"port\": 2088,\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"host\": \"104.16.9.58\",\n  \"path\": \"path/to/stream\",\n  \"latency\": 120,\n  \"passphrase\": \"mysecretpassphrase\",\n  \"keyLength\": 16,\n  \"backupSrtInputs\": {\n    \"srtInputs\": [\n      {\n        \"mode\": \"LISTENER\",\n        \"port\": 2088,\n        \"host\": \"104.16.9.58\",\n        \"path\": \"path/to/stream\",\n        \"latency\": 120,\n        \"passphrase\": \"mysecretpassphrase\",\n        \"keyLength\": 16,\n        \"backupSrtInputs\": {\n          \"value\": \"<Circular reference to #/components/schemas/BackupSrtInputs detected>\"\n        }\n      },\n      {\n        \"mode\": \"LISTENER\",\n        \"port\": 2088,\n        \"host\": \"104.16.9.58\",\n        \"path\": \"path/to/stream\",\n        \"latency\": 120,\n        \"passphrase\": \"mysecretpassphrase\",\n        \"keyLength\": 16,\n        \"backupSrtInputs\": {\n          \"value\": \"<Circular reference to #/components/schemas/BackupSrtInputs detected>\"\n        }\n      }\n    ],\n    \"delayThreshold\": 10\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e6a2e38-ec0a-41ee-a058-98038440fdd0",
+          "name": "Create Zixi input",
+          "request": {
+            "name": "Create Zixi input",
+            "description": {},
+            "url": {
+              "path": [
+                "encoding",
+                "inputs",
+                "zixi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<string>\",\n  \"host\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"stream\": \"<string>\",\n  \"password\": \"<string>\",\n  \"latency\": \"<integer>\",\n  \"minBitrate\": \"<integer>\",\n  \"decryptionType\": \"<string>\",\n  \"decryptionKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "669f440a-eae6-449f-8e74-1ff1425b8c69",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "zixi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"host\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"stream\": \"<string>\",\n  \"password\": \"<string>\",\n  \"latency\": \"<integer>\",\n  \"minBitrate\": \"<integer>\",\n  \"decryptionType\": \"<string>\",\n  \"decryptionKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"SUCCESS\",\n  \"data\": {\n    \"result\": {\n      \"host\": \"<string>\",\n      \"port\": \"<integer>\",\n      \"stream\": \"<string>\",\n      \"password\": \"<string>\",\n      \"latency\": \"<integer>\",\n      \"minBitrate\": \"<integer>\",\n      \"decryptionType\": \"<string>\",\n      \"decryptionKey\": \"<string>\"\n    }\n  },\n  \"more\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4747d632-ba17-41d2-b52f-0fefb2b8fbc0",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encoding",
+                    "inputs",
+                    "zixi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Name of the resource\",\n  \"description\": \"Description of the resource\",\n  \"customData\": \"<string>\",\n  \"host\": \"<string>\",\n  \"port\": \"<integer>\",\n  \"stream\": \"<string>\",\n  \"password\": \"<string>\",\n  \"latency\": \"<integer>\",\n  \"minBitrate\": \"<integer>\",\n  \"decryptionType\": \"<string>\",\n  \"decryptionKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestId\": \"6d84e126-d10c-4e52-bbfb-bd4c92bc8333\",\n  \"status\": \"ERROR\",\n  \"data\": {\n    \"code\": 1005,\n    \"message\": \"string\",\n    \"developerMessage\": \"string\",\n    \"links\": [\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      },\n      {\n        \"href\": \"https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period\",\n        \"title\": \"how to add a period to a manifest\"\n      }\n    ],\n    \"details\": [\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      },\n      {\n        \"text\": \"field must not be empty\",\n        \"type\": {\n          \"description\": \"Message type giving a hint on the importance of the message (log level)\",\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"cb90b80c-8867-4e3b-8479-174aa2843f62\",\n        \"field\": \"manifestId\",\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"more\": {},\n        \"date\": \"2016-06-25T20:09:23.69Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bitmovin.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4fcfcf5d-8c55-4bce-9db2-0a78df4b6f5c",
+    "name": "Bitmovin Encoding Config Inputs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.\n\nContact Support:\n Name: Bitmovin Inc\n Email: support@bitmovin.com",
+      "type": "text/plain"
+    }
+  }
+}

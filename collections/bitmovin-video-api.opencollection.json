@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Video API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Video",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Streams video by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bitmovin.com/v1/streams/video/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ]
+          },
+          "docs": "Get Streams video by id"
+        },
+        {
+          "info": {
+            "name": "Partially update video stream by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.bitmovin.com/v1/streams/video/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially update video stream by id"
+        },
+        {
+          "info": {
+            "name": "Delete Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/streams/video/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ]
+          },
+          "docs": "Delete Stream"
+        },
+        {
+          "info": {
+            "name": "Get paginated list of Streams videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bitmovin.com/v1/streams/video",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Index of the first item to return, starting at 0. Default is 0"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return. Default is 25, maximum is 100"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Order list result according an resource attribute.  The fields that can be used for sorting are: + `createdAt`\n"
+              }
+            ]
+          },
+          "docs": "Get paginated list of Streams videos"
+        },
+        {
+          "info": {
+            "name": "Create new Streams video",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/streams/video",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new Streams video"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

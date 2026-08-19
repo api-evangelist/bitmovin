@@ -1,0 +1,2411 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Manifests API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Manifests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete DASH Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the DASH Manifest to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete DASH Manifest"
+        },
+        {
+          "info": {
+            "name": "Delete Audio AdaptationSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/audio/:adaptationset_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the audio adaptation set to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete Audio AdaptationSet"
+        },
+        {
+          "info": {
+            "name": "Delete AdaptationSet Content Protection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/contentprotection/:contentprotection_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "contentprotection_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set content protection to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete AdaptationSet Content Protection"
+        },
+        {
+          "info": {
+            "name": "Delete Image AdaptationSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/image/:adaptationset_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the audio adaptation set to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete Image AdaptationSet"
+        },
+        {
+          "info": {
+            "name": "Delete Chunked Text Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/chunked-text/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Chunked Text Representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete Chunked Text Representation"
+        },
+        {
+          "info": {
+            "name": "Delete CMAF Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/cmaf/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the CMAF representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete CMAF Representation"
+        },
+        {
+          "info": {
+            "name": "Delete CMAF Representation Content Protection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/cmaf/:representation_id/contentprotection/:contentprotection_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the representation"
+              },
+              {
+                "name": "contentprotection_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DRM CMAF content protection to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete CMAF Representation Content Protection"
+        },
+        {
+          "info": {
+            "name": "Delete fMP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/fmp4/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete fMP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Delete fMP4 Representation Content Protection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/fmp4/:representation_id/contentprotection/:contentprotection_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the representation"
+              },
+              {
+                "name": "contentprotection_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DRM fMP4 content protection to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete fMP4 Representation Content Protection"
+        },
+        {
+          "info": {
+            "name": "Delete DRM fMP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/fmp4/drm/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DRM fMP4 representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete DRM fMP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Delete DRM fMP4 Representation Content Protection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/fmp4/drm/:representation_id/contentprotection/:contentprotection_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the representation"
+              },
+              {
+                "name": "contentprotection_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DRM fMP4 content protection to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete DRM fMP4 Representation Content Protection"
+        },
+        {
+          "info": {
+            "name": "Delete IMSC Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/imsc/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the IMSC representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete IMSC Representation"
+        },
+        {
+          "info": {
+            "name": "Delete MP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/mp4/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the MP4 representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete MP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Delete DRM MP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/mp4/drm/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DRM MP4 representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete DRM MP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Delete Progressive WebM Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/progressive-webm/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Progressive WebM representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete Progressive WebM Representation"
+        },
+        {
+          "info": {
+            "name": "Delete Sprite Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/sprite/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Sprite representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete Sprite Representation"
+        },
+        {
+          "info": {
+            "name": "Delete VTT Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/vtt/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the VTT representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete VTT Representation"
+        },
+        {
+          "info": {
+            "name": "Delete WebM Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/webm/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the WebM representation to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete WebM Representation"
+        },
+        {
+          "info": {
+            "name": "Delete WebM Representation Content Protection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/webm/:representation_id/contentprotection/:contentprotection_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the representation"
+              },
+              {
+                "name": "contentprotection_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DRM WebM content protection to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete WebM Representation Content Protection"
+        },
+        {
+          "info": {
+            "name": "Delete Subtitle AdaptationSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/subtitle/:adaptationset_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the subtitle adaptation set to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete Subtitle AdaptationSet"
+        },
+        {
+          "info": {
+            "name": "Delete Video AdaptationSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/video/:adaptationset_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the video adaptation set to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete Video AdaptationSet"
+        },
+        {
+          "info": {
+            "name": "Delete Period",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete Period"
+        },
+        {
+          "info": {
+            "name": "Delete Custom XML Element",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/custom-xml-elements/:custom_xml_element_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "custom_xml_element_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Custom XML Element"
+              }
+            ]
+          },
+          "docs": "Delete Custom XML Element"
+        },
+        {
+          "info": {
+            "name": "Delete HLS Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the HLS Manifest."
+              }
+            ]
+          },
+          "docs": "Delete HLS Manifest"
+        },
+        {
+          "info": {
+            "name": "Delete Audio Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/audio/:media_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "media_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the audio media."
+              }
+            ]
+          },
+          "docs": "Delete Audio Media"
+        },
+        {
+          "info": {
+            "name": "Delete Closed Captions Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/closed-captions/:media_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "media_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the closed captions media."
+              }
+            ]
+          },
+          "docs": "Delete Closed Captions Media"
+        },
+        {
+          "info": {
+            "name": "Delete Custom Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/:media_id/custom-tags/:custom_tag_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "media_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the media."
+              },
+              {
+                "name": "custom_tag_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the custom tag."
+              }
+            ]
+          },
+          "docs": "Delete Custom Tag"
+        },
+        {
+          "info": {
+            "name": "Delete Subtitles Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/subtitles/:media_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "media_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the subtitles media."
+              }
+            ]
+          },
+          "docs": "Delete Subtitles Media"
+        },
+        {
+          "info": {
+            "name": "Delete Video Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/video/:media_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "media_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the video media."
+              }
+            ]
+          },
+          "docs": "Delete Video Media"
+        },
+        {
+          "info": {
+            "name": "Delete VTT Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/vtt/:media_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "media_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the VTT media."
+              }
+            ]
+          },
+          "docs": "Delete VTT Media"
+        },
+        {
+          "info": {
+            "name": "Delete Variant Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/streams/:stream_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the variant stream."
+              }
+            ]
+          },
+          "docs": "Delete Variant Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Custom Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/streams/:stream_id/custom-tags/:custom_tag_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the variant stream."
+              },
+              {
+                "name": "custom_tag_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the custom tag."
+              }
+            ]
+          },
+          "docs": "Delete Custom Tag"
+        },
+        {
+          "info": {
+            "name": "Delete I-frame playlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/streams/:stream_id/iframe/:iframe_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the variant stream."
+              },
+              {
+                "name": "iframe_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Iframe-Playlist."
+              }
+            ]
+          },
+          "docs": "Delete I-frame playlist"
+        },
+        {
+          "info": {
+            "name": "Delete Smooth Streaming Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/smooth/:manifest_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Smooth Streaming Manifest."
+              }
+            ]
+          },
+          "docs": "Delete Smooth Streaming Manifest"
+        },
+        {
+          "info": {
+            "name": "Delete Content Protection of Smooth Streaming",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/smooth/:manifest_id/contentprotection/:protection_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Smooth Streaming manifest."
+              },
+              {
+                "name": "protection_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the content protection."
+              }
+            ]
+          },
+          "docs": "Delete Content Protection of Smooth Streaming"
+        },
+        {
+          "info": {
+            "name": "Delete Smooth Streaming MP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/smooth/:manifest_id/representations/mp4/:representation_id",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Smooth Streaming manifest."
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the MP4 representation."
+              }
+            ]
+          },
+          "docs": "Delete Smooth Streaming MP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Create Custom DASH Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A Custom DASH Manifest gives you full control over its contents. Add Periods, Adaptation Sets, Representations, Content Protections or Custom XML Elements via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison"
+        },
+        {
+          "info": {
+            "name": "Create Default DASH Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/default",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison"
+        },
+        {
+          "info": {
+            "name": "Add Audio AdaptationSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/audio",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Audio AdaptationSet"
+        },
+        {
+          "info": {
+            "name": "Add Content Protection to AdaptationSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/contentprotection",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Content Protection to AdaptationSet"
+        },
+        {
+          "info": {
+            "name": "Add Image AdaptationSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/image",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Image AdaptationSet"
+        },
+        {
+          "info": {
+            "name": "Add Chunked Text Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/chunked-text",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Chunked Text Representation"
+        },
+        {
+          "info": {
+            "name": "Add CMAF Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/cmaf",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add CMAF Representation"
+        },
+        {
+          "info": {
+            "name": "Add Content Protection to CMAF Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/cmaf/:representation_id/contentprotection",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the representation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Content Protection to CMAF Representation"
+        },
+        {
+          "info": {
+            "name": "Add fMP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/fmp4",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add fMP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Add Content Protection to fMP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/fmp4/:representation_id/contentprotection",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the representation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Content Protection to fMP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Add DRM fMP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/fmp4/drm",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add DRM fMP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Add Content Protection to DRM fMP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/fmp4/drm/:representation_id/contentprotection",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the representation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Content Protection to DRM fMP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Add IMSC Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/imsc",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the subtitle adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add IMSC Representation"
+        },
+        {
+          "info": {
+            "name": "Add MP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/mp4",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add MP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Add DRM MP4 Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/mp4/drm",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add DRM MP4 Representation"
+        },
+        {
+          "info": {
+            "name": "Add Progressive WebM Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/progressive-webm",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Progressive WebM Representation"
+        },
+        {
+          "info": {
+            "name": "Add Sprite Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/sprite",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the image adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Sprite Representation"
+        },
+        {
+          "info": {
+            "name": "Add VTT Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/vtt",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add VTT Representation"
+        },
+        {
+          "info": {
+            "name": "Add WebM Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/webm",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add WebM Representation"
+        },
+        {
+          "info": {
+            "name": "Add Content Protection to WebM Representation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/:adaptationset_id/representations/webm/:representation_id/contentprotection",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              },
+              {
+                "name": "adaptationset_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the adaptation set"
+              },
+              {
+                "name": "representation_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the representation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Content Protection to WebM Representation"
+        },
+        {
+          "info": {
+            "name": "Add Subtitle AdaptationSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/subtitle",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Subtitle AdaptationSet"
+        },
+        {
+          "info": {
+            "name": "Add Video AdaptationSet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/adaptationsets/video",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Video AdaptationSet"
+        },
+        {
+          "info": {
+            "name": "Add Period",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Period"
+        },
+        {
+          "info": {
+            "name": "Add Custom XML Element to Period",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/periods/:period_id/custom-xml-elements",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest"
+              },
+              {
+                "name": "period_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the period"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Custom XML Element to Period"
+        },
+        {
+          "info": {
+            "name": "Start DASH manifest generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/start",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DASH Manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start DASH manifest generation"
+        },
+        {
+          "info": {
+            "name": "Stop DASH manifest generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/dash/:manifest_id/stop",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DASH Manifest."
+              }
+            ]
+          },
+          "docs": "Stop DASH manifest generation"
+        },
+        {
+          "info": {
+            "name": "Create Custom HLS Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A Custom HLS Manifest gives you full control over its contents. Add Variant Streams and Media elements via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison"
+        },
+        {
+          "info": {
+            "name": "Create Default HLS Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/default",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison"
+        },
+        {
+          "info": {
+            "name": "Add Audio Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/audio",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Audio Media"
+        },
+        {
+          "info": {
+            "name": "Add Closed Captions Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/closed-captions",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Closed Captions Media"
+        },
+        {
+          "info": {
+            "name": "Add Custom Tag to a Audio Media or a Subtitle media",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/:media_id/custom-tags",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "media_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the media."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Custom Tag to a Audio Media or a Subtitle media"
+        },
+        {
+          "info": {
+            "name": "Add Subtitles Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/subtitles",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Subtitles Media"
+        },
+        {
+          "info": {
+            "name": "Add Video Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/video",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Video Media"
+        },
+        {
+          "info": {
+            "name": "Add VTT Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/media/vtt",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add VTT Media"
+        },
+        {
+          "info": {
+            "name": "Start HLS manifest generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/start",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the HLS Manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start HLS manifest generation"
+        },
+        {
+          "info": {
+            "name": "Stop HLS manifest generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/stop",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the HLS Manifest."
+              }
+            ]
+          },
+          "docs": "Stop HLS manifest generation"
+        },
+        {
+          "info": {
+            "name": "Add Variant Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/streams",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Variant Stream"
+        },
+        {
+          "info": {
+            "name": "Add Custom Tag to Variant Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/streams/:stream_id/custom-tags",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the variant stream."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Custom Tag to Variant Stream"
+        },
+        {
+          "info": {
+            "name": "Add I-frame playlist to variant stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/hls/:manifest_id/streams/:stream_id/iframe",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the hls manifest."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the variant stream."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add I-frame playlist to variant stream"
+        },
+        {
+          "info": {
+            "name": "Create Smooth Streaming Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/smooth",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A Custom Smooth Streaming Manifest gives you full control over its contents. Add Representations and Content Protections via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison"
+        },
+        {
+          "info": {
+            "name": "Add Content Protection to Smooth Streaming",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/smooth/:manifest_id/contentprotection",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Smooth Streaming manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Content Protection to Smooth Streaming"
+        },
+        {
+          "info": {
+            "name": "Create Default Smooth Streaming Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/smooth/default",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison"
+        },
+        {
+          "info": {
+            "name": "Add MP4 Representation to Smooth Streaming Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/smooth/:manifest_id/representations/mp4",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Smooth Streaming manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add MP4 Representation to Smooth Streaming Manifest"
+        },
+        {
+          "info": {
+            "name": "Start Smooth Streaming manifest generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/smooth/:manifest_id/start",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Smooth Streaming Manifest."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start Smooth Streaming manifest generation"
+        },
+        {
+          "info": {
+            "name": "Stop Smooth Streaming manifest generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/manifests/smooth/:manifest_id/stop",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Smooth Streaming Manifest."
+              }
+            ]
+          },
+          "docs": "Stop Smooth Streaming manifest generation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

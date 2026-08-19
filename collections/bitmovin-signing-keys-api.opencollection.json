@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Signing-keys API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Signing-keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete signing-key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/streams/signing-keys/:key_id",
+            "params": [
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the signing key."
+              }
+            ]
+          },
+          "docs": "Delete signing-key"
+        },
+        {
+          "info": {
+            "name": "Get list of public signing key ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bitmovin.com/v1/streams/signing-keys"
+          },
+          "docs": "Get list of public signing key ids"
+        },
+        {
+          "info": {
+            "name": "Create new signing-key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/streams/signing-keys"
+          },
+          "docs": "Create new signing-key pair. There is a limit of 2 active signing keys per organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

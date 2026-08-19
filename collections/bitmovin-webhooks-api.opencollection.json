@@ -1,0 +1,437 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Webhooks API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add 'Manifest Error' Webhook Notification (Specific Manifest)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/manifest/:manifest_id/error",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add 'Manifest Error' Webhook Notification (Specific Manifest)"
+        },
+        {
+          "info": {
+            "name": "Add 'Manifest Finished Successfully' Webhook Notification (Specific Manifest)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/manifest/:manifest_id/finished",
+            "params": [
+              {
+                "name": "manifest_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the manifest resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add 'Manifest Finished Successfully' Webhook Notification (Specific Manifest)"
+        },
+        {
+          "info": {
+            "name": "Add 'Manifest Error' Webhook (All Manifests)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/manifest/error",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new webhook notification that triggers if a manifest generation fails. A maximum number of 5 webhooks is allowed"
+        },
+        {
+          "info": {
+            "name": "Add 'Manifest Finished Successfully' Webhook (All Manifests)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/manifest/finished",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add 'Manifest Finished Successfully' Webhook (All Manifests)"
+        },
+        {
+          "info": {
+            "name": "Add Encoding Changed Webhook Notification (Specific Encoding)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/:encoding_id/encoding-status-changed",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Encoding Changed Webhook Notification (Specific Encoding)"
+        },
+        {
+          "info": {
+            "name": "Add 'Encoding Error' Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/error",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new webhook notification that triggers if an encoding fails. A maximum number of 5 webhooks is allowed"
+        },
+        {
+          "info": {
+            "name": "Add Error Webhook for a specific Encoding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/:encoding_id/error",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Error Webhook for a specific Encoding"
+        },
+        {
+          "info": {
+            "name": "Add 'Encoding Finished' Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/finished",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new webhook notification that triggers if an encoding finishes successfully. A maximum number of 5 webhooks is allowed"
+        },
+        {
+          "info": {
+            "name": "Add 'Encoding Finished' Webhook for a specific Encoding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/:encoding_id/finished",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add 'Encoding Finished' Webhook for a specific Encoding"
+        },
+        {
+          "info": {
+            "name": "Add 'Live Encoding Heartbeat' Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/live-encoding-heartbeat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new webhook notification that triggers a heartbeat webhook with a fixed `interval` for all Live Encodings.\n"
+        },
+        {
+          "info": {
+            "name": "Add Live Input Stream Changed Webhook Notification (All Encodings)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/live-input-stream-changed",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Live Input Stream Changed Webhook Notification (All Encodings)"
+        },
+        {
+          "info": {
+            "name": "Add Live Input Stream Changed Webhook Notification (Specific Encoding)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/:encoding_id/live-input-stream-changed",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Live Input Stream Changed Webhook Notification (Specific Encoding)"
+        },
+        {
+          "info": {
+            "name": "Add 'Live Manifest Ready' Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/live-manifest-ready",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a webhook notification that is triggered when a live manifest is ready, meaning at least one segment is available in every playlist. A maximum number of 5 webhooks is allowed"
+        },
+        {
+          "info": {
+            "name": "Add 'Live Manifest Ready' Webhook for a specific Encoding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/:encoding_id/live-manifest-ready",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new webhook notification that triggers when a live manifest is ready for a specific encoding. A maximum number of 5 webhooks per Encoding is allowed"
+        },
+        {
+          "info": {
+            "name": "Add Encoding Changed Webhook Notification (All Encodings)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/encoding-status-changed",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Encoding Changed Webhook Notification (All Encodings)"
+        },
+        {
+          "info": {
+            "name": "Add 'Encoding Transfer Error' Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/transfer-error",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new webhook notification that triggers if a transfer fails. A maximum number of 5 webhooks is allowed"
+        },
+        {
+          "info": {
+            "name": "Add 'Encoding Transfer Error' Webhook for a specific Encoding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/:encoding_id/transfer-error",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add 'Encoding Transfer Error' Webhook for a specific Encoding"
+        },
+        {
+          "info": {
+            "name": "Replace 'Manifest Error' Webhook Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/manifest/error/:notification_id",
+            "params": [
+              {
+                "name": "notification_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the webhook notification"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace 'Manifest Error' Webhook Notification"
+        },
+        {
+          "info": {
+            "name": "Replace Manifest Finished Webhook Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/manifest/finished/:notification_id",
+            "params": [
+              {
+                "name": "notification_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the webhook notification"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace Manifest Finished Webhook Notification"
+        },
+        {
+          "info": {
+            "name": "Replace Encoding Status Changed Webhook Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/encoding-status-changed/:notification_id",
+            "params": [
+              {
+                "name": "notification_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the webhook notification"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace Encoding Status Changed Webhook Notification"
+        },
+        {
+          "info": {
+            "name": "Replace Live Input Stream Changed Webhook Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.bitmovin.com/v1/notifications/webhooks/encoding/encodings/live-input-stream-changed/:notification_id",
+            "params": [
+              {
+                "name": "notification_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the webhook notification"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace Live Input Stream Changed Webhook Notification"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

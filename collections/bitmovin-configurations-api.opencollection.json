@@ -1,0 +1,539 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Configurations API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configurations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete AAC Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/aac/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete AAC Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete AC3 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/ac3/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Deprecation notice: use Dolby Digital instead. For more information check out our tutorial here:\nhttps://bitmovin.com/docs/encoding/tutorials/how-to-create-dolby-digital-plus-encodings\n"
+        },
+        {
+          "info": {
+            "name": "Delete Dolby Digital Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/dolby-digital/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete Dolby Digital Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete Dolby Atmos Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/dolby-atmos/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete Dolby Atmos Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete Dolby Digital Plus Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/dolby-digital-plus/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete Dolby Digital Plus Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete DTS Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/dts/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete DTS Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete DTS Passthrough Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/dts-passthrough/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete DTS Passthrough Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete DTS:X Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/dtsx/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete DTS:X Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete E-AC3 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/eac3/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Deprecation notice: use Dolby Digital Plus instead. For more information check out our tutorial here:\nhttps://bitmovin.com/docs/encoding/tutorials/how-to-create-dolby-digital-plus-encodings\n"
+        },
+        {
+          "info": {
+            "name": "Delete HE-AAC v1 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/he-aac-v1/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete HE-AAC v1 Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete HE-AAC v2 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/he-aac-v2/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete HE-AAC v2 Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete MP2 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/mp2/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete MP2 Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete MP3 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/mp3/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete MP3 Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete Opus Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/opus/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete Opus Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete Audio Passthrough Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/passthrough/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the audio configuration"
+              }
+            ]
+          },
+          "docs": "Delete Audio Passthrough Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete PCM Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/pcm/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete PCM Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete Vorbis Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/audio/vorbis/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete Vorbis Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete DVB-SUB subtitle configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/subtitles/dvb-subtitle/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the subtitle configuration"
+              }
+            ]
+          },
+          "docs": "Delete DVB-SUB subtitle configuration"
+        },
+        {
+          "info": {
+            "name": "Delete IMSC subtitle configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/subtitles/imsc/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the subtitle configuration"
+              }
+            ]
+          },
+          "docs": "Delete IMSC subtitle configuration"
+        },
+        {
+          "info": {
+            "name": "Delete WebVtt subtitle configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/subtitles/webvtt/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the subtitle configuration"
+              }
+            ]
+          },
+          "docs": "Delete WebVtt subtitle configuration"
+        },
+        {
+          "info": {
+            "name": "Delete AV1 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/video/av1/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete AV1 Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete H262 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/video/h262/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete H262 Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete H264/AVC Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/video/h264/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete H264/AVC Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete H265/HEVC Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/video/h265/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete H265/HEVC Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete MJPEG Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/video/mjpeg/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete MJPEG Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete VP8 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/video/vp8/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete VP8 Codec Configuration"
+        },
+        {
+          "info": {
+            "name": "Delete VP9 Codec Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/configurations/video/vp9/:configuration_id",
+            "params": [
+              {
+                "name": "configuration_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the codec configuration"
+              }
+            ]
+          },
+          "docs": "Delete VP9 Codec Configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

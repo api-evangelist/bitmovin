@@ -1,0 +1,2260 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Encodings API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Encodings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PSNR quality metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/qc/psnr",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ]
+          },
+          "docs": "Activates PSNR quality metrics for the selected stream"
+        },
+        {
+          "info": {
+            "name": "Delete Encoding",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              }
+            ]
+          },
+          "docs": "Delete Encoding"
+        },
+        {
+          "info": {
+            "name": "Delete Convert SCC captions",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/captions/scc/:captions_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "captions_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the caption."
+              }
+            ]
+          },
+          "docs": "Delete Convert SCC captions"
+        },
+        {
+          "info": {
+            "name": "Delete audio mix input stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/audio-mix/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the audio mix input stream."
+              }
+            ]
+          },
+          "docs": "Delete audio mix input stream"
+        },
+        {
+          "info": {
+            "name": "Delete CEA 608 Input Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/captions/cea608/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the CEA 608 input stream."
+              }
+            ]
+          },
+          "docs": "Delete CEA 608 Input Stream"
+        },
+        {
+          "info": {
+            "name": "Delete CEA 708 Input Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/captions/cea708/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Encoding"
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the CEA 708 input stream."
+              }
+            ]
+          },
+          "docs": "Delete CEA 708 Input Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Concatenation Input Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/concatenation/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Concatenation input stream."
+              }
+            ]
+          },
+          "docs": "Delete Concatenation Input Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Dolby Atmos input stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/dolby-atmos/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding"
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Dolby Atmos input stream"
+              }
+            ]
+          },
+          "docs": "Delete Dolby Atmos input stream"
+        },
+        {
+          "info": {
+            "name": "Delete Dolby Vision input stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/dolby-vision/:dolby_vision_input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "dolby_vision_input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Dolby Vision input stream."
+              }
+            ]
+          },
+          "docs": "Delete Dolby Vision input stream"
+        },
+        {
+          "info": {
+            "name": "Delete Dolby Vision Metadata Ingest Input Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/sidecar/dolby-vision-metadata-ingest/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Dolby Vision Metadata Ingest input stream."
+              }
+            ]
+          },
+          "docs": "Delete Dolby Vision Metadata Ingest Input Stream"
+        },
+        {
+          "info": {
+            "name": "Delete DVB Subtitle Input Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/subtitles/dvb-subtitle/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the DVB Subtitle Input Stream."
+              }
+            ]
+          },
+          "docs": "Delete DVB Subtitle Input Stream"
+        },
+        {
+          "info": {
+            "name": "Delete File stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/file/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the File input stream."
+              }
+            ]
+          },
+          "docs": "Delete File stream"
+        },
+        {
+          "info": {
+            "name": "Delete Ingest Input Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/ingest/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the ingest input stream."
+              }
+            ]
+          },
+          "docs": "Delete Ingest Input Stream"
+        },
+        {
+          "info": {
+            "name": "Delete H264 Picture Timing Trimming Input Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/trimming/h264-picture-timing/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the H264 Picture Timing Trimming Input Stream."
+              }
+            ]
+          },
+          "docs": "Delete H264 Picture Timing Trimming Input Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Time-Based Trimming Input Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/trimming/time-based/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Time-Based Trimming Input Stream."
+              }
+            ]
+          },
+          "docs": "Delete Time-Based Trimming Input Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Timecode Track Trimming Input Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/input-streams/trimming/timecode-track/:input_stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "input_stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Timecode Track Trimming Input Stream."
+              }
+            ]
+          },
+          "docs": "Delete Timecode Track Trimming Input Stream"
+        },
+        {
+          "info": {
+            "name": "Delete the Kantar Watermark for an encoding",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/kantar-watermark",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              }
+            ]
+          },
+          "docs": "Delete the Kantar Watermark for an encoding"
+        },
+        {
+          "info": {
+            "name": "Delete Keyframe",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/keyframes/:keyframe_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "keyframe_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the keyframe."
+              }
+            ]
+          },
+          "docs": "Delete Keyframe"
+        },
+        {
+          "info": {
+            "name": "Delete Broadcast TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/broadcast-ts/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Broadcast TS muxing"
+              }
+            ]
+          },
+          "docs": "Delete Broadcast TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Chunked Text muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/chunked-text/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Chunked Text muxing"
+              }
+            ]
+          },
+          "docs": "Delete Chunked Text muxing"
+        },
+        {
+          "info": {
+            "name": "Delete CMAF muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/cmaf/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the CMAF muxing"
+              }
+            ]
+          },
+          "docs": "Delete CMAF muxing"
+        },
+        {
+          "info": {
+            "name": "Delete fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing"
+              }
+            ]
+          },
+          "docs": "Delete fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete AES encryption configuration from an fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id/drm/aes/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing."
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the AES encryption configuration."
+              }
+            ]
+          },
+          "docs": "Delete AES encryption configuration from an fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete CENC DRM from an fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id/drm/cenc/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the cenc drm."
+              }
+            ]
+          },
+          "docs": "Delete CENC DRM from an fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete ClearKey DRM from an fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id/drm/clearkey/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the ClearKey DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete ClearKey DRM from an fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete FairPlay DRM from an fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id/drm/fairplay/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the FairPlay DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete FairPlay DRM from an fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Marlin DRM from an fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id/drm/marlin/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Marlin DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete Marlin DRM from an fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete PlayReady DRM from an fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id/drm/playready/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the PlayReady DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete PlayReady DRM from an fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete PrimeTime DRM from an fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id/drm/primetime/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the PrimeTime DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete PrimeTime DRM from an fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete SPEKE DRM from an fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id/drm/speke/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the SPEKE DRM."
+              }
+            ]
+          },
+          "docs": "Delete SPEKE DRM from an fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Widevine DRM from an fMP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/fmp4/:muxing_id/drm/widevine/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the fMP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the widevine drm."
+              }
+            ]
+          },
+          "docs": "Delete Widevine DRM from an fMP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete MP3 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/mp3/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the MP3 muxing"
+              }
+            ]
+          },
+          "docs": "Delete MP3 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete MP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/mp4/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the MP4 muxing"
+              }
+            ]
+          },
+          "docs": "Delete MP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete CENC DRM from an MP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/mp4/:muxing_id/drm/cenc/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the MP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the cenc drm."
+              }
+            ]
+          },
+          "docs": "Delete CENC DRM from an MP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete ClearKey DRM from an MP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/mp4/:muxing_id/drm/clearkey/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the mp4."
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the ClearKey DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete ClearKey DRM from an MP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Marlin DRM from an MP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/mp4/:muxing_id/drm/marlin/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the mp4."
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Marlin DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete Marlin DRM from an MP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete PlayReady DRM from an MP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/mp4/:muxing_id/drm/playready/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the MP4 muxing."
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the PlayReady DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete PlayReady DRM from an MP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete SPEKE DRM from an MP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/mp4/:muxing_id/drm/speke/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the MP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the SPEKE DRM."
+              }
+            ]
+          },
+          "docs": "Delete SPEKE DRM from an MP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Widevine DRM from an MP4 muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/mp4/:muxing_id/drm/widevine/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the MP4 muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the widevine drm."
+              }
+            ]
+          },
+          "docs": "Delete Widevine DRM from an MP4 muxing"
+        },
+        {
+          "info": {
+            "name": "Delete MXF muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/mxf/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the MXF muxing"
+              }
+            ]
+          },
+          "docs": "Delete MXF muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Packed Audio muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/packed-audio/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Packed Audio muxing"
+              }
+            ]
+          },
+          "docs": "Delete Packed Audio muxing"
+        },
+        {
+          "info": {
+            "name": "Delete AES encryption configuration from a Packed Audio muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/packed-audio/:muxing_id/drm/aes/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Packed Audio muxing."
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the AES encryption configuration."
+              }
+            ]
+          },
+          "docs": "Delete AES encryption configuration from a Packed Audio muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Progressive MOV muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-mov/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Progressive MOV muxing"
+              }
+            ]
+          },
+          "docs": "Delete Progressive MOV muxing"
+        },
+        {
+          "info": {
+            "name": "Delete AES encryption configuration from a Progressive TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-ts/:muxing_id/drm/aes/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding"
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Progressive TS muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the AES encryption configuration"
+              }
+            ]
+          },
+          "docs": "Delete AES encryption configuration from a Progressive TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete FairPlay DRM from a Progressive TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-ts/:muxing_id/drm/fairplay/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Progressive TS muxing."
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the FairPlay DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete FairPlay DRM from a Progressive TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete SPEKE DRM from a Progressive TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-ts/:muxing_id/drm/speke/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Progressive TS muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the SPEKE DRM."
+              }
+            ]
+          },
+          "docs": "Delete SPEKE DRM from a Progressive TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Progressive TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-ts/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Progressive TS muxing"
+              }
+            ]
+          },
+          "docs": "Delete Progressive TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Frame ID ID3 Tag of a Progressive TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-ts/:muxing_id/id3/frame-id/:id3_tag_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Progressive TS muxing"
+              },
+              {
+                "name": "id3_tag_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Frame ID ID3 Tag"
+              }
+            ]
+          },
+          "docs": "Delete Frame ID ID3 Tag of a Progressive TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Plain Text ID3 Tag of a Progressive TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-ts/:muxing_id/id3/plain-text/:id3_tag_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Progressive TS muxing"
+              },
+              {
+                "name": "id3_tag_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Plain Text ID3 Tag"
+              }
+            ]
+          },
+          "docs": "Delete Plain Text ID3 Tag of a Progressive TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Raw ID3 Tag of a Progressive TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-ts/:muxing_id/id3/raw/:id3_tag_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Progressive TS muxing"
+              },
+              {
+                "name": "id3_tag_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the RAW ID3 Tag"
+              }
+            ]
+          },
+          "docs": "Delete Raw ID3 Tag of a Progressive TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Progressive WAV muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-wav/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Progressive WAV muxing"
+              }
+            ]
+          },
+          "docs": "Delete Progressive WAV muxing"
+        },
+        {
+          "info": {
+            "name": "Delete CENC DRM from a Progressive WebM muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-webm/:muxing_id/drm/cenc/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Progressive WebM muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the CENC DRM."
+              }
+            ]
+          },
+          "docs": "Delete CENC DRM from a Progressive WebM muxing"
+        },
+        {
+          "info": {
+            "name": "Delete SPEKE DRM from a Progressive WebM muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-webm/:muxing_id/drm/speke/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Progressive WebM muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the SPEKE DRM."
+              }
+            ]
+          },
+          "docs": "Delete SPEKE DRM from a Progressive WebM muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Progressive WebM muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/progressive-webm/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Progressive WebM muxing"
+              }
+            ]
+          },
+          "docs": "Delete Progressive WebM muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Segmented RAW muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/segmented-raw/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Segmented RAW muxing"
+              }
+            ]
+          },
+          "docs": "Delete Segmented RAW muxing"
+        },
+        {
+          "info": {
+            "name": "Delete Text muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/text/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Text muxing"
+              }
+            ]
+          },
+          "docs": "Delete Text muxing"
+        },
+        {
+          "info": {
+            "name": "Delete TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/ts/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the TS muxing"
+              }
+            ]
+          },
+          "docs": "Delete TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete AES encryption configuration from a TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/ts/:muxing_id/drm/aes/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the TS muxing."
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the PlayReady DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete AES encryption configuration from a TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete FairPlay DRM from a TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/ts/:muxing_id/drm/fairplay/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the TS muxing."
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the FairPlay DRM configuration."
+              }
+            ]
+          },
+          "docs": "Delete FairPlay DRM from a TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete SPEKE DRM from a TS muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/ts/:muxing_id/drm/speke/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the TS muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the SPEKE DRM."
+              }
+            ]
+          },
+          "docs": "Delete SPEKE DRM from a TS muxing"
+        },
+        {
+          "info": {
+            "name": "Delete WebM muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/webm/:muxing_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the WebM muxing"
+              }
+            ]
+          },
+          "docs": "Delete WebM muxing"
+        },
+        {
+          "info": {
+            "name": "Delete CENC DRM from a WebM muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/webm/:muxing_id/drm/cenc/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the WebM muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the cenc drm."
+              }
+            ]
+          },
+          "docs": "Delete CENC DRM from a WebM muxing"
+        },
+        {
+          "info": {
+            "name": "Delete SPEKE DRM from a WebM muxing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/muxings/webm/:muxing_id/drm/speke/:drm_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "muxing_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the WebM muxing"
+              },
+              {
+                "name": "drm_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the SPEKE DRM."
+              }
+            ]
+          },
+          "docs": "Delete SPEKE DRM from a WebM muxing"
+        },
+        {
+          "info": {
+            "name": "Deschedule Insertable Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/live/insertable-content/:content_id/schedule/:scheduled_content_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "content_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the insertable content."
+              },
+              {
+                "name": "scheduled_content_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the scheduled insertable content"
+              }
+            ]
+          },
+          "docs": "Deschedule Insertable Content"
+        },
+        {
+          "info": {
+            "name": "Delete SCTE 35 trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/scte-35-triggers/:scte35trigger_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding"
+              },
+              {
+                "name": "scte35trigger_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the SCTE 35 trigger"
+              }
+            ]
+          },
+          "docs": "This endpoint supports VOD encodings only. Requests made with a live encoding ID will fail.\n"
+        },
+        {
+          "info": {
+            "name": "Delete Sidecar",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/sidecars/:sidecar_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "sidecar_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the sidecar."
+              }
+            ]
+          },
+          "docs": "Delete Sidecar"
+        },
+        {
+          "info": {
+            "name": "Delete Sidecar",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/sidecars/webvtt/:sidecar_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "sidecar_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the sidecar."
+              }
+            ]
+          },
+          "docs": "Delete Sidecar"
+        },
+        {
+          "info": {
+            "name": "Delete Bif",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/bifs/:bif_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "bif_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Bif."
+              }
+            ]
+          },
+          "docs": "Delete Bif"
+        },
+        {
+          "info": {
+            "name": "Delete Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ]
+          },
+          "docs": "Delete Stream"
+        },
+        {
+          "info": {
+            "name": "Delete SCC captions as 608/708 from Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/captions/608-708/scc/:captions_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "captions_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the caption."
+              }
+            ]
+          },
+          "docs": "Delete SCC captions as 608/708 from Stream"
+        },
+        {
+          "info": {
+            "name": "Delete SRT captions as 608/708 from Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/captions/608-708/srt/:captions_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "captions_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the caption."
+              }
+            ]
+          },
+          "docs": "Delete SRT captions as 608/708 from Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Dolby Vision Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/hdr/dolby-vision/:hdr_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "hdr_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Dolby Vision Metadata."
+              }
+            ]
+          },
+          "docs": "Delete Dolby Vision Metadata"
+        },
+        {
+          "info": {
+            "name": "Delete All Filters from Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/filters",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              }
+            ]
+          },
+          "docs": "Delete All Filters from Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Specific Filter from Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/filters/:filter_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the filter"
+              }
+            ]
+          },
+          "docs": "Delete Specific Filter from Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Sprite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/sprites/:sprite_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "sprite_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the sprite."
+              }
+            ]
+          },
+          "docs": "Delete Sprite"
+        },
+        {
+          "info": {
+            "name": "Delete Burn-In ASSA Subtitle from Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/burn-in-subtitles/assa/:subtitle_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "subtitle_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the burn-in subtitle."
+              }
+            ]
+          },
+          "docs": "Delete Burn-In ASSA Subtitle from Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Burn-In DVB-SUB Subtitle from Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/burn-in-subtitles/dvbsub/:subtitle_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "subtitle_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the subtitle."
+              }
+            ]
+          },
+          "docs": "Delete Burn-In DVB-SUB Subtitle from Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Burn-In SRT Subtitle from Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/burn-in-subtitles/srt/:subtitle_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "subtitle_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the burn-in subtitle."
+              }
+            ]
+          },
+          "docs": "Delete Burn-In SRT Subtitle from Stream"
+        },
+        {
+          "info": {
+            "name": "Delete Thumbnail",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/thumbnails/:thumbnail_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "thumbnail_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the thumbnail."
+              }
+            ]
+          },
+          "docs": "Delete Thumbnail"
+        },
+        {
+          "info": {
+            "name": "Delete nexguard file marker watermarking configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/encodings/:encoding_id/streams/:stream_id/watermarking/nexguard-file-marker/:nexguard_id",
+            "params": [
+              {
+                "name": "encoding_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the encoding."
+              },
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the stream."
+              },
+              {
+                "name": "nexguard_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the nexguard file marker watermarking configurations"
+              }
+            ]
+          },
+          "docs": "Delete nexguard file marker watermarking configurations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,362 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Outputs API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Outputs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete Akamai MSL Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/akamai-msl/:output_id",
+            "params": [
+              {
+                "name": "output_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the output"
+              }
+            ]
+          },
+          "docs": "Delete Akamai MSL Output"
+        },
+        {
+          "info": {
+            "name": "Delete Akamai NetStorage Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/akamai-netstorage/:output_id",
+            "params": [
+              {
+                "name": "output_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the output"
+              }
+            ]
+          },
+          "docs": "Delete Akamai NetStorage Output"
+        },
+        {
+          "info": {
+            "name": "Delete Azure Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/azure/:output_id",
+            "params": [
+              {
+                "name": "output_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the output"
+              }
+            ]
+          },
+          "docs": "Delete Azure Output"
+        },
+        {
+          "info": {
+            "name": "Delete FTP Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/ftp/:output_id",
+            "params": [
+              {
+                "name": "output_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the output"
+              }
+            ]
+          },
+          "docs": "Delete FTP Output"
+        },
+        {
+          "info": {
+            "name": "Delete GCS Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/gcs/:output_id",
+            "params": [
+              {
+                "name": "output_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the output"
+              }
+            ]
+          },
+          "docs": "Delete GCS Output"
+        },
+        {
+          "info": {
+            "name": "Delete Service Account based GCS Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/gcs-service-account/:output_id",
+            "params": [
+              {
+                "name": "output_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the output"
+              }
+            ]
+          },
+          "docs": "Delete Service Account based GCS Output"
+        },
+        {
+          "info": {
+            "name": "Delete Generic S3 Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/generic-s3/:output_id",
+            "params": [
+              {
+                "name": "output_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the output"
+              }
+            ]
+          },
+          "docs": "Delete Generic S3 Output"
+        },
+        {
+          "info": {
+            "name": "Create Akamai MSL Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/akamai-msl",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Akamai MSL Output"
+        },
+        {
+          "info": {
+            "name": "Create Akamai NetStorage Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/akamai-netstorage",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Akamai NetStorage Output"
+        },
+        {
+          "info": {
+            "name": "Create Azure Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/azure",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Azure Output"
+        },
+        {
+          "info": {
+            "name": "Check output permissions (S3 only)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/:output_id/check-permissions",
+            "params": [
+              {
+                "name": "output_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the output to be checked. Currently limited to S3 outputs. The access credentials that have been provided for this Output still need to be valid, otherwise the request will fail. If they are not valid any more, create a new Output with new credentials (resources are immutable)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check output permissions (S3 only)"
+        },
+        {
+          "info": {
+            "name": "Create FTP Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/ftp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create FTP Output"
+        },
+        {
+          "info": {
+            "name": "Create GCS Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/gcs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create GCS Output"
+        },
+        {
+          "info": {
+            "name": "Create Service Account based GCS Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/gcs-service-account",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Service Account based GCS Output"
+        },
+        {
+          "info": {
+            "name": "Create Generic S3 Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/generic-s3",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Generic S3 Output"
+        },
+        {
+          "info": {
+            "name": "Create Live Media Ingest Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/live-media-ingest",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Live Media Ingest Output"
+        },
+        {
+          "info": {
+            "name": "Create Local Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/local",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Local Output"
+        },
+        {
+          "info": {
+            "name": "Create S3 Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/s3",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create S3 Output"
+        },
+        {
+          "info": {
+            "name": "Create S3 Role-based Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/s3-role-based",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create S3 Role-based Output"
+        },
+        {
+          "info": {
+            "name": "Create SFTP Output",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bitmovin.com/v1/encoding/outputs/sftp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create SFTP Output"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

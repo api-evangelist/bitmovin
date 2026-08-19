@@ -1,0 +1,309 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitmovin Encoding Config Infrastructure API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Infrastructure",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete Akamai account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/akamai/:infrastructure_id",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Akamai account"
+              }
+            ]
+          },
+          "docs": "Delete Akamai account"
+        },
+        {
+          "info": {
+            "name": "Delete Akamai account region settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/akamai/:infrastructure_id/regions/:region",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Akamai account"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "path",
+                "description": "Akamai region"
+              }
+            ]
+          },
+          "docs": "Delete Akamai account region settings"
+        },
+        {
+          "info": {
+            "name": "Delete AWS Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/aws/:infrastructure_id",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the AWS account"
+              }
+            ]
+          },
+          "docs": "Delete AWS Account"
+        },
+        {
+          "info": {
+            "name": "Delete AWS Region Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/aws/:infrastructure_id/regions/:region",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the AWS account"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "path",
+                "description": "AWS region."
+              }
+            ]
+          },
+          "docs": "Delete AWS Region Settings"
+        },
+        {
+          "info": {
+            "name": "Delete Azure Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/azure/:infrastructure_id",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Azure account"
+              }
+            ]
+          },
+          "docs": "Delete Azure Account"
+        },
+        {
+          "info": {
+            "name": "Delete Azure Region Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/azure/:infrastructure_id/regions/:region",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Azure account"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "path",
+                "description": "Azure region."
+              }
+            ]
+          },
+          "docs": "Delete Azure Region Settings"
+        },
+        {
+          "info": {
+            "name": "Delete GCE Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/gce/:infrastructure_id",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the GCE account"
+              }
+            ]
+          },
+          "docs": "Delete GCE Account"
+        },
+        {
+          "info": {
+            "name": "Delete Google Cloud Region Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/gce/:infrastructure_id/regions/:region",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Google Cloud Connect infrastructure resource"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "path",
+                "description": "Google Cloud Region"
+              }
+            ]
+          },
+          "docs": "Delete Google Cloud Region Settings"
+        },
+        {
+          "info": {
+            "name": "Delete OCI account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/oci/:infrastructure_id",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the OCI account"
+              }
+            ]
+          },
+          "docs": "Delete OCI account"
+        },
+        {
+          "info": {
+            "name": "Delete OCI account region settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/oci/:infrastructure_id/regions/:region",
+            "params": [
+              {
+                "name": "infrastructure_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the OCI account"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "path",
+                "description": "OCI region"
+              }
+            ]
+          },
+          "docs": "Delete OCI account region settings"
+        },
+        {
+          "info": {
+            "name": "Delete prewarmed encoder pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/prewarmed-encoder-pools/:pool_id",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the prewarmed encoder pool"
+              }
+            ]
+          },
+          "docs": "Delete prewarmed encoder pool"
+        },
+        {
+          "info": {
+            "name": "Delete prewarmed encoder pool schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/prewarmed-encoder-pools/:pool_id/schedules/:schedule_id",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the scheduled encoder pool"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the prewarmed encoder pool schedule"
+              }
+            ]
+          },
+          "docs": "Delete prewarmed encoder pool schedule"
+        },
+        {
+          "info": {
+            "name": "Delete Static IP Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bitmovin.com/v1/encoding/infrastructure/static-ips/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Static IP Address"
+              }
+            ]
+          },
+          "docs": "Delete Static IP Address"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
