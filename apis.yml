@@ -195,6 +195,8 @@ apis:
   humanURL: https://developer.bitmovin.com/encoding/
   baseURL: https://api.bitmovin.com/v1
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -231,6 +233,8 @@ apis:
   humanURL: https://developer.bitmovin.com/encoding/
   baseURL: https://api.bitmovin.com/v1
   tags:
+  - Signing Keys
+  tags_raw:
   - Signing-keys
   properties:
   - type: OpenAPI
@@ -267,6 +271,8 @@ apis:
   humanURL: https://developer.bitmovin.com/encoding/
   baseURL: https://api.bitmovin.com/v1
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
