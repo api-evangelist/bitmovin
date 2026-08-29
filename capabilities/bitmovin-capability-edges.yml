@@ -1,0 +1,86 @@
+slug: bitmovin
+provider: Bitmovin
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Configurations
+  spec_file: bitmovin-configurations-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.85
+  evidence: DELETE /encoding/configurations/audio/aac/{configuration_id} Delete AAC Codec Configuration
+  reason: Operations manage audio/video codec configurations (AAC, Dolby Digital, DTS, HE-AAC) used by
+    the encoding pipeline — i.e. definition of transcoding renditions and format conversion parameters,
+    which is Transcoding & Format Conversion.
+- tag: Encodings
+  spec_file: bitmovin-encodings-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.85
+  evidence: DELETE /encoding/encodings/{encoding_id} Delete Encoding; DELETE /encoding/encodings/{encoding_id}/input-streams/subtitles/dvb-subtitle/{input_stream_id}
+    Delete DVB Subtitle Input Stream
+  reason: Core encoding job lifecycle with input streams, captions/subtitles, DRM and quality metrics
+    — production of distribution renditions through transcoding and packaging pipelines.
+- tag: Manifests
+  spec_file: bitmovin-manifests-api-openapi.yml
+  capability_id: BC-3740.20
+  capability_id_l1: BC-3740
+  capability_name: OTT & Streaming Delivery
+  confidence: 0.8
+  evidence: DELETE /encoding/manifests/dash/{manifest_id} Delete DASH Manifest; SmoothStreamingRepresentation,
+    HlsTargetDurationRoundingMode
+  reason: Authoring of DASH/HLS/Smooth Streaming manifests, adaptation sets, representations and content
+    protection entries — streaming packaging for OTT delivery.
+- tag: Live
+  spec_file: bitmovin-live-api-openapi.yml
+  capability_id: BC-3740.20
+  capability_id_l1: BC-3740
+  capability_name: OTT & Streaming Delivery
+  confidence: 0.75
+  evidence: POST /encoding/live/stream-keys Create new stream key; PATCH /encoding/live/encodings/{encoding_id}/actions/update-rtmp-ingest-points
+    Update the ingest points of a Redundant RTMP Input
+  reason: Operates live streaming encodings — stream keys, RTMP ingest points, standby encoder pools,
+    live stream lifecycle — which is live streaming origin/delivery operation for OTT services.
+- tag: Templates
+  spec_file: bitmovin-templates-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.72
+  evidence: '"Store an Encoding Template"; "Start an Encoding defined with an Encoding Template"'
+  reason: Operations define and launch cloud encoding jobs from reusable templates, i.e. production of
+    distribution renditions through transcoding/packaging pipelines.
+- tag: Filters
+  spec_file: bitmovin-filters-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.7
+  evidence: DELETE /encoding/filters/deinterlace/{filter_id} Delete Deinterlace Filter; DELETE /encoding/filters/enhanced-watermark/{filter_id}
+    Delete Enhanced Watermark Filter
+  reason: Video/audio processing filters (crop, rotate, deinterlace, denoise, loudness, watermark) applied
+    within the encoding pipeline. Sits between post-production finishing and transcoding; treated as part
+    of the transcoding/format-conversion pipeline configuration.
+- tag: Inputs
+  spec_file: bitmovin-inputs-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.7
+  evidence: DELETE /encoding/inputs/akamai-netstorage/{input_id} Delete Akamai NetStorage Input; DELETE
+    /encoding/inputs/direct-file-upload/{input_id} Delete Direct File Upload Input
+  reason: Defines source-material input locations (S3, GCS, Azure, FTP, HLS, SRT/Zixi) from which media
+    is onboarded into the encoding platform — asset ingest configuration. Some risk this is pure storage-connector
+    plumbing, hence moderate confidence.

@@ -292,6 +292,9 @@ apis:
   - type: Documentation
     url: https://developer.bitmovin.com/encoding/
 common:
+  - type: CapabilityMap
+    url: capabilities/bitmovin-capability-edges.yml
+    name: Bitmovin Business Capability Map
   - type: AgenticAccess
     url: agentic-access/bitmovin-agentic-access.yml
   - type: DomainSecurity
