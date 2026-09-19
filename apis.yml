@@ -123,6 +123,8 @@ apis:
   humanURL: https://developer.bitmovin.com/encoding/
   baseURL: https://api.bitmovin.com/v1
   tags:
+  - Email
+  tags_raw:
   - Emails
   properties:
   - type: OpenAPI
