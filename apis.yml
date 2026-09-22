@@ -38,6 +38,9 @@ url: https://raw.githubusercontent.com/api-evangelist/bitmovin/refs/heads/main/a
 created: "2026-06-12"
 modified: "2026-06-12"
 specificationVersion: '0.23'
+x-docs-platform: readme
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-20
 tags:
   - Video
   - Encoding
