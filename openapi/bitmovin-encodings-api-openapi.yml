@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Bitmovin Encoding Config Encodings API
+  title: Bitmovin Encoding Encodings API
   description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
   version: '3.0'
   termsOfService: https://bitmovin.com
@@ -3065,9 +3065,7 @@ paths:
       tags:
       - Encodings
       summary: Delete SCTE 35 trigger
-      description: 'This endpoint supports VOD encodings only. Requests made with a live encoding ID will fail.
-
-        '
+      description: This endpoint supports VOD encodings only. Requests made with a live encoding ID will fail.
       operationId: DeleteEncodingEncodingsScte35TriggersByEncodingIdAndScte35TriggerId
       parameters:
       - name: encoding_id
@@ -3861,33 +3859,26 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
-    MarlinDrm:
-      title: MarlinDrm
+    AclEntry:
+      title: AclEntry
       required:
-      - key
-      - kid
-      allOf:
-      - $ref: '#/components/schemas/Drm'
-      - properties:
-          key:
-            writeOnly: true
-            type: string
-            description: 16 byte key in hex (32 characters)
-            example: 123456789ABCDEF123456789ABCDEF12
-          kid:
-            type: string
-            description: 16 byte key in hex (32 characters)
-            example: 123456789ABCDEF123456789ABCDEF12
-    BitmovinResponse:
-      title: BitmovinResponse
-      required:
-      - id
+      - permission
       properties:
-        id:
+        scope:
+          description: 'Deprecation notice: The value of this property is not being used. It can be chosen arbitrarily or not set at all'
+          deprecated: true
           type: string
+          example: public
+        permission:
+          description: ''
+          allOf:
+          - $ref: '#/components/schemas/AclPermission'
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
           readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
     Message:
       title: Message
       required:
@@ -3921,52 +3912,66 @@ components:
             format: date-time
             description: Timestamp when the message occurred
             example: '2016-06-25T20:09:23.69Z'
-    ResponseEnvelope:
-      title: ResponseEnvelope
+    EncodingOutput:
+      title: EncodingOutput
       required:
-      - requestId
-      - status
-      - data
+      - outputId
+      - outputPath
       properties:
-        requestId:
+        outputId:
+          type: string
+          description: Id of the corresponding output
+          example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
+        outputPath:
+          type: string
+          description: Subdirectory where to save the files to
+          example: /encodings/movies/movie-1/video_720/
+        acl:
+          description: Determines accessibility of files written to this output. Only applies to output types that support ACLs. Defaults to PUBLIC_READ if the list is empty. The destination (e.g. cloud storage bucket) needs to allow the configured ACL
+          type: array
+          items:
+            $ref: '#/components/schemas/AclEntry'
+    BitmovinResource:
+      title: BitmovinResource
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          name:
+            type: string
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
           type: string
           readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
-    AclEntry:
-      title: AclEntry
-      required:
-      - permission
-      properties:
-        scope:
-          description: 'Deprecation notice: The value of this property is not being used. It can be chosen arbitrarily or not set at all'
-          deprecated: true
-          type: string
-          example: public
-        permission:
-          description: ''
-          allOf:
-          - $ref: '#/components/schemas/AclPermission'
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -4001,77 +4006,48 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    EncodingOutput:
-      title: EncodingOutput
+    AclPermission:
+      title: AclPermission
+      type: string
+      enum:
+      - PUBLIC_READ
+      - PRIVATE
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    Link:
+      title: Link
       required:
-      - outputId
-      - outputPath
+      - href
       properties:
-        outputId:
+        href:
           type: string
-          description: Id of the corresponding output
-          example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
-        outputPath:
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
           type: string
-          description: Subdirectory where to save the files to
-          example: /encodings/movies/movie-1/video_720/
-        acl:
-          description: Determines accessibility of files written to this output. Only applies to output types that support ACLs. Defaults to PUBLIC_READ if the list is empty. The destination (e.g. cloud storage bucket) needs to allow the configured ACL
-          type: array
-          items:
-            $ref: '#/components/schemas/AclEntry'
-    Drm:
-      title: Drm
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    MarlinDrm:
+      title: MarlinDrm
       required:
-      - outputs
+      - key
+      - kid
       allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
+      - $ref: '#/components/schemas/Drm'
       - properties:
-          outputs:
-            type: array
-            items:
-              $ref: '#/components/schemas/EncodingOutput'
-    BitmovinResponseList:
-      type: array
-      items:
-        $ref: '#/components/schemas/BitmovinResponse'
-    BitmovinResource:
-      title: BitmovinResource
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          name:
-            type: string
-            description: Name of the resource. Can be freely chosen by the user.
-            example: Name of the resource
-          description:
-            type: string
-            description: Description of the resource. Can be freely chosen by the user.
-            example: Description of the resource
-          createdAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          modifiedAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          customData:
-            type: string
+          key:
             writeOnly: true
-            description: User-specific meta data. This can hold anything.
-            additionalProperties:
-              type: object
+            type: string
+            description: 16 byte key in hex (32 characters)
+            example: 123456789ABCDEF123456789ABCDEF12
+          kid:
+            type: string
+            description: 16 byte key in hex (32 characters)
+            example: 123456789ABCDEF123456789ABCDEF12
     ResponseError:
       title: ResponseError
       required:
@@ -4095,25 +4071,43 @@ components:
           readOnly: true
           allOf:
           - $ref: '#/components/schemas/ResponseErrorData'
-    AclPermission:
-      title: AclPermission
-      type: string
-      enum:
-      - PUBLIC_READ
-      - PRIVATE
-    Link:
-      title: Link
+    Drm:
+      title: Drm
       required:
-      - href
+      - outputs
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          outputs:
+            type: array
+            items:
+              $ref: '#/components/schemas/EncodingOutput'
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
       properties:
-        href:
+        requestId:
           type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
     MessageType:
       title: MessageType
       type: string
@@ -4123,6 +4117,10 @@ components:
       - INFO
       - DEBUG
       - TRACE
+    BitmovinResponseList:
+      type: array
+      items:
+        $ref: '#/components/schemas/BitmovinResponse'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

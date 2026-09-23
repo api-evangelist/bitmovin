@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Bitmovin Encoding Config Manifests API
+  title: Bitmovin Encoding Manifests API
   description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
   version: '3.0'
   termsOfService: https://bitmovin.com
@@ -1937,7 +1937,7 @@ paths:
       - Manifests
       summary: Create Custom DASH Manifest
       operationId: PostEncodingManifestsDash
-      description: A Custom DASH Manifest gives you full control over its contents. Add Periods, Adaptation Sets, Representations, Content Protections or Custom XML Elements via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      description: A Custom DASH Manifest gives you full control over its contents. Add Periods, Adaptation Sets, Representations, Content Protections or Custom XML Elements via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See documentation page for a comparison
       requestBody:
         description: The Custom DASH Manifest to be created.
         content:
@@ -1971,7 +1971,7 @@ paths:
       - Manifests
       summary: Create Default DASH Manifest
       operationId: PostEncodingManifestsDashDefault
-      description: A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      description: A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See documentation page for a comparison
       requestBody:
         description: The Default DASH Manifest to be created.
         content:
@@ -3352,7 +3352,7 @@ paths:
       - Manifests
       summary: Create Custom HLS Manifest
       operationId: PostEncodingManifestsHls
-      description: A Custom HLS Manifest gives you full control over its contents. Add Variant Streams and Media elements via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      description: A Custom HLS Manifest gives you full control over its contents. Add Variant Streams and Media elements via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See documentation page for a comparison
       requestBody:
         description: The Custom HLS Manifest to be created.
         content:
@@ -3386,7 +3386,7 @@ paths:
       - Manifests
       summary: Create Default HLS Manifest
       operationId: PostEncodingManifestsHlsDefault
-      description: A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      description: A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See documentation page for a comparison
       requestBody:
         description: The Default HLS Manifest to be created.
         content:
@@ -3906,7 +3906,7 @@ paths:
       - Manifests
       summary: Create Smooth Streaming Manifest
       operationId: PostEncodingManifestsSmooth
-      description: A Custom Smooth Streaming Manifest gives you full control over its contents. Add Representations and Content Protections via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      description: A Custom Smooth Streaming Manifest gives you full control over its contents. Add Representations and Content Protections via the respective endpoints. If you need a simpler solution, create a Default Manifest resource instead. See documentation page for a comparison
       requestBody:
         description: The Custom Smooth Streaming Manifest to be created.
         content:
@@ -3982,7 +3982,7 @@ paths:
       - Manifests
       summary: Create Default Smooth Streaming Manifest
       operationId: PostEncodingManifestsSmoothDefault
-      description: A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See [documentation](https://developer.bitmovin.com/encoding/docs/default-vs-custom-manifest) page for a comparison
+      description: A Default Manifest is the easiest way to create a manifest file. Its contents will be configured automatically, depending on what output your encoding creates (muxings, thumbnails, sprites, subtitles, DRM information). If you need more control, create a Custom Manifest resource instead. See documentation page for a comparison
       requestBody:
         description: The Default Smooth Streaming Manifest to be created.
         content:
@@ -4138,21 +4138,109 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
-    HlsManifestDefault:
-      title: HlsManifestDefault
-      required:
-      - encodingId
+    BitmovinResource:
+      title: BitmovinResource
       allOf:
-      - $ref: '#/components/schemas/HlsManifest'
+      - $ref: '#/components/schemas/BitmovinResponse'
       - properties:
-          encodingId:
-            description: The id of the encoding to create a default manifest for
+          name:
             type: string
-            example: 45ef21d2-1f62-4004-9166-6d5e248270f6
-          version:
-            description: Currently not in use
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    DashManifest:
+      title: DashManifest
+      allOf:
+      - $ref: '#/components/schemas/Manifest'
+      - properties:
+          profile:
+            description: Determines if segmented or progressive representations can appear in the manifest
             allOf:
-            - $ref: '#/components/schemas/HlsManifestDefaultVersion'
+            - $ref: '#/components/schemas/DashProfile'
+          manifestName:
+            type: string
+            description: The filename of your manifest
+            example: stream.mpd
+          namespaces:
+            type: array
+            description: List of additional XML namespaces to add to the DASH Manifest
+            items:
+              $ref: '#/components/schemas/XmlNamespace'
+          utcTimings:
+            type: array
+            description: List of UTC Timings to use for live streaming
+            items:
+              $ref: '#/components/schemas/UtcTiming'
+          dashEditionCompatibility:
+            description: The manifest compatibility with the standard DASH Edition.
+            allOf:
+            - $ref: '#/components/schemas/DashEditionCompatibility'
+          iso8601TimestampFormat:
+            description: Determines how timestamps should appear in the manifest
+            allOf:
+            - $ref: '#/components/schemas/DashISO8601TimestampFormat'
+          minBufferTime:
+            type: number
+            format: double
+            description: 'The minimum buffer time in seconds that the client should maintain to ensure uninterrupted playback. Default is 2 seconds.
+
+              Note: For VOD ON_DEMAND dash manifests, the default value may differ from 2.0 seconds if not explicitly set.
+
+              '
+            default: 2
+            example: 2
+    SmoothManifestDefaultVersion:
+      title: SmoothManifestDefaultVersion
+      type: string
+      default: V1
+      enum:
+      - V1
+    AdaptationSet:
+      title: AdaptationSet
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          customAttributes:
+            type: array
+            items:
+              $ref: '#/components/schemas/CustomAttribute'
+            description: Custom adaptation set attributes
+          roles:
+            type: array
+            items:
+              $ref: '#/components/schemas/AdaptationSetRole'
+            description: Roles of the adaptation set
+          accessibilities:
+            type: array
+            items:
+              $ref: '#/components/schemas/Accessibility'
+            description: Provide signaling of CEA 607 and CEA 708
+          labels:
+            type: array
+            items:
+              $ref: '#/components/schemas/Label'
+            description: List of labels
     StreamInfo:
       title: StreamInfo
       required:
@@ -4227,29 +4315,86 @@ components:
             type: boolean
             description: Force the addition of the video-range attribute to all stream infos.
             default: false
-    ImageAdaptationSet:
-      title: ImageAdaptationSet
-      allOf:
-      - $ref: '#/components/schemas/AdaptationSet'
-    EncodingOutput:
-      title: EncodingOutput
+    ClosedCaptionsMediaInfo:
+      title: ClosedCaptionsMediaInfo
       required:
-      - outputId
-      - outputPath
-      properties:
-        outputId:
-          type: string
-          description: Id of the corresponding output
-          example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
-        outputPath:
-          type: string
-          description: Subdirectory where to save the files to
-          example: /encodings/movies/movie-1/video_720/
-        acl:
-          description: Determines accessibility of files written to this output. Only applies to output types that support ACLs. Defaults to PUBLIC_READ if the list is empty. The destination (e.g. cloud storage bucket) needs to allow the configured ACL
-          type: array
-          items:
-            $ref: '#/components/schemas/AclEntry'
+      - instreamId
+      allOf:
+      - $ref: '#/components/schemas/SegmentsMediaInfo'
+      - properties:
+          instreamId:
+            type: string
+            description: Specifies a Rendition within the segments in the Media Playlist. (See HLS spec 4.3.4.1. EXT-X-MEDIA INSTREAM-ID)
+            example: CC1
+          forced:
+            type: boolean
+            description: A value of true indicates that the Rendition contains content which is considered essential to play.
+            example: false
+    DashISO8601TimestampFormat:
+      title: DashISO8601TimestampFormat
+      type: string
+      enum:
+      - LONG
+      - SHORT
+      example: LONG
+      default: LONG
+      x-enum-elements:
+      - name: LONG
+        description: Format for generating timestamps in PXXYXXMXXDTXXHXXMX.XXXS
+      - name: SHORT
+        description: Format for generating timestamps in PTXXHXXMX.XXXS
+    HlsVersion:
+      title: HlsVersion
+      type: string
+      enum:
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      example: 7
+      x-enum-elements:
+      - name: HLS_V3
+        description: HLS version 3
+      - name: HLS_V4
+        description: HLS version 4
+      - name: HLS_V5
+        description: HLS version 5
+      - name: HLS_V6
+        description: HLS version 6
+      - name: HLS_V7
+        description: HLS version 7
+      - name: HLS_V8
+        description: HLS version 8
+    DashEditionCompatibility:
+      title: DashEditionCompatibility
+      type: string
+      enum:
+      - V4
+      example: V4
+      x-enum-elements:
+      - name: V4
+        description: States the compatibility of the DASH manifest with the standard DASH Edition. When set to V4, the endNumber attribute will be automatically added to the last Media Segment in the Representation of the Period, in order to improve playback compatibility. If the property is not set the endNumber attribute tag will not be added.
+    VariantStreamDroppingMode:
+      title: VariantStreamDroppingMode
+      type: string
+      description: Variant stream dropping mode.
+      enum:
+      - STREAM
+      - AUDIO
+    ManifestGenerator:
+      title: ManifestGenerator
+      type: string
+      default: LEGACY
+      enum:
+      - LEGACY
+      - V2
+      x-enum-elements:
+      - name: LEGACY
+        description: Legacy manifest generator.
+      - name: V2
+        description: Improved manifest generator which covers all manifest features available in our API.
     HlsTargetDurationRoundingMode:
       title: HlsTargetDurationRoundingMode
       type: string
@@ -4267,15 +4412,6 @@ components:
           '
       - name: NORMAL_ROUNDING
         description: "The target duration will be normally rounded.\n\n For example: if the target duration is 4.2 this will be rounded to 4.\n"
-    SubtitlesMediaInfo:
-      title: SubtitlesMediaInfo
-      allOf:
-      - $ref: '#/components/schemas/StandardMediaInfo'
-      - properties:
-          forced:
-            type: boolean
-            description: A value of true indicates that the Rendition contains content which is considered essential to play.
-            example: false
     UtcTiming:
       title: UtcTiming
       required:
@@ -4290,6 +4426,365 @@ components:
           type: string
           description: The scheme id to use. Please refer to the DASH standard.
           example: urn:mpeg:dash:utc:http-iso:2014
+    AdaptationSetRole:
+      title: AdaptationSetRole
+      type: string
+      enum:
+      - ALTERNATE
+      - CAPTION
+      - COMMENTARY
+      - DUB
+      - MAIN
+      - SUBTITLE
+      - SUPPLEMENTARY
+      example: MAIN
+      x-enum-elements:
+      - name: ALTERNATE
+        description: Media content component that is an alternative to a main media content component of the same media component type
+      - name: CAPTION
+        description: Caption
+      - name: COMMENTARY
+        description: Media content component with commentary (typically audio, e.g. director's commentary)
+      - name: DUB
+        description: Media content component which is presented in a different language from the original (e.g. dubbed audio, translated captions)
+      - name: MAIN
+        description: Main media component which is intended for presentation if no other information is provided
+      - name: SUBTITLE
+        description: Subtitle
+      - name: SUPPLEMENTARY
+        description: Media content component that is supplementary to a media content component of a different media component type
+    DashRepresentationType:
+      title: DashRepresentationType
+      type: string
+      enum:
+      - TEMPLATE
+      - LIST
+      - TIMELINE
+      example: TEMPLATE
+      x-enum-elements:
+      - name: TEMPLATE
+        description: Generates a SegmentTemplate which will be positioned under the representation
+      - name: LIST
+        description: Generates a SegmentList based representation
+      - name: TIMELINE
+        description: Generates a SegmentTimeline based representation
+    PositionMode:
+      title: PositionMode
+      type: string
+      enum:
+      - KEYFRAME
+      - TIME
+      - SEGMENT
+      x-enum-elements:
+      - name: KEYFRAME
+        description: The custom tag will be inserted in the manifest at a certain keyframe id and segment cut. (https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/encodings/create-keyframes)
+      - name: TIME
+        description: The custom tag will be inserted before the segment that is closest to that time (in seconds).
+      - name: SEGMENT
+        description: The custom tag will be inserted before the specified segment number.
+    CustomAttribute:
+      title: CustomAttribute
+      required:
+      - key
+      properties:
+        key:
+          type: string
+          description: unique string identifier for the custom attribute
+          example: key name
+        value:
+          type: string
+          description: value of the custom attribute
+          example: value
+    HlsManifest:
+      title: HlsManifest
+      allOf:
+      - $ref: '#/components/schemas/Manifest'
+      - properties:
+          manifestName:
+            type: string
+            description: The filename of your manifest. If this is not set, the `name` is used as output file name. Either one of `name` or `manifestName` is required. Be aware that spaces will be replaced with underlines (`_`) on the output.
+            example: stream.m3u8
+          hlsMediaPlaylistVersion:
+            description: If this is set, the EXT-X-VERSION tags of the Media Playlists are set to the provided version
+            allOf:
+            - $ref: '#/components/schemas/HlsVersion'
+          hlsMasterPlaylistVersion:
+            description: If this is set, the EXT-X-VERSION tag of the Master Playlist is set to the provided version
+            allOf:
+            - $ref: '#/components/schemas/HlsVersion'
+          channelsAttributeForAudio:
+            description: Controls the behaviour of the CHANNELS attribute for the EXT-X-VERSION tag
+            allOf:
+            - $ref: '#/components/schemas/ChannelsAttributeForAudio'
+          targetDurationRoundingMode:
+            description: 'The rounding applied to target duration.
+
+              Two possible rouding modes exist: NORMAL_ROUNDING, when the target duration is rounded to the nearest integer,
+
+              or UPWARDS_ROUNDING, when the target duration is rounded to the highest integer.
+
+              '
+            allOf:
+            - $ref: '#/components/schemas/HlsTargetDurationRoundingMode'
+    DashWebmRepresentation:
+      title: DashWebmRepresentation
+      allOf:
+      - $ref: '#/components/schemas/DashSegmentedRepresentation'
+    DashRepresentation:
+      title: DashRepresentation
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+    SmoothManifestDefault:
+      title: SmoothManifestDefault
+      required:
+      - encodingId
+      allOf:
+      - $ref: '#/components/schemas/SmoothStreamingManifest'
+      - properties:
+          encodingId:
+            description: The id of the encoding to create a default manifest for
+            type: string
+            example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+          version:
+            description: Currently not in use
+            allOf:
+            - $ref: '#/components/schemas/SmoothManifestDefaultVersion'
+    Manifest:
+      title: Manifest
+      required:
+      - outputs
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          type:
+            description: ''
+            allOf:
+            - $ref: '#/components/schemas/ManifestType'
+            readOnly: true
+          outputs:
+            type: array
+            items:
+              $ref: '#/components/schemas/EncodingOutput'
+            description: The outputs to store the manifest
+          status:
+            description: Current status
+            allOf:
+            - $ref: '#/components/schemas/Status'
+            readOnly: true
+    DashCmafRepresentation:
+      title: DashCmafRepresentation
+      allOf:
+      - $ref: '#/components/schemas/DashSegmentedRepresentation'
+    VideoAdaptationSet:
+      title: VideoAdaptationSet
+      allOf:
+      - $ref: '#/components/schemas/AdaptationSet'
+    DefaultManifestCondition:
+      title: DefaultManifestCondition
+    AclPermission:
+      title: AclPermission
+      type: string
+      enum:
+      - PUBLIC_READ
+      - PRIVATE
+    HlsManifestDefaultVersion:
+      title: HlsManifestDefaultVersion
+      type: string
+      default: V1
+      enum:
+      - V1
+    SpriteRepresentation:
+      title: SpriteRepresentation
+      required:
+      - encodingId
+      - streamId
+      - spriteId
+      - segmentPath
+      allOf:
+      - $ref: '#/components/schemas/DashRepresentation'
+      - properties:
+          encodingId:
+            type: string
+            description: UUID of an encoding
+            example: 5002a2a2-9dd4-4ddf-904a-46f6eec23217
+          streamId:
+            type: string
+            description: UUID of a stream
+            example: 5002a2a2-9dd4-4ddf-904a-46f6eec23217
+          spriteId:
+            type: string
+            description: UUID of a Sprite
+            example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
+          segmentPath:
+            type: string
+            description: Path to sprite segments. Will be used as the representation id in the manifest.
+            example: path/to/segments
+    Period:
+      title: Period
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          start:
+            type: number
+            format: double
+            description: Starting time in seconds
+            example: 266.5
+          duration:
+            type: number
+            format: double
+            description: 'Duration in seconds.<br/>Please note that the duration of a Period is usually determined by the media contained therein.<br/>Setting the `duration` property to a specific value will override this default behaviour.<br/>Warning: Use at your own risk!'
+            example: 10.25
+    AudioGroupConfiguration:
+      title: AudioGroupConfiguration
+      required:
+      - droppingMode
+      - groups
+      properties:
+        droppingMode:
+          allOf:
+          - $ref: '#/components/schemas/VariantStreamDroppingMode'
+          description: Dropping mode
+          example: STREAM
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/AudioGroup'
+          description: Audio groups
+          example:
+          - name: audio1
+            priority: 50
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    VttMediaInfo:
+      title: VttMediaInfo
+      required:
+      - vttUrl
+      - uri
+      allOf:
+      - $ref: '#/components/schemas/BasicMediaInfo'
+      - properties:
+          vttUrl:
+            type: string
+            description: The URL of the referenced VTT file
+            example: https://yourhost.com/path/mysubtitles.vtt
+          uri:
+            type: string
+            description: The URI of the Rendition
+            example: mysubtitles.m3u8
+          forced:
+            type: boolean
+            description: A value of true indicates that the Rendition contains content which is considered essential to play.
+            example: false
+    VideoMediaInfo:
+      title: VideoMediaInfo
+      allOf:
+      - $ref: '#/components/schemas/StandardMediaInfo'
+    DashImscRepresentation:
+      title: DashImscRepresentation
+      required:
+      - imscUrl
+      allOf:
+      - $ref: '#/components/schemas/DashRepresentation'
+      - properties:
+          imscUrl:
+            type: string
+            description: URL of the referenced IMSC file
+            example: https://yourhost.com/path/mysubtitles.xml
+    SmoothManifestContentProtection:
+      title: SmoothManifestContentProtection
+      required:
+      - encodingId
+      - muxingId
+      - drmId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          encodingId:
+            type: string
+            description: Id of the encoding.
+            example: cb90b80c-8867-4e3b-8479-174aa2843f62
+          muxingId:
+            type: string
+            description: Id of the muxing.
+            example: eabce724-ff1c-41c7-b6e0-34b32e2e37b6
+          drmId:
+            type: string
+            description: Id of the drm.
+            example: c8f7aeb8-35f6-49d7-afb9-4820d6f910f1
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    AudioAdaptationSet:
+      title: AudioAdaptationSet
+      required:
+      - lang
+      allOf:
+      - $ref: '#/components/schemas/AdaptationSet'
+      - properties:
+          lang:
+            type: string
+            description: ISO 639-1 (Alpha-2) code identifying the language of the audio adaptation set
+            example: en
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
     SegmentsMediaInfo:
       title: SegmentsMediaInfo
       required:
@@ -4330,40 +4825,97 @@ components:
             format: int64
             description: Number of the last segment. Default is the last one that was encoded.
             example: 4603
-    DefaultManifestCondition:
-      title: DefaultManifestCondition
-    VariantStreamDroppingMode:
-      title: VariantStreamDroppingMode
+    ResponseStatus:
+      title: ResponseStatus
       type: string
-      description: Variant stream dropping mode.
       enum:
-      - STREAM
-      - AUDIO
-    AdaptationSet:
-      title: AdaptationSet
+      - SUCCESS
+      - ERROR
+    AudioGroup:
+      title: AudioGroup
+      required:
+      - name
+      - priority
+      properties:
+        name:
+          type: string
+          description: Name of the audio group
+          example: audio1
+        priority:
+          type: integer
+          minimum: 0
+          maximum: 100
+          description: Priority of the audio group
+          example: 50
+    DashChunkedTextRepresentation:
+      title: DashChunkedTextRepresentation
       allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
+      - $ref: '#/components/schemas/DashSegmentedRepresentation'
+    DashManifestDefaultVersion:
+      title: DashManifestDefaultVersion
+      type: string
+      default: V1
+      enum:
+      - V1
+      - V2
+    Label:
+      title: Label
+      required:
+      - value
+      properties:
+        id:
+          type: integer
+          format: int64
+          minimum: 0
+          description: Identifier of the label.
+        lang:
+          type: string
+          description: Specifies the language of the label.
+        value:
+          type: string
+          description: Content of the label.
+    DashManifestDefault:
+      title: DashManifestDefault
+      allOf:
+      - $ref: '#/components/schemas/DashManifest'
       - properties:
-          customAttributes:
+          encodingId:
+            description: The id of the encoding to create a default manifest for. Either "encodingId" or "periods" is required.
+            type: string
+            example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+          version:
+            description: Specifies the algorithm that determines which output of the given encoding is included into the manifest. Note that this is not related to the "manifestGenerator" version of the "Start" request.
+            allOf:
+            - $ref: '#/components/schemas/DashManifestDefaultVersion'
+          periods:
+            description: Adds a period for every item. Can only be used when setting "version" to "V2". Either "periods" or "encodingId" is required.
             type: array
             items:
-              $ref: '#/components/schemas/CustomAttribute'
-            description: Custom adaptation set attributes
-          roles:
-            type: array
-            items:
-              $ref: '#/components/schemas/AdaptationSetRole'
-            description: Roles of the adaptation set
-          accessibilities:
-            type: array
-            items:
-              $ref: '#/components/schemas/Accessibility'
-            description: Provide signaling of CEA 607 and CEA 708
-          labels:
-            type: array
-            items:
-              $ref: '#/components/schemas/Label'
-            description: List of labels
+              $ref: '#/components/schemas/DefaultDashManifestPeriod'
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    ContentProtection:
+      title: ContentProtection
+      required:
+      - drmId
+      allOf:
+      - $ref: '#/components/schemas/DashMuxingRepresentation'
+      - properties:
+          drmId:
+            type: string
+            description: DRM Id
+            example: 826949d5-0877-46cc-9daf-d75903682f27
     StartManifestRequest:
       title: StartManifestRequest
       properties:
@@ -4375,6 +4927,14 @@ components:
             '
           allOf:
           - $ref: '#/components/schemas/ManifestGenerator'
+    DashFmp4Representation:
+      title: DashFmp4Representation
+      allOf:
+      - $ref: '#/components/schemas/DashSegmentedRepresentation'
+    ImageAdaptationSet:
+      title: ImageAdaptationSet
+      allOf:
+      - $ref: '#/components/schemas/AdaptationSet'
     ChannelsAttributeForAudio:
       title: ChannelsAttributeForAudio
       type: string
@@ -4407,305 +4967,30 @@ components:
           example: 'urn:mycompany:mynamespace:2018:xml+bin
 
             '
-    AclEntry:
-      title: AclEntry
-      required:
-      - permission
-      properties:
-        scope:
-          description: 'Deprecation notice: The value of this property is not being used. It can be chosen arbitrarily or not set at all'
-          deprecated: true
-          type: string
-          example: public
-        permission:
-          description: ''
-          allOf:
-          - $ref: '#/components/schemas/AclPermission'
-    DashFmp4Representation:
-      title: DashFmp4Representation
-      allOf:
-      - $ref: '#/components/schemas/DashSegmentedRepresentation'
-    Manifest:
-      title: Manifest
-      required:
-      - outputs
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          type:
-            description: ''
-            allOf:
-            - $ref: '#/components/schemas/ManifestType'
-            readOnly: true
-          outputs:
-            type: array
-            items:
-              $ref: '#/components/schemas/EncodingOutput'
-            description: The outputs to store the manifest
-          status:
-            description: Current status
-            allOf:
-            - $ref: '#/components/schemas/Status'
-            readOnly: true
-    AdaptationSetRole:
-      title: AdaptationSetRole
+    DashRepresentationTypeMode:
+      title: DashRepresentationTypeMode
       type: string
       enum:
-      - ALTERNATE
-      - CAPTION
-      - COMMENTARY
-      - DUB
-      - MAIN
-      - SUBTITLE
-      - SUPPLEMENTARY
-      example: MAIN
+      - TEMPLATE_REPRESENTATION
+      - TEMPLATE_ADAPTATION_SET
+      example: TEMPLATE_REPRESENTATION
+      default: TEMPLATE_REPRESENTATION
       x-enum-elements:
-      - name: ALTERNATE
-        description: Media content component that is an alternative to a main media content component of the same media component type
-      - name: CAPTION
-        description: Caption
-      - name: COMMENTARY
-        description: Media content component with commentary (typically audio, e.g. director's commentary)
-      - name: DUB
-        description: Media content component which is presented in a different language from the original (e.g. dubbed audio, translated captions)
-      - name: MAIN
-        description: Main media component which is intended for presentation if no other information is provided
-      - name: SUBTITLE
-        description: Subtitle
-      - name: SUPPLEMENTARY
-        description: Media content component that is supplementary to a media content component of a different media component type
-    CustomTag:
-      title: CustomTag
+      - name: TEMPLATE_REPRESENTATION
+        description: Generates representations containing segment templates.
+      - name: TEMPLATE_ADAPTATION_SET
+        description: Generates segment templates in the adaption sets. The representations will not contain any segment templates anymore.
+    DashVttRepresentation:
+      title: DashVttRepresentation
       required:
-      - positionMode
-      - data
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          positionMode:
-            description: The positioning mode that should be used when inserting the placement opportunity
-            allOf:
-            - $ref: '#/components/schemas/PositionMode'
-          keyframeId:
-            type: string
-            description: Id of keyframe where the custom tag should be inserted. Required, when KEYFRAME is selected as position mode.
-            example: 60be9634-1c91-4aa3-a697-9a76d0b6c1fb
-          time:
-            type: number
-            format: double
-            description: Time in seconds where the custom tag should be inserted. Required, when TIME is selected as position mode.
-            example: 5.5
-          segment:
-            type: integer
-            format: int64
-            description: The custom tag will be inserted before the specified segment. Required, when SEGMENT is selected as position mode.
-            example: 74656
-          data:
-            type: string
-            description: The data to be contained in the custom tag.
-            example: '#AD-PLACEMENT-OPPORTUNITY'
-    ManifestType:
-      title: ManifestType
-      type: string
-      enum:
-      - DASH
-      - HLS
-      - SMOOTH_STREAMING
-      example: DASH
-      x-enum-elements:
-      - name: DASH
-        description: MPEG-DASH manifest
-      - name: HLS
-        description: Apple HTTP Live Streaming manifest
-      - name: SMOOTH_STREAMING
-        description: Microsoft Smooth Streaming manifest
-    DefaultDashManifestPeriod:
-      title: DefaultDashManifestPeriod
-      allOf:
-      - properties:
-          encodingIds:
-            type: array
-            description: List the encoding ids for which the conditions should apply
-            items:
-              type: string
-              example: 45ef21d2-1f62-4004-9166-6d5e248270f6
-          adaptationSets:
-            type: array
-            description: Adds an adaption set for every item to the period
-            items:
-              $ref: '#/components/schemas/DefaultManifestCondition'
-    SmoothManifestDefaultVersion:
-      title: SmoothManifestDefaultVersion
-      type: string
-      default: V1
-      enum:
-      - V1
-    ResponseError:
-      title: ResponseError
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
-    Status:
-      title: Status
-      type: string
-      enum:
-      - CREATED
-      - QUEUED
-      - RUNNING
-      - FINISHED
-      - ERROR
-      - CANCELED
-      - TRANSFER_ERROR
-      example: RUNNING
-      x-enum-elements:
-      - name: CREATED
-        description: The process has been created, but not started yet
-      - name: QUEUED
-        description: The process has been enqueued for execution and will start as soon as resources are available
-      - name: RUNNING
-        description: The process is being executed
-      - name: FINISHED
-        description: The process was finished successfully. This is a final state
-      - name: ERROR
-        description: The process has stopped due to an error. This is a final state
-      - name: CANCELED
-        description: The process has been canceled by the user. This is a final state
-      - name: TRANSFER_ERROR
-        description: The process has finished successfully, but at least one transfer to a configured output failed. The transfer attempt can be retried.
-    ResponseEnvelope:
-      title: ResponseEnvelope
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
-    DashProgressiveWebmRepresentation:
-      title: DashProgressiveWebmRepresentation
-      required:
-      - filePath
-      allOf:
-      - $ref: '#/components/schemas/DashMuxingRepresentation'
-      - properties:
-          filePath:
-            type: string
-            description: Path to the Progressive WebM file
-            example: path/to/progressive-webm
-    DashFmp4DrmRepresentation:
-      title: DashFmp4DrmRepresentation
-      required:
-      - drmId
-      allOf:
-      - $ref: '#/components/schemas/DashFmp4Representation'
-      - properties:
-          drmId:
-            type: string
-            description: DRM Id
-            example: 826949d5-0877-46cc-9daf-d75903682f27
-    SubtitleAdaptationSet:
-      title: SubtitleAdaptationSet
-      required:
-      - lang
-      allOf:
-      - $ref: '#/components/schemas/AdaptationSet'
-      - properties:
-          lang:
-            type: string
-            description: ISO 639-1 (Alpha-2) code identifying the language of the subtitle adaptation set
-            example: en
-    AclPermission:
-      title: AclPermission
-      type: string
-      enum:
-      - PUBLIC_READ
-      - PRIVATE
-    ContentProtection:
-      title: ContentProtection
-      required:
-      - drmId
-      allOf:
-      - $ref: '#/components/schemas/DashMuxingRepresentation'
-      - properties:
-          drmId:
-            type: string
-            description: DRM Id
-            example: 826949d5-0877-46cc-9daf-d75903682f27
-    SmoothStreamingManifest:
-      title: SmoothStreamingManifest
-      allOf:
-      - $ref: '#/components/schemas/Manifest'
-      - properties:
-          serverManifestName:
-            type: string
-            description: Filename of the server manifest
-            example: stream.ism
-          clientManifestName:
-            type: string
-            description: Filename of the client manifest
-            example: stream.ismc
-          createdAt:
-            type: string
-            format: date-time
-            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-            readOnly: true
-          modifiedAt:
-            type: string
-            format: date-time
-            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-            readOnly: true
-    DashImscRepresentation:
-      title: DashImscRepresentation
-      required:
-      - imscUrl
+      - vttUrl
       allOf:
       - $ref: '#/components/schemas/DashRepresentation'
       - properties:
-          imscUrl:
+          vttUrl:
             type: string
-            description: URL of the referenced IMSC file
-            example: https://yourhost.com/path/mysubtitles.xml
-    DashChunkedTextRepresentation:
-      title: DashChunkedTextRepresentation
-      allOf:
-      - $ref: '#/components/schemas/DashSegmentedRepresentation'
+            description: URL of the referenced VTT file
+            example: https://yourhost.com/path/mysubtitles.vtt
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -4740,98 +5025,6 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
-    DashOnDemandRepresentationType:
-      title: DashOnDemandRepresentationType
-      type: string
-      enum:
-      - SEGMENT_BASE
-      - SEGMENT_LIST
-      example: SEGMENT_BASE
-      x-enum-elements:
-      - name: SEGMENT_BASE
-        description: Generates a SegmentBase representation
-      - name: SEGMENT_LIST
-        description: Generates a SegmentList representation
-    CustomXmlElement:
-      title: CustomXmlElement
-      required:
-      - data
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          data:
-            type: string
-            description: String representation of the XML element
-            example: '<Element attribute1="1234" attribute2="5678">some_text</Element>
-
-              '
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    DashVttRepresentation:
-      title: DashVttRepresentation
-      required:
-      - vttUrl
-      allOf:
-      - $ref: '#/components/schemas/DashRepresentation'
-      - properties:
-          vttUrl:
-            type: string
-            description: URL of the referenced VTT file
-            example: https://yourhost.com/path/mysubtitles.vtt
-    DashRepresentation:
-      title: DashRepresentation
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
-    SmoothStreamingRepresentation:
-      title: SmoothStreamingRepresentation
-      required:
-      - encodingId
-      - muxingId
-      - mediaFile
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          encodingId:
-            type: string
-            description: Id of the encoding
-            example: cb90b80c-8867-4e3b-8479-174aa2843f62
-          muxingId:
-            type: string
-            description: Id of the muxing.
-            example: eabce724-ff1c-41c7-b6e0-34b32e2e37b6
-          mediaFile:
-            type: string
-            description: The Smooth Streaming ismv or isma file that will be referenced in the manifest.
-            example: path/to/file.ismv
-          language:
-            type: string
-            description: Language of the MP4 file
-            example: en
-          trackName:
-            type: string
-            description: Track where this MP4 shoudl be added
-            example: track_en
-          priority:
-            type: integer
-            description: Specifies the priority of this representation. In the manifest, representations will appear ordered by descending priority values.
-            example: 50
     DashMuxingRepresentation:
       title: DashMuxingRepresentation
       required:
@@ -4852,84 +5045,40 @@ components:
             type: string
             description: Used to signal a dependency with another representation. The representation may belong to a different adaptation set
             example: 64f873aa-9cbe-4816-a0dc-c853e5c04e05
-    Period:
-      title: Period
+    DefaultDashManifestPeriod:
+      title: DefaultDashManifestPeriod
       allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
       - properties:
-          start:
-            type: number
-            format: double
-            description: Starting time in seconds
-            example: 266.5
-          duration:
-            type: number
-            format: double
-            description: 'Duration in seconds.<br/>Please note that the duration of a Period is usually determined by the media contained therein.<br/>Setting the `duration` property to a specific value will override this default behaviour.<br/>Warning: Use at your own risk!'
-            example: 10.25
-    HlsManifestDefaultVersion:
-      title: HlsManifestDefaultVersion
-      type: string
-      default: V1
-      enum:
-      - V1
-    DashEditionCompatibility:
-      title: DashEditionCompatibility
-      type: string
-      enum:
-      - V4
-      example: V4
-      x-enum-elements:
-      - name: V4
-        description: States the compatibility of the DASH manifest with the standard DASH Edition. When set to V4, the endNumber attribute will be automatically added to the last Media Segment in the Representation of the Period, in order to improve playback compatibility. If the property is not set the endNumber attribute tag will not be added.
-    ClosedCaptionsMediaInfo:
-      title: ClosedCaptionsMediaInfo
+          encodingIds:
+            type: array
+            description: List the encoding ids for which the conditions should apply
+            items:
+              type: string
+              example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+          adaptationSets:
+            type: array
+            description: Adds an adaption set for every item to the period
+            items:
+              $ref: '#/components/schemas/DefaultManifestCondition'
+    EncodingOutput:
+      title: EncodingOutput
       required:
-      - instreamId
-      allOf:
-      - $ref: '#/components/schemas/SegmentsMediaInfo'
-      - properties:
-          instreamId:
-            type: string
-            description: Specifies a Rendition within the segments in the Media Playlist. (See HLS spec 4.3.4.1. EXT-X-MEDIA INSTREAM-ID)
-            example: CC1
-          forced:
-            type: boolean
-            description: A value of true indicates that the Rendition contains content which is considered essential to play.
-            example: false
-    DashWebmRepresentation:
-      title: DashWebmRepresentation
-      allOf:
-      - $ref: '#/components/schemas/DashSegmentedRepresentation'
-    DashCmafRepresentation:
-      title: DashCmafRepresentation
-      allOf:
-      - $ref: '#/components/schemas/DashSegmentedRepresentation'
-    VideoAdaptationSet:
-      title: VideoAdaptationSet
-      allOf:
-      - $ref: '#/components/schemas/AdaptationSet'
-    IFramePlaylist:
-      title: IFramePlaylist
-      required:
-      - filename
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          filename:
-            type: string
-            description: The filename of your I-frame playlist
-            example: iframes.m3u8
-    BitmovinResponse:
-      title: BitmovinResponse
-      required:
-      - id
+      - outputId
+      - outputPath
       properties:
-        id:
+        outputId:
           type: string
-          readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+          description: Id of the corresponding output
+          example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
+        outputPath:
+          type: string
+          description: Subdirectory where to save the files to
+          example: /encodings/movies/movie-1/video_720/
+        acl:
+          description: Determines accessibility of files written to this output. Only applies to output types that support ACLs. Defaults to PUBLIC_READ if the list is empty. The destination (e.g. cloud storage bucket) needs to allow the configured ACL
+          type: array
+          items:
+            $ref: '#/components/schemas/AclEntry'
     StandardMediaInfo:
       title: StandardMediaInfo
       required:
@@ -4941,15 +5090,71 @@ components:
             type: string
             description: The URI of the Rendition
             example: myrendition.m3u8
-    AudioMediaInfo:
-      title: AudioMediaInfo
+    CustomTag:
+      title: CustomTag
+      required:
+      - positionMode
+      - data
       allOf:
-      - $ref: '#/components/schemas/StandardMediaInfo'
+      - $ref: '#/components/schemas/BitmovinResource'
       - properties:
-          forced:
-            type: boolean
-            description: A value of true indicates that the Rendition contains content which is considered essential to play.
-            example: false
+          positionMode:
+            description: The positioning mode that should be used when inserting the placement opportunity
+            allOf:
+            - $ref: '#/components/schemas/PositionMode'
+          keyframeId:
+            type: string
+            description: Id of keyframe where the custom tag should be inserted. Required, when KEYFRAME is selected as position mode.
+            example: 60be9634-1c91-4aa3-a697-9a76d0b6c1fb
+          time:
+            type: number
+            format: double
+            description: Time in seconds where the custom tag should be inserted. Required, when TIME is selected as position mode.
+            example: 5.5
+          segment:
+            type: integer
+            format: int64
+            description: The custom tag will be inserted before the specified segment. Required, when SEGMENT is selected as position mode.
+            example: 74656
+          data:
+            type: string
+            description: The data to be contained in the custom tag.
+            example: '#AD-PLACEMENT-OPPORTUNITY'
+    SubtitleAdaptationSet:
+      title: SubtitleAdaptationSet
+      required:
+      - lang
+      allOf:
+      - $ref: '#/components/schemas/AdaptationSet'
+      - properties:
+          lang:
+            type: string
+            description: ISO 639-1 (Alpha-2) code identifying the language of the subtitle adaptation set
+            example: en
+    IFramePlaylist:
+      title: IFramePlaylist
+      required:
+      - filename
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          filename:
+            type: string
+            description: The filename of your I-frame playlist
+            example: iframes.m3u8
+    DashProfile:
+      title: DashProfile
+      type: string
+      enum:
+      - LIVE
+      - ON_DEMAND
+      example: ON_DEMAND
+      default: LIVE
+      x-enum-elements:
+      - name: LIVE
+        description: Profile that supports segmented representations/muxings (FMP4, CMAF, WEBM, CHUNKED_TEXT)
+      - name: ON_DEMAND
+        description: Profile that supports progressive representations/muxings (MP4, PROGRESSIVE_WEBM)
     Message:
       title: Message
       required:
@@ -4983,202 +5188,54 @@ components:
             format: date-time
             description: Timestamp when the message occurred
             example: '2016-06-25T20:09:23.69Z'
-    DashRepresentationTypeMode:
-      title: DashRepresentationTypeMode
-      type: string
-      enum:
-      - TEMPLATE_REPRESENTATION
-      - TEMPLATE_ADAPTATION_SET
-      example: TEMPLATE_REPRESENTATION
-      default: TEMPLATE_REPRESENTATION
-      x-enum-elements:
-      - name: TEMPLATE_REPRESENTATION
-        description: Generates representations containing segment templates.
-      - name: TEMPLATE_ADAPTATION_SET
-        description: Generates segment templates in the adaption sets. The representations will not contain any segment templates anymore.
-    PositionMode:
-      title: PositionMode
-      type: string
-      enum:
-      - KEYFRAME
-      - TIME
-      - SEGMENT
-      x-enum-elements:
-      - name: KEYFRAME
-        description: The custom tag will be inserted in the manifest at a certain keyframe id and segment cut. (https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/encodings/create-keyframes)
-      - name: TIME
-        description: The custom tag will be inserted before the segment that is closest to that time (in seconds).
-      - name: SEGMENT
-        description: The custom tag will be inserted before the specified segment number.
-    SmoothManifestDefault:
-      title: SmoothManifestDefault
+    DashMp4DrmRepresentation:
+      title: DashMp4DrmRepresentation
       required:
-      - encodingId
+      - drmId
       allOf:
-      - $ref: '#/components/schemas/SmoothStreamingManifest'
+      - $ref: '#/components/schemas/DashMp4Representation'
       - properties:
-          encodingId:
-            description: The id of the encoding to create a default manifest for
+          drmId:
             type: string
-            example: 45ef21d2-1f62-4004-9166-6d5e248270f6
-          version:
-            description: Currently not in use
-            allOf:
-            - $ref: '#/components/schemas/SmoothManifestDefaultVersion'
-    SpriteRepresentation:
-      title: SpriteRepresentation
-      required:
-      - encodingId
-      - streamId
-      - spriteId
-      - segmentPath
+            description: DRM Id
+            example: 826949d5-0877-46cc-9daf-d75903682f27
+    SmoothStreamingManifest:
+      title: SmoothStreamingManifest
       allOf:
-      - $ref: '#/components/schemas/DashRepresentation'
+      - $ref: '#/components/schemas/Manifest'
       - properties:
-          encodingId:
+          serverManifestName:
             type: string
-            description: UUID of an encoding
-            example: 5002a2a2-9dd4-4ddf-904a-46f6eec23217
-          streamId:
+            description: Filename of the server manifest
+            example: stream.ism
+          clientManifestName:
             type: string
-            description: UUID of a stream
-            example: 5002a2a2-9dd4-4ddf-904a-46f6eec23217
-          spriteId:
-            type: string
-            description: UUID of a Sprite
-            example: 55354be6-0237-42bb-ae85-a2d4ef1ed19e
-          segmentPath:
-            type: string
-            description: Path to sprite segments. Will be used as the representation id in the manifest.
-            example: path/to/segments
-    DashManifestDefaultVersion:
-      title: DashManifestDefaultVersion
-      type: string
-      default: V1
-      enum:
-      - V1
-      - V2
-    VideoMediaInfo:
-      title: VideoMediaInfo
-      allOf:
-      - $ref: '#/components/schemas/StandardMediaInfo'
-    AudioGroupConfiguration:
-      title: AudioGroupConfiguration
-      required:
-      - droppingMode
-      - groups
-      properties:
-        droppingMode:
-          allOf:
-          - $ref: '#/components/schemas/VariantStreamDroppingMode'
-          description: Dropping mode
-          example: STREAM
-        groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/AudioGroup'
-          description: Audio groups
-          example:
-          - name: audio1
-            priority: 50
-    AudioGroup:
-      title: AudioGroup
-      required:
-      - name
-      - priority
-      properties:
-        name:
-          type: string
-          description: Name of the audio group
-          example: audio1
-        priority:
-          type: integer
-          minimum: 0
-          maximum: 100
-          description: Priority of the audio group
-          example: 50
-    DashISO8601TimestampFormat:
-      title: DashISO8601TimestampFormat
-      type: string
-      enum:
-      - LONG
-      - SHORT
-      example: LONG
-      default: LONG
-      x-enum-elements:
-      - name: LONG
-        description: Format for generating timestamps in PXXYXXMXXDTXXHXXMX.XXXS
-      - name: SHORT
-        description: Format for generating timestamps in PTXXHXXMX.XXXS
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
-    ManifestGenerator:
-      title: ManifestGenerator
-      type: string
-      default: LEGACY
-      enum:
-      - LEGACY
-      - V2
-      x-enum-elements:
-      - name: LEGACY
-        description: Legacy manifest generator.
-      - name: V2
-        description: Improved manifest generator which covers all manifest features available in our API.
-    BitmovinResource:
-      title: BitmovinResource
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          name:
-            type: string
-            description: Name of the resource. Can be freely chosen by the user.
-            example: Name of the resource
-          description:
-            type: string
-            description: Description of the resource. Can be freely chosen by the user.
-            example: Description of the resource
+            description: Filename of the client manifest
+            example: stream.ismc
           createdAt:
             type: string
             format: date-time
-            readOnly: true
             description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
             example: '2016-06-25T20:09:23.69Z'
+            readOnly: true
           modifiedAt:
             type: string
             format: date-time
-            readOnly: true
             description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
             example: '2016-06-25T20:09:23.69Z'
-          customData:
-            type: string
-            writeOnly: true
-            description: User-specific meta data. This can hold anything.
-            additionalProperties:
-              type: object
-    VttMediaInfo:
-      title: VttMediaInfo
-      required:
-      - vttUrl
-      - uri
-      allOf:
-      - $ref: '#/components/schemas/BasicMediaInfo'
-      - properties:
-          vttUrl:
-            type: string
-            description: The URL of the referenced VTT file
-            example: https://yourhost.com/path/mysubtitles.vtt
-          uri:
-            type: string
-            description: The URI of the Rendition
-            example: mysubtitles.m3u8
-          forced:
-            type: boolean
-            description: A value of true indicates that the Rendition contains content which is considered essential to play.
-            example: false
+            readOnly: true
+    DashOnDemandRepresentationType:
+      title: DashOnDemandRepresentationType
+      type: string
+      enum:
+      - SEGMENT_BASE
+      - SEGMENT_LIST
+      example: SEGMENT_BASE
+      x-enum-elements:
+      - name: SEGMENT_BASE
+        description: Generates a SegmentBase representation
+      - name: SEGMENT_LIST
+        description: Generates a SegmentList representation
     Accessibility:
       title: Accessibility
       required:
@@ -5193,6 +5250,91 @@ components:
           type: string
           description: The scheme id to use. Please refer to the DASH standard.
           example: urn:scte:dash:cc:cea-608:2015
+    DashProgressiveWebmRepresentation:
+      title: DashProgressiveWebmRepresentation
+      required:
+      - filePath
+      allOf:
+      - $ref: '#/components/schemas/DashMuxingRepresentation'
+      - properties:
+          filePath:
+            type: string
+            description: Path to the Progressive WebM file
+            example: path/to/progressive-webm
+    SubtitlesMediaInfo:
+      title: SubtitlesMediaInfo
+      allOf:
+      - $ref: '#/components/schemas/StandardMediaInfo'
+      - properties:
+          forced:
+            type: boolean
+            description: A value of true indicates that the Rendition contains content which is considered essential to play.
+            example: false
+    ManifestType:
+      title: ManifestType
+      type: string
+      enum:
+      - DASH
+      - HLS
+      - SMOOTH_STREAMING
+      example: DASH
+      x-enum-elements:
+      - name: DASH
+        description: MPEG-DASH manifest
+      - name: HLS
+        description: Apple HTTP Live Streaming manifest
+      - name: SMOOTH_STREAMING
+        description: Microsoft Smooth Streaming manifest
+    DashMp4Representation:
+      title: DashMp4Representation
+      required:
+      - filePath
+      allOf:
+      - $ref: '#/components/schemas/DashMuxingRepresentation'
+      - properties:
+          filePath:
+            type: string
+            description: Path to the MP4 file
+            example: path/to/mp4
+          type:
+            type: string
+            description: The type of the dash representation
+            allOf:
+            - $ref: '#/components/schemas/DashOnDemandRepresentationType'
+            default: SEGMENT_BASE
+    SmoothStreamingRepresentation:
+      title: SmoothStreamingRepresentation
+      required:
+      - encodingId
+      - muxingId
+      - mediaFile
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          encodingId:
+            type: string
+            description: Id of the encoding
+            example: cb90b80c-8867-4e3b-8479-174aa2843f62
+          muxingId:
+            type: string
+            description: Id of the muxing.
+            example: eabce724-ff1c-41c7-b6e0-34b32e2e37b6
+          mediaFile:
+            type: string
+            description: The Smooth Streaming ismv or isma file that will be referenced in the manifest.
+            example: path/to/file.ismv
+          language:
+            type: string
+            description: Language of the MP4 file
+            example: en
+          trackName:
+            type: string
+            description: Track where this MP4 shoudl be added
+            example: track_en
+          priority:
+            type: integer
+            description: Specifies the priority of this representation. In the manifest, representations will appear ordered by descending priority values.
+            example: 50
     BasicMediaInfo:
       title: BasicMediaInfo
       required:
@@ -5232,6 +5374,64 @@ components:
             description: Contains Uniform Type Identifiers
             example:
             - public.accessibility.describes-video
+    AudioMediaInfo:
+      title: AudioMediaInfo
+      allOf:
+      - $ref: '#/components/schemas/StandardMediaInfo'
+      - properties:
+          forced:
+            type: boolean
+            description: A value of true indicates that the Rendition contains content which is considered essential to play.
+            example: false
+    DashFmp4DrmRepresentation:
+      title: DashFmp4DrmRepresentation
+      required:
+      - drmId
+      allOf:
+      - $ref: '#/components/schemas/DashFmp4Representation'
+      - properties:
+          drmId:
+            type: string
+            description: DRM Id
+            example: 826949d5-0877-46cc-9daf-d75903682f27
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+    HlsManifestDefault:
+      title: HlsManifestDefault
+      required:
+      - encodingId
+      allOf:
+      - $ref: '#/components/schemas/HlsManifest'
+      - properties:
+          encodingId:
+            description: The id of the encoding to create a default manifest for
+            type: string
+            example: 45ef21d2-1f62-4004-9166-6d5e248270f6
+          version:
+            description: Currently not in use
+            allOf:
+            - $ref: '#/components/schemas/HlsManifestDefaultVersion'
+    AclEntry:
+      title: AclEntry
+      required:
+      - permission
+      properties:
+        scope:
+          description: 'Deprecation notice: The value of this property is not being used. It can be chosen arbitrarily or not set at all'
+          deprecated: true
+          type: string
+          example: public
+        permission:
+          description: ''
+          allOf:
+          - $ref: '#/components/schemas/AclPermission'
     DashSegmentedRepresentation:
       title: DashSegmentedRepresentation
       required:
@@ -5270,246 +5470,46 @@ components:
             type: string
             description: Id of the keyframe to end with. It takes precedence over endSegmentNumber. The segment containing the end keyframe is not included in the representation.
             example: 2a49cfbe-777e-4a4c-a485-a1578154ff42
-    DashProfile:
-      title: DashProfile
+    Status:
+      title: Status
       type: string
       enum:
-      - LIVE
-      - ON_DEMAND
-      example: ON_DEMAND
-      default: LIVE
-      x-enum-elements:
-      - name: LIVE
-        description: Profile that supports segmented representations/muxings (FMP4, CMAF, WEBM, CHUNKED_TEXT)
-      - name: ON_DEMAND
-        description: Profile that supports progressive representations/muxings (MP4, PROGRESSIVE_WEBM)
-    AudioAdaptationSet:
-      title: AudioAdaptationSet
-      required:
-      - lang
-      allOf:
-      - $ref: '#/components/schemas/AdaptationSet'
-      - properties:
-          lang:
-            type: string
-            description: ISO 639-1 (Alpha-2) code identifying the language of the audio adaptation set
-            example: en
-    HlsManifest:
-      title: HlsManifest
-      allOf:
-      - $ref: '#/components/schemas/Manifest'
-      - properties:
-          manifestName:
-            type: string
-            description: The filename of your manifest. If this is not set, the `name` is used as output file name. Either one of `name` or `manifestName` is required. Be aware that spaces will be replaced with underlines (`_`) on the output.
-            example: stream.m3u8
-          hlsMediaPlaylistVersion:
-            description: If this is set, the EXT-X-VERSION tags of the Media Playlists are set to the provided version
-            allOf:
-            - $ref: '#/components/schemas/HlsVersion'
-          hlsMasterPlaylistVersion:
-            description: If this is set, the EXT-X-VERSION tag of the Master Playlist is set to the provided version
-            allOf:
-            - $ref: '#/components/schemas/HlsVersion'
-          channelsAttributeForAudio:
-            description: Controls the behaviour of the CHANNELS attribute for the EXT-X-VERSION tag
-            allOf:
-            - $ref: '#/components/schemas/ChannelsAttributeForAudio'
-          targetDurationRoundingMode:
-            description: 'The rounding applied to target duration.
-
-              Two possible rouding modes exist: NORMAL_ROUNDING, when the target duration is rounded to the nearest integer,
-
-              or UPWARDS_ROUNDING, when the target duration is rounded to the highest integer.
-
-              '
-            allOf:
-            - $ref: '#/components/schemas/HlsTargetDurationRoundingMode'
-    DashManifest:
-      title: DashManifest
-      allOf:
-      - $ref: '#/components/schemas/Manifest'
-      - properties:
-          profile:
-            description: Determines if segmented or progressive representations can appear in the manifest
-            allOf:
-            - $ref: '#/components/schemas/DashProfile'
-          manifestName:
-            type: string
-            description: The filename of your manifest
-            example: stream.mpd
-          namespaces:
-            type: array
-            description: List of additional XML namespaces to add to the DASH Manifest
-            items:
-              $ref: '#/components/schemas/XmlNamespace'
-          utcTimings:
-            type: array
-            description: List of UTC Timings to use for live streaming
-            items:
-              $ref: '#/components/schemas/UtcTiming'
-          dashEditionCompatibility:
-            description: The manifest compatibility with the standard DASH Edition.
-            allOf:
-            - $ref: '#/components/schemas/DashEditionCompatibility'
-          iso8601TimestampFormat:
-            description: Determines how timestamps should appear in the manifest
-            allOf:
-            - $ref: '#/components/schemas/DashISO8601TimestampFormat'
-          minBufferTime:
-            type: number
-            format: double
-            description: 'The minimum buffer time in seconds that the client should maintain to ensure uninterrupted playback. Default is 2 seconds.
-
-              Note: For VOD ON_DEMAND dash manifests, the default value may differ from 2.0 seconds if not explicitly set.
-
-              '
-            default: 2
-            example: 2
-    DashManifestDefault:
-      title: DashManifestDefault
-      allOf:
-      - $ref: '#/components/schemas/DashManifest'
-      - properties:
-          encodingId:
-            description: The id of the encoding to create a default manifest for. Either "encodingId" or "periods" is required.
-            type: string
-            example: 45ef21d2-1f62-4004-9166-6d5e248270f6
-          version:
-            description: Specifies the algorithm that determines which output of the given encoding is included into the manifest. Note that this is not related to the "manifestGenerator" version of the "Start" request.
-            allOf:
-            - $ref: '#/components/schemas/DashManifestDefaultVersion'
-          periods:
-            description: Adds a period for every item. Can only be used when setting "version" to "V2". Either "periods" or "encodingId" is required.
-            type: array
-            items:
-              $ref: '#/components/schemas/DefaultDashManifestPeriod'
-    HlsVersion:
-      title: HlsVersion
-      type: string
-      enum:
-      - 3
-      - 4
-      - 5
-      - 6
-      - 7
-      - 8
-      example: 7
-      x-enum-elements:
-      - name: HLS_V3
-        description: HLS version 3
-      - name: HLS_V4
-        description: HLS version 4
-      - name: HLS_V5
-        description: HLS version 5
-      - name: HLS_V6
-        description: HLS version 6
-      - name: HLS_V7
-        description: HLS version 7
-      - name: HLS_V8
-        description: HLS version 8
-    SmoothManifestContentProtection:
-      title: SmoothManifestContentProtection
-      required:
-      - encodingId
-      - muxingId
-      - drmId
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          encodingId:
-            type: string
-            description: Id of the encoding.
-            example: cb90b80c-8867-4e3b-8479-174aa2843f62
-          muxingId:
-            type: string
-            description: Id of the muxing.
-            example: eabce724-ff1c-41c7-b6e0-34b32e2e37b6
-          drmId:
-            type: string
-            description: Id of the drm.
-            example: c8f7aeb8-35f6-49d7-afb9-4820d6f910f1
-    DashMp4DrmRepresentation:
-      title: DashMp4DrmRepresentation
-      required:
-      - drmId
-      allOf:
-      - $ref: '#/components/schemas/DashMp4Representation'
-      - properties:
-          drmId:
-            type: string
-            description: DRM Id
-            example: 826949d5-0877-46cc-9daf-d75903682f27
-    MessageType:
-      title: MessageType
-      type: string
-      enum:
+      - CREATED
+      - QUEUED
+      - RUNNING
+      - FINISHED
       - ERROR
-      - WARNING
-      - INFO
-      - DEBUG
-      - TRACE
-    Label:
-      title: Label
-      required:
-      - value
-      properties:
-        id:
-          type: integer
-          format: int64
-          minimum: 0
-          description: Identifier of the label.
-        lang:
-          type: string
-          description: Specifies the language of the label.
-        value:
-          type: string
-          description: Content of the label.
-    CustomAttribute:
-      title: CustomAttribute
-      required:
-      - key
-      properties:
-        key:
-          type: string
-          description: unique string identifier for the custom attribute
-          example: key name
-        value:
-          type: string
-          description: value of the custom attribute
-          example: value
-    DashRepresentationType:
-      title: DashRepresentationType
-      type: string
-      enum:
-      - TEMPLATE
-      - LIST
-      - TIMELINE
-      example: TEMPLATE
+      - CANCELED
+      - TRANSFER_ERROR
+      example: RUNNING
       x-enum-elements:
-      - name: TEMPLATE
-        description: Generates a SegmentTemplate which will be positioned under the representation
-      - name: LIST
-        description: Generates a SegmentList based representation
-      - name: TIMELINE
-        description: Generates a SegmentTimeline based representation
-    DashMp4Representation:
-      title: DashMp4Representation
+      - name: CREATED
+        description: The process has been created, but not started yet
+      - name: QUEUED
+        description: The process has been enqueued for execution and will start as soon as resources are available
+      - name: RUNNING
+        description: The process is being executed
+      - name: FINISHED
+        description: The process was finished successfully. This is a final state
+      - name: ERROR
+        description: The process has stopped due to an error. This is a final state
+      - name: CANCELED
+        description: The process has been canceled by the user. This is a final state
+      - name: TRANSFER_ERROR
+        description: The process has finished successfully, but at least one transfer to a configured output failed. The transfer attempt can be retried.
+    CustomXmlElement:
+      title: CustomXmlElement
       required:
-      - filePath
+      - data
       allOf:
-      - $ref: '#/components/schemas/DashMuxingRepresentation'
+      - $ref: '#/components/schemas/BitmovinResponse'
       - properties:
-          filePath:
+          data:
             type: string
-            description: Path to the MP4 file
-            example: path/to/mp4
-          type:
-            type: string
-            description: The type of the dash representation
-            allOf:
-            - $ref: '#/components/schemas/DashOnDemandRepresentationType'
-            default: SEGMENT_BASE
+            description: String representation of the XML element
+            example: '<Element attribute1="1234" attribute2="5678">some_text</Element>
+
+              '
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

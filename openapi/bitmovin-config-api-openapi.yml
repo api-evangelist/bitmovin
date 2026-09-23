@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Bitmovin Encoding Config API
-  description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
+  title: Bitmovin Platform Streams Config API
+  description: REST API for managing Bitmovin Streams (live and VOD), domain restrictions, signing keys, and player license configuration.
   version: '3.0'
   termsOfService: https://bitmovin.com
   contact:
@@ -203,6 +203,12 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
     BitmovinResponse:
       title: BitmovinResponse
       required:
@@ -213,9 +219,66 @@ components:
           readOnly: true
           description: Id of the resource
           example: cb90b80c-8867-4e3b-8479-174aa2843f62
-    StreamsDomainRestrictionUpdateRequest:
-      title: StreamsDomainRestrictionUpdateRequest
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
       properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    StreamsDomainRestrictionResponse:
+      title: StreamsDomainRestrictionResponse
+      properties:
+        id:
+          readOnly: true
+          type: string
+          description: The identifier of the streams domain restriction entity
         allowedDomains:
           type: array
           description: The list of allowed domains
@@ -227,39 +290,29 @@ components:
         allowShare:
           type: boolean
           description: Controls if Stream is accessible via sharing URL or not
-    Message:
-      title: Message
+    ResponseError:
+      title: ResponseError
       required:
-      - type
-      - text
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          type:
-            description: Message type giving a hint on the importance of the message (log level)
-            allOf:
-            - $ref: '#/components/schemas/MessageType'
-          text:
-            type: string
-            description: Message text
-            example: field must not be empty
-          field:
-            type: string
-            description: Name of the field to which the message is referring to
-            example: manifestId
-          links:
-            type: array
-            items:
-              $ref: '#/components/schemas/Link'
-            description: collection of links to webpages containing further information on the topic
-          more:
-            type: object
-            description: Service-specific information
-          date:
-            type: string
-            format: date-time
-            description: Timestamp when the message occurred
-            example: '2016-06-25T20:09:23.69Z'
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
     ResponseEnvelope:
       title: ResponseEnvelope
       required:
@@ -286,13 +339,35 @@ components:
         more:
           type: object
           description: Additional endpoint specific information
-    StreamsDomainRestrictionResponse:
-      title: StreamsDomainRestrictionResponse
+    StreamsDomainRestrictionCreateRequest:
+      title: StreamsDomainRestrictionCreateRequest
+      required:
+      - allowedDomains
       properties:
-        id:
-          readOnly: true
-          type: string
-          description: The identifier of the streams domain restriction entity
+        allowedDomains:
+          type: array
+          description: The list of allowed domains
+          example: []
+          items:
+            type: string
+        allowNoReferer:
+          type: boolean
+          description: Controls if requests to domain restricted streams without referer header should be allowed or denied
+        allowShare:
+          type: boolean
+          description: Controls if Stream is accessible via sharing URL or not
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+    StreamsDomainRestrictionUpdateRequest:
+      title: StreamsDomainRestrictionUpdateRequest
+      properties:
         allowedDomains:
           type: array
           description: The list of allowed domains
@@ -328,114 +403,39 @@ components:
           readOnly: true
           items:
             type: object
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
-    ResponseErrorData:
-      title: ResponseErrorData
+    Message:
+      title: Message
       required:
-      - code
-      - message
-      - developerMessage
-      properties:
-        code:
-          type: integer
-          readOnly: true
-          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
-
-            '
-          example: 1005
-        message:
-          type: string
-          readOnly: true
-          description: General error message
-        developerMessage:
-          type: string
-          readOnly: true
-          description: More detailed message meant for developers
-        links:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Link'
-          description: collection of links to webpages containing further information on the topic
-        details:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Message'
-          description: collection of messages containing more detailed information on the cause of the error
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    StreamsDomainRestrictionCreateRequest:
-      title: StreamsDomainRestrictionCreateRequest
-      required:
-      - allowedDomains
-      properties:
-        allowedDomains:
-          type: array
-          description: The list of allowed domains
-          example: []
-          items:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
             type: string
-        allowNoReferer:
-          type: boolean
-          description: Controls if requests to domain restricted streams without referer header should be allowed or denied
-        allowShare:
-          type: boolean
-          description: Controls if Stream is accessible via sharing URL or not
-    ResponseError:
-      title: ResponseError
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
-    MessageType:
-      title: MessageType
-      type: string
-      enum:
-      - ERROR
-      - WARNING
-      - INFO
-      - DEBUG
-      - TRACE
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

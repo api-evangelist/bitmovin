@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Bitmovin Encoding Config Emails API
+  title: Bitmovin Encoding Emails API
   description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
   version: '3.0'
   termsOfService: https://bitmovin.com
@@ -263,6 +263,102 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
+    EmailNotificationWithStreamConditions:
+      title: EmailNotificationWithStreamConditions
+      required:
+      - emails
+      allOf:
+      - $ref: '#/components/schemas/EmailNotification'
+      - properties:
+          resolve:
+            type: boolean
+            default: true
+            description: Notify when condition resolves after it was met
+          conditions:
+            allOf:
+            - $ref: '#/components/schemas/AbstractCondition'
+    PaginationResponse:
+      title: PaginationResponse
+      properties:
+        totalCount:
+          type: integer
+          format: int64
+          readOnly: true
+        offset:
+          type: integer
+          readOnly: true
+        limit:
+          type: integer
+          readOnly: true
+        previous:
+          type: string
+          readOnly: true
+        next:
+          type: string
+          readOnly: true
+        items:
+          type: array
+          readOnly: true
+          items:
+            type: object
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    AbstractCondition:
+      title: AbstractCondition
     Notification:
       title: Notification
       allOf:
@@ -304,40 +400,56 @@ components:
             description: User-specific meta data. This can hold anything.
             additionalProperties:
               type: object
-    BitmovinResponse:
-      title: BitmovinResponse
+    Link:
+      title: Link
       required:
-      - id
+      - href
       properties:
-        id:
+        href:
           type: string
-          readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
-    PaginationResponse:
-      title: PaginationResponse
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    EncodingErrorEmailNotification:
+      title: EncodingErrorEmailNotification
+      allOf:
+      - $ref: '#/components/schemas/EmailNotification'
+      - properties:
+          eventType:
+            type: string
+            readOnly: true
+          category:
+            type: string
+            readOnly: true
+          resourceType:
+            type: string
+            readOnly: true
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
       properties:
-        totalCount:
-          type: integer
-          format: int64
-          readOnly: true
-        offset:
-          type: integer
-          readOnly: true
-        limit:
-          type: integer
-          readOnly: true
-        previous:
+        requestId:
           type: string
           readOnly: true
-        next:
-          type: string
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
           readOnly: true
-        items:
-          type: array
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
           readOnly: true
-          items:
-            type: object
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
     ResponseEnvelope:
       title: ResponseEnvelope
       required:
@@ -364,20 +476,23 @@ components:
         more:
           type: object
           description: Additional endpoint specific information
-    EncodingErrorEmailNotification:
-      title: EncodingErrorEmailNotification
+    EmailNotification:
+      title: EmailNotification
+      required:
+      - emails
       allOf:
-      - $ref: '#/components/schemas/EmailNotification'
+      - $ref: '#/components/schemas/Notification'
       - properties:
-          eventType:
+          type:
             type: string
+            example: EMAIL
             readOnly: true
-          category:
-            type: string
-            readOnly: true
-          resourceType:
-            type: string
-            readOnly: true
+          emails:
+            type: array
+            items:
+              type: string
+            example:
+            - account@bitmovin.com
     MessageType:
       title: MessageType
       type: string
@@ -387,68 +502,6 @@ components:
       - INFO
       - DEBUG
       - TRACE
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
-    ResponseErrorData:
-      title: ResponseErrorData
-      required:
-      - code
-      - message
-      - developerMessage
-      properties:
-        code:
-          type: integer
-          readOnly: true
-          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
-
-            '
-          example: 1005
-        message:
-          type: string
-          readOnly: true
-          description: General error message
-        developerMessage:
-          type: string
-          readOnly: true
-          description: More detailed message meant for developers
-        links:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Link'
-          description: collection of links to webpages containing further information on the topic
-        details:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Message'
-          description: collection of messages containing more detailed information on the cause of the error
-    EmailNotificationWithStreamConditions:
-      title: EmailNotificationWithStreamConditions
-      required:
-      - emails
-      allOf:
-      - $ref: '#/components/schemas/EmailNotification'
-      - properties:
-          resolve:
-            type: boolean
-            default: true
-            description: Notify when condition resolves after it was met
-          conditions:
-            allOf:
-            - $ref: '#/components/schemas/AbstractCondition'
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    AbstractCondition:
-      title: AbstractCondition
     EmailNotificationWithStreamConditionsRequest:
       title: EmailNotificationWithStreamConditionsRequest
       required:
@@ -468,59 +521,6 @@ components:
         conditions:
           allOf:
           - $ref: '#/components/schemas/AbstractCondition'
-    ResponseError:
-      title: ResponseError
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
-    EmailNotification:
-      title: EmailNotification
-      required:
-      - emails
-      allOf:
-      - $ref: '#/components/schemas/Notification'
-      - properties:
-          type:
-            type: string
-            example: EMAIL
-            readOnly: true
-          emails:
-            type: array
-            items:
-              type: string
-            example:
-            - account@bitmovin.com
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
     Message:
       title: Message
       required:

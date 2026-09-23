@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Bitmovin Encoding Config Inputs API
+  title: Bitmovin Encoding Inputs API
   description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
   version: '3.0'
   termsOfService: https://bitmovin.com
@@ -801,357 +801,57 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
-    ResponseEnvelope:
-      title: ResponseEnvelope
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
-    AdMarkersSource:
-      title: AdMarkersSource
-      type: string
-      enum:
-      - MANIFEST
-      - SEGMENTS
-    GenericS3Input:
-      title: GenericS3Input
-      required:
-      - bucketName
-      - host
-      - accessKey
-      - secretKey
+    HlsInput:
+      title: HlsInput
       allOf:
       - $ref: '#/components/schemas/Input'
       - properties:
-          bucketName:
+          url:
             type: string
-            description: Your generic S3 bucket name
-            example: video-bucket
-          host:
-            type: string
-            description: The generic S3 server hostname (or IP address)
-            example: s3.yourdomain.example
-          port:
-            type: integer
-            description: The port on which the generic S3 server is running on (if not provided 8000 will be used)
-            example: 50123
-          ssl:
-            type: boolean
-            description: Controls whether SSL is used or not
-            example: false
-          signingRegion:
-            type: string
-            description: The signing region to use
-            example: eu-west-1
-          signatureVersion:
-            allOf:
-            - $ref: '#/components/schemas/S3SignatureVersion'
-            description: Specifies the method used for authentication
-            example: S3_V4
-          accessKey:
-            type: string
-            description: Your generic S3 access key
-            example: AKIAIOSFODNN7EXAMPLE
-            writeOnly: true
-          secretKey:
-            type: string
-            description: Your generic S3 secret key
-            example: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-            writeOnly: true
-          accessStyle:
-            allOf:
-            - $ref: '#/components/schemas/S3AccessStyle'
-            description: Specifies the URL access style to use
-            example: VIRTUAL_HOSTED
-    SrtInput:
-      title: SrtInput
-      required:
-      - mode
-      - port
-      allOf:
-      - $ref: '#/components/schemas/Input'
-      - properties:
-          mode:
-            allOf:
-            - $ref: '#/components/schemas/SrtMode'
-            description: The SRT mode to use
-            example: LISTENER
-          host:
-            type: string
-            description: The name or IP of the host providing the SRT stream (only used in CALLER mode)
-            example: 104.16.9.58
-          port:
-            type: integer
-            description: The port to connect to or listen on. Has to be one of [2088, 2089, 2090, 2091] when using LISTENER mode.
-            example: 2088
-          path:
-            type: string
-            description: The path parameter of the SRT stream
-            example: path/to/stream
-          latency:
-            type: integer
-            description: The maximum accepted transmission latency in milliseconds (when both parties set different values, the maximum of the two is used for both)
-            example: 120
-          passphrase:
-            type: string
-            writeOnly: true
-            description: The passphrase used to secure the SRT stream. For AES-128 encryption, you must enter a 16-character passphrase; for AES-256, you must enter a 32-character passphrase
-            example: mysecretpassphrase
-          keyLength:
-            type: integer
-            description: The type of AES encryption determines the length of the key (passphrase). AES-128 uses a 16-character (128-bit) passphrase, and AES-256 uses a 32-character (256-bit) passphrase.
-            example: 16
-          backupSrtInputs:
-            $ref: '#/components/schemas/BackupSrtInputs'
-    S3SignatureVersion:
-      title: S3SignatureVersion
-      type: string
-      enum:
-      - S3_V2
-      - S3_V4
-      default: S3_V4
-    AzureServicePrincipal:
-      title: AzureServicePrincipal
-      type: object
-      description: Azure service principal credentials for Microsoft Entra ID authentication. This authentication method is usable from encoder version 2.273.0 onwards.
-      required:
-      - tenantId
-      - clientId
-      oneOf:
-      - title: Authenticate with Client Secret
-        required:
-        - clientSecret
-      - title: Authenticate with Client Certificate
-        required:
-        - clientCertificate
-      allOf:
-      - properties:
-          tenantId:
-            type: string
-            description: Tenant ID (Directory ID) of the Azure service principal
-            writeOnly: true
-          clientId:
-            type: string
-            description: Client ID of the Azure service principal
-            writeOnly: true
-          clientSecret:
-            type: string
-            description: Client secret of the Azure service principal
-            writeOnly: true
-          clientCertificate:
-            type: string
-            description: PEM-encoded client certificate and private key of the Azure service principal. Newline symbols must be preserved.
-            example: '-----BEGIN PRIVATE KEY----- MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAMn/1SpomwntO ... (truncated) ... Qu6eQUtTE/RCuArarGuOtE0= -----END PRIVATE KEY----- -----BEGIN CERTIFICATE----- MIIDDTCCAfWgAwIBAgIUX5jXOu6RNVC5MAfi9L/PiIhADMQwDQYJKoZIhvcNAQEL ... (truncated) ... 28mdG3XdDAQfClkhhArMktQ= -----END CERTIFICATE-----
+            description: URL of HLS input
+            example: https://url.manifest.m3u8
+          adMarkersSource:
+            description: 'Specifies the source for ad markers messages:
+
+              - MANIFEST: Ad marker messages are read from tags in the HLS manifest
+
+              - SEGMENTS: Ad marker messages are read from the content segments from the data stream
 
               '
-            writeOnly: true
-    BitmovinResponse:
-      title: BitmovinResponse
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
-    FtpInput:
-      title: FtpInput
-      required:
-      - host
-      allOf:
-      - $ref: '#/components/schemas/Input'
-      - properties:
-          host:
-            type: string
-            description: Host URL or IP of the FTP server
-            example: bitmovin.com
-          port:
-            type: integer
-            description: 'Port to use, standard for FTP: 21'
-            example: 21
-          passive:
-            type: boolean
-            description: Use passive mode. Default is true.
-            example: true
-          username:
-            type: string
-            description: Your FTP Username
-            example: encodingInputUser
-            writeOnly: true
-          password:
-            type: string
-            description: Your FTP password
-            example: 3nc0d3d!
-            writeOnly: true
-          remoteVerificationEnabled:
-            type: boolean
-            description: Ensure that connections originate from the declared ftp host. Default is true.
-            example: false
-    AzureInput:
-      title: AzureInput
-      required:
-      - container
-      - accountName
-      oneOf:
-      - title: Authenticate with Entra ID Service Principal
-        required:
-        - servicePrincipal
-      - title: Authenticate with Account Key
-        required:
-        - accountKey
-      allOf:
-      - $ref: '#/components/schemas/Input'
-      - properties:
-          accountName:
-            type: string
-            description: Azure Account Name
-            example: devstoreaccount1
-            writeOnly: true
-          accountKey:
-            type: string
-            description: Azure Account Key
-            example: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
-            writeOnly: true
-            deprecated: true
-          servicePrincipal:
+            example: MANIFEST
             allOf:
-            - $ref: '#/components/schemas/AzureServicePrincipal'
-          container:
-            type: string
-            description: Name of the bucket
-            example: video-container
-    GcsServiceAccountInput:
-      title: GcsServiceAccountInput
-      required:
-      - bucketName
-      - serviceAccountCredentials
+            - $ref: '#/components/schemas/AdMarkersSource'
+    BitmovinResource:
+      title: BitmovinResource
       allOf:
-      - $ref: '#/components/schemas/Input'
+      - $ref: '#/components/schemas/BitmovinResponse'
       - properties:
-          serviceAccountCredentials:
+          name:
             type: string
-            description: GCS projectId
-            example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\",\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"-----BEGIN PRIVATE KEY-----\\nOwdXyjRT9F4A==\\n-----END PRIVATE KEY-----\\n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\",\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\"\n}\n"
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
             writeOnly: true
-          bucketName:
-            type: string
-            description: Name of the bucket
-            example: video-bucket
-          cloudRegion:
-            description: The cloud region in which the bucket is located. Is used to determine the ideal location for your encodings automatically.
-            allOf:
-            - $ref: '#/components/schemas/GoogleCloudRegion'
-    S3RoleBasedInput:
-      title: S3RoleBasedInput
-      required:
-      - bucketName
-      - roleArn
-      allOf:
-      - $ref: '#/components/schemas/Input'
-      - properties:
-          bucketName:
-            type: string
-            description: Amazon S3 bucket name
-            example: myS3Bucket
-          roleArn:
-            type: string
-            description: "Amazon ARN of the IAM Role (Identity and Access Management Role) that will be assumed for S3 access.\n\nThis role has to be created by the owner of the account with the S3 bucket (i.e., you as a customer). For Bitmovin to be able to assume this role, the following has to be added\nto the trust policy of the role:\n\n```\n{\n  \"Effect\": \"Allow\",\n  \"Principal\": {\n    \"AWS\": \"arn:aws:iam::630681592166:user/bitmovinCustomerS3Access\"\n  },\n  \"Action\": \"sts:AssumeRole\",\n  \"Condition\": {\n    \"StringEquals\": {\n      \"sts:ExternalId\": \"{{externalId}}\"\n    }\n  }\n}\n```\n\nwhere \"arn:aws:iam::630681592166:user/bitmovinCustomerS3Access\" is the Bitmovin user used for the access.\nThe `Condition` is optional but we highly recommend it, see property `externalId` below for more information.\n\nThis setup allows Bitmovin assume the provided IAM role and to read data from your S3 bucket. Please note that the IAM role has to have read access on S3.\n\nFor more information about role creation please visit https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console\n"
-            example: arn:aws:iam::123456789012:role/OurS3AccessRole
-            writeOnly: true
-          externalId:
-            type: string
-            description: "External ID used together with the IAM role identified by `roleArn` to assume S3 access.\n\nThis ID is provided by the API if `externalIdMode` is set to `GLOBAL` or `GENERATED`. If present, it has to be added to the trust policy of the IAM role `roleArn` configured above, otherwise the API won't be able to read from the S3 bucket. An appropriate trust policy would look like this:\n\n```\n{\n  \"Effect\": \"Allow\",\n  \"Principal\": {\n    \"AWS\": \"arn:aws:iam::630681592166:user/bitmovinCustomerS3Access\"\n  },\n  \"Action\": \"sts:AssumeRole\",\n  \"Condition\": {\n    \"StringEquals\": {\n      \"sts:ExternalId\": \"{{externalId}}\"\n    }\n  }\n}\n```\n\nwhere \"{{externalId}}\" is the generated ID.\n\nThis property is optional but we recommend it as an additional security feature. We will use both the `roleArn` and the `externalId` to access your S3 data.\nIf the Amazon IAM role has an external ID configured but it is not provided in the input configuration Bitmovin won't be able to read from the S3 bucket. Also if the\nexternal ID does not match the one configured for the IAM role on AWS side, Bitmovin won't be able to access the S3 bucket.\n\nIf you need to change the external ID that is used by your IAM role, you need to create a new input, and use the external ID provided by the API to update your IAM role.\n\nFor more information please visit https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html\n"
-            example: fe8e171b-1953-452c-a3b5-b098c534d71c
-          externalIdMode:
-            allOf:
-            - $ref: '#/components/schemas/ExternalIdMode'
-          cloudRegion:
-            allOf:
-            - $ref: '#/components/schemas/AwsCloudRegion'
-    ResponseErrorData:
-      title: ResponseErrorData
-      required:
-      - code
-      - message
-      - developerMessage
-      properties:
-        code:
-          type: integer
-          readOnly: true
-          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
-
-            '
-          example: 1005
-        message:
-          type: string
-          readOnly: true
-          description: General error message
-        developerMessage:
-          type: string
-          readOnly: true
-          description: More detailed message meant for developers
-        links:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Link'
-          description: collection of links to webpages containing further information on the topic
-        details:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Message'
-          description: collection of messages containing more detailed information on the cause of the error
-    ExternalIdMode:
-      title: ExternalIdMode
-      type: string
-      enum:
-      - CUSTOM
-      - GLOBAL
-      - GENERATED
-      default: CUSTOM
-      x-enum-elements:
-      - name: CUSTOM
-        description: ExternalId can be provided by using the the `externalId` property. This way is not recommend by AWS (https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
-      - name: GLOBAL
-        description: The response will include an externalId that's unique and consistent for your organization
-      - name: GENERATED
-        description: The response will include a random externalId.
-    BackupSrtInputs:
-      title: BackupSrtInputs
-      required:
-      - srtInputs
-      properties:
-        delayThreshold:
-          type: integer
-          description: When there is no input signal present for this number of seconds, the encoder will switch to the next input
-          default: 30
-          example: 10
-        srtInputs:
-          type: array
-          items:
-            $ref: '#/components/schemas/SrtInput'
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
     AwsCloudRegion:
       title: AwsCloudRegion
       type: string
@@ -1205,6 +905,121 @@ components:
         description: Canada (Central)
       - name: EU_NORTH_1
         description: Europe (Stockholm)
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    HttpsInput:
+      title: HttpsInput
+      required:
+      - host
+      allOf:
+      - $ref: '#/components/schemas/Input'
+      - properties:
+          host:
+            type: string
+            description: Host Url or IP of the HTTP server
+            example: bitmovin.com
+          username:
+            type: string
+            description: Basic Auth Username, if required
+            example: encodingInputUser
+            writeOnly: true
+          password:
+            type: string
+            description: Basic Auth Password, if required
+            example: 3nc0d3d!
+            writeOnly: true
+          port:
+            type: integer
+            description: Custom Port
+            example: 2222
+    GenericS3Input:
+      title: GenericS3Input
+      required:
+      - bucketName
+      - host
+      - accessKey
+      - secretKey
+      allOf:
+      - $ref: '#/components/schemas/Input'
+      - properties:
+          bucketName:
+            type: string
+            description: Your generic S3 bucket name
+            example: video-bucket
+          host:
+            type: string
+            description: The generic S3 server hostname (or IP address)
+            example: s3.yourdomain.example
+          port:
+            type: integer
+            description: The port on which the generic S3 server is running on (if not provided 8000 will be used)
+            example: 50123
+          ssl:
+            type: boolean
+            description: Controls whether SSL is used or not
+            example: false
+          signingRegion:
+            type: string
+            description: The signing region to use
+            example: eu-west-1
+          signatureVersion:
+            allOf:
+            - $ref: '#/components/schemas/S3SignatureVersion'
+            description: Specifies the method used for authentication
+            example: S3_V4
+          accessKey:
+            type: string
+            description: Your generic S3 access key
+            example: REDACTED_AWS_ACCESS_KEY_ID
+            writeOnly: true
+          secretKey:
+            type: string
+            description: Your generic S3 secret key
+            example: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+            writeOnly: true
+          accessStyle:
+            allOf:
+            - $ref: '#/components/schemas/S3AccessStyle'
+            description: Specifies the URL access style to use
+            example: VIRTUAL_HOSTED
+    S3RoleBasedInput:
+      title: S3RoleBasedInput
+      required:
+      - bucketName
+      - roleArn
+      allOf:
+      - $ref: '#/components/schemas/Input'
+      - properties:
+          bucketName:
+            type: string
+            description: Amazon S3 bucket name
+            example: myS3Bucket
+          roleArn:
+            type: string
+            description: "Amazon ARN of the IAM Role (Identity and Access Management Role) that will be assumed for S3 access.\n\nThis role has to be created by the owner of the account with the S3 bucket (i.e., you as a customer). For Bitmovin to be able to assume this role, the following has to be added\nto the trust policy of the role:\n\n```\n{\n  \"Effect\": \"Allow\",\n  \"Principal\": {\n    \"AWS\": \"arn:aws:iam::630681592166:user/bitmovinCustomerS3Access\"\n  },\n  \"Action\": \"sts:AssumeRole\",\n  \"Condition\": {\n    \"StringEquals\": {\n      \"sts:ExternalId\": \"{{externalId}}\"\n    }\n  }\n}\n```\n\nwhere \"arn:aws:iam::630681592166:user/bitmovinCustomerS3Access\" is the Bitmovin user used for the access.\nThe `Condition` is optional but we highly recommend it, see property `externalId` below for more information.\n\nThis setup allows Bitmovin assume the provided IAM role and to read data from your S3 bucket. Please note that the IAM role has to have read access on S3.\n\nFor more information about role creation please visit https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console\n"
+            example: arn:aws:iam::123456789012:role/OurS3AccessRole
+            writeOnly: true
+          externalId:
+            type: string
+            description: "External ID used together with the IAM role identified by `roleArn` to assume S3 access.\n\nThis ID is provided by the API if `externalIdMode` is set to `GLOBAL` or `GENERATED`. If present, it has to be added to the trust policy of the IAM role `roleArn` configured above, otherwise the API won't be able to read from the S3 bucket. An appropriate trust policy would look like this:\n\n```\n{\n  \"Effect\": \"Allow\",\n  \"Principal\": {\n    \"AWS\": \"arn:aws:iam::630681592166:user/bitmovinCustomerS3Access\"\n  },\n  \"Action\": \"sts:AssumeRole\",\n  \"Condition\": {\n    \"StringEquals\": {\n      \"sts:ExternalId\": \"{{externalId}}\"\n    }\n  }\n}\n```\n\nwhere \"{{externalId}}\" is the generated ID.\n\nThis property is optional but we recommend it as an additional security feature. We will use both the `roleArn` and the `externalId` to access your S3 data.\nIf the Amazon IAM role has an external ID configured but it is not provided in the input configuration Bitmovin won't be able to read from the S3 bucket. Also if the\nexternal ID does not match the one configured for the IAM role on AWS side, Bitmovin won't be able to access the S3 bucket.\n\nIf you need to change the external ID that is used by your IAM role, you need to create a new input, and use the external ID provided by the API to update your IAM role.\n\nFor more information please visit https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html\n"
+            example: fe8e171b-1953-452c-a3b5-b098c534d71c
+          externalIdMode:
+            allOf:
+            - $ref: '#/components/schemas/ExternalIdMode'
+          cloudRegion:
+            allOf:
+            - $ref: '#/components/schemas/AwsCloudRegion'
     Message:
       title: Message
       required:
@@ -1238,64 +1053,60 @@ components:
             format: date-time
             description: Timestamp when the message occurred
             example: '2016-06-25T20:09:23.69Z'
-    MessageType:
-      title: MessageType
-      type: string
-      enum:
-      - ERROR
-      - WARNING
-      - INFO
-      - DEBUG
-      - TRACE
-    AkamaiNetStorageInput:
-      title: AkamaiNetStorageInput
+    HttpInput:
+      title: HttpInput
       required:
       - host
-      - username
-      - password
       allOf:
       - $ref: '#/components/schemas/Input'
       - properties:
           host:
             type: string
-            description: Host to use for Akamai NetStorage transfers
-            example: youraccount.akamaihd.net
+            description: Host Url or IP of the HTTP server
+            example: bitmovin.com
           username:
             type: string
-            description: Your Akamai NetStorage Username
+            description: Basic Auth Username, if required
             example: encodingInputUser
             writeOnly: true
           password:
             type: string
-            description: Your Akamai NetStorage password
-            example: myUncrackablePassword
+            description: Basic Auth Password, if required
+            example: 3nc0d3d!
             writeOnly: true
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    HlsInput:
-      title: HlsInput
+          port:
+            type: integer
+            description: Custom Port
+            example: 2222
+    SftpInput:
+      title: SftpInput
+      required:
+      - host
       allOf:
       - $ref: '#/components/schemas/Input'
       - properties:
-          url:
+          host:
             type: string
-            description: URL of HLS input
-            example: https://url.manifest.m3u8
-          adMarkersSource:
-            description: 'Specifies the source for ad markers messages:
-
-              - MANIFEST: Ad marker messages are read from tags in the HLS manifest
-
-              - SEGMENTS: Ad marker messages are read from the content segments from the data stream
-
-              '
-            example: MANIFEST
-            allOf:
-            - $ref: '#/components/schemas/AdMarkersSource'
+            description: Host Url or IP of the SFTP server
+            example: bitmovin.com
+          port:
+            type: integer
+            description: 'Port to use, standard for SFTP: 22'
+            example: 22
+          passive:
+            type: boolean
+            description: Use passive mode. Default is true.
+            example: true
+          username:
+            type: string
+            description: Your SFTP Username
+            example: encodingInputUser
+            writeOnly: true
+          password:
+            type: string
+            description: Your SFTP password
+            example: 3nc0d3d!
+            writeOnly: true
     GoogleCloudRegion:
       title: GoogleCloudRegion
       type: string
@@ -1358,79 +1169,102 @@ components:
         description: Los Angeles, California, USA
       - name: ME_CENTRAL_2
         description: Dammam, Saudi Arabia
-    HttpInput:
-      title: HttpInput
-      required:
-      - host
-      allOf:
-      - $ref: '#/components/schemas/Input'
-      - properties:
-          host:
-            type: string
-            description: Host Url or IP of the HTTP server
-            example: bitmovin.com
-          username:
-            type: string
-            description: Basic Auth Username, if required
-            example: encodingInputUser
-            writeOnly: true
-          password:
-            type: string
-            description: Basic Auth Password, if required
-            example: 3nc0d3d!
-            writeOnly: true
-          port:
-            type: integer
-            description: Custom Port
-            example: 2222
-    HttpsInput:
-      title: HttpsInput
-      required:
-      - host
-      allOf:
-      - $ref: '#/components/schemas/Input'
-      - properties:
-          host:
-            type: string
-            description: Host Url or IP of the HTTP server
-            example: bitmovin.com
-          username:
-            type: string
-            description: Basic Auth Username, if required
-            example: encodingInputUser
-            writeOnly: true
-          password:
-            type: string
-            description: Basic Auth Password, if required
-            example: 3nc0d3d!
-            writeOnly: true
-          port:
-            type: integer
-            description: Custom Port
-            example: 2222
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
-    Input:
-      title: Input
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-    ResponseStatus:
-      title: ResponseStatus
+    ExternalIdMode:
+      title: ExternalIdMode
       type: string
       enum:
-      - SUCCESS
-      - ERROR
+      - CUSTOM
+      - GLOBAL
+      - GENERATED
+      default: CUSTOM
+      x-enum-elements:
+      - name: CUSTOM
+        description: ExternalId can be provided by using the the `externalId` property. This way is not recommend by AWS (https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
+      - name: GLOBAL
+        description: The response will include an externalId that's unique and consistent for your organization
+      - name: GENERATED
+        description: The response will include a random externalId.
+    S3AccessStyle:
+      title: S3AccessStyle
+      description: Specifies whether to use path or virtual-hosted style access
+      type: string
+      enum:
+      - VIRTUAL_HOSTED
+      - PATH
+      x-enum-elements:
+      - name: VIRTUAL_HOSTED
+        description: 'virtual-hosted style (example: bucket-name.s3.example.com)'
+      - name: PATH
+        description: 'path style (example: s3.example.com/bucket-name)'
+    FtpInput:
+      title: FtpInput
+      required:
+      - host
+      allOf:
+      - $ref: '#/components/schemas/Input'
+      - properties:
+          host:
+            type: string
+            description: Host URL or IP of the FTP server
+            example: bitmovin.com
+          port:
+            type: integer
+            description: 'Port to use, standard for FTP: 21'
+            example: 21
+          passive:
+            type: boolean
+            description: Use passive mode. Default is true.
+            example: true
+          username:
+            type: string
+            description: Your FTP Username
+            example: encodingInputUser
+            writeOnly: true
+          password:
+            type: string
+            description: Your FTP password
+            example: 3nc0d3d!
+            writeOnly: true
+          remoteVerificationEnabled:
+            type: boolean
+            description: Ensure that connections originate from the declared ftp host. Default is true.
+            example: false
+    S3SignatureVersion:
+      title: S3SignatureVersion
+      type: string
+      enum:
+      - S3_V2
+      - S3_V4
+      default: S3_V4
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    AkamaiNetStorageInput:
+      title: AkamaiNetStorageInput
+      required:
+      - host
+      - username
+      - password
+      allOf:
+      - $ref: '#/components/schemas/Input'
+      - properties:
+          host:
+            type: string
+            description: Host to use for Akamai NetStorage transfers
+            example: youraccount.akamaihd.net
+          username:
+            type: string
+            description: Your Akamai NetStorage Username
+            example: encodingInputUser
+            writeOnly: true
+          password:
+            type: string
+            description: Your Akamai NetStorage password
+            example: myUncrackablePassword
+            writeOnly: true
     GcsInput:
       title: GcsInput
       required:
@@ -1458,6 +1292,152 @@ components:
             description: GCS secret key
             example: bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ
             writeOnly: true
+    ZixiInput:
+      title: ZixiInput
+      allOf:
+      - $ref: '#/components/schemas/Input'
+      - properties:
+          host:
+            type: string
+          port:
+            type: integer
+          stream:
+            type: string
+          password:
+            type: string
+          latency:
+            type: integer
+          minBitrate:
+            type: integer
+          decryptionType:
+            type: string
+          decryptionKey:
+            type: string
+    GcsServiceAccountInput:
+      title: GcsServiceAccountInput
+      required:
+      - bucketName
+      - serviceAccountCredentials
+      allOf:
+      - $ref: '#/components/schemas/Input'
+      - properties:
+          serviceAccountCredentials:
+            type: string
+            description: GCS projectId
+            example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\",\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"REDACTED_PRIVATE_KEY_EXAMPLE\\n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\",\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\"\n}\n"
+            writeOnly: true
+          bucketName:
+            type: string
+            description: Name of the bucket
+            example: video-bucket
+          cloudRegion:
+            description: The cloud region in which the bucket is located. Is used to determine the ideal location for your encodings automatically.
+            allOf:
+            - $ref: '#/components/schemas/GoogleCloudRegion'
+    SrtInput:
+      title: SrtInput
+      required:
+      - mode
+      - port
+      allOf:
+      - $ref: '#/components/schemas/Input'
+      - properties:
+          mode:
+            allOf:
+            - $ref: '#/components/schemas/SrtMode'
+            description: The SRT mode to use
+            example: LISTENER
+          host:
+            type: string
+            description: The name or IP of the host providing the SRT stream (only used in CALLER mode)
+            example: 104.16.9.58
+          port:
+            type: integer
+            description: The port to connect to or listen on. Has to be one of [2088, 2089, 2090, 2091] when using LISTENER mode.
+            example: 2088
+          path:
+            type: string
+            description: The path parameter of the SRT stream
+            example: path/to/stream
+          latency:
+            type: integer
+            description: The maximum accepted transmission latency in milliseconds (when both parties set different values, the maximum of the two is used for both)
+            example: 120
+          passphrase:
+            type: string
+            writeOnly: true
+            description: The passphrase used to secure the SRT stream. For AES-128 encryption, you must enter a 16-character passphrase; for AES-256, you must enter a 32-character passphrase
+            example: mysecretpassphrase
+          keyLength:
+            type: integer
+            description: The type of AES encryption determines the length of the key (passphrase). AES-128 uses a 16-character (128-bit) passphrase, and AES-256 uses a 32-character (256-bit) passphrase.
+            example: 16
+          backupSrtInputs:
+            $ref: '#/components/schemas/BackupSrtInputs'
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    AdMarkersSource:
+      title: AdMarkersSource
+      type: string
+      enum:
+      - MANIFEST
+      - SEGMENTS
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
     AsperaInput:
       title: AsperaInput
       required:
@@ -1500,128 +1480,148 @@ components:
             type: integer
             description: Set the UDP port to be used by fasp for data transfer
             default: 33001
-    S3AccessStyle:
-      title: S3AccessStyle
-      description: Specifies whether to use path or virtual-hosted style access
-      type: string
-      enum:
-      - VIRTUAL_HOSTED
-      - PATH
-      x-enum-elements:
-      - name: VIRTUAL_HOSTED
-        description: 'virtual-hosted style (example: bucket-name.s3.example.com)'
-      - name: PATH
-        description: 'path style (example: s3.example.com/bucket-name)'
-    SftpInput:
-      title: SftpInput
+    BackupSrtInputs:
+      title: BackupSrtInputs
       required:
-      - host
+      - srtInputs
+      properties:
+        delayThreshold:
+          type: integer
+          description: When there is no input signal present for this number of seconds, the encoder will switch to the next input
+          default: 30
+          example: 10
+        srtInputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/SrtInput'
+    AzureInput:
+      title: AzureInput
+      required:
+      - container
+      - accountName
+      oneOf:
+      - title: Authenticate with Entra ID Service Principal
+        required:
+        - servicePrincipal
+      - title: Authenticate with Account Key
+        required:
+        - accountKey
       allOf:
       - $ref: '#/components/schemas/Input'
       - properties:
-          host:
+          accountName:
             type: string
-            description: Host Url or IP of the SFTP server
-            example: bitmovin.com
-          port:
-            type: integer
-            description: 'Port to use, standard for SFTP: 22'
-            example: 22
-          passive:
-            type: boolean
-            description: Use passive mode. Default is true.
-            example: true
-          username:
-            type: string
-            description: Your SFTP Username
-            example: encodingInputUser
+            description: Azure Account Name
+            example: devstoreaccount1
             writeOnly: true
-          password:
+          accountKey:
             type: string
-            description: Your SFTP password
-            example: 3nc0d3d!
+            description: Azure Account Key
+            example: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
             writeOnly: true
-    BitmovinResource:
-      title: BitmovinResource
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          name:
+            deprecated: true
+          servicePrincipal:
+            allOf:
+            - $ref: '#/components/schemas/AzureServicePrincipal'
+          container:
             type: string
-            description: Name of the resource. Can be freely chosen by the user.
-            example: Name of the resource
-          description:
-            type: string
-            description: Description of the resource. Can be freely chosen by the user.
-            example: Description of the resource
-          createdAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          modifiedAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          customData:
-            type: string
-            writeOnly: true
-            description: User-specific meta data. This can hold anything.
-            additionalProperties:
-              type: object
-    ResponseError:
-      title: ResponseError
+            description: Name of the bucket
+            example: video-container
+    BitmovinResponse:
+      title: BitmovinResponse
       required:
-      - requestId
-      - status
-      - data
+      - id
       properties:
-        requestId:
+        id:
           type: string
           readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    ResponseErrorData:
+      title: ResponseErrorData
+      required:
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
           readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
           readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    Input:
+      title: Input
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    AzureServicePrincipal:
+      title: AzureServicePrincipal
+      type: object
+      description: Azure service principal credentials for Microsoft Entra ID authentication. This authentication method is usable from encoder version 2.273.0 onwards.
+      required:
+      - tenantId
+      - clientId
+      oneOf:
+      - title: Authenticate with Client Secret
+        required:
+        - clientSecret
+      - title: Authenticate with Client Certificate
+        required:
+        - clientCertificate
+      allOf:
+      - properties:
+          tenantId:
+            type: string
+            description: Tenant ID (Directory ID) of the Azure service principal
+            writeOnly: true
+          clientId:
+            type: string
+            description: Client ID of the Azure service principal
+            writeOnly: true
+          clientSecret:
+            type: string
+            description: Client secret of the Azure service principal
+            writeOnly: true
+          clientCertificate:
+            type: string
+            description: PEM-encoded client certificate and private key of the Azure service principal. Newline symbols must be preserved.
+            example: 'REDACTED_PRIVATE_KEY_EXAMPLE -----BEGIN CERTIFICATE----- MIIDDTCCAfWgAwIBAgIUX5jXOu6RNVC5MAfi9L/PiIhADMQwDQYJKoZIhvcNAQEL ... (truncated) ... 28mdG3XdDAQfClkhhArMktQ= -----END CERTIFICATE-----
+
+              '
+            writeOnly: true
     SrtMode:
       title: SrtMode
       type: string
       enum:
       - LISTENER
       - CALLER
-    ZixiInput:
-      title: ZixiInput
-      allOf:
-      - $ref: '#/components/schemas/Input'
-      - properties:
-          host:
-            type: string
-          port:
-            type: integer
-          stream:
-            type: string
-          password:
-            type: string
-          latency:
-            type: integer
-          minBitrate:
-            type: integer
-          decryptionType:
-            type: string
-          decryptionKey:
-            type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

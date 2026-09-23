@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Bitmovin Encoding Config Configurations API
+  title: Bitmovin Encoding Configurations API
   description: REST API for cloud-based VOD and live video encoding. Supports H.264, H.265/HEVC, VP9, AV1 and more, along with adaptive bitrate packaging (HLS/DASH/Smooth Streaming), DRM (Widevine, PlayReady, FairPlay), and per-title encoding optimisation.
   version: '3.0'
   termsOfService: https://bitmovin.com
@@ -63,9 +63,7 @@ paths:
       summary: Delete AC3 Codec Configuration
       description: 'Deprecation notice: use Dolby Digital instead. For more information check out our tutorial here:
 
-        https://bitmovin.com/docs/encoding/tutorials/how-to-create-dolby-digital-plus-encodings
-
-        '
+        https://bitmovin.com/docs/encoding/tutorials/how-to-create-dolby-digital-plus-encodings'
       operationId: DeleteEncodingConfigurationsAudioAc3ByConfigurationId
       parameters:
       - name: configuration_id
@@ -321,9 +319,7 @@ paths:
       summary: Delete E-AC3 Codec Configuration
       description: 'Deprecation notice: use Dolby Digital Plus instead. For more information check out our tutorial here:
 
-        https://bitmovin.com/docs/encoding/tutorials/how-to-create-dolby-digital-plus-encodings
-
-        '
+        https://bitmovin.com/docs/encoding/tutorials/how-to-create-dolby-digital-plus-encodings'
       operationId: DeleteEncodingConfigurationsAudioEac3ByConfigurationId
       parameters:
       - name: configuration_id
@@ -1005,6 +1001,12 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
     BitmovinResponse:
       title: BitmovinResponse
       required:
@@ -1015,71 +1017,6 @@ components:
           readOnly: true
           description: Id of the resource
           example: cb90b80c-8867-4e3b-8479-174aa2843f62
-    Message:
-      title: Message
-      required:
-      - type
-      - text
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          type:
-            description: Message type giving a hint on the importance of the message (log level)
-            allOf:
-            - $ref: '#/components/schemas/MessageType'
-          text:
-            type: string
-            description: Message text
-            example: field must not be empty
-          field:
-            type: string
-            description: Name of the field to which the message is referring to
-            example: manifestId
-          links:
-            type: array
-            items:
-              $ref: '#/components/schemas/Link'
-            description: collection of links to webpages containing further information on the topic
-          more:
-            type: object
-            description: Service-specific information
-          date:
-            type: string
-            format: date-time
-            description: Timestamp when the message occurred
-            example: '2016-06-25T20:09:23.69Z'
-    ResponseEnvelope:
-      title: ResponseEnvelope
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -1114,12 +1051,25 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
-    ResultWrapper:
-      title: ResultWrapper
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    Link:
+      title: Link
+      required:
+      - href
       properties:
-        result:
-          type: object
-          readOnly: true
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
     ResponseError:
       title: ResponseError
       required:
@@ -1143,19 +1093,32 @@ components:
           readOnly: true
           allOf:
           - $ref: '#/components/schemas/ResponseErrorData'
-    Link:
-      title: Link
+    ResponseEnvelope:
+      title: ResponseEnvelope
       required:
-      - href
+      - requestId
+      - status
+      - data
       properties:
-        href:
+        requestId:
           type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
     MessageType:
       title: MessageType
       type: string
@@ -1165,6 +1128,39 @@ components:
       - INFO
       - DEBUG
       - TRACE
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

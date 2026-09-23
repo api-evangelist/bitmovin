@@ -13591,7 +13591,7 @@ components:
             type: string
             description: 'Deprecated: Amazon access key for legacy support. Use `roleName`
               instead'
-            example: AKIAIOSFODNN7EXAMPLE
+            example: REDACTED_AWS_ACCESS_KEY_ID
             writeOnly: true
             deprecated: true
           secretKey:
@@ -13858,7 +13858,7 @@ components:
             description: GCP service account credentials JSON
             example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\"\
               ,\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"\
-              -----BEGIN PRIVATE KEY-----\\nOwdXyjRT9F4A==\\n-----END PRIVATE KEY-----\\\
+              REDACTED_PRIVATE_KEY_EXAMPLE\\\
               n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\"\
               ,\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\"\
               ,\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\"\
@@ -13875,21 +13875,7 @@ components:
             type: string
             description: Google private key of the Google service account that will
               be used to spin up VMs
-            example: '-----BEGIN PRIVATE KEY-----
-
-              Loads
-
-              Of
-
-              Stuff
-
-              Thats
-
-              All
-
-              Secret
-
-              -----END PRIVATE KEY-----
+            example: 'REDACTED_PRIVATE_KEY_EXAMPLE
 
               '
             writeOnly: true
@@ -14163,8 +14149,7 @@ components:
             type: string
             description: PEM-encoded client certificate and private key of the Azure
               service principal. Newline symbols must be preserved.
-            example: '-----BEGIN PRIVATE KEY----- MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAMn/1SpomwntO
-              ... (truncated) ... Qu6eQUtTE/RCuArarGuOtE0= -----END PRIVATE KEY-----
+            example: 'REDACTED_PRIVATE_KEY_EXAMPLE
               -----BEGIN CERTIFICATE----- MIIDDTCCAfWgAwIBAgIUX5jXOu6RNVC5MAfi9L/PiIhADMQwDQYJKoZIhvcNAQEL
               ... (truncated) ... 28mdG3XdDAQfClkhhArMktQ= -----END CERTIFICATE-----
 
@@ -14245,7 +14230,7 @@ components:
             description: GCS projectId
             example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\"\
               ,\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"\
-              -----BEGIN PRIVATE KEY-----\\nOwdXyjRT9F4A==\\n-----END PRIVATE KEY-----\\\
+              REDACTED_PRIVATE_KEY_EXAMPLE\\\
               n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\"\
               ,\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\"\
               ,\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\"\
@@ -14301,7 +14286,7 @@ components:
           accessKey:
             type: string
             description: Your generic S3 access key
-            example: AKIAIOSFODNN7EXAMPLE
+            example: REDACTED_AWS_ACCESS_KEY_ID
             writeOnly: true
           secretKey:
             type: string
@@ -14758,7 +14743,7 @@ components:
             description: GCS projectId
             example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\"\
               ,\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"\
-              -----BEGIN PRIVATE KEY-----\\nOwdXyjRT9F4A==\\n-----END PRIVATE KEY-----\\\
+              REDACTED_PRIVATE_KEY_EXAMPLE\\\
               n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\"\
               ,\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\"\
               ,\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\"\
@@ -14788,7 +14773,7 @@ components:
           accessKey:
             type: string
             description: Your generic S3 access key
-            example: AKIAIOSFODNN7EXAMPLE
+            example: REDACTED_AWS_ACCESS_KEY_ID
             writeOnly: true
           secretKey:
             type: string
@@ -16574,7 +16559,7 @@ components:
           accessKey:
             type: string
             description: Amazon S3 access key
-            example: AKIAIOSFODNN7EXAMPLE
+            example: REDACTED_AWS_ACCESS_KEY_ID
             writeOnly: true
           secretKey:
             type: string
