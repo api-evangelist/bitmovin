@@ -104,31 +104,26 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    StreamsSigningKeyResponse:
-      title: StreamsSigningKeyResponse
+    StreamsPublicSigningKey:
+      title: StreamsPublicSigningKey
       allOf:
       - properties:
-          privateKey:
-            type: string
-            description: base64-encoded PEM file of the private key
           keyId:
             type: string
             description: The unique identifier of the key
-          message:
+          createdAt:
+            format: date-time
             type: string
-    StreamsPublicSigningKeyResponse:
-      title: StreamsPublicSigningKeyResponse
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
       properties:
-        publicKeys:
-          type: array
-          items:
-            $ref: '#/components/schemas/StreamsPublicSigningKey'
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -163,35 +158,40 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
-    BitmovinResponse:
-      title: BitmovinResponse
-      required:
-      - id
+    StreamsPublicSigningKeyResponse:
+      title: StreamsPublicSigningKeyResponse
       properties:
-        id:
-          type: string
-          readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+        publicKeys:
+          type: array
+          items:
+            $ref: '#/components/schemas/StreamsPublicSigningKey'
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
     ResponseStatus:
       title: ResponseStatus
       type: string
       enum:
       - SUCCESS
       - ERROR
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
+    StreamsSigningKeyResponse:
+      title: StreamsSigningKeyResponse
+      allOf:
+      - properties:
+          privateKey:
+            type: string
+            description: base64-encoded PEM file of the private key
+          keyId:
+            type: string
+            description: The unique identifier of the key
+          message:
+            type: string
     ResponseError:
       title: ResponseError
       required:
@@ -215,6 +215,25 @@ components:
           readOnly: true
           allOf:
           - $ref: '#/components/schemas/ResponseErrorData'
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
     ResponseEnvelope:
       title: ResponseEnvelope
       required:
@@ -241,25 +260,6 @@ components:
         more:
           type: object
           description: Additional endpoint specific information
-    MessageType:
-      title: MessageType
-      type: string
-      enum:
-      - ERROR
-      - WARNING
-      - INFO
-      - DEBUG
-      - TRACE
-    StreamsPublicSigningKey:
-      title: StreamsPublicSigningKey
-      allOf:
-      - properties:
-          keyId:
-            type: string
-            description: The unique identifier of the key
-          createdAt:
-            format: date-time
-            type: string
     Message:
       title: Message
       required:

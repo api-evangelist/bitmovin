@@ -203,12 +203,23 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
-    ResultWrapper:
-      title: ResultWrapper
+    StreamsDomainRestrictionCreateRequest:
+      title: StreamsDomainRestrictionCreateRequest
+      required:
+      - allowedDomains
       properties:
-        result:
-          type: object
-          readOnly: true
+        allowedDomains:
+          type: array
+          description: The list of allowed domains
+          example: []
+          items:
+            type: string
+        allowNoReferer:
+          type: boolean
+          description: Controls if requests to domain restricted streams without referer header should be allowed or denied
+        allowShare:
+          type: boolean
+          description: Controls if Stream is accessible via sharing URL or not
     BitmovinResponse:
       title: BitmovinResponse
       required:
@@ -253,43 +264,21 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
     ResponseStatus:
       title: ResponseStatus
       type: string
       enum:
       - SUCCESS
       - ERROR
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
-    StreamsDomainRestrictionResponse:
-      title: StreamsDomainRestrictionResponse
-      properties:
-        id:
-          readOnly: true
-          type: string
-          description: The identifier of the streams domain restriction entity
-        allowedDomains:
-          type: array
-          description: The list of allowed domains
-          items:
-            type: string
-        allowNoReferer:
-          type: boolean
-          description: Controls if requests to domain restricted streams without referer header should be allowed or denied
-        allowShare:
-          type: boolean
-          description: Controls if Stream is accessible via sharing URL or not
     ResponseError:
       title: ResponseError
       required:
@@ -313,41 +302,25 @@ components:
           readOnly: true
           allOf:
           - $ref: '#/components/schemas/ResponseErrorData'
-    ResponseEnvelope:
-      title: ResponseEnvelope
+    Link:
+      title: Link
       required:
-      - requestId
-      - status
-      - data
+      - href
       properties:
-        requestId:
+        href:
           type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
-    StreamsDomainRestrictionCreateRequest:
-      title: StreamsDomainRestrictionCreateRequest
-      required:
-      - allowedDomains
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    StreamsDomainRestrictionUpdateRequest:
+      title: StreamsDomainRestrictionUpdateRequest
       properties:
         allowedDomains:
           type: array
           description: The list of allowed domains
-          example: []
           items:
             type: string
         allowNoReferer:
@@ -356,18 +329,13 @@ components:
         allowShare:
           type: boolean
           description: Controls if Stream is accessible via sharing URL or not
-    MessageType:
-      title: MessageType
-      type: string
-      enum:
-      - ERROR
-      - WARNING
-      - INFO
-      - DEBUG
-      - TRACE
-    StreamsDomainRestrictionUpdateRequest:
-      title: StreamsDomainRestrictionUpdateRequest
+    StreamsDomainRestrictionResponse:
+      title: StreamsDomainRestrictionResponse
       properties:
+        id:
+          readOnly: true
+          type: string
+          description: The identifier of the streams domain restriction entity
         allowedDomains:
           type: array
           description: The list of allowed domains
@@ -403,6 +371,38 @@ components:
           readOnly: true
           items:
             type: object
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
     Message:
       title: Message
       required:

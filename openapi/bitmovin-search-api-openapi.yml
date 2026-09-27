@@ -115,12 +115,23 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
+    StreamsType:
+      title: StreamsType
+      type: string
+      enum:
+      - VIDEO
+      - LIVE
+      x-enum-elements:
+      - name: VIDEO
+      - name: LIVE
+    StreamsLiveLifeCycle:
+      title: StreamsLiveLifeCycle
+      type: string
+      enum:
+      - PROVISIONING
+      - STOPPED
+      - RUNNING
+      - ERROR
     BitmovinResponse:
       title: BitmovinResponse
       required:
@@ -131,15 +142,6 @@ components:
           readOnly: true
           description: Id of the resource
           example: cb90b80c-8867-4e3b-8479-174aa2843f62
-    StreamsType:
-      title: StreamsType
-      type: string
-      enum:
-      - VIDEO
-      - LIVE
-      x-enum-elements:
-      - name: VIDEO
-      - name: LIVE
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -174,94 +176,6 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
-    StreamsVideoStatus:
-      title: StreamsVideoStatus
-      type: string
-      default: PUBLISHED
-      enum:
-      - PUBLISHED
-      - UNPUBLISHED
-      x-enum-elements:
-      - name: PUBLISHED
-        description: The stream is published and can be accessed
-      - name: UNPUBLISHED
-        description: The stream cannot be accessed
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
-    StreamsLiveLifeCycle:
-      title: StreamsLiveLifeCycle
-      type: string
-      enum:
-      - PROVISIONING
-      - STOPPED
-      - RUNNING
-      - ERROR
-    ResponseError:
-      title: ResponseError
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
-    ResponseEnvelope:
-      title: ResponseEnvelope
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
     MessageType:
       title: MessageType
       type: string
@@ -296,6 +210,60 @@ components:
           allOf:
           - $ref: '#/components/schemas/StreamsType'
           description: Type of the Stream contained in the StreamsResponse
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    StreamsVideoStatus:
+      title: StreamsVideoStatus
+      type: string
+      default: PUBLISHED
+      enum:
+      - PUBLISHED
+      - UNPUBLISHED
+      x-enum-elements:
+      - name: PUBLISHED
+        description: The stream is published and can be accessed
+      - name: UNPUBLISHED
+        description: The stream cannot be accessed
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
     PaginationResponse:
       title: PaginationResponse
       properties:
@@ -320,6 +288,38 @@ components:
           readOnly: true
           items:
             type: object
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
     Message:
       title: Message
       required:

@@ -263,6 +263,16 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
     EmailNotificationWithStreamConditions:
       title: EmailNotificationWithStreamConditions
       required:
@@ -277,46 +287,6 @@ components:
           conditions:
             allOf:
             - $ref: '#/components/schemas/AbstractCondition'
-    PaginationResponse:
-      title: PaginationResponse
-      properties:
-        totalCount:
-          type: integer
-          format: int64
-          readOnly: true
-        offset:
-          type: integer
-          readOnly: true
-        limit:
-          type: integer
-          readOnly: true
-        previous:
-          type: string
-          readOnly: true
-        next:
-          type: string
-          readOnly: true
-        items:
-          type: array
-          readOnly: true
-          items:
-            type: object
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    BitmovinResponse:
-      title: BitmovinResponse
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -351,14 +321,35 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
     ResponseStatus:
       title: ResponseStatus
       type: string
       enum:
       - SUCCESS
       - ERROR
-    AbstractCondition:
-      title: AbstractCondition
+    EncodingErrorEmailNotification:
+      title: EncodingErrorEmailNotification
+      allOf:
+      - $ref: '#/components/schemas/EmailNotification'
+      - properties:
+          eventType:
+            type: string
+            readOnly: true
+          category:
+            type: string
+            readOnly: true
+          resourceType:
+            type: string
+            readOnly: true
     Notification:
       title: Notification
       allOf:
@@ -400,33 +391,6 @@ components:
             description: User-specific meta data. This can hold anything.
             additionalProperties:
               type: object
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
-    EncodingErrorEmailNotification:
-      title: EncodingErrorEmailNotification
-      allOf:
-      - $ref: '#/components/schemas/EmailNotification'
-      - properties:
-          eventType:
-            type: string
-            readOnly: true
-          category:
-            type: string
-            readOnly: true
-          resourceType:
-            type: string
-            readOnly: true
     ResponseError:
       title: ResponseError
       required:
@@ -450,6 +414,87 @@ components:
           readOnly: true
           allOf:
           - $ref: '#/components/schemas/ResponseErrorData'
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    EmailNotificationWithStreamConditionsRequest:
+      title: EmailNotificationWithStreamConditionsRequest
+      required:
+      - emails
+      - conditions
+      properties:
+        resolve:
+          type: boolean
+          default: true
+          description: Notify when condition resolves after it was met
+        emails:
+          type: array
+          items:
+            type: string
+        muted:
+          type: boolean
+        conditions:
+          allOf:
+          - $ref: '#/components/schemas/AbstractCondition'
+    EmailNotification:
+      title: EmailNotification
+      required:
+      - emails
+      allOf:
+      - $ref: '#/components/schemas/Notification'
+      - properties:
+          type:
+            type: string
+            example: EMAIL
+            readOnly: true
+          emails:
+            type: array
+            items:
+              type: string
+            example:
+            - account@bitmovin.com
+    PaginationResponse:
+      title: PaginationResponse
+      properties:
+        totalCount:
+          type: integer
+          format: int64
+          readOnly: true
+        offset:
+          type: integer
+          readOnly: true
+        limit:
+          type: integer
+          readOnly: true
+        previous:
+          type: string
+          readOnly: true
+        next:
+          type: string
+          readOnly: true
+        items:
+          type: array
+          readOnly: true
+          items:
+            type: object
+    AbstractCondition:
+      title: AbstractCondition
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
     ResponseEnvelope:
       title: ResponseEnvelope
       required:
@@ -476,51 +521,6 @@ components:
         more:
           type: object
           description: Additional endpoint specific information
-    EmailNotification:
-      title: EmailNotification
-      required:
-      - emails
-      allOf:
-      - $ref: '#/components/schemas/Notification'
-      - properties:
-          type:
-            type: string
-            example: EMAIL
-            readOnly: true
-          emails:
-            type: array
-            items:
-              type: string
-            example:
-            - account@bitmovin.com
-    MessageType:
-      title: MessageType
-      type: string
-      enum:
-      - ERROR
-      - WARNING
-      - INFO
-      - DEBUG
-      - TRACE
-    EmailNotificationWithStreamConditionsRequest:
-      title: EmailNotificationWithStreamConditionsRequest
-      required:
-      - emails
-      - conditions
-      properties:
-        resolve:
-          type: boolean
-          default: true
-          description: Notify when condition resolves after it was met
-        emails:
-          type: array
-          items:
-            type: string
-        muted:
-          type: boolean
-        conditions:
-          allOf:
-          - $ref: '#/components/schemas/AbstractCondition'
     Message:
       title: Message
       required:
