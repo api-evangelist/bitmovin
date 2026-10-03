@@ -715,57 +715,74 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
-    GcsServiceAccountOutput:
-      title: GcsServiceAccountOutput
+    ResponseError:
+      title: ResponseError
       required:
-      - bucketName
-      - serviceAccountCredentials
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    Output:
+      title: Output
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          acl:
+            deprecated: true
+            description: 'Deprecation notice: This property does not have any effect and will not be returned by GET endpoints'
+            type: array
+            items:
+              $ref: '#/components/schemas/AclEntry'
+    AkamaiMslStreamFormat:
+      title: AkamaiMslStreamFormat
+      type: string
+      enum:
+      - DASH
+      - HLS
+      - CMAF
+      default: DASH
+    LocalOutput:
+      title: LocalOutput
+      required:
+      - path
       allOf:
       - $ref: '#/components/schemas/Output'
       - properties:
-          serviceAccountCredentials:
+          path:
             type: string
-            description: GCS projectId
-            example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\",\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"REDACTED_PRIVATE_KEY_EXAMPLE\\n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\",\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\"\n}\n"
-            writeOnly: true
-          bucketName:
+            description: Path to your local storage
+            example: /mnt/my_local_storage/
+    CheckOutputPermissionsRequest:
+      title: CheckOutputPermissionsRequest
+      allOf:
+      - properties:
+          path:
             type: string
-            description: Name of the bucket
-            example: video-bucket
-          cloudRegion:
-            description: The cloud region in which the bucket is located. Is used to determine the ideal location for your encodings automatically.
-            allOf:
-            - $ref: '#/components/schemas/GoogleCloudRegion'
-    AclEntry:
-      title: AclEntry
-      required:
-      - permission
-      properties:
-        scope:
-          description: 'Deprecation notice: The value of this property is not being used. It can be chosen arbitrarily or not set at all'
-          deprecated: true
-          type: string
-          example: public
-        permission:
-          description: ''
-          allOf:
-          - $ref: '#/components/schemas/AclPermission'
-    AclPermission:
-      title: AclPermission
-      type: string
-      enum:
-      - PUBLIC_READ
-      - PRIVATE
-    BitmovinResponse:
-      title: BitmovinResponse
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+            description: The path on the storage for which permissions should be checked. In AWS S3 terminology, this corresponds to a "prefix". To perform the check, an empty test file (WritePermissionTestFile.txt) will be created in this location. Defaults to an empty string, which corresponds to the root directory.
+            default: ''
+            example: videos/
     S3Output:
       title: S3Output
       required:
@@ -805,184 +822,68 @@ components:
             description: Specifies the storage class used for the bucket. This depends on the requirements of workloads, like performance, data access, resiliency, and cost.
             allOf:
             - $ref: '#/components/schemas/S3StorageClass'
-    AkamaiMslStreamFormat:
-      title: AkamaiMslStreamFormat
+    GoogleCloudRegion:
+      title: GoogleCloudRegion
       type: string
       enum:
-      - DASH
-      - HLS
-      - CMAF
-      default: DASH
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    S3StorageClass:
-      title: S3StorageClass
-      type: string
-      enum:
-      - GLACIER_IR
-      - INTELLIGENT_TIERING
-      - ONEZONE_IA
-      - REDUCED_REDUNDANCY
-      - STANDARD
-      - STANDARD_IA
-      default: STANDARD
-    GcsOutput:
-      title: GcsOutput
-      required:
-      - bucketName
-      - accessKey
-      - secretKey
-      allOf:
-      - $ref: '#/components/schemas/Output'
-      - properties:
-          accessKey:
-            type: string
-            description: GCS access key
-            example: GOOGTS7C7FUP3AIRVJTE
-            writeOnly: true
-          secretKey:
-            type: string
-            description: GCS secret key
-            example: bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ
-            writeOnly: true
-          bucketName:
-            type: string
-            description: Name of the bucket
-            example: video-bucket
-          cloudRegion:
-            description: The cloud region in which the bucket is located. Is used to determine the ideal location for your encodings automatically.
-            allOf:
-            - $ref: '#/components/schemas/GoogleCloudRegion'
-    TransferVersion:
-      title: TransferVersion
-      type: string
-      enum:
-      - DEFAULT
-      - POOL
-    LiveMediaIngestOutput:
-      title: LiveMediaIngestOutput
-      description: Live Media and Metadata Ingest Protocol. See https://tools.ietf.org/html/draft-mekuria-mmediaingest-01.
-      required:
-      - publishingPoint
-      allOf:
-      - $ref: '#/components/schemas/Output'
-      - properties:
-          publishingPoint:
-            type: string
-            description: URL specifying the publishing point for the output. Can use either http or https.
-            example: https://live.host.com/some/path/publishingpoint.isml
-          scte35Passthrough:
-            type: boolean
-            description: Enable passthrough of SCTE-35 messages from input to output. Default is false.
-            example: false
-    BitmovinResource:
-      title: BitmovinResource
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          name:
-            type: string
-            description: Name of the resource. Can be freely chosen by the user.
-            example: Name of the resource
-          description:
-            type: string
-            description: Description of the resource. Can be freely chosen by the user.
-            example: Description of the resource
-          createdAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          modifiedAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          customData:
-            type: string
-            writeOnly: true
-            description: User-specific meta data. This can hold anything.
-            additionalProperties:
-              type: object
-    OutputType:
-      title: OutputType
-      type: string
-      enum:
-      - AKAMAI_NETSTORAGE
-      - AZURE
-      - GENERIC_S3
-      - GCS
-      - FTP
-      - LOCAL
-      - S3
-      - S3_ROLE_BASED
-      - SFTP
-      - AKAMAI_MSL
-      - LIVE_MEDIA_INGEST
-      - GCS_SERVICE_ACCOUNT
-      - CDN
+      - US_CENTRAL_1
+      - US_EAST_1
+      - ASIA_EAST_1
+      - EUROPE_WEST_1
+      - US_WEST_1
+      - ASIA_EAST_2
+      - ASIA_NORTHEAST_1
+      - ASIA_SOUTH_1
+      - ASIA_SOUTHEAST_1
+      - AUSTRALIA_SOUTHEAST_1
+      - EUROPE_NORTH_1
+      - EUROPE_WEST_2
+      - EUROPE_WEST_3
+      - EUROPE_WEST_4
+      - NORTHAMERICA_NORTHEAST_1
+      - SOUTHAMERICA_EAST_1
+      - US_EAST_4
+      - US_WEST_2
+      - ME_CENTRAL_2
       x-enum-elements:
-      - name: AKAMAI_NETSTORAGE
-      - name: AZURE
-      - name: GENERIC_S3
-      - name: GCS
-      - name: FTP
-      - name: LOCAL
-      - name: S3
-      - name: S3_ROLE_BASED
-      - name: SFTP
-      - name: AKAMAI_MSL
-      - name: LIVE_MEDIA_INGEST
-      - name: GCS_SERVICE_ACCOUNT
-      - name: CDN
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
-    ResponseError:
-      title: ResponseError
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
-    AkamaiMslVersion:
-      title: AkamaiMslVersion
-      type: string
-      enum:
-      - MSL4
-      default: MSL4
-    S3SignatureVersion:
-      title: S3SignatureVersion
-      type: string
-      enum:
-      - S3_V2
-      - S3_V4
-      default: S3_V4
+      - name: US_CENTRAL_1
+        description: Council Bluffs, Iowa, USA
+      - name: US_EAST_1
+        description: Moncks Corner, South Carolina, USA
+      - name: ASIA_EAST_1
+        description: Changhua County, Taiwan
+      - name: EUROPE_WEST_1
+        description: St. Ghislain, Belgium
+      - name: US_WEST_1
+        description: The Dalles, Oregon, USA
+      - name: ASIA_EAST_2
+        description: Hong Kong
+      - name: ASIA_NORTHEAST_1
+        description: Tokyo, Japan
+      - name: ASIA_SOUTH_1
+        description: Mumbai, India
+      - name: ASIA_SOUTHEAST_1
+        description: Jurong West, Singapore
+      - name: AUSTRALIA_SOUTHEAST_1
+        description: Sydney, Australia
+      - name: EUROPE_NORTH_1
+        description: Hamina, Finland
+      - name: EUROPE_WEST_2
+        description: London, England, UK
+      - name: EUROPE_WEST_3
+        description: Frankfurt, Germany
+      - name: EUROPE_WEST_4
+        description: Eemshaven, Netherlands
+      - name: NORTHAMERICA_NORTHEAST_1
+        description: Montréal, Québec, Canada
+      - name: SOUTHAMERICA_EAST_1
+        description: São Paulo, Brazil
+      - name: US_EAST_4
+        description: Ashburn, Northern Virginia, USA
+      - name: US_WEST_2
+        description: Los Angeles, California, USA
+      - name: ME_CENTRAL_2
+        description: Dammam, Saudi Arabia
     AzureOutput:
       title: AzureOutput
       required:
@@ -1016,6 +917,19 @@ components:
             type: string
             description: Name of the bucket
             example: video-container
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
     AzureServicePrincipal:
       title: AzureServicePrincipal
       type: object
@@ -1051,38 +965,120 @@ components:
 
               '
             writeOnly: true
-    AkamaiNetStorageOutput:
-      title: AkamaiNetStorageOutput
+    ResponseErrorData:
+      title: ResponseErrorData
       required:
-      - host
-      - username
-      - password
+      - code
+      - message
+      - developerMessage
+      properties:
+        code:
+          type: integer
+          readOnly: true
+          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
+
+            '
+          example: 1005
+        message:
+          type: string
+          readOnly: true
+          description: General error message
+        developerMessage:
+          type: string
+          readOnly: true
+          description: More detailed message meant for developers
+        links:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Link'
+          description: collection of links to webpages containing further information on the topic
+        details:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Message'
+          description: collection of messages containing more detailed information on the cause of the error
+    GcsOutput:
+      title: GcsOutput
+      required:
+      - bucketName
+      - accessKey
+      - secretKey
       allOf:
       - $ref: '#/components/schemas/Output'
       - properties:
-          host:
+          accessKey:
             type: string
-            description: Host to use for Akamai NetStorage transfers
-            example: youraccount.akamaihd.net
-          username:
-            type: string
-            description: Your Akamai NetStorage Username
-            example: encodingInputUser
+            description: GCS access key
+            example: GOOGTS7C7FUP3AIRVJTE
             writeOnly: true
-          password:
+          secretKey:
             type: string
-            description: Your Akamai NetStorage password
-            example: myUncrackablePassword
+            description: GCS secret key
+            example: bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ
             writeOnly: true
-    CheckOutputPermissionsRequest:
-      title: CheckOutputPermissionsRequest
+          bucketName:
+            type: string
+            description: Name of the bucket
+            example: video-bucket
+          cloudRegion:
+            description: The cloud region in which the bucket is located. Is used to determine the ideal location for your encodings automatically.
+            allOf:
+            - $ref: '#/components/schemas/GoogleCloudRegion'
+    S3StorageClass:
+      title: S3StorageClass
+      type: string
+      enum:
+      - GLACIER_IR
+      - INTELLIGENT_TIERING
+      - ONEZONE_IA
+      - REDUCED_REDUNDANCY
+      - STANDARD
+      - STANDARD_IA
+      default: STANDARD
+    LiveMediaIngestOutput:
+      title: LiveMediaIngestOutput
+      description: Live Media and Metadata Ingest Protocol. See https://tools.ietf.org/html/draft-mekuria-mmediaingest-01.
+      required:
+      - publishingPoint
       allOf:
+      - $ref: '#/components/schemas/Output'
       - properties:
-          path:
+          publishingPoint:
             type: string
-            description: The path on the storage for which permissions should be checked. In AWS S3 terminology, this corresponds to a "prefix". To perform the check, an empty test file (WritePermissionTestFile.txt) will be created in this location. Defaults to an empty string, which corresponds to the root directory.
-            default: ''
-            example: videos/
+            description: URL specifying the publishing point for the output. Can use either http or https.
+            example: https://live.host.com/some/path/publishingpoint.isml
+          scte35Passthrough:
+            type: boolean
+            description: Enable passthrough of SCTE-35 messages from input to output. Default is false.
+            example: false
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
     AwsCloudRegion:
       title: AwsCloudRegion
       type: string
@@ -1136,17 +1132,123 @@ components:
         description: Canada (Central)
       - name: EU_NORTH_1
         description: Europe (Stockholm)
-    Output:
-      title: Output
+    TransferVersion:
+      title: TransferVersion
+      type: string
+      enum:
+      - DEFAULT
+      - POOL
+    AkamaiMslVersion:
+      title: AkamaiMslVersion
+      type: string
+      enum:
+      - MSL4
+      default: MSL4
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    BitmovinResource:
+      title: BitmovinResource
       allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
+      - $ref: '#/components/schemas/BitmovinResponse'
       - properties:
-          acl:
-            deprecated: true
-            description: 'Deprecation notice: This property does not have any effect and will not be returned by GET endpoints'
-            type: array
-            items:
-              $ref: '#/components/schemas/AclEntry'
+          name:
+            type: string
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    FtpOutput:
+      title: FtpOutput
+      required:
+      - host
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          host:
+            type: string
+            description: Host URL or IP of the FTP server
+            example: bitmovin.com
+          port:
+            type: integer
+            description: 'Port to use, standard for FTP: 21'
+            example: 21
+          passive:
+            type: boolean
+            description: Use passive mode. Default is true.
+            example: true
+          username:
+            type: string
+            description: Your FTP Username
+            example: encodingInputUser
+            writeOnly: true
+          password:
+            type: string
+            description: Your FTP password
+            example: 3nc0d3d!
+            writeOnly: true
+          transferVersion:
+            description: Controls which transfer version should be used
+            allOf:
+            - $ref: '#/components/schemas/TransferVersion'
+          maxConcurrentConnections:
+            type: integer
+            description: Restrict maximum concurrent connections. Requires at least version 1.1.0.
+            example: 20
+    OutputType:
+      title: OutputType
+      type: string
+      enum:
+      - AKAMAI_NETSTORAGE
+      - AZURE
+      - GENERIC_S3
+      - GCS
+      - FTP
+      - LOCAL
+      - S3
+      - S3_ROLE_BASED
+      - SFTP
+      - AKAMAI_MSL
+      - LIVE_MEDIA_INGEST
+      - GCS_SERVICE_ACCOUNT
+      - CDN
+      x-enum-elements:
+      - name: AKAMAI_NETSTORAGE
+      - name: AZURE
+      - name: GENERIC_S3
+      - name: GCS
+      - name: FTP
+      - name: LOCAL
+      - name: S3
+      - name: S3_ROLE_BASED
+      - name: SFTP
+      - name: AKAMAI_MSL
+      - name: LIVE_MEDIA_INGEST
+      - name: GCS_SERVICE_ACCOUNT
+      - name: CDN
     CheckOutputPermissionsResponse:
       title: CheckOutputPermissionsResponse
       allOf:
@@ -1218,6 +1320,117 @@ components:
       - INFO
       - DEBUG
       - TRACE
+    AkamaiMslOutput:
+      title: AkamaiMslOutput
+      required:
+      - streamId
+      - eventName
+      - streamFormat
+      - mslVersion
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          streamId:
+            type: integer
+            description: The Akamai stream ID
+            example: 3124
+          eventName:
+            type: string
+            description: The Akamai event name
+            example: myEvent
+          streamFormat:
+            description: '- DASH: configure the Encoding with fMP4 or CMAF muxings and a DASH manifest.
+
+              - HLS: configure the Encoding with TS muxings and an HLS manifest.
+
+              - CMAF: configure the Encoding with fMP4 or CMAF muxings with both DASH and HLS manifests.
+
+              '
+            example: DASH
+            allOf:
+            - $ref: '#/components/schemas/AkamaiMslStreamFormat'
+          mslVersion:
+            description: The Akamai MSL Version. Only MSL4 is supported at the moment.
+            example: MSL4
+            allOf:
+            - $ref: '#/components/schemas/AkamaiMslVersion'
+    S3AccessStyle:
+      title: S3AccessStyle
+      description: Specifies whether to use path or virtual-hosted style access
+      type: string
+      enum:
+      - VIRTUAL_HOSTED
+      - PATH
+      x-enum-elements:
+      - name: VIRTUAL_HOSTED
+        description: 'virtual-hosted style (example: bucket-name.s3.example.com)'
+      - name: PATH
+        description: 'path style (example: s3.example.com/bucket-name)'
+    ExternalIdMode:
+      title: ExternalIdMode
+      type: string
+      enum:
+      - CUSTOM
+      - GLOBAL
+      - GENERATED
+      default: CUSTOM
+      x-enum-elements:
+      - name: CUSTOM
+        description: ExternalId can be provided by using the the `externalId` property. This way is not recommend by AWS (https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
+      - name: GLOBAL
+        description: The response will include an externalId that's unique and consistent for your organization
+      - name: GENERATED
+        description: The response will include a random externalId.
+    AclPermission:
+      title: AclPermission
+      type: string
+      enum:
+      - PUBLIC_READ
+      - PRIVATE
+    AkamaiNetStorageOutput:
+      title: AkamaiNetStorageOutput
+      required:
+      - host
+      - username
+      - password
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          host:
+            type: string
+            description: Host to use for Akamai NetStorage transfers
+            example: youraccount.akamaihd.net
+          username:
+            type: string
+            description: Your Akamai NetStorage Username
+            example: encodingInputUser
+            writeOnly: true
+          password:
+            type: string
+            description: Your Akamai NetStorage password
+            example: myUncrackablePassword
+            writeOnly: true
+    S3SignatureVersion:
+      title: S3SignatureVersion
+      type: string
+      enum:
+      - S3_V2
+      - S3_V4
+      default: S3_V4
+    AclEntry:
+      title: AclEntry
+      required:
+      - permission
+      properties:
+        scope:
+          description: 'Deprecation notice: The value of this property is not being used. It can be chosen arbitrarily or not set at all'
+          deprecated: true
+          type: string
+          example: public
+        permission:
+          description: ''
+          allOf:
+          - $ref: '#/components/schemas/AclPermission'
     GenericS3Output:
       title: GenericS3Output
       required:
@@ -1268,153 +1481,16 @@ components:
             - $ref: '#/components/schemas/S3AccessStyle'
             description: Specifies the URL access style to use
             example: VIRTUAL_HOSTED
-    ExternalIdMode:
-      title: ExternalIdMode
-      type: string
-      enum:
-      - CUSTOM
-      - GLOBAL
-      - GENERATED
-      default: CUSTOM
-      x-enum-elements:
-      - name: CUSTOM
-        description: ExternalId can be provided by using the the `externalId` property. This way is not recommend by AWS (https://aws.amazon.com/blogs/security/how-to-use-external-id-when-granting-access-to-your-aws-resources/).
-      - name: GLOBAL
-        description: The response will include an externalId that's unique and consistent for your organization
-      - name: GENERATED
-        description: The response will include a random externalId.
-    LocalOutput:
-      title: LocalOutput
+    BitmovinResponse:
+      title: BitmovinResponse
       required:
-      - path
-      allOf:
-      - $ref: '#/components/schemas/Output'
-      - properties:
-          path:
-            type: string
-            description: Path to your local storage
-            example: /mnt/my_local_storage/
-    S3AccessStyle:
-      title: S3AccessStyle
-      description: Specifies whether to use path or virtual-hosted style access
-      type: string
-      enum:
-      - VIRTUAL_HOSTED
-      - PATH
-      x-enum-elements:
-      - name: VIRTUAL_HOSTED
-        description: 'virtual-hosted style (example: bucket-name.s3.example.com)'
-      - name: PATH
-        description: 'path style (example: s3.example.com/bucket-name)'
-    ResponseErrorData:
-      title: ResponseErrorData
-      required:
-      - code
-      - message
-      - developerMessage
+      - id
       properties:
-        code:
-          type: integer
-          readOnly: true
-          description: 'Contains an error code as defined in https://bitmovin.com/encoding-documentation/bitmovin-api/#/introduction/api-error-codes
-
-            '
-          example: 1005
-        message:
+        id:
           type: string
           readOnly: true
-          description: General error message
-        developerMessage:
-          type: string
-          readOnly: true
-          description: More detailed message meant for developers
-        links:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Link'
-          description: collection of links to webpages containing further information on the topic
-        details:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Message'
-          description: collection of messages containing more detailed information on the cause of the error
-    GoogleCloudRegion:
-      title: GoogleCloudRegion
-      type: string
-      enum:
-      - US_CENTRAL_1
-      - US_EAST_1
-      - ASIA_EAST_1
-      - EUROPE_WEST_1
-      - US_WEST_1
-      - ASIA_EAST_2
-      - ASIA_NORTHEAST_1
-      - ASIA_SOUTH_1
-      - ASIA_SOUTHEAST_1
-      - AUSTRALIA_SOUTHEAST_1
-      - EUROPE_NORTH_1
-      - EUROPE_WEST_2
-      - EUROPE_WEST_3
-      - EUROPE_WEST_4
-      - NORTHAMERICA_NORTHEAST_1
-      - SOUTHAMERICA_EAST_1
-      - US_EAST_4
-      - US_WEST_2
-      - ME_CENTRAL_2
-      x-enum-elements:
-      - name: US_CENTRAL_1
-        description: Council Bluffs, Iowa, USA
-      - name: US_EAST_1
-        description: Moncks Corner, South Carolina, USA
-      - name: ASIA_EAST_1
-        description: Changhua County, Taiwan
-      - name: EUROPE_WEST_1
-        description: St. Ghislain, Belgium
-      - name: US_WEST_1
-        description: The Dalles, Oregon, USA
-      - name: ASIA_EAST_2
-        description: Hong Kong
-      - name: ASIA_NORTHEAST_1
-        description: Tokyo, Japan
-      - name: ASIA_SOUTH_1
-        description: Mumbai, India
-      - name: ASIA_SOUTHEAST_1
-        description: Jurong West, Singapore
-      - name: AUSTRALIA_SOUTHEAST_1
-        description: Sydney, Australia
-      - name: EUROPE_NORTH_1
-        description: Hamina, Finland
-      - name: EUROPE_WEST_2
-        description: London, England, UK
-      - name: EUROPE_WEST_3
-        description: Frankfurt, Germany
-      - name: EUROPE_WEST_4
-        description: Eemshaven, Netherlands
-      - name: NORTHAMERICA_NORTHEAST_1
-        description: Montréal, Québec, Canada
-      - name: SOUTHAMERICA_EAST_1
-        description: São Paulo, Brazil
-      - name: US_EAST_4
-        description: Ashburn, Northern Virginia, USA
-      - name: US_WEST_2
-        description: Los Angeles, California, USA
-      - name: ME_CENTRAL_2
-        description: Dammam, Saudi Arabia
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
     SftpOutput:
       title: SftpOutput
       required:
@@ -1452,6 +1528,27 @@ components:
             type: integer
             description: Restrict maximum concurrent connections. Requires at least version 1.1.0.
             example: 20
+    GcsServiceAccountOutput:
+      title: GcsServiceAccountOutput
+      required:
+      - bucketName
+      - serviceAccountCredentials
+      allOf:
+      - $ref: '#/components/schemas/Output'
+      - properties:
+          serviceAccountCredentials:
+            type: string
+            description: GCS projectId
+            example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\",\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"REDACTED_PRIVATE_KEY_EXAMPLE\\n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\",\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\"\n}\n"
+            writeOnly: true
+          bucketName:
+            type: string
+            description: Name of the bucket
+            example: video-bucket
+          cloudRegion:
+            description: The cloud region in which the bucket is located. Is used to determine the ideal location for your encodings automatically.
+            allOf:
+            - $ref: '#/components/schemas/GoogleCloudRegion'
     S3RoleBasedOutput:
       title: S3RoleBasedOutput
       required:
@@ -1488,103 +1585,6 @@ components:
             - $ref: '#/components/schemas/S3SignatureVersion'
             description: Specifies the method used for authentication
             example: S3_V4
-    FtpOutput:
-      title: FtpOutput
-      required:
-      - host
-      allOf:
-      - $ref: '#/components/schemas/Output'
-      - properties:
-          host:
-            type: string
-            description: Host URL or IP of the FTP server
-            example: bitmovin.com
-          port:
-            type: integer
-            description: 'Port to use, standard for FTP: 21'
-            example: 21
-          passive:
-            type: boolean
-            description: Use passive mode. Default is true.
-            example: true
-          username:
-            type: string
-            description: Your FTP Username
-            example: encodingInputUser
-            writeOnly: true
-          password:
-            type: string
-            description: Your FTP password
-            example: 3nc0d3d!
-            writeOnly: true
-          transferVersion:
-            description: Controls which transfer version should be used
-            allOf:
-            - $ref: '#/components/schemas/TransferVersion'
-          maxConcurrentConnections:
-            type: integer
-            description: Restrict maximum concurrent connections. Requires at least version 1.1.0.
-            example: 20
-    ResponseEnvelope:
-      title: ResponseEnvelope
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
-    AkamaiMslOutput:
-      title: AkamaiMslOutput
-      required:
-      - streamId
-      - eventName
-      - streamFormat
-      - mslVersion
-      allOf:
-      - $ref: '#/components/schemas/Output'
-      - properties:
-          streamId:
-            type: integer
-            description: The Akamai stream ID
-            example: 3124
-          eventName:
-            type: string
-            description: The Akamai event name
-            example: myEvent
-          streamFormat:
-            description: '- DASH: configure the Encoding with fMP4 or CMAF muxings and a DASH manifest.
-
-              - HLS: configure the Encoding with TS muxings and an HLS manifest.
-
-              - CMAF: configure the Encoding with fMP4 or CMAF muxings with both DASH and HLS manifests.
-
-              '
-            example: DASH
-            allOf:
-            - $ref: '#/components/schemas/AkamaiMslStreamFormat'
-          mslVersion:
-            description: The Akamai MSL Version. Only MSL4 is supported at the moment.
-            example: MSL4
-            allOf:
-            - $ref: '#/components/schemas/AkamaiMslVersion'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

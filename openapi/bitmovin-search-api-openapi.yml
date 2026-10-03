@@ -115,23 +115,93 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
-    StreamsType:
-      title: StreamsType
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    ResponseStatus:
+      title: ResponseStatus
       type: string
       enum:
-      - VIDEO
-      - LIVE
-      x-enum-elements:
-      - name: VIDEO
-      - name: LIVE
-    StreamsLiveLifeCycle:
-      title: StreamsLiveLifeCycle
-      type: string
-      enum:
-      - PROVISIONING
-      - STOPPED
-      - RUNNING
+      - SUCCESS
       - ERROR
+    StreamsResponse:
+      title: StreamsResponse
+      properties:
+        id:
+          readOnly: true
+          type: string
+          description: The identifier of the stream
+        title:
+          readOnly: true
+          type: string
+          description: The title of the stream
+        description:
+          readOnly: true
+          type: string
+          description: The description of the stream
+        createdAt:
+          readOnly: true
+          format: date-time
+          type: string
+          description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+        type:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/StreamsType'
+          description: Type of the Stream contained in the StreamsResponse
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
     BitmovinResponse:
       title: BitmovinResponse
       required:
@@ -185,51 +255,16 @@ components:
       - INFO
       - DEBUG
       - TRACE
-    StreamsResponse:
-      title: StreamsResponse
-      properties:
-        id:
-          readOnly: true
-          type: string
-          description: The identifier of the stream
-        title:
-          readOnly: true
-          type: string
-          description: The title of the stream
-        description:
-          readOnly: true
-          type: string
-          description: The description of the stream
-        createdAt:
-          readOnly: true
-          format: date-time
-          type: string
-          description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-        type:
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/StreamsType'
-          description: Type of the Stream contained in the StreamsResponse
-    ResponseStatus:
-      title: ResponseStatus
+    StreamsLiveLifeCycle:
+      title: StreamsLiveLifeCycle
       type: string
       enum:
-      - SUCCESS
+      - PROVISIONING
+      - STOPPED
+      - RUNNING
       - ERROR
-    StreamsVideoStatus:
-      title: StreamsVideoStatus
-      type: string
-      default: PUBLISHED
-      enum:
-      - PUBLISHED
-      - UNPUBLISHED
-      x-enum-elements:
-      - name: PUBLISHED
-        description: The stream is published and can be accessed
-      - name: UNPUBLISHED
-        description: The stream cannot be accessed
-    ResponseError:
-      title: ResponseError
+    ResponseEnvelope:
+      title: ResponseEnvelope
       required:
       - requestId
       - status
@@ -243,14 +278,17 @@ components:
         status:
           description: Response status information
           readOnly: true
-          example: ERROR
+          example: SUCCESS
           allOf:
           - $ref: '#/components/schemas/ResponseStatus'
         data:
           description: Response information
           readOnly: true
           allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
     Link:
       title: Link
       required:
@@ -288,71 +326,33 @@ components:
           readOnly: true
           items:
             type: object
+    StreamsVideoStatus:
+      title: StreamsVideoStatus
+      type: string
+      default: PUBLISHED
+      enum:
+      - PUBLISHED
+      - UNPUBLISHED
+      x-enum-elements:
+      - name: PUBLISHED
+        description: The stream is published and can be accessed
+      - name: UNPUBLISHED
+        description: The stream cannot be accessed
+    StreamsType:
+      title: StreamsType
+      type: string
+      enum:
+      - VIDEO
+      - LIVE
+      x-enum-elements:
+      - name: VIDEO
+      - name: LIVE
     ResultWrapper:
       title: ResultWrapper
       properties:
         result:
           type: object
           readOnly: true
-    ResponseEnvelope:
-      title: ResponseEnvelope
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
-    Message:
-      title: Message
-      required:
-      - type
-      - text
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          type:
-            description: Message type giving a hint on the importance of the message (log level)
-            allOf:
-            - $ref: '#/components/schemas/MessageType'
-          text:
-            type: string
-            description: Message text
-            example: field must not be empty
-          field:
-            type: string
-            description: Name of the field to which the message is referring to
-            example: manifestId
-          links:
-            type: array
-            items:
-              $ref: '#/components/schemas/Link'
-            description: collection of links to webpages containing further information on the topic
-          more:
-            type: object
-            description: Service-specific information
-          date:
-            type: string
-            format: date-time
-            description: Timestamp when the message occurred
-            example: '2016-06-25T20:09:23.69Z'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

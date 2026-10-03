@@ -263,6 +263,49 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    EncodingErrorEmailNotification:
+      title: EncodingErrorEmailNotification
+      allOf:
+      - $ref: '#/components/schemas/EmailNotification'
+      - properties:
+          eventType:
+            type: string
+            readOnly: true
+          category:
+            type: string
+            readOnly: true
+          resourceType:
+            type: string
+            readOnly: true
     BitmovinResponse:
       title: BitmovinResponse
       required:
@@ -273,20 +316,39 @@ components:
           readOnly: true
           description: Id of the resource
           example: cb90b80c-8867-4e3b-8479-174aa2843f62
-    EmailNotificationWithStreamConditions:
-      title: EmailNotificationWithStreamConditions
+    Message:
+      title: Message
       required:
-      - emails
+      - type
+      - text
       allOf:
-      - $ref: '#/components/schemas/EmailNotification'
+      - $ref: '#/components/schemas/BitmovinResponse'
       - properties:
-          resolve:
-            type: boolean
-            default: true
-            description: Notify when condition resolves after it was met
-          conditions:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
             allOf:
-            - $ref: '#/components/schemas/AbstractCondition'
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -330,26 +392,81 @@ components:
       - INFO
       - DEBUG
       - TRACE
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
-    EncodingErrorEmailNotification:
-      title: EncodingErrorEmailNotification
+    EmailNotificationWithStreamConditionsRequest:
+      title: EmailNotificationWithStreamConditionsRequest
+      required:
+      - emails
+      - conditions
+      properties:
+        resolve:
+          type: boolean
+          default: true
+          description: Notify when condition resolves after it was met
+        emails:
+          type: array
+          items:
+            type: string
+        muted:
+          type: boolean
+        conditions:
+          allOf:
+          - $ref: '#/components/schemas/AbstractCondition'
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    EmailNotification:
+      title: EmailNotification
+      required:
+      - emails
       allOf:
-      - $ref: '#/components/schemas/EmailNotification'
+      - $ref: '#/components/schemas/Notification'
       - properties:
-          eventType:
+          type:
             type: string
+            example: EMAIL
             readOnly: true
-          category:
-            type: string
-            readOnly: true
-          resourceType:
-            type: string
-            readOnly: true
+          emails:
+            type: array
+            items:
+              type: string
+            example:
+            - account@bitmovin.com
     Notification:
       title: Notification
       allOf:
@@ -391,78 +508,8 @@ components:
             description: User-specific meta data. This can hold anything.
             additionalProperties:
               type: object
-    ResponseError:
-      title: ResponseError
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
-    EmailNotificationWithStreamConditionsRequest:
-      title: EmailNotificationWithStreamConditionsRequest
-      required:
-      - emails
-      - conditions
-      properties:
-        resolve:
-          type: boolean
-          default: true
-          description: Notify when condition resolves after it was met
-        emails:
-          type: array
-          items:
-            type: string
-        muted:
-          type: boolean
-        conditions:
-          allOf:
-          - $ref: '#/components/schemas/AbstractCondition'
-    EmailNotification:
-      title: EmailNotification
-      required:
-      - emails
-      allOf:
-      - $ref: '#/components/schemas/Notification'
-      - properties:
-          type:
-            type: string
-            example: EMAIL
-            readOnly: true
-          emails:
-            type: array
-            items:
-              type: string
-            example:
-            - account@bitmovin.com
+    AbstractCondition:
+      title: AbstractCondition
     PaginationResponse:
       title: PaginationResponse
       properties:
@@ -487,73 +534,26 @@ components:
           readOnly: true
           items:
             type: object
-    AbstractCondition:
-      title: AbstractCondition
     ResultWrapper:
       title: ResultWrapper
       properties:
         result:
           type: object
           readOnly: true
-    ResponseEnvelope:
-      title: ResponseEnvelope
+    EmailNotificationWithStreamConditions:
+      title: EmailNotificationWithStreamConditions
       required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
-    Message:
-      title: Message
-      required:
-      - type
-      - text
+      - emails
       allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
+      - $ref: '#/components/schemas/EmailNotification'
       - properties:
-          type:
-            description: Message type giving a hint on the importance of the message (log level)
+          resolve:
+            type: boolean
+            default: true
+            description: Notify when condition resolves after it was met
+          conditions:
             allOf:
-            - $ref: '#/components/schemas/MessageType'
-          text:
-            type: string
-            description: Message text
-            example: field must not be empty
-          field:
-            type: string
-            description: Name of the field to which the message is referring to
-            example: manifestId
-          links:
-            type: array
-            items:
-              $ref: '#/components/schemas/Link'
-            description: collection of links to webpages containing further information on the topic
-          more:
-            type: object
-            description: Service-specific information
-          date:
-            type: string
-            format: date-time
-            description: Timestamp when the message occurred
-            example: '2016-06-25T20:09:23.69Z'
+            - $ref: '#/components/schemas/AbstractCondition'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
