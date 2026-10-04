@@ -90,6 +90,103 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
+    EncodingTemplateRequest:
+      description: "The template request object can be either a string (YAML/JSON) or a generic object that includes all the fields. \nPlease note that when sending the request as an object, the order of the fields is important, as it determines the sequence in which the Encoding resources are created.\n"
+      type: object
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
+    EncodingTemplateType:
+      title: EncodingTemplateType
+      description: The Encoding Template type
+      type: string
+      enum:
+      - VOD
+      - LIVE
+      example: VOD
+      x-enum-elements:
+      - name: VOD
+        description: VOD Encoding Template
+      - name: LIVE
+        description: Live Encoding Template
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    EncodingTemplateStartResponse:
+      title: EncodingTemplateStartResponse
+      required:
+      - encodingId
+      properties:
+        encodingId:
+          type: string
+          readOnly: true
+          description: Id of the Encoding that is created
+          example: 7cbb69ed-83f9-40a4-a162-a66e570ce910
+    EncodingTemplateDetails:
+      title: EncodingTemplateDetails
+      required:
+      - url
+      allOf:
+      - $ref: '#/components/schemas/EncodingTemplateResponse'
+      - properties:
+          url:
+            readOnly: true
+            type: string
+            description: The url to download the template file
+            example: https://storage.bitmovin.com/path/to/your/template.yml
+    EncodingTemplateResponse:
+      title: EncodingTemplateResponse
+      required:
+      - type
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          type:
+            allOf:
+            - $ref: '#/components/schemas/EncodingTemplateType'
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
     ResponseError:
       title: ResponseError
       required:
@@ -113,32 +210,43 @@ components:
           readOnly: true
           allOf:
           - $ref: '#/components/schemas/ResponseErrorData'
+    BitmovinResource:
+      title: BitmovinResource
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          name:
+            type: string
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
     ResponseStatus:
       title: ResponseStatus
       type: string
       enum:
       - SUCCESS
       - ERROR
-    BitmovinResponse:
-      title: BitmovinResponse
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
-    EncodingTemplateResponse:
-      title: EncodingTemplateResponse
-      required:
-      - type
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          type:
-            allOf:
-            - $ref: '#/components/schemas/EncodingTemplateType'
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -173,39 +281,6 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
-    Message:
-      title: Message
-      required:
-      - type
-      - text
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          type:
-            description: Message type giving a hint on the importance of the message (log level)
-            allOf:
-            - $ref: '#/components/schemas/MessageType'
-          text:
-            type: string
-            description: Message text
-            example: field must not be empty
-          field:
-            type: string
-            description: Name of the field to which the message is referring to
-            example: manifestId
-          links:
-            type: array
-            items:
-              $ref: '#/components/schemas/Link'
-            description: collection of links to webpages containing further information on the topic
-          more:
-            type: object
-            description: Service-specific information
-          date:
-            type: string
-            format: date-time
-            description: Timestamp when the message occurred
-            example: '2016-06-25T20:09:23.69Z'
     MessageType:
       title: MessageType
       type: string
@@ -215,16 +290,6 @@ components:
       - INFO
       - DEBUG
       - TRACE
-    EncodingTemplateStartResponse:
-      title: EncodingTemplateStartResponse
-      required:
-      - encodingId
-      properties:
-        encodingId:
-          type: string
-          readOnly: true
-          description: Id of the Encoding that is created
-          example: 7cbb69ed-83f9-40a4-a162-a66e570ce910
     ResponseEnvelope:
       title: ResponseEnvelope
       required:
@@ -264,71 +329,6 @@ components:
           type: string
           description: Short description of the linked page
           example: how to add a period to a manifest
-    EncodingTemplateDetails:
-      title: EncodingTemplateDetails
-      required:
-      - url
-      allOf:
-      - $ref: '#/components/schemas/EncodingTemplateResponse'
-      - properties:
-          url:
-            readOnly: true
-            type: string
-            description: The url to download the template file
-            example: https://storage.bitmovin.com/path/to/your/template.yml
-    EncodingTemplateType:
-      title: EncodingTemplateType
-      description: The Encoding Template type
-      type: string
-      enum:
-      - VOD
-      - LIVE
-      example: VOD
-      x-enum-elements:
-      - name: VOD
-        description: VOD Encoding Template
-      - name: LIVE
-        description: Live Encoding Template
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    BitmovinResource:
-      title: BitmovinResource
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          name:
-            type: string
-            description: Name of the resource. Can be freely chosen by the user.
-            example: Name of the resource
-          description:
-            type: string
-            description: Description of the resource. Can be freely chosen by the user.
-            example: Description of the resource
-          createdAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          modifiedAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          customData:
-            type: string
-            writeOnly: true
-            description: User-specific meta data. This can hold anything.
-            additionalProperties:
-              type: object
-    EncodingTemplateRequest:
-      description: "The template request object can be either a string (YAML/JSON) or a generic object that includes all the fields. \nPlease note that when sending the request as an object, the order of the fields is important, as it determines the sequence in which the Encoding resources are created.\n"
-      type: object
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

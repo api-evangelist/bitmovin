@@ -115,60 +115,6 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
-    ResponseError:
-      title: ResponseError
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
-    StreamsResponse:
-      title: StreamsResponse
-      properties:
-        id:
-          readOnly: true
-          type: string
-          description: The identifier of the stream
-        title:
-          readOnly: true
-          type: string
-          description: The title of the stream
-        description:
-          readOnly: true
-          type: string
-          description: The description of the stream
-        createdAt:
-          readOnly: true
-          format: date-time
-          type: string
-          description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-        type:
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/StreamsType'
-          description: Type of the Stream contained in the StreamsResponse
     Message:
       title: Message
       required:
@@ -202,6 +148,30 @@ components:
             format: date-time
             description: Timestamp when the message occurred
             example: '2016-06-25T20:09:23.69Z'
+    PaginationResponse:
+      title: PaginationResponse
+      properties:
+        totalCount:
+          type: integer
+          format: int64
+          readOnly: true
+        offset:
+          type: integer
+          readOnly: true
+        limit:
+          type: integer
+          readOnly: true
+        previous:
+          type: string
+          readOnly: true
+        next:
+          type: string
+          readOnly: true
+        items:
+          type: array
+          readOnly: true
+          items:
+            type: object
     BitmovinResponse:
       title: BitmovinResponse
       required:
@@ -212,6 +182,61 @@ components:
           readOnly: true
           description: Id of the resource
           example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    StreamsLiveLifeCycle:
+      title: StreamsLiveLifeCycle
+      type: string
+      enum:
+      - PROVISIONING
+      - STOPPED
+      - RUNNING
+      - ERROR
+    StreamsVideoStatus:
+      title: StreamsVideoStatus
+      type: string
+      default: PUBLISHED
+      enum:
+      - PUBLISHED
+      - UNPUBLISHED
+      x-enum-elements:
+      - name: PUBLISHED
+        description: The stream is published and can be accessed
+      - name: UNPUBLISHED
+        description: The stream cannot be accessed
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -255,14 +280,40 @@ components:
       - INFO
       - DEBUG
       - TRACE
-    StreamsLiveLifeCycle:
-      title: StreamsLiveLifeCycle
+    StreamsResponse:
+      title: StreamsResponse
+      properties:
+        id:
+          readOnly: true
+          type: string
+          description: The identifier of the stream
+        title:
+          readOnly: true
+          type: string
+          description: The title of the stream
+        description:
+          readOnly: true
+          type: string
+          description: The description of the stream
+        createdAt:
+          readOnly: true
+          format: date-time
+          type: string
+          description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+        type:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/StreamsType'
+          description: Type of the Stream contained in the StreamsResponse
+    StreamsType:
+      title: StreamsType
       type: string
       enum:
-      - PROVISIONING
-      - STOPPED
-      - RUNNING
-      - ERROR
+      - VIDEO
+      - LIVE
+      x-enum-elements:
+      - name: VIDEO
+      - name: LIVE
     ResponseEnvelope:
       title: ResponseEnvelope
       required:
@@ -302,57 +353,6 @@ components:
           type: string
           description: Short description of the linked page
           example: how to add a period to a manifest
-    PaginationResponse:
-      title: PaginationResponse
-      properties:
-        totalCount:
-          type: integer
-          format: int64
-          readOnly: true
-        offset:
-          type: integer
-          readOnly: true
-        limit:
-          type: integer
-          readOnly: true
-        previous:
-          type: string
-          readOnly: true
-        next:
-          type: string
-          readOnly: true
-        items:
-          type: array
-          readOnly: true
-          items:
-            type: object
-    StreamsVideoStatus:
-      title: StreamsVideoStatus
-      type: string
-      default: PUBLISHED
-      enum:
-      - PUBLISHED
-      - UNPUBLISHED
-      x-enum-elements:
-      - name: PUBLISHED
-        description: The stream is published and can be accessed
-      - name: UNPUBLISHED
-        description: The stream cannot be accessed
-    StreamsType:
-      title: StreamsType
-      type: string
-      enum:
-      - VIDEO
-      - LIVE
-      x-enum-elements:
-      - name: VIDEO
-      - name: LIVE
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
