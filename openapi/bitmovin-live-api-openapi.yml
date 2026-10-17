@@ -700,36 +700,6 @@ paths:
       variables: {}
 components:
   schemas:
-    LiveStandbyPoolEncodingManifestType:
-      title: LiveStandbyPoolEncodingManifestType
-      description: Type of the manifest
-      type: string
-      enum:
-      - DASH
-      - HLS
-      example: DASH
-      x-enum-elements:
-      - name: DASH
-        description: 'The manifest is a DASH manifest
-
-          '
-      - name: HLS
-        description: 'The manifest is a HLS manifest
-
-          '
-    StreamKeyType:
-      title: StreamKeyType
-      description: Type of the stream key
-      type: string
-      enum:
-      - RESERVED
-      - TEMPORARY
-      example: RESERVED
-      x-enum-elements:
-      - name: RESERVED
-        description: Stream key is persistent and can be reused. It can be assigned to a live encoding when it is currently not in use
-      - name: TEMPORARY
-        description: Stream key is automatically generated for a live encoding. They can not be reused. After the encoding is finished, the stream key will be gone also
     LiveStandbyPoolResponse:
       title: LiveStandbyPoolResponse
       required:
@@ -768,6 +738,125 @@ components:
           poolStatus:
             allOf:
             - $ref: '#/components/schemas/LiveStandbyPoolStatus'
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    BitmovinResponseList:
+      type: array
+      items:
+        $ref: '#/components/schemas/BitmovinResponse'
+    DnsMappingRequest:
+      title: DnsMappingRequest
+      type: object
+      required:
+      - subdomain
+      properties:
+        subdomain:
+          type: string
+          description: Subdomain used for the DNS mapping. It can only contain lowercase letters, numbers and dashes (-). It can be at most 63 characters long
+          example: my-event-1
+        name:
+          type: string
+          description: Optional name for the DNS mapping
+          example: Foo bar name
+        description:
+          type: string
+          description: Optional description for the DNS mapping
+          example: Foo bar description
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    LiveStandbyPoolEncodingManifest:
+      title: LiveStandbyPoolEncodingManifest
+      allOf:
+      - properties:
+          url:
+            type: string
+            readOnly: true
+            description: URL to the manifest
+          manifestId:
+            type: string
+            readOnly: true
+            description: ID of the manifest that was created for the encoding
+          type:
+            type: string
+            readOnly: true
+            allOf:
+            - $ref: '#/components/schemas/LiveStandbyPoolEncodingManifestType'
+    LiveStandbyPoolRequest:
+      title: LiveStandbyPoolRequest
+      required:
+      - targetPoolSize
+      - encodingTemplate
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          targetPoolSize:
+            type: integer
+            description: Number of instances to keep ready for streaming while the pool is running
+            minimum: 0
+            example: '10'
+          encodingTemplate:
+            type: string
+            description: Base64 encoded template used to start the encodings in the pool
+            example: bWV0YWRhdGE6DQogIHR5cGU6IExJVkUNCiAgbmFtZ...
+    LiveStandbyPoolStatus:
+      title: LiveStandbyPoolStatus
+      description: Status of the live standby pool
+      type: string
+      enum:
+      - HEALTHY
+      - ERROR
+      example: HEALTHY
+      x-enum-elements:
+      - name: HEALTHY
+        description: 'The standby pool is in healthy state
+
+          '
+      - name: ERROR
+        description: 'The standby pool is in error state
+
+          '
     UpdateEncodingRtmpIngestPointRequest:
       title: UpdateEncodingRtmpIngestPointRequest
       properties:
@@ -780,6 +869,74 @@ components:
             '
           items:
             $ref: '#/components/schemas/RtmpIngestPoint'
+    LiveStandbyPoolAcquireEncoding:
+      title: LiveStandbyPoolAcquireEncoding
+      properties:
+        ingestPoints:
+          type: array
+          description: 'Note: This is not implemented yet and will be ignored if provided.
+
+            List of ingest points to be used for the acquired encoding.
+
+            The DNS hostname and RTMPs application name and streamKey will be assigned to the encoding.
+
+            '
+          items:
+            $ref: '#/components/schemas/LiveStandbyPoolEncodingIngestPoint'
+    LiveStandbyPoolEncodingIngestPoint:
+      title: LiveStandbyPoolEncodingIngestPoint
+      allOf:
+      - properties:
+          streamBaseUrl:
+            type: string
+            example: rtmps://company-streamer123.live-input-li.bitcod.in/live
+            description: URL to the RTMP/RTMPS endpoint for this live encoding
+          streamKey:
+            type: string
+            example: 5ef5862b-1fdf-4972-8c23-900f47b68953
+            description: Stream key value of this live encoding
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    LiveStandbyPoolDetails:
+      title: LiveStandbyPoolDetails
+      allOf:
+      - $ref: '#/components/schemas/LiveStandbyPoolResponse'
+      - properties:
+          encodingTemplate:
+            readOnly: true
+            type: string
+            description: Base64 encoded template used to start the encodings in the pool
+            example: bWV0YWRhdGE6DQogIHR5cGU6IExJVkUNCiAgbmFtZ...
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
     LiveStandbyPoolEncoding:
       title: LiveStandbyPoolEncoding
       allOf:
@@ -809,19 +966,6 @@ components:
           status:
             allOf:
             - $ref: '#/components/schemas/LiveStandbyPoolEncodingStatus'
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
     DnsMappingResponse:
       title: DnsMappingResponse
       allOf:
@@ -846,123 +990,6 @@ components:
             readOnly: true
             description: IP address that the hostname resolves to
             example: 192.0.2.1
-    BitmovinResponse:
-      title: BitmovinResponse
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
-    LiveStandbyPoolEncodingIngestPoint:
-      title: LiveStandbyPoolEncodingIngestPoint
-      allOf:
-      - properties:
-          streamBaseUrl:
-            type: string
-            example: rtmps://company-streamer123.live-input-li.bitcod.in/live
-            description: URL to the RTMP/RTMPS endpoint for this live encoding
-          streamKey:
-            type: string
-            example: 5ef5862b-1fdf-4972-8c23-900f47b68953
-            description: Stream key value of this live encoding
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    StreamKey:
-      title: StreamKey
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          value:
-            type: string
-            description: 'Stream key used for live streaming. This stream key is reserved and can be re-used with different live encodings.
-
-              If this value is not provided, a unique random stream key will be generated.
-
-              **Important:** This value has to be globally unique. If it is set manually, be sure to use a secure value.
-
-              If the stream key value is guessed by others your live encoding can be compromised.
-
-              '
-            example: 9m4e2mr0ui3e8a215n4g
-          status:
-            allOf:
-            - $ref: '#/components/schemas/StreamKeyStatus'
-            type: string
-            readOnly: true
-            description: Status of the stream key
-            default: UNASSIGNED
-            example: UNASSIGNED
-          type:
-            allOf:
-            - $ref: '#/components/schemas/StreamKeyType'
-            type: string
-            readOnly: true
-            description: Type of the stream key
-            default: RESERVED
-            example: RESERVED
-          assignedEncodingId:
-            type: string
-            readOnly: true
-            description: ID of the encoding that is assigned to this stream key. Not set if status is UNASSIGNED
-          assignedIngestPointId:
-            type: string
-            readOnly: true
-            description: ID of the ingest point that is assigned to this stream key. Not set if status is UNASSIGNED
-    ResponseError:
-      title: ResponseError
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
-    StreamKeysUnassignAction:
-      title: StreamKeysUnassignAction
-      properties:
-        encodingId:
-          type: string
-          example: 2a35060e-87c6-4b9a-abf7-8ca3f7a094c4
-          description: Encoding ID for which stream keys should be unassigned
-    UpdateEncodingRtmpIngestPointResponse:
-      title: UpdateEncodingRtmpIngestPointResponse
-      type: object
-      properties: {}
-    RtmpIngestPoint:
-      title: RtmpIngestPoint
-      required:
-      - applicationName
-      - streamKey
-      properties:
-        applicationName:
-          type: string
-          description: The name of the application where the ingest is streamed to. This has to be unique for each ingest point
-          example: live
-        streamKey:
-          type: string
-          description: The stream key for the backup input
-          example: myStream
     LiveStandbyPoolEncodingStatus:
       title: LiveStandbyPoolEncodingStatus
       description: Status of the standby pool encoding
@@ -1010,6 +1037,103 @@ components:
         description: 'The encoding of the pool is in error state
 
           '
+    RtmpIngestPoint:
+      title: RtmpIngestPoint
+      required:
+      - applicationName
+      - streamKey
+      properties:
+        applicationName:
+          type: string
+          description: The name of the application where the ingest is streamed to. This has to be unique for each ingest point
+          example: live
+        streamKey:
+          type: string
+          description: The stream key for the backup input
+          example: myStream
+    LiveStandbyPoolEncodingManifestType:
+      title: LiveStandbyPoolEncodingManifestType
+      description: Type of the manifest
+      type: string
+      enum:
+      - DASH
+      - HLS
+      example: DASH
+      x-enum-elements:
+      - name: DASH
+        description: 'The manifest is a DASH manifest
+
+          '
+      - name: HLS
+        description: 'The manifest is a HLS manifest
+
+          '
+    ResponseStatus:
+      title: ResponseStatus
+      type: string
+      enum:
+      - SUCCESS
+      - ERROR
+    BitmovinResource:
+      title: BitmovinResource
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          name:
+            type: string
+            description: Name of the resource. Can be freely chosen by the user.
+            example: Name of the resource
+          description:
+            type: string
+            description: Description of the resource. Can be freely chosen by the user.
+            example: Description of the resource
+          createdAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          modifiedAt:
+            type: string
+            format: date-time
+            readOnly: true
+            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
+            example: '2016-06-25T20:09:23.69Z'
+          customData:
+            type: string
+            writeOnly: true
+            description: User-specific meta data. This can hold anything.
+            additionalProperties:
+              type: object
+    StreamKeyType:
+      title: StreamKeyType
+      description: Type of the stream key
+      type: string
+      enum:
+      - RESERVED
+      - TEMPORARY
+      example: RESERVED
+      x-enum-elements:
+      - name: RESERVED
+        description: Stream key is persistent and can be reused. It can be assigned to a live encoding when it is currently not in use
+      - name: TEMPORARY
+        description: Stream key is automatically generated for a live encoding. They can not be reused. After the encoding is finished, the stream key will be gone also
+    StreamKeysUnassignAction:
+      title: StreamKeysUnassignAction
+      properties:
+        encodingId:
+          type: string
+          example: 2a35060e-87c6-4b9a-abf7-8ca3f7a094c4
+          description: Encoding ID for which stream keys should be unassigned
+    MessageType:
+      title: MessageType
+      type: string
+      enum:
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
     Message:
       title: Message
       required:
@@ -1043,136 +1167,6 @@ components:
             format: date-time
             description: Timestamp when the message occurred
             example: '2016-06-25T20:09:23.69Z'
-    LiveStandbyPoolAcquireEncoding:
-      title: LiveStandbyPoolAcquireEncoding
-      properties:
-        ingestPoints:
-          type: array
-          description: 'Note: This is not implemented yet and will be ignored if provided.
-
-            List of ingest points to be used for the acquired encoding.
-
-            The DNS hostname and RTMPs application name and streamKey will be assigned to the encoding.
-
-            '
-          items:
-            $ref: '#/components/schemas/LiveStandbyPoolEncodingIngestPoint'
-    DnsMappingRequest:
-      title: DnsMappingRequest
-      type: object
-      required:
-      - subdomain
-      properties:
-        subdomain:
-          type: string
-          description: Subdomain used for the DNS mapping. It can only contain lowercase letters, numbers and dashes (-). It can be at most 63 characters long
-          example: my-event-1
-        name:
-          type: string
-          description: Optional name for the DNS mapping
-          example: Foo bar name
-        description:
-          type: string
-          description: Optional description for the DNS mapping
-          example: Foo bar description
-    BitmovinResponseList:
-      type: array
-      items:
-        $ref: '#/components/schemas/BitmovinResponse'
-    LiveStandbyPoolDetails:
-      title: LiveStandbyPoolDetails
-      allOf:
-      - $ref: '#/components/schemas/LiveStandbyPoolResponse'
-      - properties:
-          encodingTemplate:
-            readOnly: true
-            type: string
-            description: Base64 encoded template used to start the encodings in the pool
-            example: bWV0YWRhdGE6DQogIHR5cGU6IExJVkUNCiAgbmFtZ...
-    BitmovinResource:
-      title: BitmovinResource
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          name:
-            type: string
-            description: Name of the resource. Can be freely chosen by the user.
-            example: Name of the resource
-          description:
-            type: string
-            description: Description of the resource. Can be freely chosen by the user.
-            example: Description of the resource
-          createdAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Creation timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          modifiedAt:
-            type: string
-            format: date-time
-            readOnly: true
-            description: 'Modified timestamp, returned as UTC expressed in ISO 8601 format: YYYY-MM-DDThh:mm:ssZ'
-            example: '2016-06-25T20:09:23.69Z'
-          customData:
-            type: string
-            writeOnly: true
-            description: User-specific meta data. This can hold anything.
-            additionalProperties:
-              type: object
-    StreamKeyStatus:
-      title: StreamKeyStatus
-      description: Status of the stream key
-      type: string
-      enum:
-      - ASSIGNED
-      - UNASSIGNED
-      example: UNASSIGNED
-      x-enum-elements:
-      - name: ASSIGNED
-        description: "Stream key is assigned to a live encoding. \nThis means, it **can not be assigned** to a RedundantRtmpInput at the moment.\nIt will be set to UNASSIGNED if the live encoding is finished or in error state\n"
-      - name: UNASSIGNED
-        description: "Stream key is not assigned to a live encoding. \nThis means, that it **is available** to be used with a RedundantRtmpInput\n"
-    LiveStandbyPoolRequest:
-      title: LiveStandbyPoolRequest
-      required:
-      - targetPoolSize
-      - encodingTemplate
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          targetPoolSize:
-            type: integer
-            description: Number of instances to keep ready for streaming while the pool is running
-            minimum: 0
-            example: '10'
-          encodingTemplate:
-            type: string
-            description: Base64 encoded template used to start the encodings in the pool
-            example: bWV0YWRhdGE6DQogIHR5cGU6IExJVkUNCiAgbmFtZ...
-    LiveStandbyPoolEncodingManifest:
-      title: LiveStandbyPoolEncodingManifest
-      allOf:
-      - properties:
-          url:
-            type: string
-            readOnly: true
-            description: URL to the manifest
-          manifestId:
-            type: string
-            readOnly: true
-            description: ID of the manifest that was created for the encoding
-          type:
-            type: string
-            readOnly: true
-            allOf:
-            - $ref: '#/components/schemas/LiveStandbyPoolEncodingManifestType'
-    ResponseStatus:
-      title: ResponseStatus
-      type: string
-      enum:
-      - SUCCESS
-      - ERROR
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -1207,58 +1201,64 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
-    MessageType:
-      title: MessageType
+    StreamKeyStatus:
+      title: StreamKeyStatus
+      description: Status of the stream key
       type: string
       enum:
-      - ERROR
-      - WARNING
-      - INFO
-      - DEBUG
-      - TRACE
-    LiveStandbyPoolStatus:
-      title: LiveStandbyPoolStatus
-      description: Status of the live standby pool
-      type: string
-      enum:
-      - HEALTHY
-      - ERROR
-      example: HEALTHY
+      - ASSIGNED
+      - UNASSIGNED
+      example: UNASSIGNED
       x-enum-elements:
-      - name: HEALTHY
-        description: 'The standby pool is in healthy state
+      - name: ASSIGNED
+        description: "Stream key is assigned to a live encoding. \nThis means, it **can not be assigned** to a RedundantRtmpInput at the moment.\nIt will be set to UNASSIGNED if the live encoding is finished or in error state\n"
+      - name: UNASSIGNED
+        description: "Stream key is not assigned to a live encoding. \nThis means, that it **is available** to be used with a RedundantRtmpInput\n"
+    StreamKey:
+      title: StreamKey
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          value:
+            type: string
+            description: 'Stream key used for live streaming. This stream key is reserved and can be re-used with different live encodings.
 
-          '
-      - name: ERROR
-        description: 'The standby pool is in error state
+              If this value is not provided, a unique random stream key will be generated.
 
-          '
-    ResponseEnvelope:
-      title: ResponseEnvelope
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
+              **Important:** This value has to be globally unique. If it is set manually, be sure to use a secure value.
+
+              If the stream key value is guessed by others your live encoding can be compromised.
+
+              '
+            example: 9m4e2mr0ui3e8a215n4g
+          status:
+            allOf:
+            - $ref: '#/components/schemas/StreamKeyStatus'
+            type: string
+            readOnly: true
+            description: Status of the stream key
+            default: UNASSIGNED
+            example: UNASSIGNED
+          type:
+            allOf:
+            - $ref: '#/components/schemas/StreamKeyType'
+            type: string
+            readOnly: true
+            description: Type of the stream key
+            default: RESERVED
+            example: RESERVED
+          assignedEncodingId:
+            type: string
+            readOnly: true
+            description: ID of the encoding that is assigned to this stream key. Not set if status is UNASSIGNED
+          assignedIngestPointId:
+            type: string
+            readOnly: true
+            description: ID of the ingest point that is assigned to this stream key. Not set if status is UNASSIGNED
+    UpdateEncodingRtmpIngestPointResponse:
+      title: UpdateEncodingRtmpIngestPointResponse
+      type: object
+      properties: {}
     StreamsResponse:
       title: StreamsResponse
       properties:
@@ -1284,27 +1284,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/StreamsType'
           description: Type of the Stream contained in the StreamsResponse
-    StreamsTrimmingStatus:
-      title: StreamsTrimmingStatus
-      type: string
-      default: UNAVAILABLE
-      enum:
-      - UNAVAILABLE
-      - AVAILABLE
-      - STARTED
-      - ERROR
-      - FINISHED
-      x-enum-elements:
-      - name: UNAVAILABLE
-        description: Trimming is unavailable
-      - name: AVAILABLE
-        description: Trimming is available
-      - name: STARTED
-        description: The trimming started
-      - name: ERROR
-        description: The trimming failed
-      - name: FINISHED
-        description: The trimming succeeded
     StreamsLiveLifeCycle:
       title: StreamsLiveLifeCycle
       type: string
@@ -1313,22 +1292,37 @@ components:
       - STOPPED
       - RUNNING
       - ERROR
-    StreamsLiveUpdateRequest:
-      title: StreamsLiveUpdateRequest
+    StreamsAdConfigResponse:
+      title: StreamsAdConfigResponse
       allOf:
       - properties:
-          title:
+          id:
+            readOnly: true
             type: string
-            description: The new title of the stream
-          description:
+            description: The identifier of the streams ad config
+          ads:
+            type: array
+            items:
+              $ref: '#/components/schemas/StreamsAdConfigAd'
+    StreamsStyleConfigResponse:
+      title: StreamsStyleConfigResponse
+      allOf:
+      - properties:
+          id:
+            readOnly: true
             type: string
-            description: The new description of the stream
-          posterUrl:
+            description: The identifier of the style config
+          orgId:
             type: string
-            description: URL to hosted poster image
-          domainRestrictionId:
+            description: UUID of the associated organization
+          playerStyle:
+            $ref: '#/components/schemas/StreamsStyleConfigPlayerStyle'
+          watermarkUrl:
             type: string
-            description: Id of the domain restriction config to use
+            description: URL of the watermark image
+          watermarkTargetLink:
+            type: string
+            description: Target link of the watermark image
     StreamsStyleConfigPlayerStyle:
       type: object
       description: Player style config
@@ -1355,18 +1349,43 @@ components:
           backgroundColor:
             type: string
             description: Background color
-    StreamsAdConfigResponse:
-      title: StreamsAdConfigResponse
+    StreamsLiveUpdateRequest:
+      title: StreamsLiveUpdateRequest
       allOf:
       - properties:
-          id:
-            readOnly: true
+          title:
             type: string
-            description: The identifier of the streams ad config
-          ads:
-            type: array
-            items:
-              $ref: '#/components/schemas/StreamsAdConfigAd'
+            description: The new title of the stream
+          description:
+            type: string
+            description: The new description of the stream
+          posterUrl:
+            type: string
+            description: URL to hosted poster image
+          domainRestrictionId:
+            type: string
+            description: Id of the domain restriction config to use
+    StreamsTrimmingStatus:
+      title: StreamsTrimmingStatus
+      type: string
+      default: UNAVAILABLE
+      enum:
+      - UNAVAILABLE
+      - AVAILABLE
+      - STARTED
+      - ERROR
+      - FINISHED
+      x-enum-elements:
+      - name: UNAVAILABLE
+        description: Trimming is unavailable
+      - name: AVAILABLE
+        description: Trimming is available
+      - name: STARTED
+        description: The trimming started
+      - name: ERROR
+        description: The trimming failed
+      - name: FINISHED
+        description: The trimming succeeded
     StreamsAdConfigAd:
       title: StreamsAdConfigAd
       required:
@@ -1383,87 +1402,6 @@ components:
         type:
           type: string
           maxLength: 30
-    StreamsStyleConfigResponse:
-      title: StreamsStyleConfigResponse
-      allOf:
-      - properties:
-          id:
-            readOnly: true
-            type: string
-            description: The identifier of the style config
-          orgId:
-            type: string
-            description: UUID of the associated organization
-          playerStyle:
-            $ref: '#/components/schemas/StreamsStyleConfigPlayerStyle'
-          watermarkUrl:
-            type: string
-            description: URL of the watermark image
-          watermarkTargetLink:
-            type: string
-            description: Target link of the watermark image
-    StreamsType:
-      title: StreamsType
-      type: string
-      enum:
-      - VIDEO
-      - LIVE
-      x-enum-elements:
-      - name: VIDEO
-      - name: LIVE
-    StreamsDomainRestrictionResponse:
-      title: StreamsDomainRestrictionResponse
-      properties:
-        id:
-          readOnly: true
-          type: string
-          description: The identifier of the streams domain restriction entity
-        allowedDomains:
-          type: array
-          description: The list of allowed domains
-          items:
-            type: string
-        allowNoReferer:
-          type: boolean
-          description: Controls if requests to domain restricted streams without referer header should be allowed or denied
-        allowShare:
-          type: boolean
-          description: Controls if Stream is accessible via sharing URL or not
-    StreamsLiveResponse:
-      title: StreamsLiveResponse
-      allOf:
-      - $ref: '#/components/schemas/StreamsResponse'
-      - properties:
-          streamKey:
-            readOnly: true
-            type: string
-            description: The streamKey of the stream
-          lifeCycle:
-            readOnly: true
-            allOf:
-            - $ref: '#/components/schemas/StreamsLiveLifeCycle'
-            description: The life cycle of the stream
-          styleConfig:
-            readOnly: true
-            $ref: '#/components/schemas/StreamsStyleConfigResponse'
-            description: Style config
-          posterUrl:
-            readOnly: true
-            description: Poster URL
-            type: string
-          adConfig:
-            readOnly: true
-            description: Stream advertisement config
-            $ref: '#/components/schemas/StreamsAdConfigResponse'
-          domainRestriction:
-            readOnly: true
-            description: Stream domain restriction
-            $ref: '#/components/schemas/StreamsDomainRestrictionResponse'
-          trimming:
-            readOnly: true
-            description: Stream trimming information
-            allOf:
-            - $ref: '#/components/schemas/StreamsTrimmingStatus'
     PaginationResponse:
       title: PaginationResponse
       properties:
@@ -1503,6 +1441,68 @@ components:
           domainRestrictionId:
             type: string
             description: Id of the domain restriction config to use
+    StreamsDomainRestrictionResponse:
+      title: StreamsDomainRestrictionResponse
+      properties:
+        id:
+          readOnly: true
+          type: string
+          description: The identifier of the streams domain restriction entity
+        allowedDomains:
+          type: array
+          description: The list of allowed domains
+          items:
+            type: string
+        allowNoReferer:
+          type: boolean
+          description: Controls if requests to domain restricted streams without referer header should be allowed or denied
+        allowShare:
+          type: boolean
+          description: Controls if Stream is accessible via sharing URL or not
+    StreamsType:
+      title: StreamsType
+      type: string
+      enum:
+      - VIDEO
+      - LIVE
+      x-enum-elements:
+      - name: VIDEO
+      - name: LIVE
+    StreamsLiveResponse:
+      title: StreamsLiveResponse
+      allOf:
+      - $ref: '#/components/schemas/StreamsResponse'
+      - properties:
+          streamKey:
+            readOnly: true
+            type: string
+            description: The streamKey of the stream
+          lifeCycle:
+            readOnly: true
+            allOf:
+            - $ref: '#/components/schemas/StreamsLiveLifeCycle'
+            description: The life cycle of the stream
+          styleConfig:
+            readOnly: true
+            $ref: '#/components/schemas/StreamsStyleConfigResponse'
+            description: Style config
+          posterUrl:
+            readOnly: true
+            description: Poster URL
+            type: string
+          adConfig:
+            readOnly: true
+            description: Stream advertisement config
+            $ref: '#/components/schemas/StreamsAdConfigResponse'
+          domainRestriction:
+            readOnly: true
+            description: Stream domain restriction
+            $ref: '#/components/schemas/StreamsDomainRestrictionResponse'
+          trimming:
+            readOnly: true
+            description: Stream trimming information
+            allOf:
+            - $ref: '#/components/schemas/StreamsTrimmingStatus'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

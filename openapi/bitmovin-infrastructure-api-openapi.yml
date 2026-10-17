@@ -537,6 +537,226 @@ paths:
                 $ref: '#/components/schemas/ResponseError'
 components:
   schemas:
+    GoogleCloudRegion:
+      title: GoogleCloudRegion
+      type: string
+      enum:
+      - US_CENTRAL_1
+      - US_EAST_1
+      - ASIA_EAST_1
+      - EUROPE_WEST_1
+      - US_WEST_1
+      - ASIA_EAST_2
+      - ASIA_NORTHEAST_1
+      - ASIA_SOUTH_1
+      - ASIA_SOUTHEAST_1
+      - AUSTRALIA_SOUTHEAST_1
+      - EUROPE_NORTH_1
+      - EUROPE_WEST_2
+      - EUROPE_WEST_3
+      - EUROPE_WEST_4
+      - NORTHAMERICA_NORTHEAST_1
+      - SOUTHAMERICA_EAST_1
+      - US_EAST_4
+      - US_WEST_2
+      - ME_CENTRAL_2
+      x-enum-elements:
+      - name: US_CENTRAL_1
+        description: Council Bluffs, Iowa, USA
+      - name: US_EAST_1
+        description: Moncks Corner, South Carolina, USA
+      - name: ASIA_EAST_1
+        description: Changhua County, Taiwan
+      - name: EUROPE_WEST_1
+        description: St. Ghislain, Belgium
+      - name: US_WEST_1
+        description: The Dalles, Oregon, USA
+      - name: ASIA_EAST_2
+        description: Hong Kong
+      - name: ASIA_NORTHEAST_1
+        description: Tokyo, Japan
+      - name: ASIA_SOUTH_1
+        description: Mumbai, India
+      - name: ASIA_SOUTHEAST_1
+        description: Jurong West, Singapore
+      - name: AUSTRALIA_SOUTHEAST_1
+        description: Sydney, Australia
+      - name: EUROPE_NORTH_1
+        description: Hamina, Finland
+      - name: EUROPE_WEST_2
+        description: London, England, UK
+      - name: EUROPE_WEST_3
+        description: Frankfurt, Germany
+      - name: EUROPE_WEST_4
+        description: Eemshaven, Netherlands
+      - name: NORTHAMERICA_NORTHEAST_1
+        description: Montréal, Québec, Canada
+      - name: SOUTHAMERICA_EAST_1
+        description: São Paulo, Brazil
+      - name: US_EAST_4
+        description: Ashburn, Northern Virginia, USA
+      - name: US_WEST_2
+        description: Los Angeles, California, USA
+      - name: ME_CENTRAL_2
+        description: Dammam, Saudi Arabia
+    Link:
+      title: Link
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          description: webpage target URL
+          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
+        title:
+          type: string
+          description: Short description of the linked page
+          example: how to add a period to a manifest
+    BitmovinResponse:
+      title: BitmovinResponse
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Id of the resource
+          example: cb90b80c-8867-4e3b-8479-174aa2843f62
+    ResponseError:
+      title: ResponseError
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: ERROR
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseErrorData'
+    OciAccountRegionSettings:
+      title: OciAccountRegionSettings
+      required:
+      - subnetId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          subnetId:
+            type: string
+            description: Id of the VPC subnet for encoding instances.
+            example: ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaqb3xztomfv7ylk25jhdwsu4syvtcmwv2d2vaqajvinngfilp5pfua
+          region:
+            description: Region for encoding instances.
+            readOnly: true
+            allOf:
+            - $ref: '#/components/schemas/OciCloudRegion'
+    AzureAccount:
+      title: AzureAccount
+      required:
+      - subscriptionId
+      - resourceGroupId
+      - tenantId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          subscriptionId:
+            type: string
+            description: Your Azure Subscription ID (The ID of your subscription where you intend to run the Encoding VMs)
+            example: 6e934bc4-b7d5-42e3-bbe0-c78e062b80c9
+          resourceGroupId:
+            type: string
+            description: The name of the resource group where you intend to run the Encoding VMs
+            example: encodingGroup
+          tenantId:
+            type: string
+            description: The ID of your Active Directory where your subscription runs in
+            example: 2eb829b4-4dd3-4fb3-b3a5-aec895b06bd3
+    ResultWrapper:
+      title: ResultWrapper
+      properties:
+        result:
+          type: object
+          readOnly: true
+    AkamaiAccount:
+      title: AkamaiAccount
+      required:
+      - name
+      - apiToken
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          apiToken:
+            type: string
+            description: Akamai/Linode API token
+            example: d182edb2758064d0430654db4be0cf335cbd4ac26b75e7d75cf6b989a87d1e55
+            writeOnly: true
+    ResponseEnvelope:
+      title: ResponseEnvelope
+      required:
+      - requestId
+      - status
+      - data
+      properties:
+        requestId:
+          type: string
+          readOnly: true
+          description: Unique correlation id
+          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
+        status:
+          description: Response status information
+          readOnly: true
+          example: SUCCESS
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        data:
+          description: Response information
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/ResultWrapper'
+        more:
+          type: object
+          description: Additional endpoint specific information
+    OciCloudRegion:
+      title: OciCloudRegion
+      type: string
+      enum:
+      - EU_FRANKFURT_1
+      - US_ASHBURN_1
+      x-enum-elements:
+      - name: EU_FRANKFURT_1
+        description: Frankfurt, Germany
+      - name: US_ASHBURN_1
+        description: Ashburn, Virginia, USA
+    AzureAccountRegionSettings:
+      title: AzureAccountRegionSettings
+      required:
+      - networkName
+      - subnetName
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          networkName:
+            type: string
+            description: Name of the virtual network
+          subnetName:
+            type: string
+            description: Name of the subnet
+            example: encodingSubnet
+          region:
+            allOf:
+            - $ref: '#/components/schemas/AzureCloudRegion'
+            readOnly: true
     AkamaiCloudRegion:
       title: AkamaiCloudRegion
       type: string
@@ -581,125 +801,6 @@ components:
         description: Chicago, USA
       - name: US_SEA
         description: Seattle, USA
-    AkamaiAccount:
-      title: AkamaiAccount
-      required:
-      - name
-      - apiToken
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          apiToken:
-            type: string
-            description: Akamai/Linode API token
-            example: d182edb2758064d0430654db4be0cf335cbd4ac26b75e7d75cf6b989a87d1e55
-            writeOnly: true
-    GceAccountRegionSettings:
-      title: GceAccountRegionSettings
-      required:
-      - network
-      - subnetId
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          network:
-            type: string
-            description: Id of the network for encoding instances
-            example: /global/networks/custom-vpc
-          subnetId:
-            type: string
-            description: Id of the subnet for encoding instances
-            example: /regions/europe-west1/subnetworks/custom-subnet-euw1
-          region:
-            readOnly: true
-            allOf:
-            - $ref: '#/components/schemas/GoogleCloudRegion'
-    GceAccount:
-      title: GceAccount
-      description: 'GCE Cloud Connect Account. Configure either by passing a single service account credentials JSON
-
-        string or by passing the service account email, private key and project ID individually.
-
-        '
-      anyOf:
-      - required:
-        - name
-        - serviceAccountCredentials
-      - required:
-        - name
-        - serviceAccountEmail
-        - privateKey
-        - projectId
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          serviceAccountCredentials:
-            type: string
-            description: GCP service account credentials JSON
-            example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\",\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"REDACTED_PRIVATE_KEY_EXAMPLE\\n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\",\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\"\n}\n"
-            writeOnly: true
-          serviceAccountEmail:
-            type: string
-            description: Email address of the Google service account that will be used to spin up VMs
-            example: bitmovin-connect-account@my-gcp-project.iam.gserviceaccount.com
-          privateKey:
-            type: string
-            description: Google private key of the Google service account that will be used to spin up VMs
-            example: 'REDACTED_PRIVATE_KEY_EXAMPLE
-
-              '
-            writeOnly: true
-          projectId:
-            type: string
-            description: ID of the GCP project in which the VMs are supposed to run.
-            example: my-gcp-project
-    AwsAccountRegionSettings:
-      title: AwsAccountRegionSettings
-      required:
-      - securityGroupId
-      - subnetId
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          limitParallelEncodings:
-            type: integer
-            format: int64
-            description: Limit for the amount of running encodings at a time. Leave empty for no limit.
-            example: 10
-          securityGroupId:
-            type: string
-            description: Id of the security group for encoding instances
-            example: sg-0f3a444c
-          subnetId:
-            type: string
-            description: Id of the subnet for encoding instances
-            example: subnet-d3f100b2
-          sshPort:
-            type: integer
-            minimum: 1
-            maximum: 65535
-            description: 'Custom SSH port. Valid values: 1 - 65535. Leave empty if the default SSH port 22 is OK.'
-            example: 9073
-          region:
-            allOf:
-            - $ref: '#/components/schemas/AwsCloudRegion'
-            readOnly: true
-    OciAccountRegionSettings:
-      title: OciAccountRegionSettings
-      required:
-      - subnetId
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          subnetId:
-            type: string
-            description: Id of the VPC subnet for encoding instances.
-            example: ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaqb3xztomfv7ylk25jhdwsu4syvtcmwv2d2vaqajvinngfilp5pfua
-          region:
-            description: Region for encoding instances.
-            readOnly: true
-            allOf:
-            - $ref: '#/components/schemas/OciCloudRegion'
     AzureCloudRegion:
       title: AzureCloudRegion
       type: string
@@ -783,181 +884,6 @@ components:
       enum:
       - SUCCESS
       - ERROR
-    Link:
-      title: Link
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          description: webpage target URL
-          example: https://bitmovin.com/encoding-documentation/bitmovin-api/#/reference/encoding/manifests/add-period
-        title:
-          type: string
-          description: Short description of the linked page
-          example: how to add a period to a manifest
-    AkamaiAccountRegionSettings:
-      title: AkamaiAccountRegionSettings
-      required:
-      - subnetId
-      - firewallId
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          subnetId:
-            type: integer
-            format: int64
-            description: Id of the VPC subnet for encoding instances
-            example: 123456
-          firewallId:
-            type: integer
-            format: int64
-            description: Id of the firewall for encoding instances
-            example: 123456
-          region:
-            readOnly: true
-            allOf:
-            - $ref: '#/components/schemas/AkamaiCloudRegion'
-    BitmovinResponse:
-      title: BitmovinResponse
-      required:
-      - id
-      properties:
-        id:
-          type: string
-          readOnly: true
-          description: Id of the resource
-          example: cb90b80c-8867-4e3b-8479-174aa2843f62
-    ResultWrapper:
-      title: ResultWrapper
-      properties:
-        result:
-          type: object
-          readOnly: true
-    ResponseError:
-      title: ResponseError
-      required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: ERROR
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseErrorData'
-    OciAccount:
-      title: OciAccount
-      required:
-      - name
-      - tenancyId
-      - compartmentId
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          tenancyId:
-            type: string
-            description: The OCID of the tenancy where you intend to run encoding VMs.
-            example: ocid1.tenancy.oc1..aaaaaaa62m3xkqtfvbhnb2p4d7lgj5zyrsw5b7qxssmaohjeyvhucldfupa
-          compartmentId:
-            type: string
-            description: The OCID of the compartment within the tenancy where you intend to run encoding VMs.
-            example: ocid1.compartment.oc1..aaaaaaaofg6zqtn3v5yxlk2jhdmb74sypcxwu2d7zvqajbeirmfu3p5dfua
-    OciCloudRegion:
-      title: OciCloudRegion
-      type: string
-      enum:
-      - EU_FRANKFURT_1
-      - US_ASHBURN_1
-      x-enum-elements:
-      - name: EU_FRANKFURT_1
-        description: Frankfurt, Germany
-      - name: US_ASHBURN_1
-        description: Ashburn, Virginia, USA
-    AzureAccountRegionSettings:
-      title: AzureAccountRegionSettings
-      required:
-      - networkName
-      - subnetName
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          networkName:
-            type: string
-            description: Name of the virtual network
-          subnetName:
-            type: string
-            description: Name of the subnet
-            example: encodingSubnet
-          region:
-            allOf:
-            - $ref: '#/components/schemas/AzureCloudRegion'
-            readOnly: true
-    Message:
-      title: Message
-      required:
-      - type
-      - text
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResponse'
-      - properties:
-          type:
-            description: Message type giving a hint on the importance of the message (log level)
-            allOf:
-            - $ref: '#/components/schemas/MessageType'
-          text:
-            type: string
-            description: Message text
-            example: field must not be empty
-          field:
-            type: string
-            description: Name of the field to which the message is referring to
-            example: manifestId
-          links:
-            type: array
-            items:
-              $ref: '#/components/schemas/Link'
-            description: collection of links to webpages containing further information on the topic
-          more:
-            type: object
-            description: Service-specific information
-          date:
-            type: string
-            format: date-time
-            description: Timestamp when the message occurred
-            example: '2016-06-25T20:09:23.69Z'
-    AzureAccount:
-      title: AzureAccount
-      required:
-      - subscriptionId
-      - resourceGroupId
-      - tenantId
-      allOf:
-      - $ref: '#/components/schemas/BitmovinResource'
-      - properties:
-          subscriptionId:
-            type: string
-            description: Your Azure Subscription ID (The ID of your subscription where you intend to run the Encoding VMs)
-            example: 6e934bc4-b7d5-42e3-bbe0-c78e062b80c9
-          resourceGroupId:
-            type: string
-            description: The name of the resource group where you intend to run the Encoding VMs
-            example: encodingGroup
-          tenantId:
-            type: string
-            description: The ID of your Active Directory where your subscription runs in
-            example: 2eb829b4-4dd3-4fb3-b3a5-aec895b06bd3
     AwsCloudRegion:
       title: AwsCloudRegion
       type: string
@@ -1011,6 +937,23 @@ components:
         description: Canada (Central)
       - name: EU_NORTH_1
         description: Europe (Stockholm)
+    OciAccount:
+      title: OciAccount
+      required:
+      - name
+      - tenancyId
+      - compartmentId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          tenancyId:
+            type: string
+            description: The OCID of the tenancy where you intend to run encoding VMs.
+            example: ocid1.tenancy.oc1..aaaaaaa62m3xkqtfvbhnb2p4d7lgj5zyrsw5b7qxssmaohjeyvhucldfupa
+          compartmentId:
+            type: string
+            description: The OCID of the compartment within the tenancy where you intend to run encoding VMs.
+            example: ocid1.compartment.oc1..aaaaaaaofg6zqtn3v5yxlk2jhdmb74sypcxwu2d7zvqajbeirmfu3p5dfua
     AwsAccount:
       title: AwsAccount
       required:
@@ -1086,68 +1029,99 @@ components:
             description: User-specific meta data. This can hold anything.
             additionalProperties:
               type: object
-    GoogleCloudRegion:
-      title: GoogleCloudRegion
+    AwsAccountRegionSettings:
+      title: AwsAccountRegionSettings
+      required:
+      - securityGroupId
+      - subnetId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          limitParallelEncodings:
+            type: integer
+            format: int64
+            description: Limit for the amount of running encodings at a time. Leave empty for no limit.
+            example: 10
+          securityGroupId:
+            type: string
+            description: Id of the security group for encoding instances
+            example: sg-0f3a444c
+          subnetId:
+            type: string
+            description: Id of the subnet for encoding instances
+            example: subnet-d3f100b2
+          sshPort:
+            type: integer
+            minimum: 1
+            maximum: 65535
+            description: 'Custom SSH port. Valid values: 1 - 65535. Leave empty if the default SSH port 22 is OK.'
+            example: 9073
+          region:
+            allOf:
+            - $ref: '#/components/schemas/AwsCloudRegion'
+            readOnly: true
+    GceAccountRegionSettings:
+      title: GceAccountRegionSettings
+      required:
+      - network
+      - subnetId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          network:
+            type: string
+            description: Id of the network for encoding instances
+            example: /global/networks/custom-vpc
+          subnetId:
+            type: string
+            description: Id of the subnet for encoding instances
+            example: /regions/europe-west1/subnetworks/custom-subnet-euw1
+          region:
+            readOnly: true
+            allOf:
+            - $ref: '#/components/schemas/GoogleCloudRegion'
+    MessageType:
+      title: MessageType
       type: string
       enum:
-      - US_CENTRAL_1
-      - US_EAST_1
-      - ASIA_EAST_1
-      - EUROPE_WEST_1
-      - US_WEST_1
-      - ASIA_EAST_2
-      - ASIA_NORTHEAST_1
-      - ASIA_SOUTH_1
-      - ASIA_SOUTHEAST_1
-      - AUSTRALIA_SOUTHEAST_1
-      - EUROPE_NORTH_1
-      - EUROPE_WEST_2
-      - EUROPE_WEST_3
-      - EUROPE_WEST_4
-      - NORTHAMERICA_NORTHEAST_1
-      - SOUTHAMERICA_EAST_1
-      - US_EAST_4
-      - US_WEST_2
-      - ME_CENTRAL_2
-      x-enum-elements:
-      - name: US_CENTRAL_1
-        description: Council Bluffs, Iowa, USA
-      - name: US_EAST_1
-        description: Moncks Corner, South Carolina, USA
-      - name: ASIA_EAST_1
-        description: Changhua County, Taiwan
-      - name: EUROPE_WEST_1
-        description: St. Ghislain, Belgium
-      - name: US_WEST_1
-        description: The Dalles, Oregon, USA
-      - name: ASIA_EAST_2
-        description: Hong Kong
-      - name: ASIA_NORTHEAST_1
-        description: Tokyo, Japan
-      - name: ASIA_SOUTH_1
-        description: Mumbai, India
-      - name: ASIA_SOUTHEAST_1
-        description: Jurong West, Singapore
-      - name: AUSTRALIA_SOUTHEAST_1
-        description: Sydney, Australia
-      - name: EUROPE_NORTH_1
-        description: Hamina, Finland
-      - name: EUROPE_WEST_2
-        description: London, England, UK
-      - name: EUROPE_WEST_3
-        description: Frankfurt, Germany
-      - name: EUROPE_WEST_4
-        description: Eemshaven, Netherlands
-      - name: NORTHAMERICA_NORTHEAST_1
-        description: Montréal, Québec, Canada
-      - name: SOUTHAMERICA_EAST_1
-        description: São Paulo, Brazil
-      - name: US_EAST_4
-        description: Ashburn, Northern Virginia, USA
-      - name: US_WEST_2
-        description: Los Angeles, California, USA
-      - name: ME_CENTRAL_2
-        description: Dammam, Saudi Arabia
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+      - TRACE
+    Message:
+      title: Message
+      required:
+      - type
+      - text
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResponse'
+      - properties:
+          type:
+            description: Message type giving a hint on the importance of the message (log level)
+            allOf:
+            - $ref: '#/components/schemas/MessageType'
+          text:
+            type: string
+            description: Message text
+            example: field must not be empty
+          field:
+            type: string
+            description: Name of the field to which the message is referring to
+            example: manifestId
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            description: collection of links to webpages containing further information on the topic
+          more:
+            type: object
+            description: Service-specific information
+          date:
+            type: string
+            format: date-time
+            description: Timestamp when the message occurred
+            example: '2016-06-25T20:09:23.69Z'
     ResponseErrorData:
       title: ResponseErrorData
       required:
@@ -1182,41 +1156,67 @@ components:
           items:
             $ref: '#/components/schemas/Message'
           description: collection of messages containing more detailed information on the cause of the error
-    MessageType:
-      title: MessageType
-      type: string
-      enum:
-      - ERROR
-      - WARNING
-      - INFO
-      - DEBUG
-      - TRACE
-    ResponseEnvelope:
-      title: ResponseEnvelope
+    GceAccount:
+      title: GceAccount
+      description: 'GCE Cloud Connect Account. Configure either by passing a single service account credentials JSON
+
+        string or by passing the service account email, private key and project ID individually.
+
+        '
+      anyOf:
+      - required:
+        - name
+        - serviceAccountCredentials
+      - required:
+        - name
+        - serviceAccountEmail
+        - privateKey
+        - projectId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          serviceAccountCredentials:
+            type: string
+            description: GCP service account credentials JSON
+            example: "{\n  \"type\": \"service_account\",\n  \"project_id\": \"bitmovin\",\n  \"private_key_id\": \"dfgsgfdsgsgargdf\",\n  \"private_key\": \"REDACTED_PRIVATE_KEY_EXAMPLE\\n\",\n  \"client_email\": \"bitmovin@bitmovin.iam.gserviceaccount.com\",\n  \"client_id\": \"10440564562784234997\",\n  \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\",\n  \"token_uri\": \"https://oauth2.googleapis.com/token\",\n  \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\",\n  \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/bitmovin%40bitmovin.iam.gserviceaccount.com\"\n}\n"
+            writeOnly: true
+          serviceAccountEmail:
+            type: string
+            description: Email address of the Google service account that will be used to spin up VMs
+            example: bitmovin-connect-account@my-gcp-project.iam.gserviceaccount.com
+          privateKey:
+            type: string
+            description: Google private key of the Google service account that will be used to spin up VMs
+            example: 'REDACTED_PRIVATE_KEY_EXAMPLE
+
+              '
+            writeOnly: true
+          projectId:
+            type: string
+            description: ID of the GCP project in which the VMs are supposed to run.
+            example: my-gcp-project
+    AkamaiAccountRegionSettings:
+      title: AkamaiAccountRegionSettings
       required:
-      - requestId
-      - status
-      - data
-      properties:
-        requestId:
-          type: string
-          readOnly: true
-          description: Unique correlation id
-          example: 6d84e126-d10c-4e52-bbfb-bd4c92bc8333
-        status:
-          description: Response status information
-          readOnly: true
-          example: SUCCESS
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        data:
-          description: Response information
-          readOnly: true
-          allOf:
-          - $ref: '#/components/schemas/ResultWrapper'
-        more:
-          type: object
-          description: Additional endpoint specific information
+      - subnetId
+      - firewallId
+      allOf:
+      - $ref: '#/components/schemas/BitmovinResource'
+      - properties:
+          subnetId:
+            type: integer
+            format: int64
+            description: Id of the VPC subnet for encoding instances
+            example: 123456
+          firewallId:
+            type: integer
+            format: int64
+            description: Id of the firewall for encoding instances
+            example: 123456
+          region:
+            readOnly: true
+            allOf:
+            - $ref: '#/components/schemas/AkamaiCloudRegion'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
