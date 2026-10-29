@@ -1,4 +1,4 @@
-# Bitmovin (bitmovin)
+# Bitmovin
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,56 +64,164 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Bitmovin is an Emmy Award-winning video streaming infrastructure platform providing REST APIs for cloud video encoding (VOD and live), adaptive bitrate packaging (HLS, MPEG-DASH), DRM integration, an HTML5 player, and analytics for quality-of-experience observability. Its encoding pipeline covers 800+ endpoints across Java, JavaScript, Python, Go, PHP, and C# open-source SDKs.
+Bitmovin is an Emmy Award-winning video streaming infrastructure platform providing REST APIs for cloud video encoding (VOD and live), adaptive bitrate packaging (HLS, MPEG-DASH), DRM integration, an HTML5 player, and analytics for quality-of-experience observability. Its encoding pipeline covers 800+ endpoints and ships open-source SDKs in Java, JavaScript, Python, Go, PHP, and C#.
 
-APIs.json: https://raw.githubusercontent.com/api-evangelist/bitmovin/refs/heads/main/apis.yml
+**Areas:** Video · Encoding · Streaming · Live Streaming · VOD · Adaptive Bitrate · HLS · DASH · DRM · Player · Analytics · Media
 
-Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=bitmovin-api-evangelist&utm_content=repo
+## Bitmovin on APIs.io
 
-## Tags
+Everything profiled for Bitmovin is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bitmovin/](https://apis.io/providers/bitmovin/)** — or go straight to one of the APIs or properties below.
 
-Video, Encoding, Streaming, Live Streaming, VOD, Adaptive Bitrate, HLS, DASH, DRM, Player, Analytics, Media, Cloud
+### APIs (18)
 
-## APIs
+- [Bitmovin Player API](https://apis.io/apis/bitmovin/player-api/) — JavaScript and REST APIs for embedding and configuring the Bitmovin HTML5 player, managing player licenses, and collecting playback event data.
+- [Bitmovin Analytics API](https://apis.io/apis/bitmovin/analytics-api/) — REST API for querying player and streaming quality-of-experience metrics including buffering, startup time, error rates, and audience segmentation for video…
+- [Bitmovin Config API](https://apis.io/apis/bitmovin/bitmovin-config-api/) — The Config API from Bitmovin — 2 operation(s) for config.
+- [Bitmovin Configurations API](https://apis.io/apis/bitmovin/bitmovin-configurations-api/) — The Configurations API from Bitmovin — 27 operation(s) for configurations.
+- [Bitmovin Emails API](https://apis.io/apis/bitmovin/bitmovin-emails-api/) — The Emails API from Bitmovin — 6 operation(s) for emails.
+- [Bitmovin Encodings API](https://apis.io/apis/bitmovin/bitmovin-encodings-api/) — The Encodings API from Bitmovin — 80 operation(s) for encodings.
+- [Bitmovin Filters API](https://apis.io/apis/bitmovin/bitmovin-filters-api/) — The Filters API from Bitmovin — 16 operation(s) for filters.
+- [Bitmovin Infrastructure API](https://apis.io/apis/bitmovin/bitmovin-infrastructure-api/) — The Infrastructure API from Bitmovin — 13 operation(s) for infrastructure.
+- [Bitmovin Inputs API](https://apis.io/apis/bitmovin/bitmovin-inputs-api/) — The Inputs API from Bitmovin — 22 operation(s) for inputs.
+- [Bitmovin Live API](https://apis.io/apis/bitmovin/bitmovin-live-api/) — The Live API from Bitmovin — 13 operation(s) for live.
+- [Bitmovin Manifests API](https://apis.io/apis/bitmovin/bitmovin-manifests-api/) — The Manifests API from Bitmovin — 81 operation(s) for manifests.
+- [Bitmovin Notifications API](https://apis.io/apis/bitmovin/bitmovin-notifications-api/) — The Notifications API from Bitmovin — 2 operation(s) for notifications.
+- [Bitmovin Outputs API](https://apis.io/apis/bitmovin/bitmovin-outputs-api/) — The Outputs API from Bitmovin — 20 operation(s) for outputs.
+- [Bitmovin Search API](https://apis.io/apis/bitmovin/bitmovin-search-api/) — The Search API from Bitmovin — 1 operation(s) for search.
+- [Bitmovin Signing-keys API](https://apis.io/apis/bitmovin/bitmovin-signing-keys-api/) — The Signing-keys API from Bitmovin — 2 operation(s) for signing-keys.
+- [Bitmovin Templates API](https://apis.io/apis/bitmovin/bitmovin-templates-api/) — The Templates API from Bitmovin — 2 operation(s) for templates.
+- [Bitmovin Video API](https://apis.io/apis/bitmovin/bitmovin-video-api/) — The Video API from Bitmovin — 2 operation(s) for video.
+- [Bitmovin Webhooks API](https://apis.io/apis/bitmovin/bitmovin-webhooks-api/) — The Webhooks API from Bitmovin — 21 operation(s) for webhooks.
 
-| Name | Description |
-|------|-------------|
-| Bitmovin Encoding API | REST API for cloud-based VOD and live video encoding supporting H.264, HEVC, VP9, AV1, adaptive bitrate packaging, and DRM |
-| Bitmovin Player API | APIs for embedding and configuring the Bitmovin HTML5 player, managing licenses, and collecting playback events |
-| Bitmovin Analytics API | REST API for querying quality-of-experience metrics including buffering, startup time, and error rates |
+### Published properties
 
-## Plans, Rate Limits, and FinOps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Resource | File |
-|----------|------|
-| Plans & Pricing | [plans/bitmovin-plans-pricing.yml](plans/bitmovin-plans-pricing.yml) |
-| Rate Limits | [rate-limits/bitmovin-rate-limits.yml](rate-limits/bitmovin-rate-limits.yml) |
-| FinOps | [finops/bitmovin-finops.yml](finops/bitmovin-finops.yml) |
+#### MCP servers (1)
 
-**Pricing summary:** Pay-as-you-go with no fixed monthly cost. Free tier includes 2,000 VOD encoding minutes, 360 live encoding minutes, 10,000 player impressions, and 100,000 analytics impressions per month. VOD encoding starts at $0.02/min (SD baseline) with resolution and codec multipliers. Enterprise custom plans available via sales.
+Model Context Protocol servers that expose the API to agents.
 
-**Rate limits:** 300 requests/min default; endpoint-specific limits range from 3/min (password reset) to 20,000/min (encoding sub-resources). HTTP 429 returned on breach.
+- [bitmovin](https://apis.io/servers/bitmovin/bitmovin/)
 
-## Timestamps
+#### Agentic access (1)
 
-- Created: 2026-06-12
-- Modified: 2026-06-12
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Common
+- [Bitmovin Agentic Access](https://apis.io/agentic-access/bitmovin/bitmovin-agentic-access/)
 
-| Type | URL |
-|------|-----|
-| Website | https://bitmovin.com |
-| Documentation | https://developer.bitmovin.com/ |
-| GitHub | https://github.com/bitmovin |
-| LinkedIn | https://www.linkedin.com/company/bitmovin |
-| Blog | https://bitmovin.com/blog/ |
-| Pricing | https://bitmovin.com/pricing |
-| Status Page | https://status.bitmovin.com/ |
-| X | https://x.com/bitmovin |
+#### JSON-LD (1)
 
-## Maintainers
+Linked-data contexts for the provider's vocabulary.
 
-| Name | Email |
-|------|-------|
-| Kin Lane | kin@apievangelist.com |
+- [Bitmovin Context](https://apis.io/jsonld/bitmovin/bitmovin-context/)
+
+#### Collections (16)
+
+Postman and Open Collection request collections.
+
+- [Bitmovin Encoding Config API](https://apis.io/collections/bitmovin/open-bitmovin-config-api/)
+- [Bitmovin Encoding Config Configurations API](https://apis.io/collections/bitmovin/open-bitmovin-configurations-api/)
+- [Bitmovin Encoding Config Emails API](https://apis.io/collections/bitmovin/open-bitmovin-emails-api/)
+- [Bitmovin Encoding Config Encodings API](https://apis.io/collections/bitmovin/open-bitmovin-encodings-api/)
+- [Bitmovin Encoding Config Filters API](https://apis.io/collections/bitmovin/open-bitmovin-filters-api/)
+- [Bitmovin Encoding Config Infrastructure API](https://apis.io/collections/bitmovin/open-bitmovin-infrastructure-api/)
+- [Bitmovin Encoding Config Inputs API](https://apis.io/collections/bitmovin/open-bitmovin-inputs-api/)
+- [Bitmovin Encoding Config Live API](https://apis.io/collections/bitmovin/open-bitmovin-live-api/)
+- [Bitmovin Encoding Config Manifests API](https://apis.io/collections/bitmovin/open-bitmovin-manifests-api/)
+- [Bitmovin Encoding Config Notifications API](https://apis.io/collections/bitmovin/open-bitmovin-notifications-api/)
+- [Bitmovin Encoding Config Outputs API](https://apis.io/collections/bitmovin/open-bitmovin-outputs-api/)
+- [Bitmovin Encoding Config Search API](https://apis.io/collections/bitmovin/open-bitmovin-search-api/)
+- [Bitmovin Encoding Config Signing-keys API](https://apis.io/collections/bitmovin/open-bitmovin-signing-keys-api/)
+- [Bitmovin Encoding Config Templates API](https://apis.io/collections/bitmovin/open-bitmovin-templates-api/)
+- [Bitmovin Encoding Config Video API](https://apis.io/collections/bitmovin/open-bitmovin-video-api/)
+- [Bitmovin Encoding Config Webhooks API](https://apis.io/collections/bitmovin/open-bitmovin-webhooks-api/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bitmovin Authentication](https://apis.io/security/bitmovin/bitmovin-authentication/)
+- [Bitmovin Domain Security](https://apis.io/security/bitmovin/bitmovin-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Bitmovin Plans Pricing](https://apis.io/plans/bitmovin/bitmovin-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Bitmovin Rate Limits](https://apis.io/rate-limits/bitmovin/bitmovin-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Bitmovin Finops](https://apis.io/finops/bitmovin/bitmovin-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://bitmovin.com)
+- [Documentation](https://developer.bitmovin.com/)
+- [Pricing](https://bitmovin.com/pricing)
+- [Blog](https://bitmovin.com/blog/)
+- [Status](https://status.bitmovin.com/)
+
+## API Evangelist rating
+
+**Kin Score 29.9** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 52.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 15.8 |
+
+**Agent readiness 45.3** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bitmovin/](https://apis.io/providers/bitmovin/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bitmovin: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bitmovin/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
